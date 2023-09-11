@@ -1,0 +1,30 @@
+#box1{
+    width: 30%;
+    height:  500px;
+    background-color: red;
+    border-color: red;
+    margin-left: 10%;
+    display: inline-block;
+    position: absolute;
+}
+
+
+#box2{
+    width: 50%;
+    margin-left: 40%;
+    
+    display: inline-block;
+    height: 500px;
+    position: absolute;
+    background: blue;
+}
+
+@keyframes slide {
+    from{margin-left: 10%;}
+    to{margin-left: 60%;}
+}
+
+@keyframes slide2 {
+    from{margin-left: 40%;}
+    to{margin-left: 10%;}
+}
