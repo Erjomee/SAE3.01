@@ -19,8 +19,8 @@ function begin() {
   myAnimation.animate(
     [
       // keyframes
-      { marginLeft: "10%" },
-      { marginLeft: "60%" },
+      { marginLeft: "0" },
+      { marginLeft: "45%" },
     ],
     {
       // timing options
@@ -33,8 +33,8 @@ function begin() {
   myAnimation2.animate(
     [
       // keyframes
-      { marginLeft: "40%" },
-      { marginLeft: "10%" },
+      { marginLeft: "25%" },
+      { marginLeft: "0" },
     ],
     {
       // timing options
