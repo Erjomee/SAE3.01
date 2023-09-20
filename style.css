@@ -65,10 +65,7 @@ input[type="submit"] , input[type="file"] {
     display: none;
   }
   
-  ul{
-    text-align: center;
-  }
-  
+
   .custom-file-uploadf:hover {
     color: rgb(6, 63, 104)
   }
