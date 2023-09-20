@@ -85,6 +85,9 @@ input[type="submit"] , input[type="file"] {
     text-align: center;
   }
 
+  ul{
+    text-align: center;
+  }
 
 
 .center{
