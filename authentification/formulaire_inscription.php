@@ -9,7 +9,7 @@
 <body>
 
 <h1>Formulaire d'inscription</h1>
-<form action="inscription.php" method="post">
+<form method="POST">
     <fieldset>
         <legend>Inscription</legend>
         <p>
@@ -31,56 +31,60 @@
 
         <p style="display: none;" id="error">Utilisateur déjà existant</p>
     
-            <input type="submit" value="Envoyer">
+        <button name="ok" > Soumettre </button>
     </fieldset>
 </form>
 
 <?php 
     // Récupération des information du formulaire
-    $name = $_POST["nom"] ; 
-    $surname = $_POST["prenom"] ; 
-    $email = $_POST["email"] ; 
-    $password = $_POST["password"] ;    
-    // Connection à la base de donnée
-    include("connectBD.php");
-    try {
-        $sql = "Select * from utilisateur where email = '$email'";
-        $reponse = $pdo->query($sql);
+    if (isset($_POST['ok'])) {
+        $name = $_POST["nom"] ; 
+        $surname = $_POST["prenom"] ; 
+        $email = $_POST["email"] ; 
+        $password = $_POST["password"] ;  
+  
+        // Connection à la base de donnée
+        include("connectBD.php");
+        try {
+            $sql = "Select * from utilisateur where email = '$email'";
+            $reponse = $pdo->query($sql);
 
-        // Si l'utilisateur n'est pas encore inscrit
-        if ($reponse->rowCount() == 0) {
-            $pdo ->beginTransaction();
-            
-            $stmt = $pdo->prepare('INSERT INTO utilisateur(nom, prenom,email,password) VALUES (:nom , :prenom , :email , :password)');
-            $stmt->execute([
-                ':nom' => $name,
-                ':prenom' => $surname,
-                ':email' => $email,
-                ':password' => $password
-            ]);
+            // Si l'utilisateur n'est pas encore inscrit
+            if ($reponse->rowCount() == 0) {
+                $pdo ->beginTransaction();
+                
+                $stmt = $pdo->prepare('INSERT INTO utilisateur(nom, prenom,email,password) VALUES (:nom , :prenom , :email , :password)');
+                $stmt->execute([
+                    ':nom' => $name,
+                    ':prenom' => $surname,
+                    ':email' => $email,
+                    ':password' => $password
+                ]);
 
-            $stmt->execute();
-            $stmt->commit();
+                $stmt->execute();
+                $stmt->commit();
 
-            echo "transac réussis";
-        // Si l'utilisateur existe déjà dans la base donnée
-        }else {
-            echo "
-            <script> 
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').style.color = 'red';
-            ";
+                echo "transac réussis";
+            // Si l'utilisateur existe déjà dans la base donnée
+            }else {
+                echo "
+                <script> 
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').style.color = 'red';
+                ";
+                echo "cefef";
+            }
+            // if ($_SERVER['REQUEST_ METHOD'] === 'POST'){
+
+                // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                //     echo 'Nom: ' . $row['nom'] . ', Prenom: ' . $row['prenom'] . ', Email: ' . $row['email'] . $row['numero'].'<br>';
+                //     }
+            // }    
+        } catch (Exeption $e) {
+            // En cas d'erreur, annulez la transaction
+            $pdo->rollBack();
+            echo 'Erreur : ' . $e->getMessage();
         }
-        // if ($_SERVER['REQUEST_ METHOD'] === 'POST'){
-
-            // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            //     echo 'Nom: ' . $row['nom'] . ', Prenom: ' . $row['prenom'] . ', Email: ' . $row['email'] . $row['numero'].'<br>';
-            //     }
-        // }    
-    } catch (Exeption $e) {
-        // En cas d'erreur, annulez la transaction
-        $pdo->rollBack();
-        echo 'Erreur : ' . $e->getMessage();
     }
 ?>
 
