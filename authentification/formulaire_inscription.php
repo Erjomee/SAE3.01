@@ -42,13 +42,12 @@
         $surname = $_POST["prenom"] ; 
         $email = $_POST["email"] ; 
         $password = $_POST["password"] ;  
-  
+
         // Connection à la base de donnée
         include("connectBD.php");
         try {
             $sql = "Select * from utilisateur where email = '$email'";
             $reponse = $pdo->query($sql);
-
             // Si l'utilisateur n'est pas encore inscrit
             if ($reponse->rowCount() == 0) {
                 $pdo ->beginTransaction();
@@ -61,18 +60,15 @@
                     ':password' => $password
                 ]);
 
-                $stmt->execute();
-                $stmt->commit();
+                $pdo->commit();
 
-                echo "transac réussis";
             // Si l'utilisateur existe déjà dans la base donnée
             }else {
                 echo "
                 <script> 
                 document.getElementById('error').style.display = 'block';
                 document.getElementById('error').style.color = 'red';
-                ";
-                echo "cefef";
+                </script> ";
             }
    
         } catch (Exeption $e) {
@@ -82,8 +78,6 @@
         }
     }
 ?>
-
-
     
 </body>
 </html>
