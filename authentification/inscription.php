@@ -1,5 +1,4 @@
 <?php  
-    if req
     $name = $_POST["nom"] ; 
     $surname = $_POST["prenom"] ; 
     $email = $_POST["email"] ; 
