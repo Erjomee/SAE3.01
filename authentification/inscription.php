@@ -6,7 +6,7 @@
     $password = $_POST["password"] ;    
     include("connectBD.php");
     try {
-        $stmt = $pdo->prepare('SELECT * FROM utilisateur');
+        $stmt = $pdo->prepare('INSERT');
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
