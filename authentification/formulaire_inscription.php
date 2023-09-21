@@ -69,7 +69,7 @@
             <script> 
             document.getElementById('error').style.display = 'block';
             document.getElementById('error').style.color = 'red';
-            "
+            ";
         }
         // if ($_SERVER['REQUEST_ METHOD'] === 'POST'){
 
