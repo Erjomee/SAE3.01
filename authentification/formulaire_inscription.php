@@ -74,12 +74,7 @@
                 ";
                 echo "cefef";
             }
-            // if ($_SERVER['REQUEST_ METHOD'] === 'POST'){
-
-                // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                //     echo 'Nom: ' . $row['nom'] . ', Prenom: ' . $row['prenom'] . ', Email: ' . $row['email'] . $row['numero'].'<br>';
-                //     }
-            // }    
+   
         } catch (Exeption $e) {
             // En cas d'erreur, annulez la transaction
             $pdo->rollBack();
