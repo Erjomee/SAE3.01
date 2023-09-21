@@ -1,3 +1,7 @@
+<?php 
+    session_start() ;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,9 @@
     <title>Document</title>
 </head>
 <body>
+
+<p>Connecté sur <?php  echo $_SESSION['user'] ;?></p>
+
     
 </body>
 </html>

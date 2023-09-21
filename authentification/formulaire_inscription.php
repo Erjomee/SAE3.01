@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,16 +64,20 @@
                 ]);
 
                 $pdo->commit();
+                
+                $_SESSION['user'] = $name;
+                header('Location: http://127.0.0.1/SAE3.01/');
+                
 
             // Si l'utilisateur existe déjà dans la base donnée
             }else {
                 echo "
                 <script> 
-                document.getElementById('error').style.display = 'block';
-                document.getElementById('error').style.color = 'red';
+                    document.getElementById('error').style.display = 'block';
+                    document.getElementById('error').style.color = 'red';
                 </script> ";
             }
-   
+            
         } catch (Exeption $e) {
             // En cas d'erreur, annulez la transaction
             $pdo->rollBack();
