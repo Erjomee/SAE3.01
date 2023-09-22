@@ -66,35 +66,31 @@
             // Si l'utilisateur n'est pas encore inscrit
             if ($reponse->rowCount() == 0) {
 
+                // Information obligatoire
                 $columns = "nom,prenom,email,password";
-                $values = ":nom,:prenom,:email,:password";
+                $values = "?,?,?,?";
+                $data = [$utilisateur["nom"], $utilisateur["prenom"], $utilisateur["email"], $utilisateur["password"]];
 
-                $dico_value = [
-                    ':nom' => $utilisateur["nom"],
-                    ':prenom' => $utilisateur["prenom"],
-                    ':email' => $utilisateur["email"],
-                    ':password' => $utilisateur["password"]
-                ];
-
+                // Verifiaction des informations supplémentaires fournie
                 if (isset($_POST['numero'])) {
                     $utilisateur["numero"] = $_POST["numero"];
+                    $data[] = $utilisateur["numero"];
                     $columns .= ",numero";
-                    $values .= ",:numero";
-                    $dico_value["numero"] = $utilisateur["numero"];
+                    $values .= ",?";
                 }
                 if (isset($_POST['sexe'])) {
                     $utilisateur["sexe"] = $_POST["sexe"];
+                    $data[] = $utilisateur["sexe"];
                     $columns .= ",sexe";
-                    $values .= ",:sexe";
-                    $dico_value["sexe"] = $utilisateur["sexe"];
-
+                    $values .= ",?";
                 }
-                $pdo ->beginTransaction();
-                
-                $stmt = $pdo->prepare("INSERT INTO utilisateur($columns) VALUES ($values)");
-                $stmt->execute($dico_value);
 
+                // TRANSACTION (insertion dans la bd)
+                $pdo ->beginTransaction();
+                $stmt = $pdo->prepare("INSERT INTO utilisateur($columns) VALUES ($values)");
+                $stmt->execute($data);
                 $pdo->commit();
+
                 
                 $_SESSION['user'] = $utilisateur["nom"];
                 header('Location: http://127.0.0.1/SAE3.01/');
