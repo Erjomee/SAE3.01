@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Page d'inscription</title>
 </head>
 <body>
 
@@ -15,33 +15,38 @@
 <form method="POST">
     <fieldset>
         <legend>Inscription</legend>
-        <p>
-            <label for="nom">Nom*:</label>
-            <input type="text" id="nom_id" name="nom" placeholder="Dupont" required>
-        </p>
-        <p>
-            <label for="prenom">Pénom*:</label>
-            <input type="text" id="prenom_id" name="prenom" placeholder="Jean" required>
-        </p>
-        <p>
-            <label for="email">Email*:</label>
-            <input type="email" id="email_id" name="email" placeholder="jean.dupont@gmail.com" required>
-        </p>
-        <p>
-            <label for="prenom">Mot de passe*:</label>
-            <input type="password" id="password_id" name="password" placeholder="mdp123" required>
-        </p>
-        <p>
-            <label for="prenom">Numéro:</label>
-            <input type="tel" id="numero_id" name="numero" placeholder="0629701938">
-        </p>
-        <p>
-            <label for="prenom">Sexe:</label>
-            <input type="radio" name="sexe" value="M">Homme
-            <input type="radio" name="sexe" value="F">Femme
-        </p>
+        <ul>
+            <li>
+                <label for="nom">Nom*:</label>
+                <input type="text" id="nom_id" name="nom" placeholder="Dupont" required>
+            </li>
+            <li>
+                <label for="prenom">Pénom*:</label>
+                <input type="text" id="prenom_id" name="prenom" placeholder="Jean" required>
+            </li>
+            <li>
+                <label for="email">Email*:</label>
+                <input type="email" id="email_id" name="email" placeholder="jean.dupont@gmail.com" required>
+            </li>
+            <li>
+                <label for="prenom">Mot de passe*:</label>
+                <input type="password" id="password_id" name="password" placeholder="mdp123" required>
+            </li>
+            <li>
+                <label for="prenom">Numéro:</label>
+                <input type="tel" id="numero_id" name="numero" placeholder="0629701938">
+            </li>
+            <li>
+                <label for="prenom">Sexe:</label>
+                <input type="radio" name="sexe" value="M">Homme 
+                <input type="radio" name="sexe" value="F">Femme
+            </li>
 
-        <p style="display: none;" id="error">Utilisateur déjà existant</p>
+        </ul>
+        <div> 
+            <a href="http://127.0.0.1/SAE3.01/authentification/formulaire_connexion.php">Déjà inscrit ?</a>
+        </div>
+        <div style="display: none;" id="error"></div>
     
         <input type="submit" name="submit_btn" value="Soumettre">
     </fieldset>
@@ -49,7 +54,7 @@
 
 <?php 
     // Récupération des information du formulaire
-    if (isset($_POST['submit_btn'])) { 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         // Connection à la base de donnée
         include("connectBD.php");
         try {
@@ -91,16 +96,16 @@
                 $stmt->execute($data);
                 $pdo->commit();
 
-                
+                // Session Utilisateur                
                 $_SESSION['user'] = $utilisateur;
                 header('Location: http://127.0.0.1/SAE3.01/');
                 
-
             // Si l'utilisateur existe déjà dans la base donnée
             }else {
                 echo "
                 <script> 
                     document.getElementById('error').style.display = 'block';
+                    document.getElementById('error').innerHTML= 'Utilisateur déjà existant';
                     document.getElementById('error').style.color = 'red';
                 </script> ";
             }
@@ -112,6 +117,6 @@
         }
     }
 ?>
-    
+
 </body>
 </html>

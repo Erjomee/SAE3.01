@@ -1,6 +1,5 @@
 <?php 
     session_start() ;
-
     var_dump($_SESSION['user']);
 ?>
 
@@ -13,7 +12,7 @@
 </head>
 <body>
 
-<p>Connecté sur <?php  echo $_SESSION['user']['password'] ;?></p>
+<p>Connecté sur <?php  echo $_SESSION['user']['nom'] .' '. $_SESSION['user']['prenom'] ;?></p>
 
     
 </body>
