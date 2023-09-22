@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_formulaire.css">
     <title>Page d'inscription</title>
 </head>
 <body>
@@ -48,7 +48,7 @@
         </div>
         <div style="display: none;" id="error"></div>
     
-        <input type="submit" name="submit_btn" value="Soumettre">
+        <input type="submit" id="submit_id" name="submit_btn" value="Soumettre">
     </fieldset>
 </form>
 
