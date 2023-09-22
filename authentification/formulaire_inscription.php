@@ -92,7 +92,7 @@
                 $pdo->commit();
 
                 
-                $_SESSION['user'] = $utilisateur["nom"];
+                $_SESSION['user'] = $utilisateur;
                 header('Location: http://127.0.0.1/SAE3.01/');
                 
 
