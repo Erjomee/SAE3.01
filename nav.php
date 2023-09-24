@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -15,47 +14,52 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <p><a href="http://localhost/SAE3.01">Logo</a></p>
-        </div>
-
-        <nav>
-            <ul class="nav-list">
                 <!-- Right part (logo) -->
+        <div class="logo">
+            <p><a href="http://127.0.0.1/SAE3.01">Logo</a></p>
+        </div>
                 <!-- Middle part (item) -->
+        <nav>    
+            <ul class="nav-list">
                 <li class="item">
-                    <a href="http://localhost/SAE3.01" <?php if (basename($_SERVER['PHP_SELF'])=="index.php") {echo "class='active'";}?>>
+                    <a href="http://127.0.0.1/SAE3.01" <?php if (basename($_SERVER['PHP_SELF'])=="index.php") {echo "class='active'";}?>>
                     Home</a> 
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01/nathurotheque.php" <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
+                <li class="item"><a href="http://127.0.0.1/SAE3.01/nathurotheque.php" <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
                     Naturothèque</a>
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01/espece.php" <?php if (basename($_SERVER['PHP_SELF'])=="espece.php") {echo "class='active'";}?>>
+                <li class="item"><a href="http://127.0.0.1/SAE3.01/espece.php" <?php if (basename($_SERVER['PHP_SELF'])=="espece.php") {echo "class='active'";}?>>
                     Espèces</a>
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01/map.php" <?php if (basename($_SERVER['PHP_SELF'])=="map.php") {echo "class='active'";}?>>
+                <li class="item"><a href="http://127.0.0.1/SAE3.01/map.php" <?php if (basename($_SERVER['PHP_SELF'])=="map.php") {echo "class='active'";}?>>
                     Map</a>
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01/decouvrir.php">Découvrir</a></li>
-                <!-- Right part (user action) -->
-
+                <li class="item"><a href="http://127.0.0.1/SAE3.01/decouvrir.php" <?php if (basename($_SERVER['PHP_SELF'])=="decouvrir.php") {echo "class='active'";}?>>Découvrir</a></li>
             </ul>
         </nav>
-
-        <?php 
-                    // Si l'utilisateur est connecté
-                    if (!empty($_SESSION['user'])) {
-                        echo "";
-
-                    // Compte invité
-                    }else{
-                        echo '<div class="main" >
-                                <a href="http://localhost/SAE3.01/authentification/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
-                                <a href="http://localhost/SAE3.01/authentification/formulaire_inscription.php"><button class="register">Register</button></a>
-                                <div class="bx bx-menu" id="menu-icon"><div>
-                              </div>';
-                    }
-                ?>
+                <!-- Right part (user action) -->
+        <div class="main" >
+            <?php 
+                // Si l'utilisateur est connecté
+                if (!empty($_SESSION['user'])) {
+                    echo "<div class='utilisateur'>
+                                <ul class='nav-list'>
+                                    <li class='item'>
+                                        Tran Jerome
+                                    </li>
+                                </ul>
+                                <div class='bx bxs-user-circle' id='user-icon'></div>
+                            </div>
+                            <div class='bx bx-menu' id='menu-icon'><div>
+                            ";
+                // Compte invité
+                }else{
+                    echo '<a href="http://127.0.0.1/SAE3.01/authentification/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
+                            <a href="http://127.0.0.1/SAE3.01/authentification/formulaire_inscription.php"><button class="register">Register</button></a>
+                            <div class="bx bx-menu" id="menu-icon"><div>';
+                }
+            ?>
+        </div>
     </header>
     <script src="script.js"></script>
 </body>
