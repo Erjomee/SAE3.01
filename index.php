@@ -1,6 +1,5 @@
 <?php 
-    session_start() ;
-    var_dump($_SESSION['user']);
+    include("nav.php")
 ?>
 
 <!DOCTYPE html>
@@ -9,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+</head> 
 <body>
 
-<p>Connecté sur <?php  echo $_SESSION['user']['nom'] .' '. $_SESSION['user']['prenom'] ;?></p>
+
 
     
 </body>
