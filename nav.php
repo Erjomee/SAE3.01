@@ -28,16 +28,16 @@
                     <a href="http://localhost/SAE3.01" <?php if (basename($_SERVER['PHP_SELF'])=="index.php") {echo "class='active'";}?>>
                     Home</a> 
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01" <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
+                <li class="item"><a href="http://localhost/SAE3.01/nathurotheque.php" <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
                     Naturothèque</a>
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01" <?php if (basename($_SERVER['PHP_SELF'])=="espece.php") {echo "class='active'";}?>>
+                <li class="item"><a href="http://localhost/SAE3.01/espece.php" <?php if (basename($_SERVER['PHP_SELF'])=="espece.php") {echo "class='active'";}?>>
                     Espèces</a>
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01" <?php if (basename($_SERVER['PHP_SELF'])=="map.php") {echo "class='active'";}?>>
+                <li class="item"><a href="http://localhost/SAE3.01/map.php" <?php if (basename($_SERVER['PHP_SELF'])=="map.php") {echo "class='active'";}?>>
                     Map</a>
                 </li>
-                <li class="item"><a href="http://localhost/SAE3.01">Découvrir</a></li>
+                <li class="item"><a href="http://localhost/SAE3.01/decouvrir.php">Découvrir</a></li>
                 <!-- Right part (user action) -->
 
             </ul>
