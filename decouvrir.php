@@ -1,6 +1,4 @@
-<?php 
-    include("nav.php");
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +10,9 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Découvrir</title>
 </head>
-<body>
 <?php include("nav.php"); ?>
+<body>
+
 
 
 

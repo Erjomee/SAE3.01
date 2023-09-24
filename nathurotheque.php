@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Nathurothèque</title>
 </head>
-<body>
 <?php include("nav.php"); ?>
+<body>
 
 
 

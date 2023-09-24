@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Map</title>
 </head>
-<body>
 <?php include("nav.php"); ?>
+<body>
+
 
 
 <script src="script.js"></script>

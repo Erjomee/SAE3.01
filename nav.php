@@ -31,20 +31,20 @@
         <?php 
             // Si l'utilisateur est connecté
             if (!empty($_SESSION['user'])) {
-                echo "  <div class='utilisateur'>
-                            <div class='bx bxs-user-circle' id='user-icon'></div>
-                        </div>
-                        <div class='user-action'>
-                            <ul class='user-list'>
-                                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Mon profile</a></li>
-                                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Ma nathurothèque</a></li>
-                                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Déconnexion</a></li>
-                            </ul>
-                        </div>
-                        <div class='menu'>
-                            <div class='bx bx-menu' id='menu-icon'><div>
-                        </div>
-                        ";
+                echo "  
+        <div class='utilisateur'>
+            <div class='bx bxs-user-circle' id='user-icon'></div>
+        </div>
+        <div class='user-action'>
+            <ul class='user-list'>
+                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Mon profile</a></li>
+                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Ma nathurothèque</a></li>
+                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Déconnexion</a></li>
+            </ul>
+        </div>
+        <div class='menu'>
+            <div class='bx bx-menu' id='menu-icon'></div>
+        </div>";
             // Compte invité
             }else{
                 echo '<a href="http://127.0.0.1/SAE3.01/authentification/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>

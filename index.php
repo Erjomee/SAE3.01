@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>SAE3.01</title>
 </head> 
-<body>
 <?php include("nav.php"); ?>
-
-
+<body>
+   
 
 
 
