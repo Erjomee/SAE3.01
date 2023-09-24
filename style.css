@@ -5,18 +5,13 @@
     font-family: "Josefin Sans" , sans-serif;
 }
 
-/* 
-body{
-} */
-
-
 header{
     width: 100%;
     height: 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 5%;
+    padding: 30px 3%;
     background-color: rgb(29, 31, 47);
     font-weight: bold;
     font-size: 16px;
@@ -26,7 +21,6 @@ header{
 .nav-list{
     display: flex;
     align-items: center;
-
 }
 
 .active{
@@ -37,9 +31,10 @@ header{
 .main{
     display: flex;
     align-items: center;
+
 }
 
-.utilisateur{
+.utilisateur , .menu{
     display: flex;
     align-items: center;
     width: auto;
@@ -48,12 +43,17 @@ header{
     padding: 10px;
 }
 
-.utilisateur:hover{
-    background-color: white;
-    color:#26B2A2;
-    border: 2px solid black;
+.menu{
+    display: none;
 }
 
+.white-bg{
+    background-color: white;
+}
+
+.gray-bg{
+    background-color: #444848;
+}
 
 .logo{
     font-size: 30px;
@@ -130,6 +130,30 @@ nav li a:hover{
     color: #26B2A2;
 }
 
+.user-list{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 270px;
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom-left-radius: 15px;
+    transition: all .50s ease;
+    border: 1px solid black;
+    border-top: 0px;
+    align-items: center;
+}
+
+.user-action .user-list a{
+    padding: 0 25px;
+    margin: 12px 0;
+    display: block;
+    transition: all .80s ease;
+    color: black;
+}
 
 @media (max-width: 1000px){
     header{
@@ -143,10 +167,9 @@ nav li a:hover{
 }
 
 
-
 @media (max-width: 900px){
-    #menu-icon{
-        display: block;
+    #menu-icon , .menu{
+        display: flex;
     }
     .nav-list {
         position: absolute;
@@ -158,20 +181,21 @@ nav li a:hover{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        border-radius: 15px;
-        transition: all .50s ease;
+        border-bottom-left-radius: 15px;
+        transition: all .80s ease;
     }
 
     .nav-list a{
         padding: 0 25px;
         margin: 12px 0;
         display: block;
-        transition: all .50s ease;
+        transition: all .80s ease;
         
     }
 
-    .open{
-        right: 2%;
-    }
+    
+}
 
+.open{
+    right: 0%;
 }
