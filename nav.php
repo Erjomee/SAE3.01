@@ -50,16 +50,15 @@
 
                     // Compte invité
                     }else{
-                        echo '<div>
+                        echo '<div class="main" >
                                 <a href="http://localhost/SAE3.01/authentification/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
                                 <a href="http://localhost/SAE3.01/authentification/formulaire_inscription.php"><button class="register">Register</button></a>
-                                <div class="bx bx-menu" id="menu-icon><div>
+                                <div class="bx bx-menu" id="menu-icon"><div>
                               </div>';
-                        echo basename($_SERVER['PHP_SELF']);
                     }
                 ?>
     </header>
-
+    <script src="script.js"></script>
 </body>
 </html>
 
