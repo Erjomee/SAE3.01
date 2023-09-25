@@ -1,18 +1,19 @@
-<?php 
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_formulaire.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Page d'inscription</title>
 </head>
+<?php include("assets/php/nav.php"); ?>
 <body>
 
+
 <h1>Formulaire d'inscription</h1>
-<form method="POST">
+<form id="inscription-id"  method="POST">
     <fieldset>
         <legend>Inscription</legend>
         <ul>
@@ -44,7 +45,7 @@
 
         </ul>
         <div> 
-            <a href="http://127.0.0.1/SAE3.01/authentification/formulaire_connexion.php">Déjà inscrit ?</a>
+            <a href="formulaire_connexion.php">Déjà inscrit ?</a>
         </div>
         <div style="display: none;" id="error"></div>
     
@@ -52,11 +53,13 @@
     </fieldset>
 </form>
 
+
+
 <?php 
     // Récupération des information du formulaire
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         // Connection à la base de donnée
-        include("connectBD.php");
+        include("assets/php/connectBD.php");
         try {
 
             $utilisateur = array(
@@ -98,7 +101,7 @@
 
                 // Session Utilisateur                
                 $_SESSION['user'] = $utilisateur;
-                header('Location: http://127.0.0.1/SAE3.01/');
+                header('Location: index.php');
                 
             // Si l'utilisateur existe déjà dans la base donnée
             }else {
@@ -118,5 +121,6 @@
     }
 ?>
 
+<script src="assets/js/script.js"></script>
 </body>
 </html>

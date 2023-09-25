@@ -47,8 +47,8 @@
         </div>";
             // Compte invité
             }else{
-                echo '<a href="http://127.0.0.1/SAE3.01/authentification/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
-                        <a href="http://127.0.0.1/SAE3.01/authentification/formulaire_inscription.php"><button class="register">Register</button></a>
+                echo '<a href="http://127.0.0.1/SAE3.01/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
+                        <a href="http://127.0.0.1/SAE3.01/formulaire_inscription.php"><button class="register">Register</button></a>
                         <div class="bx bx-menu" id="menu-icon"><div>';
             }
         ?>

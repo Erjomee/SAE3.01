@@ -1,5 +1,8 @@
+<?php
+    session_start();
 
 
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -62,9 +65,6 @@ if(isset($_POST['Envoi'])) {
             else{
                 echo "Votre mot de pass ou le mail est incorrect";
             }
-
-
-
         }
         else{
             echo "veuillez rentrez tout les champs";

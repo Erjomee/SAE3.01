@@ -7,6 +7,8 @@
 
 
 
+/* Nav Bar */
+
 header{
     width: 100%;
     height: 75px;
@@ -23,13 +25,10 @@ header{
     left: 0;
 }
 
-
 body{
-    padding-top: 75px;
+    padding-top: 100px;
 
 }
-
-
 
 .nav-list{
     display: flex;
@@ -208,4 +207,28 @@ nav li a:hover{
 
 .open{
     right: 0%;
+}
+
+
+
+
+/* Formulaire */
+#inscription-id h1{
+    text-align: center;
+    color: green;
+}
+
+#inscription-id form{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+#inscription-id ul{
+    list-style: none;
+}
+
+#inscription-id a{
+    color: blue;
+    text-decoration: underline;
 }
