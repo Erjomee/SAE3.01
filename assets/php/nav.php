@@ -37,11 +37,9 @@
         </div>
         <div class='user-action'>
             <ul class='user-list'>
-                <h2>{$_SESSION['user']['nom']}  {$_SESSION['user']['nom'] } </h2>
-
                 <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Mon profile</a></li>
                 <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Ma nathurothèque</a></li>
-                <li class='item'><a href='assets/php/logout.php'>Déconnexion</a></li>
+                <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Déconnexion</a></li>
             </ul>
         </div>
         <div class='menu'>
