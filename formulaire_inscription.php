@@ -54,7 +54,6 @@
 </form>
 
 
-
 <?php 
     // Récupération des information du formulaire
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
@@ -86,6 +85,7 @@
                     $columns .= ",numero";
                     $values .= ",?";
                 }
+
                 if (isset($_POST['sexe'])) {
                     $utilisateur["sexe"] = $_POST["sexe"];
                     $data[] = $utilisateur["sexe"];
