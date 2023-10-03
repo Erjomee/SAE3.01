@@ -58,9 +58,6 @@ if(isset($_POST['Envoi'])) {
                 $_SESSION["prenom"] = $user["prenom"];
                 $_SESSION["id_utilisateur"] = $user["id_utilisateur"];
 
-
-                
-
             }
             else{
                 echo "Votre mot de pass ou le mail est incorrect";
