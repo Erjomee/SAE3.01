@@ -6,6 +6,8 @@
 
     class ModelUtilisateur{
 
+        private $st;
+
 
 
     }
