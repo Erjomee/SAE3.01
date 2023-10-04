@@ -22,5 +22,4 @@
     }elseif ($action == "created") {
         ControllerVoiture::$action([$_GET['immatriculation'], $_GET['marque'], $_GET['couleur'], $_GET['nbsiege']]);
     }
-
 ?>
