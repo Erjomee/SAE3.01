@@ -14,7 +14,7 @@
                         $controller = ucfirst(strtolower($url[0]));
 
                         $controllerClass = "controller".$controller;
-                        $conllerFile = "controllers/" . $conllerClass .".php";
+                        $conllerFile = "Controller/" . $conllerClass .".php";
 
                         if(file_exists($controllerFile)){
                             require_once($conllerFile);
@@ -26,7 +26,7 @@
 
                     }
                     else{
-                        require_once("controllers/controllersAccueil.php");
+                        require_once("Controller/controllersAccueil.php");
                         $controllerClass = "controllersAccueil";
                         $this->_ctrl = new $conllerClass($url);
                     }

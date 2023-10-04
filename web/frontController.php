@@ -6,7 +6,7 @@
     // instantiate the loader
     $loader = new App\Naturotheque\Lib\Psr4AutoloaderClass();
     // register the base directories for the namespace prefix
-    $loader->addNamespace('App\Covoiturage', __DIR__ . '/../src');
+    $loader->addNamespace('App\Naturotheque', __DIR__ . '/../src');
     // register the autoloader
     $loader->register();
 

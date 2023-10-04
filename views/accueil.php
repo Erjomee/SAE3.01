@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,8 @@
 </head>
 <body>
 <?php
-echo "Pas de voiture associé à l'immatriculation $immatriculation";
-?>
 
+
+?>
 </body>
 </html>

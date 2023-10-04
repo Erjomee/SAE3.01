@@ -1,9 +1,7 @@
 <?php
     namespace App\Naturotheque\Model;
-
-    use App\Naturotheque\Config\Conf as Conf;
-    use PDO;
-
+    use App\Naturotheque\Config\Conf as Conf; 
+    use PDO ; 
 
     class Model{
         private static $instance = null;
