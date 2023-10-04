@@ -26,7 +26,7 @@
 
                     }
                     else{
-                        require_once("Controller/controllersAccueil.php");
+                        require_once("Controller/controllerAccueil.php");
                         $controllerClass = "controllersAccueil";
                         $this->_ctrl = new $conllerClass($url);
                     }
