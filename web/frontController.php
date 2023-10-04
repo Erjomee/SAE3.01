@@ -1,7 +1,7 @@
 <?php
-    require_once __DIR__ . '/../src/Controller/ControllerVoiture.php';
+//    require_once __DIR__ . '/../src/Controller/ControllerVoiture.php';
     require_once __DIR__ . '/../src/Lib/Psr4AutoloaderClass.php';
-    use App\Covoiturage\Controller\ControllerVoiture;
+    use App\Naturotheque\Controller\ControllerAccueil;
 
     // instantiate the loader
     $loader = new App\Naturotheque\Lib\Psr4AutoloaderClass();
@@ -22,4 +22,5 @@
     }elseif ($action == "created") {
         ControllerVoiture::$action([$_GET['immatriculation'], $_GET['marque'], $_GET['couleur'], $_GET['nbsiege']]);
     }
+
 ?>

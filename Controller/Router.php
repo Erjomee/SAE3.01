@@ -26,7 +26,7 @@
 
                     }
                     else{
-                        require_once("Controller/controllerAccueil.php");
+                        require_once("Controller/ControllerAccueil.php");
                         $controllerClass = "controllersAccueil";
                         $this->_ctrl = new $conllerClass($url);
                     }
@@ -34,7 +34,7 @@
             }
             catch(Exception $e){
                     $errorMessage = $e->getMessage();
-                    require_once("views/viewError.php");
+                    require_once("views/error.php");
 
             }
         }

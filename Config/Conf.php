@@ -7,7 +7,7 @@
         // Le nom d'hote est localhost sur votre machine
         'hostname' => 'localhost',
         // Sur votre machine, vous devrez creer une BDD
-        'database' => 'td2',
+        'database' => 'sae301',
         // Sur votre machine, vous avez surement un compte 'root'
         'login' => 'root',
         // Sur votre machine, vous avez créé ou non ce mdp a l'installation
