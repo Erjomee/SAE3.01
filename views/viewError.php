@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-echo "Pas de voiture associé à l'immatriculation $immatriculation";
+
 ?>
 
 </body>
