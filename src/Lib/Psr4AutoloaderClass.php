@@ -88,7 +88,7 @@ class Psr4AutoloaderClass
         $prefix = trim($prefix, '\\') . '\\';
 
         // normalize the base directory with a trailing separator
-        $base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR) . '/';
+        $base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR) . 'Psr4AutoloaderClass.php/';
 
         // initialize the namespace prefix array
         if (isset($this->prefixes[$prefix]) === false) {

@@ -3,7 +3,7 @@
     namespace App\Naturotheque\Controller ;
 
 
-    class ControllerUtilisateur{
+    class ControllerEspece{
 
 
     }

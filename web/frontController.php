@@ -27,22 +27,25 @@
 
 
 <?php
-    require_once __DIR__ . '/../src/Controller/ControllerVoiture.php';
     require_once __DIR__ . '/../src/Lib/Psr4AutoloaderClass.php';
-    use App\Covoiturage\Controller\ControllerVoiture;
-    use App\Covoiturage\Controller\ControllerUtilisateur;
+    require_once __DIR__ . '/../src/Controller/ControllerAccueil.php';
+
+    use App\Naturotheque\Controller\ControllerAccueil;
+    use App\Naturotheque\Controller\ControllerUtilisateur;
+    use App\Naturotheque\Controller\ControllerEspece;
+
 
     // instantiate the loader
-    $loader = new App\Covoiturage\Lib\Psr4AutoloaderClass();
+    $loader = new App\Naturotheque\Lib\Psr4AutoloaderClass();
     // register the base directories for the namespace prefix
-    $loader->addNamespace('App\Covoiturage', __DIR__ . '/../src');
+    $loader->addNamespace('App\Naturotheque', __DIR__ . '/../src');
     // register the autoloader
     $loader->register();
 
     if (isset($_GET["controller"])){
         $controller = $_GET["controller"];
     }else{
-        $controller = "voiture";
+        $controller = "accueil";
     }
 
     $controllerClassName = "App\Covoiturage\Controller\Controller" .ucfirst($controller);
@@ -70,9 +73,9 @@
             }
 
         }else{
-            ControllerVoiture::error("Action inconnue");
+            ControllerAccueil::error("Action inconnue");
         }
     }else{ // action readAll par défault
-        ControllerVoiture::readAll();
+        ControllerAccueil::readAll();
     }
 ?>
