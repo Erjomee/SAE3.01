@@ -6,9 +6,7 @@
 }
 
 
-
 /* Nav Bar */
-
 header{
     width: 100%;
     height: 75px;
@@ -26,8 +24,36 @@ header{
 }
 
 body{
-    padding-top: 100px;
+    border: 2px solid black;
+    margin-top: 75px;
+}
 
+main{
+    border: 2px solid blue;
+    padding: 100px 20px;
+    display: block;
+}
+
+footer{
+    padding: 100px 20px;
+    border: 2px solid red;
+    display: block;
+}
+
+button{
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+nav li a:hover{
+    color: #26B2A2;
+    transition: 0.4s;
 }
 
 .nav-list{
@@ -86,11 +112,7 @@ body{
     padding-left: 10px;
 }
 
-button{
-    border-radius: 50px;
-    padding: 10px;
-    font-size: 16px;
-}
+
 
 .login{
     background-color: #26B2A2;
@@ -118,29 +140,7 @@ button{
 }
 
 
-a{
-    text-decoration: none;
-    color: white;
-}
 
-nav li a:hover{
-    color: #26B2A2;
-    transition: 0.4s;
-}
-
-#menu-icon{
-    font-size: 35px;
-    cursor: pointer;
-    z-index: 10001;
-    display: none;
-}
-
-#user-icon{
-    font-size: 35px;
-    cursor: pointer;
-    z-index: 10001;
-    color: #26B2A2;
-}
 
 .user-list{
     position: absolute;
@@ -209,6 +209,22 @@ nav li a:hover{
     right: 0%;
 }
 
+
+
+
+#menu-icon{
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+#user-icon{
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 10001;
+    color: #26B2A2;
+}
 
 
 

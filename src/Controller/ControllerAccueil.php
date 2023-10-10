@@ -9,9 +9,8 @@
         public static function readAll() : void {
             ControllerAccueil::afficheVue("view.php" , [ "utilisateurs" => "jerome",
                                                                     "pagetitle" => "Page d'accueil",
-                                                                    "cheminVueBody" => "accueil/test.php"]);
+                                                                    "cheminVueBody" => "accueil/accueil.php"]);
         }
-
 
         // Méthode qui affiche la page error
         public static function error(string $errorMessage = ""){
