@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     </head>
     <body>
-        <?php
-        session_start();
-        // session_destroy();
-        ?>
+<!--        --><?php
+//        session_start();
+//        // session_destroy();
+//        ?>
         <header>
             <!-- Right part (logo) -->
             <div class="logo">
@@ -45,9 +45,9 @@
                             </div>
                             <div class='user-action'>
                                 <ul class='user-list'>
-                                    <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Mon profile</a></li>
-                                    <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Ma nathurothèque</a></li>
-                                    <li class='item'><a href='http://127.0.0.1/SAE3.01/decouvrir.php'>Déconnexion</a></li>
+                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'>Mon profile</a></li>
+                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'>Ma nathurothèque</a></li>
+                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'>Déconnexion</a></li>
                                 </ul>
                             </div>
                             <div class='menu'>

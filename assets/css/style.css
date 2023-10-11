@@ -29,14 +29,16 @@ body{
 }
 
 main{
-    border: 2px solid blue;
+    padding: 30px 10px;
     display: block;
 }
 
 footer{
-    padding: 100px 20px;
-    border: 2px solid red;
+    padding: 80px 10px;
     display: block;
+    background-color: rgb(29, 31, 47);
+    color: white;
+    margin-top: 200px;
 }
 
 button{
@@ -53,6 +55,10 @@ a{
 nav li a:hover{
     color: #26B2A2;
     transition: 0.4s;
+}
+
+h1{
+    margin-bottom: 30px;
 }
 
 .nav-list{
