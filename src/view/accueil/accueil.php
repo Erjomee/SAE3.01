@@ -1,7 +1,7 @@
 
 <form>
         <nav class="nav_recherche">
-            <input type="search" id="marecherche" name="recherche" placeholder="Rechercher sur le site" required>
+            <input type="search" id="marecherche" name="recherche" placeholder="Rechercher sur le site">
             <button type="submit">Rechercher</button>
             <span class="validity"></span>
         </nav>
