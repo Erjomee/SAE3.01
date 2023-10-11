@@ -1,11 +1,10 @@
 <?php
-
+    namespace App\Naturotheque\Lib;
 /*
 PSR-4 autoloader example implementations given by
 https://www.php-fig.org/psr/psr-4/
 */
 
-namespace App\Naturotheque\Lib;
 
 /**
  * An example of a general-purpose implementation that includes the optional

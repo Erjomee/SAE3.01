@@ -1,6 +1,5 @@
 <?php
-    use App\Naturotheque\Lib\Psr4AutoloaderClass;
-
+//    namespace App\Naturotheque\web;
     require_once __DIR__ . '/../src/Lib/Psr4AutoloaderClass.php';
 
     // On récupère tous les controllers
@@ -8,13 +7,14 @@
     require_once __DIR__ . '/../src/Controller/ControllerEspece.php';
     require_once __DIR__ . '/../src/Controller/ControllerUtilisateur.php';
 
-//
+
     use App\Naturotheque\Controller\ControllerAccueil;
     use App\Naturotheque\Controller\ControllerEspece;
     use App\Naturotheque\Controller\ControllerUtilisateur;
 
+
     // instantiate the loader
-    $loader = new Psr4AutoloaderClass();
+    $loader = new App\Naturotheque\Lib\Psr4AutoloaderClass();
     // register the base directories for the namespace prefix
     $loader->addNamespace('App\Naturotheque', __DIR__ . '/../src');
     // register the autoloader

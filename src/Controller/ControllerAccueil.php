@@ -1,6 +1,6 @@
 <?php
 
-    namespace App\Naturotheque\Controller ;
+    namespace App\Naturotheque\Controller;
 
 
     class ControllerAccueil{
