@@ -27,10 +27,12 @@ if(isset($_GET["action"])){
     if ($action == "readAll" || $action == "search" || $action == "connection" || $action == "register") {
         $controllerClassName::$action();
     }
-    // Action Login ou register ( redirection vers les formulaires )
+
     elseif ( $action == "connected") {
         $controllerClassName::$action();
     }
+
+    // Action qui enregistre le nouveau utilisateur dans la BD
     elseif ($action == "registered"){
         $data = [
             "nom" => $_GET["nom"],
