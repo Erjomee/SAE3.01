@@ -1,6 +1,5 @@
 <?php
 namespace App\Naturotheque\Model\Repository;
-
 use App\Naturotheque\Config\Conf as Conf;
 use PDO;
 
