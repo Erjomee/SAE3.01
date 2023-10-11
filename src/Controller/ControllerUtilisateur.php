@@ -9,22 +9,22 @@ class ControllerUtilisateur{
     // Méthode qui redirige vers le formulaire de connexion
     public static function connection() : void {
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de connexion",
-            "cheminVueBody" => "utilisateur/formulaire_connexion.php"]);
+                                                                    "cheminVueBody" => "utilisateur/formulaire_connexion.php"]);
     }
 
     // Méthode qui redirige vers le formulaire d'inscription
     public static function register() : void {
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
-            "display" => 'none' ,
-            "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
+                                                                    "display" => 'none' ,
+                                                                    "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
     }
 
     // Méthode qui enregistre le nouvel utilisateur dans la BD
     public static function registered($utilisateurFormatArray): void {
         if (UtilisateurRepository::already_exist($utilisateurFormatArray["email"])){
             ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
-                "display" => 'block' ,
-                "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
+                                                                        "display" => 'block' ,
+                                                                        "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
 
         }else{
             $utilisateur = UtilisateurRepository::construire($utilisateurFormatArray);
