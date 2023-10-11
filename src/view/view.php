@@ -24,7 +24,7 @@
                         <a href="frontController.php?controller=accueil&action=readAll" <?php if (strpos($pagetitle , "accueil")) {echo "class='active'";}?>>
                             Home</a>
                     </li>
-                    <li class="item"><a href="http://127.0.0.1/SAE3.01/nathurotheque.php" <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
+                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll " <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
                             Naturothèque</a>
                     </li>
                     <li class="item"><a href="frontController.php?controller=espece&action=search" <?php if (strpos($pagetitle , "espece")) {echo "class='active'";}?>>
