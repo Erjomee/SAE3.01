@@ -5,7 +5,6 @@
 
     class ControllerAccueil{
 
-
         public static function readAll() : void {
             ControllerAccueil::afficheVue("view.php" , [ "utilisateurs" => "jerome",
                                                                     "pagetitle" => "Page d'accueil",

@@ -30,9 +30,7 @@
                     <li class="item"><a href="frontController.php?controller=espece&action=search" <?php if (strpos($pagetitle , "espece")) {echo "class='active'";}?>>
                             Espèces</a>
                     </li>
-                    <li class="item"><a href="http://127.0.0.1/SAE3.01/map.php" <?php if (basename($_SERVER['PHP_SELF'])=="map.php") {echo "class='active'";}?>>
-                            Map</a>
-                    </li>
+
                     <li class="item"><a href="http://127.0.0.1/SAE3.01/decouvrir.php" <?php if (basename($_SERVER['PHP_SELF'])=="decouvrir.php") {echo "class='active'";}?>>Découvrir</a></li>
                 </ul>
             </nav>
@@ -57,8 +55,8 @@
                             </div>";
                         // Compte invité
                     }else{
-                        echo '<a href="http://127.0.0.1/SAE3.01/formulaire_connexion.php"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
-                        <a href="http://127.0.0.1/SAE3.01/formulaire_inscription.php"><button class="register">Register</button></a>
+                        echo '<a href="frontController.php?controller=utilisateur&action=connection"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
+                        <a href="frontController.php?controller=utilisateur&action=register"><button class="register">Register</button></a>
                         <div class="bx bx-menu" id="menu-icon"><div>';
                     }
                 ?>
