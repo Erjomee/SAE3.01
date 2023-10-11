@@ -33,6 +33,7 @@ class ControllerUtilisateur{
         }
     }
 
+
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {
         extract($parametres); // Crée des variables à partir du tableau $parametres

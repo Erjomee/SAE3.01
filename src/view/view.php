@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     </head>
     <body>
-<!--        --><?php
-//        session_start();
-//        // session_destroy();
-//        ?>
+        <?php
+        session_start();
+        // session_destroy();
+        ?>
         <header>
             <!-- Right part (logo) -->
             <div class="logo">
