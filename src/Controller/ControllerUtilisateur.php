@@ -24,7 +24,7 @@ class ControllerUtilisateur{
         if (UtilisateurRepository::already_exist($utilisateurFormatArray["email"])){
             ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
                                                                         "display" => 'block' ,
-                                                                        "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
+                                                                        "cheminVueBody " => "utilisateur/formulaire_inscription.php"]);
 
         }else{
             $utilisateur = UtilisateurRepository::construire($utilisateurFormatArray);

@@ -8,7 +8,7 @@ class ControllerAccueil{
     public static function readAll() : void {
         ControllerAccueil::afficheVue("view.php" , [ "utilisateurs" => "jerome",
                                                                 "pagetitle" => "Page d'accueil",
-                                                                "cheminVueBody" => "accueil/accueil.php"]);
+                                                                "cheminVueBody" => "accueil/accueil.php "]);
     }
 
     // Méthode qui affiche la page error
