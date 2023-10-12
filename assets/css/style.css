@@ -34,7 +34,7 @@ main{
 }
 
 footer{
-    padding: 80px 10px;
+    padding: 70px 10px;
     display: block;
     background-color: rgb(29, 31, 47);
     color: white;
@@ -58,7 +58,8 @@ nav li a:hover{
 }
 
 h1{
-    margin-bottom: 30px;
+    margin: 30px 0;
+    color: #26B2A2;
 }
 
 .nav-list{
@@ -71,7 +72,7 @@ h1{
     font-size: 20px;
 }
 
-.main{
+.user-action{
     display: flex;
     align-items: center;
 
@@ -145,8 +146,6 @@ h1{
 }
 
 
-
-
 .user-list{
     position: absolute;
     top: 100%;
@@ -215,8 +214,6 @@ h1{
 }
 
 
-
-
 #menu-icon{
     font-size: 35px;
     cursor: pointer;
@@ -232,59 +229,3 @@ h1{
 }
 
 
-
-/* Formulaire */
-#inscription-id h1{
-    text-align: center;
-    color: green;
-}
-
-#inscription-id form{
-    width: fit-content;
-    margin: 0 auto;
-}
-
-
-#inscription-id ul{
-    list-style: none;
-}
-
-#inscription-id a{
-    color: blue;
-    text-decoration: underline;
-}
-
-
-/*Accueil - barre de recherche*/
-.nav_recherche {
-    background-color: #26B2A2;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 60px;
-}
-/* Style pour le champ de recherche */
-.nav_recherche input[type="search"] {
-    width: 84%;
-    height: 40px;
-    font-size: 16px;
-    padding: 5px;
-    border: none;
-    background-color: #fff;
-    color: #000;
-    outline: none;
-    border-radius: 3px;
-}
-/* Style pour le bouton "Rechercher" */
-.nav_recherche button {
-    width: 15%;
-    padding: 8px;
-    height: 40px;
-    background-color: white;
-    border: 1px solid lightgray;
-    color: #26B2A2;
-    font-size: medium;
-    border-radius: 3px;
-    cursor: pointer;
-
-}

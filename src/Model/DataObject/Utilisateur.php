@@ -27,7 +27,6 @@ class Utilisateur{
         return null;
     }
 
-
     public function __construct($nom, $prenom, $email, $password, $numero, $sexe) {
         $this->nom = $nom;
         $this->prenom = $prenom;

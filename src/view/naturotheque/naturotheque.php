@@ -1,10 +1,3 @@
-<div>
-    <h1> hellon word </h1>
-    
-</div>
-
-
-
 
 <?php
 

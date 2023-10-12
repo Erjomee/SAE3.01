@@ -7,8 +7,9 @@ class ControllerNaturotheque{
 
     public static function readAll() : void {
         ControllerNaturotheque::afficheVue("view.php" ,[ "utilisateurs" => "jerome",
-                                                         "pagetitle" => "Page d'accueil",
-                                                         "cheminVueBody" => "naturotheque/naturotheque.php"]);
+                                                                    "pagetitle" => "Page Naturotheque",
+                                                                    "style" => "Naturotheque",
+                                                                    "cheminVueBody" => "naturotheque/naturotheque.php"]);
     }
 
     // Méthode qui affiche la page error

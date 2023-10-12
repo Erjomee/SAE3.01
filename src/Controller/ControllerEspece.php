@@ -7,7 +7,8 @@ class ControllerEspece{
         // Retrouver toutes les anciennes recherche d'espece enregister dans une table historique (à creer
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
 
-        ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Recherche d'une espece ",
+        ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
+                                                                "style" => "Espece",
                                                                 "cheminVueBody" => "espece/search.php"]);
 
     }

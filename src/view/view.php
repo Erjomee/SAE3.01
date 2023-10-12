@@ -4,14 +4,15 @@
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
         <link rel="stylesheet" href="./../assets/css/style.css">
+        <link rel="stylesheet" href="./../assets/css/style<?= $style?>.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     </head>
     <body>
-<!--        --><?php
-//        session_start();
-//        // session_destroy();
-//        ?>
+        <?php
+        session_start();
+        // session_destroy();
+        ?>
         <header>
             <!-- Right part (logo) -->
             <div class="logo">
@@ -21,13 +22,13 @@
             <nav>
                 <ul class="nav-list">
                     <li class="item">
-                        <a href="frontController.php?controller=accueil&action=readAll" <?php if (strpos($pagetitle , "accueil")) {echo "class='active'";}?>>
+                        <a href="frontController.php?controller=accueil&action=readAll" <?php if ($style == "Accueil") {echo "class='active'";}?>>
                             Home</a>
                     </li>
-                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll " <?php if (basename($_SERVER['PHP_SELF'])=="nathurotheque.php") {echo "class='active'";}?>>
+                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll " <?php if ($style == "Naturotheque") {echo "class='active'";}?>>
                             Naturothèque</a>
                     </li>
-                    <li class="item"><a href="frontController.php?controller=espece&action=search" <?php if (strpos($pagetitle , "espece")) {echo "class='active'";}?>>
+                    <li class="item"><a href="frontController.php?controller=espece&action=search" <?php if ($style == "Espece") {echo "class='active'";}?>>
                             Espèces</a>
                     </li>
 
@@ -35,7 +36,7 @@
                 </ul>
             </nav>
             <!-- Right part (user action) -->
-            <div class="main" >
+            <div class="user-action" >
                 <?php
                     // Si l'utilisateur est connecté
                     if (!empty($_SESSION['user'])) {
