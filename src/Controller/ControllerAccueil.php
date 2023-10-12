@@ -14,7 +14,9 @@ class ControllerAccueil{
 
     // Méthode qui affiche la page error
     public static function error(string $errorMessage = ""){
-        ControllerAccueil::afficheVue("view.php" , [ "pagetitle" => "Action incorrect",
+        ControllerAccueil::afficheVue("view.php" , [ "utilisateurs" => "jerome",
+                                                                "pagetitle" => "Action incorrect",
+                                                                "style" => "Accueil",
                                                                 "cheminVueBody" => "error.php",
                                                                 "errorMessage" => $errorMessage]);
     }

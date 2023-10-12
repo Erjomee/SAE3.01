@@ -17,7 +17,7 @@ class ControllerUtilisateur{
     public static function register() : void {
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
                                                                     "style" => "Utilisateur",
-                                                                    "display" => 'none' ,
+                                                                    "display" => 'none',
                                                                     "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
     }
 

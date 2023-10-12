@@ -10,7 +10,7 @@
     </head>
     <body>
         <?php
-        session_start();
+//        session_start();
         // session_destroy();
         ?>
         <header>
@@ -50,17 +50,17 @@
                                     <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'>Ma nathurothèque</a></li>
                                     <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'>Déconnexion</a></li>
                                 </ul>
-                            </div>
-                            <div class='menu'>
-                                <div class='bx bx-menu' id='menu-icon'></div>
                             </div>";
                         // Compte invité
                     }else{
-                        echo '<a href="frontController.php?controller=utilisateur&action=connection"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
-                        <a href="frontController.php?controller=utilisateur&action=register"><button class="register">Register</button></a>
-                        <div class="bx bx-menu" id="menu-icon"><div>';
+                        echo '<div class="utilisateur" style="display: none"></div>
+                        <a href="frontController.php?controller=utilisateur&action=connection"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
+                        <a href="frontController.php?controller=utilisateur&action=register"><button class="register">Register</button></a>';
                     }
                 ?>
+                <div class="menu">
+                    <div class='bx bx-menu' id="menu-icon"></div>
+                </div>
             </div>
         </header>
 

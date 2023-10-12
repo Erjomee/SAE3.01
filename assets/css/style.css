@@ -186,6 +186,9 @@ h1{
 @media (max-width: 900px){
     #menu-icon , .menu{
         display: flex;
+        font-size: 35px;
+        cursor: pointer;
+        z-index: 10001;
     }
     .nav-list {
         position: absolute;
@@ -211,14 +214,6 @@ h1{
 
 .open{
     right: 0%;
-}
-
-
-#menu-icon{
-    font-size: 35px;
-    cursor: pointer;
-    z-index: 10001;
-    display: none;
 }
 
 #user-icon{

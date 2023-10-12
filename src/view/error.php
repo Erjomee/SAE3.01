@@ -1,6 +1,3 @@
 
-<?php
+<h1>  La page est introuvable </h1>
 
-    echo "<h1>  La page est introuvable </h1>";
-
-?>

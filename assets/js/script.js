@@ -1,8 +1,8 @@
 // On vérifie si la zone utilisateur existe (si l'utilisateur n'est pas invité)
 if (document.querySelector(".utilisateur") !== null){ 
-    // Gestion du clic sur le lenu icon
+    // Gestion du clic sur le menu icon
     document.querySelector(".menu").addEventListener("click",function () {
-        document.getElementById('menu-icon').classList.toggle("bx-x");
+        document.getElementById("menu-icon").classList.toggle("bx-x");
         document.querySelector(".nav-list").classList.toggle("open")
         document.querySelector(".user-list").classList.remove("open")
         document.querySelector(".utilisateur").classList.remove("white-bg")
@@ -14,7 +14,7 @@ if (document.querySelector(".utilisateur") !== null){
         document.querySelector(".utilisateur").classList.toggle("white-bg");
         document.querySelector(".user-list").classList.toggle("open");
         document.querySelector(".nav-list").classList.remove("open")
-        document.getElementById('menu-icon').classList.remove("bx-x");
+        document.getElementById("menu-icon").classList.remove("bx-x");
         document.querySelector(".menu").classList.remove("gray-bg")
     })
 
