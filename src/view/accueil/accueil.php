@@ -67,7 +67,10 @@ setInterval(function() {
 }, 3000)
         </script>
 
-
+<!--SUITE-->
+<div class="div_connecter">
+		<input type="button" value="Se connecter">
+</div>
 <?php
 
 

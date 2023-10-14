@@ -48,7 +48,7 @@
 
 .slider img {
     object-fit: cover;
-    height: 70%;
+    height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
@@ -78,3 +78,29 @@
     left: 1rem;
 }
 
+/* SE CONNECTER */
+.div_connecter {
+    background-color: #26B2A2;
+    width: 100%;
+    height: 50px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+
+}
+.a_connecter {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+   color: #26B2A2 !important;
+}
+
+.div_connecter input[type="button"] {
+    background-color: #fff; /* Couleur du texte */
+    width: 20%;
+    height: 70%;
+    border: none; /* Supprime la bordure par défaut */
+    cursor: pointer;
+    color:#26B2A2;
+    font-size: 20px;
+}
