@@ -7,11 +7,12 @@
         </nav>
 </form>
 
+<!-- SLIDER -->
 <div class="slider">
-        <img src="img/libellule.jpeg" alt="img1" class="img__slider active" />
-        <img src="img/renard.jpeg" alt="img2" class="img__slider" />
-        <img src="img/lynx.jpeg" alt="img3" class="img__slider" />
-        
+        <img src="assets/img/libellule.jpeg" alt="img1" class="img__slider active" />
+        <img src="assets/img/renard.jpeg" alt="img2" class="img__slider" />
+        <img src="assets/img/lynx.jpeg" alt="img3" class="img__slider" />
+
         <div class="suivant">
             <i class="fas fa-chevron-circle-right"></i>        
         </div>
@@ -19,6 +20,8 @@
             <i class="fas fa-chevron-circle-left"></i>
         </div>
     </div>
+
+<!--PARTIE JS-->
     <script type="text/javascript">
         let img__slider = document.getElementsByClassName('img__slider');
 
