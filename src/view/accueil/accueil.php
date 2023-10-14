@@ -11,6 +11,7 @@
         <img src="img/libellule.jpeg" alt="img1" class="img__slider active" />
         <img src="img/renard.jpeg" alt="img2" class="img__slider" />
         <img src="img/lynx.jpeg" alt="img3" class="img__slider" />
+        
         <div class="suivant">
             <i class="fas fa-chevron-circle-right"></i>        
         </div>
