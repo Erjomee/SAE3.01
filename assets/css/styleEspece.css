@@ -54,6 +54,10 @@ main{
     padding: 30px 0;
 }
 
+header{
+    z-index: 2;
+}
+
 
 .container{
     display: flex;
@@ -77,7 +81,6 @@ main{
     left: 0;
     top: 105px;
     text-align: left;
-    z-index: -1;
 }
 
 .container #filtre li{
@@ -87,6 +90,7 @@ main{
 
 .container #filtre input{
     cursor: pointer;
+    margin-right: 5px;
 }
 
 .container .search{
@@ -147,6 +151,5 @@ main{
         left: 0;
         top: 105px;
         text-align: left;
-        z-index: -1;
     }
 }
