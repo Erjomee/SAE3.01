@@ -9,9 +9,9 @@
 
 <!-- SLIDER -->
 <div class="slider">
-        <img src="assets/img/libellule.jpeg" alt="img1" class="img__slider active" />
-        <img src="assets/img/renard.jpeg" alt="img2" class="img__slider" />
-        <img src="assets/img/lynx.jpeg" alt="img3" class="img__slider" />
+        <img src="../assets/img/libellule.jpeg" alt="img1" class="img__slider active" />
+        <img src="../assets/img/renard.jpeg" alt="img2" class="img__slider" />
+        <img src="../assets/img/lynx.jpeg" alt="img3" class="img__slider" />
 
         <div class="suivant">
             <i class="fas fa-chevron-circle-right"></i>        
