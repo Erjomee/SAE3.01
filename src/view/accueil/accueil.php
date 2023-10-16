@@ -77,4 +77,3 @@ setInterval(function() {
     echo "<h1> Accueil </h1>";
 
 ?>
-
