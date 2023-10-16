@@ -3,7 +3,7 @@ body{
 }
 .contener1{
     border: none;
-    height: 1000px;
+    height: 2000px;
     text-align: center;
     /* background-color: blue; */
 }
@@ -21,7 +21,7 @@ body{
     width: 300px;
     height: 94px;
     background-color: #26B2A2;
-    /* position: absolute; */
+    position: absolute;
 }
 #contener4{
     width: 100px;
@@ -33,6 +33,7 @@ body{
     top: 45%;
 }
 .texte{
-    /* position: absolute; */
-    top: 46px 
+    position: absolute;
+    top: 60px; 
+    display: none; 
 }
