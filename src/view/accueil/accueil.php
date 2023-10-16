@@ -11,8 +11,12 @@
 <!-- SLIDER -->
 <div class="slider">
         <img src="../assets/img/oiseau.jpg" alt="img1" class="img__slider active" />
-        <img src="../assets/img/renard.jpeg" alt="img2" class="img__slider" />
-        <img src="../assets/img/lynx.jpeg" alt="img3" class="img__slider" />
+        <img src="../assets/img/ecureil.jpg" alt="img2" class="img__slider" />
+        <img src="../assets/img/chevreuil.jpg" alt="img3" class="img__slider" />
+        <img src="../assets/img/ours.jpg" alt="img4" class="img__slider" />
+        <img src="../assets/img/renard2.jpeg" alt="img5" class="img__slider" />
+        <img src="../assets/img/loup.jpg" alt="img6" class="img__slider" />
+
 
         <div class="suivant">
             <i class="fas fa-chevron-circle-right"></i>        
@@ -74,7 +78,7 @@ setInterval(function() {
 
 <!--Decouvrir-->
 <div class="div_decouvrir">
-    <p>75,4 Espèces</p>
+    <!-- <p>75,4 Espèces</p> -->
     <input type="button" value="Découvrir">
 
 </div>
@@ -82,14 +86,17 @@ setInterval(function() {
 
 <!--Espace Videos-->
 <div class="div_videos">
+    <div class="video1"></div>
+    <div class="video2"></div>
+    <div class="video3"></div>
 </div>
 
 
 
 
+
+
+
+
 <?php
-
-
-    echo "<h1> Accueil </h1>";
-
 ?>
