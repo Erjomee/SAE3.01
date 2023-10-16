@@ -10,7 +10,7 @@
 
 <!-- SLIDER -->
 <div class="slider">
-        <img src="../assets/img/libellule.jpeg" alt="img1" class="img__slider active" />
+        <img src="../assets/img/oiseau.jpg" alt="img1" class="img__slider active" />
         <img src="../assets/img/renard.jpeg" alt="img2" class="img__slider" />
         <img src="../assets/img/lynx.jpeg" alt="img3" class="img__slider" />
 
@@ -67,10 +67,26 @@ setInterval(function() {
 }, 3000)
         </script>
 
-<!--SUITE-->
+<!--Se connecter-->
 <div class="div_connecter">
 		<input type="button" value="Se connecter">
 </div>
+
+<!--Decouvrir-->
+<div class="div_decouvrir">
+    <p>75,4 Espèces</p>
+    <input type="button" value="Découvrir">
+
+</div>
+
+
+<!--Espace Videos-->
+<div class="div_videos">
+</div>
+
+
+
+
 <?php
 
 

@@ -38,6 +38,7 @@ footer{
     display: block;
     background-color: rgb(29, 31, 47);
     color: white;
+    z-index: 1;
 }
 
 button{
