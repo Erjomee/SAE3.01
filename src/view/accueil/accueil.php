@@ -78,14 +78,14 @@ setInterval(function() {
 
 <!--Decouvrir-->
 <div class="div_decouvrir">
-    <!-- <p>75,4 Espèces</p> -->
+    <h3>75,4 Espèces</h3>
     <input type="button" value="Découvrir">
-
 </div>
 
 
 <!--Espace Videos-->
 <div class="div_videos">
+    <h3>Vidéos</h3>
     <div class="video1"></div>
     <div class="video2"></div>
     <div class="video3"></div>
