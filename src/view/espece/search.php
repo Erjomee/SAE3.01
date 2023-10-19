@@ -23,7 +23,10 @@
 
         <form id="rechercheForm"  method="get" >
             <nav class="nav_recherche">
+                <input type="hidden"  name="controller" value="espece">
+                <input type="hidden"  name="action" value="searchBy">
                 <input type="search" id="marecherche" name="recherche" placeholder="Nom vernaculaire | ex: Pinson familier">
+
                 <button type="submit">Rechercher</button>
                 <span class="validity"></span>
             </nav>

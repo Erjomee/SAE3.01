@@ -10,8 +10,8 @@
     </head>
     <body>
         <?php
-//        session_start();
-        // session_destroy();
+//            session_start();
+//          session_destroy();
         ?>
         <header>
             <!-- Right part (logo) -->
@@ -25,7 +25,7 @@
                         <a href="frontController.php?controller=accueil&action=readAll" <?php if ($style == "Accueil") {echo "class='active'";}?>>
                             Home</a>
                     </li>
-                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll " <?php if ($style == "Naturotheque") {echo "class='active'";}?>>
+                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll" <?php if ($style == "Naturotheque") {echo "class='active'";}?>>
                             Naturothèque</a>
                     </li>
                     <li class="item"><a href="frontController.php?controller=espece&action=search" <?php if ($style == "Espece") {echo "class='active'";}?>>
@@ -41,7 +41,7 @@
                     // Si l'utilisateur est connecté
                     if (!empty($_SESSION['user'])) {
                         echo "  
-                            <div class='utilisateur'>
+                            <div class='utilisateur' style='display: flex'>
                                 <div class='bx bxs-user-circle' id='user-icon'></div>
                             </div>
                             <div class='user-action'>
@@ -53,9 +53,35 @@
                             </div>";
                         // Compte invité
                     }else{
-                        echo '<div class="utilisateur" style="display: none"></div>
-                        <a href="frontController.php?controller=utilisateur&action=connection"><button class="login"><i class="ri-user-fill"></i>Login</button></a>
-                        <a href="frontController.php?controller=utilisateur&action=register"><button class="register">Register</button></a>';
+//                        echo "
+//                            <div class='utilisateur'>
+//                                <div class='bx bxs-user-circle' id='user-icon'></div>
+//                            </div>
+//                            <div class='user-action'>
+//                                <ul class='user-list'>
+//                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'>Mon profile</a></li>
+//                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'>Ma nathurothèque</a></li>
+//                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'>Déconnexion</a></li>
+//                                </ul>
+//                            </div>";
+
+                        echo '<div class="utilisateur">
+                                <div class="bx bxs-user-circle" id="user-icon"></div>
+                              </div>
+                              
+                              <div class="user-action">
+                                 <ul class="user-deco-list">
+                                    <li class="item-user">
+                                     <a href="frontController.php?controller=utilisateur&action=connection" class="login"><i class="ri-user-fill"></i>Login</a>
+                                    </li>
+                                    <li class="item-user">
+                                     <a href="frontController.php?controller=utilisateur&action=register" class="register">Register</a>
+                                     </li>
+                                </ul>
+                              </div>
+                              
+                              
+                                    ';
                     }
                 ?>
                 <div class="menu">

@@ -12,13 +12,16 @@ $loader->addNamespace('App\Naturotheque', __DIR__ . '/../src');
 // register the autoloader
 $loader->register();
 
+
+// On construit le chemin vers le bon controller
 if (isset($_GET["controller"])){
     $controller = $_GET["controller"];
 }else{
     $controller = "accueil";
 }
-
 $controllerClassName = "App\Naturotheque\Controller\Controller" .ucfirst($controller);
+
+
 
 // Cas ou l'URL présent une action
 if(isset($_GET["action"])){
@@ -58,11 +61,19 @@ if(isset($_GET["action"])){
         }
     }
 
+    // Action du controller Espece
+    elseif ( $controllerClassName == "App\Naturotheque\Controller\ControllerEspece"){
+        if ($action == "searchBy"){
+            $controllerClassName::$action($_GET["filtre_f"] , $_GET["recherche"]);
+        }
+
+    }
+
+
     // Action inconnue
     else{
         ControllerAccueil::error("Action inconnue");
     }
-
 }else{ // action readAll par défault
     ControllerAccueil::readAll();
 }
