@@ -80,15 +80,22 @@ setInterval(function() {
 <div class="div_decouvrir">
     <h3>75,4 Espèces</h3>
     <input type="button" value="Découvrir">
+    
 </div>
 
 
 <!--Espace Videos-->
 <div class="div_videos">
-    <h3>Vidéos</h3>
-    <div class="video1"></div>
-    <div class="video2"></div>
-    <div class="video3"></div>
+<h3>Vidéos</h3>
+    <div class="video">
+        <iframe width="280" height="161" src="https://www.youtube.com/embed/aOnmucUbDUw?si=p3MQNzw7qYWF5R6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
+    </div>
+    <div class="video">
+        <iframe width="280" height="161" src="https://www.youtube.com/embed/0O9T24QnqrY?si=xo8Wj2TWiOk7jfMB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="video">
+    <iframe width="280" height="161" src="https://www.youtube.com/embed/-2PGG33W2Eg?si=T_f5CytPDX1Cga50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 </div>
 
 
