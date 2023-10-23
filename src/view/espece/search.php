@@ -36,9 +36,9 @@
                 </h4>
                 <h5>Recherche par:</h5>
                     <ul>
-                        <li><input id="radio1" type="radio" name="filtre_f" value="id_espece">ID espece</li>
-                        <li><input id="radio2" type="radio" name="filtre_f" value="vernacular_name" checked>Nom vernaculaire</li>
-                        <li><input id="radio3" type="radio" name="filtre_f" value="scientific_name">Nom scientifique</li>
+                        <li><input id="radio1" type="radio" name="filtre_f" value="taxrefIds">ID espece</li>
+                        <li><input id="radio2" type="radio" name="filtre_f" value="frenchVernacularNames" checked>Nom vernaculaire</li>
+                        <li><input id="radio3" type="radio" name="filtre_f" value="scientificNames">Nom scientifique</li>
                     </ul>
             </div>
         </form>
@@ -46,40 +46,43 @@
         <hr>
         <h3>
             Résultat de la recherche :
+
         </h3>
         <div class="historique">
             <!--   à automatiser avec php (mettre les images)         -->
-            <div class="item">
-                Item 1
-            </div>
-            <div class="item">
-                Item 2
-            </div>
-            <div class="item">
-                Item 3
-            </div>
-            <div class="item">
-                Item 4
-            </div>
-            <div class="item">
-                Item 5
-            </div>
+<!--            <div class="item">-->
+<!--                Item 1-->
+<!--            </div>-->
+<!--            <div class="item">-->
+<!--                Item 2-->
+<!--            </div>-->
+<!--            <div class="item">-->
+<!--                Item 3-->
+<!--            </div>-->
+<!--            <div class="item">-->
+<!--                Item 4-->
+<!--            </div>-->
+<!--            <div class="item">-->
+<!--                Item 5-->
+<!--            </div>-->
+<!---->
+<!--            <div class="item">-->
+<!--                Item 6-->
+<!--            </div>-->
 
-            <div class="item">
-                Item 6
-            </div>
-            <div class="item">
-                Item 7
-            </div>
-            <div class="item">
-                Item 8
-            </div>
-            <div class="item">
-                Item 9
-            </div>
-            <div class="item">
-                Item 10
-            </div>
+            <?php
+                if (isset($data)){
+                    foreach ($data['_embedded']['taxa'] as $espece){
+                        echo "<div class='item'>
+                                    <p>ID:{$espece['id']}</p>
+                                </div>";
+                    }
+                }else{
+                    echo "Espece introuvable";
+                }
+            ?>
+
+
         </div>
     </div>
 </div>

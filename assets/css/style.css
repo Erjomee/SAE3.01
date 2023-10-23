@@ -234,13 +234,13 @@ h1{
         transition: all .40s ease;
     }
 
-/*.utilisateur .nav-list .item{*/
-/*    !*padding-left: 10px;*!*/
-/*}*/
-.item{
-    width: 100%;
-    text-align: center;
-}
+    /*.utilisateur .nav-list .item{*/
+    /*    !*padding-left: 10px;*!*/
+    /*}*/
+    .item{
+        width: 100%;
+        text-align: center;
+    }
 
     #menu-icon , .menu{
         display: flex;
@@ -312,5 +312,4 @@ h1{
     z-index: 10001;
     color: #26B2A2;
 }
-
 

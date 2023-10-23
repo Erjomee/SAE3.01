@@ -10,7 +10,8 @@
     </head>
     <body>
         <?php
-//            session_start();
+//          session_start();
+//          $_SESSION['user'] = "fefe"
 //          session_destroy();
         ?>
         <header>
