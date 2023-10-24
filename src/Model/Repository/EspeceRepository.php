@@ -5,7 +5,6 @@ use App\Naturotheque\Model\DataObject\Espece;
 
 class EspeceRepository{
 
-
     public static function getEspece(String $filtre , String $espece){
         $url = "https://taxref.mnhn.fr/api/taxa/search?version=16.0&".$filtre."=".$espece;
 
@@ -24,30 +23,36 @@ class EspeceRepository{
         curl_close($ch);
 
         if ($response !== false) {
-            $data = json_decode($response, true);
 //            $id = $data['_embedded']['taxa'][0]['id'];
-            return $data;
+            return json_decode($response, true);
         } else {
             echo 'La requête a échoué.';
             return null;
         }
     }
 
+                // A FAIRE
+    public static function already_exist($email): bool {
+        $sql = "SELECT * FROM utilisateur WHERE email = :email";
+        $values = array(
+            "email" => $email,
+        );
+        // Preparation de la requete sql
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $pdoStatement->execute($values);
 
-    // Méthode qui construit un objet Utilisateur
-    public static function construire(array $utilisateurFormatArray): Utilisateur{
-        $nom = $utilisateurFormatArray["nom"];
-        $prenom = $utilisateurFormatArray["prenom"];
-        $email = $utilisateurFormatArray["email"];
-        $password = $utilisateurFormatArray["password"];
-        $numero = $utilisateurFormatArray["numero"];
-        $sexe = $utilisateurFormatArray["sexe"];
+        // fetch(): renvoie true si la selection n'est pas vide
+        $utilisateur = $pdoStatement->fetch();
 
-        return new Utilisateur($nom, $prenom, $email, $password, $numero, $sexe);
+        if ($utilisateur){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // Méthode qui sauvegarde le nouvel utilisateur dans la BD
-    public static function sauvegarder(Utilisateur $utilisateur):void{
+    public static function sauvegarder(Espece $espece):void{
         $sql = "INSERT INTO utilisateur (nom , prenom , email , password , numero , sexe)
                     VALUES (:nom , :prenom , :email , :password , :numero , :sexe)";
         $values = array(
@@ -61,8 +66,6 @@ class EspeceRepository{
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
     }
-
-
 }
 
 ?>

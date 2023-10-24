@@ -9,7 +9,7 @@ class ControllerEspece{
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
         ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
                                                                 "style" => "Espece",
-                                                                "data" => null,
+                                                                "default" => "Veuillez saisir une recherche",
                                                                 "cheminVueBody" => "espece/search.php"]);
     }
 
@@ -19,10 +19,17 @@ class ControllerEspece{
 
         $data = EspeceRepository::getEspece($filtre , $espece);
 
-        ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
-                                                                "style" => "Espece",
-                                                                "data" => $data,
-                                                                "cheminVueBody" => "espece/search.php",]);
+        if (isset($data["_embedded"])){
+            ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
+                                                                    "style" => "Espece",
+                                                                    "data" => $data,
+                                                                    "cheminVueBody" => "espece/search.php",]);
+        }else{
+            ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
+                                                                    "style" => "Espece",
+                                                                    "data" => null,
+                                                                    "cheminVueBody" => "espece/search.php",]);
+        }
     }
 
 

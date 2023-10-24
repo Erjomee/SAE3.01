@@ -37,31 +37,25 @@ if (document.querySelector(".utilisateur") !== null){
     })
 }
 
-//
-//
-// // PAGE ESPECE
-//
-// // Récupérez les boutons radio et le champ de saisie
-// const radio1 = document.getElementById("radio1");
-// const radio2 = document.getElementById("radio2");
-// const radio3 = document.getElementById("radio3");
-// const marecherche = document.getElementById("marecherche");
-//
-//
-// // Écoutez les clics sur les boutons radio
-// radio1.addEventListener("click", function() {
-//     marecherche.placeholder = "ID | ex: 442365";
-// });
-//
-// radio2.addEventListener("click", function() {
-//     marecherche.placeholder = "Nom vernaculaire | ex: Pinson familier";
-// });
-//
-// radio3.addEventListener("click", function() {
-//     marecherche.placeholder = "Nom scientifique | ex: Spizella passerina";
-// });
-//
-//
-//
-//
+// PAGE ESPECE
+
+// Récupérez les boutons radio et le champ de saisie
+const radio1 = document.getElementById("radio1");
+const radio2 = document.getElementById("radio2");
+const radio3 = document.getElementById("radio3");
+const marecherche = document.getElementById("marecherche");
+
+
+// Écoutez les clics sur les boutons radio
+radio1.addEventListener("click", function() {
+    marecherche.placeholder = "ID | ex: 442365";
+});
+
+radio2.addEventListener("click", function() {
+    marecherche.placeholder = "Nom vernaculaire | ex: Pinson familier";
+});
+
+radio3.addEventListener("click", function() {
+    marecherche.placeholder = "Nom scientifique | ex: Spizella passerina";
+});
 
