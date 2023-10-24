@@ -1,3 +1,29 @@
+
+.card-top{
+    text-align: center;
+    background-color: #26B2A2;
+    height: 23%;
+}
+
+h2 h3{
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+img{
+    height: 7em;
+    height: 7em;
+    clip-path: circle();
+    border: solid white;
+    position: relative;
+    top:30px;
+    background-size: cover;
+}
+
+
 .flex-contenaire{
     width: 100%;
     height: auto;
@@ -5,18 +31,17 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    text-align:  center;    
 }
 
-h1{
-    text-align: center;
-}
 .flex-box{
     width: 300px;
     height: 400px;
     background: linear-gradient(blue,red);
     color: white;
-    text-align:  center;
-    line-height: 200px;
-    margin: 30px;
+    margin: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+     justify-content: space-between;
 }
-
