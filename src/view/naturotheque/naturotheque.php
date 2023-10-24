@@ -21,8 +21,6 @@
                 <h2>Marius Mabulu</h2>
                 <h3>Age : 20 sexe : homme </h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim. Eius accusamus 
-                    quisquam dignissimos quibusdam fugiat numquam natus tempore! Nostrum dolorum dolores
-                    sequi sed deleniti officiis provident unde nam soluta.
                 </p>
                 <div class="description">
                     <h3> Taille de la naturothèque 9 espèces enregistrées</h3>
