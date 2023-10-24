@@ -20,4 +20,9 @@ h1{
     margin: 30px;
     position: relative;
 }
+.carte-top{
+    background-color: #26B2A2;
+    text-align: center;
+    height: 25%;
+}
 
