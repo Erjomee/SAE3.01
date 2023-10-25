@@ -59,12 +59,14 @@
                 <div class="carteInfo">
                     <h2>Marius Mabulu</h2>
                     <h3>Age : 20     sexe : homme </h3>
+                </div>
+                <div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim. Eius accusamus 
                     </p>
-                    <div class="description">
-                        <h3> Taille de la naturothèque </h3>
-                        <p>9 espèces enregistrées</p>
-                    </div>
+                </div>
+                <div class="description">
+                    <h3> Taille de la naturothèque </h3>
+                    <p>9 espèces enregistrées</p>
                 </div>
             </div>
 

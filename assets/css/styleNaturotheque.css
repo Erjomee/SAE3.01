@@ -43,5 +43,11 @@ img{
     position: relative;
     display: flex;
     flex-direction: column;
-     justify-content: space-between;
+    gap: 30px;
+}
+
+.carteInfo{
+    margin-top: 30px;
+    line-height: 40px;
+
 }
