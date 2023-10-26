@@ -41,17 +41,8 @@
     <div class="contener1">
     
         <h1> Naturothèque </h1>
+        
         <div class="flex-contenaire">
-            <div class="flex-box">
-                <div class="teste">
-                    <h2 class= "identite" >Marius Mabulu</h2>
-                </div>
-                <div class="tete" id="contener3">
-                        <div class="phtotos" id="contener4"></div>
-                </div>
-    
-            </div>
-    
             <div class="flex-box">
                 <div class="card-top">
                     <img src="../assets/img/profil.jpg" alt="">
