@@ -40,6 +40,9 @@
                         <li><input id="radio2" type="radio" name="filtre_f" value="frenchVernacularNames">Nom vernaculaire</li>
                         <li><input id="radio3" type="radio" name="filtre_f" value="scientificNames">Nom scientifique</li>
                     </ul>
+                <!--      Faire un filtre déroulant          -->
+                <h5>Filtre par:</h5>
+
             </div>
         </form>
 
@@ -49,14 +52,14 @@
             if (isset($default)) {
                 echo "<h1>$default</h1>";
             }else{
-                echo "<h3> Résultat de la recherche :</h3>";
+                echo "<h3> Résultat de la recherche:</h3>";
                 // Réponse invalide
                 if (!isset($data)){
                     echo "<h1>Espece introuvable</h1>";
                 }
             }
         ?>
-        <div class="historique">
+        <div class="resultat">
             <!--   à automatiser avec php (mettre les images)         -->
 <!--            <div class="item">-->
 <!--                Item 1-->
@@ -72,8 +75,15 @@
                 if (isset($data)) {
                     foreach ($data['_embedded']['taxa'] as $espece) {
                         echo "<div class='item'>
-                                <p>ID:{$espece['id']}</p>
+                                <img class='img-carte' src='https://taxref.mnhn.fr/api/media/download/inpn/387414'></img>
+                                <div class='information'>
+                                    <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
+                                    <hr>
+                                    <p>{$espece['fullNameHtml']}</p>
+                                    <p>ID:{$espece['id']}</p>
+                                </div>
                             </div>";
+//                        var_dump($espece);
                     }
                 }
             ?>
