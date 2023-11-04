@@ -52,7 +52,7 @@
                     <h3>Age : 20     sexe : homme </h3>
                 </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim. Eius accusamus 
+                    <p>Débloquez ce fichier et bénéficiez d’un accès illimité à plus de 76 235 images Premium. 
                     </p>
                 </div>
                 <div class="description">

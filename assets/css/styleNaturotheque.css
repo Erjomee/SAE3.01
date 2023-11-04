@@ -37,13 +37,19 @@ img{
 .flex-box{
     width: 300px;
     height: 400px;
-    background: gray;
-    color: white;
+    background: rgb(180, 175, 175);
+    color: black;
     margin: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.flex-box:hover{
+    transform: translateY(20px);
 }
 
 .carteInfo{
