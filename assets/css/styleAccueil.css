@@ -174,26 +174,22 @@
     .barre_recherche input[type="search"] {
         width: 74%;
         height: 24px;
-        font-size: 14px; 
-        /* display: block;
-        margin-top: auto;
-        margin-bottom: auto;   */
+        font-size: 10px; 
+        padding-top: 10px;
     } 
 
     .barre_recherche button {
-        width: 24%;
+        width: 23%;
         padding: 8px;
         height: 24px;
         font-size:11px;
-        /* display: block;
-        margin-top: auto;
-        margin-bottom: auto;    */
+       
     }
     
     /*SLIDER*/
     .slider{
         width: 100%;
-        height: 110px;
+        height: 30px;
     }
     
     .slider img {
@@ -230,10 +226,10 @@
     }
     
     .div_decouvrir input[type="button"]{
-        width: 70px;
-        height: 30px;
-        font-size: 12px;
-        font-weight: 100;
+        width: 130px;
+        height: 40%;
+        font-size: 12px;  
+        font-weight: 70;
     }
 
     .div_decouvrir h3{
@@ -247,7 +243,7 @@
     /*SLIDER*/
     .slider{
         width: 100%;
-        height: 500px;
+        height: 530px;
     }
     
     .slider img {
@@ -256,14 +252,11 @@
     }
 
     .div_decouvrir input[type="button"]{
-        width: 90px;
-        height: 50px;
-        font-size: 12px;
-        font-weight: 100;
-    }
+       font-size :20px;
+    } 
 
     .div_decouvrir h3{
-        padding-right: 1050px;
+        padding-right: 1150px;
     }
     
 }
