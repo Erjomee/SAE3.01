@@ -37,13 +37,50 @@ img{
 .flex-box{
     width: 300px;
     height: 400px;
-    background: gray;
-    color: white;
+    background: rgb(180, 175, 175);
+    color: black;
     margin: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.flex-box:hover{
+    transform: translateY(20px);
+}
+
+.flex-box:hover:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,176,155,0.5), rgba(150,201,61,1));
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.flex-box:hover::before{
+    opacity: 1;
+}
+
+.btn{
+    width: 300px;
+    height: 50px;
+}
+.info:hover {
+    position: relative;
+    z-index: 3;
+    color: black;
+    opacity: 1;
+    transform: translateY(30px);
+    transition: all 0.5s;
 }
 
 .carteInfo{
