@@ -40,6 +40,7 @@ main{
 }
 
 footer{
+    margin-top: 50px;
     padding: 70px 10px;
     display: block;
     background-color: rgb(29, 31, 47);

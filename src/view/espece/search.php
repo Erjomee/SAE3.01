@@ -25,7 +25,7 @@
             <nav class="nav_recherche">
                 <input type="hidden"  name="controller" value="espece">
                 <input type="hidden"  name="action" value="searchBy">
-                <input type="search" id="marecherche" name="recherche" placeholder="ID | ex: 442365">
+                <input type="search" id="marecherche" name="recherche" placeholder="ID | ex: 442365" required>
 
                 <button type="submit">Rechercher</button>
                 <span class="validity"></span>
@@ -37,9 +37,13 @@
                 <h5>Recherche par:</h5>
                     <ul>
                         <li><input id="radio1" type="radio" name="filtre_f" value="taxrefIds" checked>ID espece</li>
-                        <li><input id="radio2" type="radio" name="filtre_f" value="frenchVernacularNames">Nom vernaculaire</li>
+                        <li><input id="radio2" type="radio" name="filtre_f" value="frenchVernacularNames" >Nom vernaculaire</li>
                         <li><input id="radio3" type="radio" name="filtre_f" value="scientificNames">Nom scientifique</li>
                     </ul>
+                <div class="page_preference">
+                    <h5>Page : <input type="number" name="page" value="1" step="1"></h5>
+                    <h5>Size : <input type="number" name="size" value="9" step="1"></h5>
+                </div>
                 <!--      Faire un filtre déroulant          -->
                 <h5>Filtre par:</h5>
 
@@ -67,15 +71,18 @@
 <!--            <div class="item">-->
 <!--                Item 2-->
 <!--            </div>-->
-<!--            <div class="item">-->
-<!--                Item 3-->
-<!--            </div>-->
             <?php
                 // Recherche saisie avec une réponse valide
                 if (isset($data)) {
-                    foreach ($data['_embedded']['taxa'] as $espece) {
+                    foreach ($data as $espece) {
+                        if (isset($espece["_links"]["media"])){
+                            $image = $espece["_links"]["media"][0];
+                        }else{
+                            $image = 'https://taxref.mnhn.fr/api/media/download/inpn/387409';
+                        }
+
                         echo "<div class='item'>
-                                <img class='img-carte' src='https://taxref.mnhn.fr/api/media/download/inpn/387414'></img>
+                                <img class='img-carte' src={$image}></img>
                                 <div class='information'>
                                     <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
                                     <hr>
@@ -83,7 +90,7 @@
                                     <p>ID:{$espece['id']}</p>
                                 </div>
                             </div>";
-//                        var_dump($espece);
+//                        var_dump($espece['_links']['media']);
                     }
                 }
             ?>

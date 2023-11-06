@@ -64,7 +64,7 @@ if(isset($_GET["action"])){
     // Action du controller Espece
     elseif ( $controllerClassName == "App\Naturotheque\Controller\ControllerEspece"){
         if ($action == "searchBy"){
-            $controllerClassName::$action($_GET["filtre_f"] , $_GET["recherche"]);
+            ControllerEspece::searchBy($_GET["filtre_f"] , $_GET["recherche"], $_GET["page"] , $_GET["size"]);
         }
 
     }
