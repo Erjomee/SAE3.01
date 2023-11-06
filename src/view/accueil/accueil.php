@@ -1,9 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+</head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- BARRE RECHERCHE -->
 <form>
-        <nav class="nav_recherche">
+        <nav class="barre_recherche">
             <input type="search" id="marecherche" name="recherche" placeholder="Rechercher sur le site">
             <button type="submit">Rechercher</button>
+            
             <span class="validity"></span>
         </nav>
 </form>
@@ -85,7 +94,7 @@ setInterval(function() {
 
 
 <!--Espace Videos-->
-<div class="div_videos">
+<!-- <div class="div_videos">
 <h3>Vidéos</h3>
     <div class="video">
         <iframe width="280" height="161" src="https://www.youtube.com/embed/aOnmucUbDUw?si=p3MQNzw7qYWF5R6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
@@ -96,9 +105,9 @@ setInterval(function() {
     <div class="video">
     <iframe width="280" height="161" src="https://www.youtube.com/embed/-2PGG33W2Eg?si=T_f5CytPDX1Cga50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-</div>
+</div> -->
 
-
+</html>
 
 
 
