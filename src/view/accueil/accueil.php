@@ -80,15 +80,55 @@ setInterval(function() {
 }, 3000)
         </script>
 
+<!--ARTICLE 1 - ESCARGOT -->
+<div class ="div_article1">
+    <div class = "text">
+        <p>Dès que la pluie est là, ils pointent le bout de leurs antennes. Connus de tous, les escargots sont pourtant pleins de mystères.
+            En France, 691 espèces sont recensées par l’Inventaire national du patrimoine naturel (INPN). 
+            Parmi elles, un tiers n’existe nulle part ailleurs dans le monde. Aucun doute : l’Hexagone est bien le pays du plus célèbre des mollusques terrestres.
+        </p>
+    </div>
+
+    <a class = "button_link" href="https://actu.fr/planete/biodiversite/escargots-dans-votre-jardin-vous-pouvez-aider-les-scientifiques-a-les-sauver_59288356.html" target="_blank">
+        <button>En savoir plus</button>
+    </a>
+
+
+    <img src="../assets/img/escargot.jpg" height="300" widht="150" alt="image_escargot" class="img_article">
+
+</div>
+
+<!-- ARTICLE 2 - FOURMI -->
+<div class="div_article2">
+    <div class = "text">
+   
+        <h4>"Une des 3 fourmis les plus envahissantes au monde"</h4>
+        <p>
+            De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
+            "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. 
+            L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
+        </p>
+    </div>
+    <img src="../assets/img/fourmi.jpg" height="300" widht ="300" alt="image_fourmi" class="img_article2" >
+
+    <a class = "button_link" href="https://www.bfmtv.com/var/la-fourmi-electrique-une-espece-invasive-detectee-pour-la-premiere-fois-en-france-a-toulon_AN-202210200394.html" target="_blank">
+        <button>En savoir plus</button>
+    </a>
+
+</div>
+
 <!--Se connecter-->
 <div class="div_connecter">
-		<input type="button" value="Se connecter">
+        <a href="http://localhost/SAE3.01/web/frontController.php?controller=utilisateur&action=connection">
+        <button>Se connecter</button>
+    </a>
 </div>
 
 <!--Decouvrir-->
 <div class="div_decouvrir">
     <h3>75,4 Espèces</h3>
-    <input type="button" value="Découvrir">
+    <a href="http://127.0.0.1/SAE3.01/decouvrir.php">
+        <button>Découvrir</button>
     
 </div>
 
