@@ -82,38 +82,54 @@ setInterval(function() {
 
 <!--ARTICLE 1 - ESCARGOT -->
 <div class ="div_article1">
-    <div class = "text">
+    <img src="../assets/img/escargot.jpg" height="430" widht="300" alt="image_escargot" class="img_article">
+
+    <div class = "div_text1"> 
+
+        <h2>"11 % des escargots sont menacés"</h2>
         <p>Dès que la pluie est là, ils pointent le bout de leurs antennes. Connus de tous, les escargots sont pourtant pleins de mystères.
             En France, 691 espèces sont recensées par l’Inventaire national du patrimoine naturel (INPN). 
             Parmi elles, un tiers n’existe nulle part ailleurs dans le monde. Aucun doute : l’Hexagone est bien le pays du plus célèbre des mollusques terrestres.
-        </p>
+            Et pourtant, on ne fait pas assez pour ces petites bêtes. L’INPN établit que 41 % des espèces, soit près de la moitié, sont trop mal connues en France pour que leur statut de conservation puisse être évalué. 
+            Pour contrecarrer ces données insuffisantes, vous pouvez agir. En avril 2023, le Muséum national d’Histoire naturelle a lancé une « opération escargots ». 
+            On vous explique de quoi il s’agit et comment vous pouvez contribuer.
+        </p> 
+
+        <div class = "div_button">
+        <a class = "button_link" href="https://actu.fr/planete/biodiversite/escargots-dans-votre-jardin-vous-pouvez-aider-les-scientifiques-a-les-sauver_59288356.html" target="_blank">
+        <button>En savoir plus</button>
+        </a>
+        </div> 
+
     </div>
 
-    <a class = "button_link" href="https://actu.fr/planete/biodiversite/escargots-dans-votre-jardin-vous-pouvez-aider-les-scientifiques-a-les-sauver_59288356.html" target="_blank">
-        <button>En savoir plus</button>
-    </a>
+   
+    
 
-
-    <img src="../assets/img/escargot.jpg" height="300" widht="150" alt="image_escargot" class="img_article">
-
+    
 </div>
 
 <!-- ARTICLE 2 - FOURMI -->
 <div class="div_article2">
-    <div class = "text">
+    <div class = "div_text2">
    
-        <h4>"Une des 3 fourmis les plus envahissantes au monde"</h4>
+        <h2>"Une des 3 fourmis les plus envahissantes au monde"</h2>
         <p>
             De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
             "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. 
             L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
+            Mais l'espèce étant facilement transportée dans des plantes ou des déchets verts, "il est probable que d'autres zones soient envahies", précise l'INPN.
         </p>
-    </div>
-    <img src="../assets/img/fourmi.jpg" height="300" widht ="300" alt="image_fourmi" class="img_article2" >
 
-    <a class = "button_link" href="https://www.bfmtv.com/var/la-fourmi-electrique-une-espece-invasive-detectee-pour-la-premiere-fois-en-france-a-toulon_AN-202210200394.html" target="_blank">
+        <div class="div_button2">
+        <a class = "button_link" href="https://www.bfmtv.com/var/la-fourmi-electrique-une-espece-invasive-detectee-pour-la-premiere-fois-en-france-a-toulon_AN-202210200394.html" target="_blank">
         <button>En savoir plus</button>
-    </a>
+        </a>
+        </div>
+
+    </div>
+    <img src="../assets/img/fourmi.jpg" height="430" widht ="300" alt="image_fourmi" class="img_article2" >
+
 
 </div>
 
@@ -133,8 +149,8 @@ setInterval(function() {
 </div>
 
 
-<!--Espace Videos-->
-<!-- <div class="div_videos">
+<!-- Espace Videos-->
+<div class="div_videos">
 <h3>Vidéos</h3>
     <div class="video">
         <iframe width="280" height="161" src="https://www.youtube.com/embed/aOnmucUbDUw?si=p3MQNzw7qYWF5R6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
@@ -145,7 +161,7 @@ setInterval(function() {
     <div class="video">
     <iframe width="280" height="161" src="https://www.youtube.com/embed/-2PGG33W2Eg?si=T_f5CytPDX1Cga50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-</div> -->
+</div>
 
 </html>
 
