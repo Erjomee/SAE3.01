@@ -37,7 +37,7 @@ img{
 .flex-box{
     width: 300px;
     height: 400px;
-    background: rgb(180, 175, 175);
+    background: #D9D9D9;
     color: black;
     margin: 20px;
     position: relative;
@@ -52,34 +52,54 @@ img{
     transform: translateY(20px);
 }
 
-.flex-box:hover:before{
+.btn{
+    width: 220px;
+    height: 50px;
+    position: relative;
+    left: 50px;
+    bottom: 180px;
+    border-radius: 150px;
+    display: none;
+    text-decoration: none;
+    z-index: 4;
+    text-align: center;
+    background: #26B2A2;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+
+}
+
+.flex-box:hover:after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,176,155,0.5), rgba(150,201,61,1));
+    width: 300px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.528);
     z-index: 2;
     opacity: 1;
     transition: all 0.5s;
+
+
 }
 
-.flex-box:hover::before{
-    opacity: 1;
+.flex-box:hover .btn{
+    display: block;
 }
 
-.btn{
-    width: 300px;
-    height: 50px;
-}
-.info:hover {
+
+
+
+
+.btn:hover{
     position: relative;
-    z-index: 3;
+    z-index: 4;
     color: black;
     opacity: 1;
-    transform: translateY(30px);
+    transform: translateY(-20px);
     transition: all 0.5s;
 }
 

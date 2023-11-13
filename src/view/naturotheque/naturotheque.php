@@ -59,9 +59,20 @@
                     <h3> Taille de la naturothèque </h3>
                     <p>9 espèces enregistrées</p>
                 </div>
+                <div class="info">
+                    <button  class="btn">Découvrir</button>
+                </div>
             </div>
 
             <div class="flex-box">box 3</div>
+            <div class="flex-box">box 3</div>
+            <div class="flex-box">box 4</div>
+            <div class="flex-box">box 5</div>
+            <div class="flex-box">box 1</div>
+            <div class="flex-box">box 2</div>
+            <div class="flex-box">box 3</div>
+            <div class="flex-box">box 4</div>
+            <div class="flex-box">box 5</div>
            
         </div>
 </body>
@@ -70,6 +81,6 @@
 <?php
 
 
-    // echo "<h1> Naturothèque </h1>";
+    echo "<h1> Naturothèque </h1>";
 
 ?> 
