@@ -6,10 +6,7 @@ namespace App\Naturotheque\Controller;
 class ControllerNaturotheque{
 
     public static function readAll() : void {
-        ControllerNaturotheque::afficheVue("view.php" ,[ "utilisateurs" => "jerome",
-                                                                    "pagetitle" => "Page Naturotheque",
-                                                                    "style" => "Naturotheque",
-                                                                    "cheminVueBody" => "naturotheque/naturotheque.php"]);
+        ControllerUtilisateur::getUtilisateurConnecte();
     }
 
     // Méthode qui affiche la page error

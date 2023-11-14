@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Naturotheque\Controller;
+
+use App\Naturotheque\Model\DataObject\Utilisateur;
 use App\Naturotheque\Model\Repository\UtilisateurRepository;
 
 
@@ -33,6 +35,16 @@ class ControllerUtilisateur{
             UtilisateurRepository::sauvegarder($utilisateur);
             ControllerAccueil::readAll();
         }
+    }
+
+    public static function getUtilisateurConnecte(): void{
+        $users = UtilisateurRepository::getUtilisateurConnecte();
+        ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
+                                                                    "pagetitle" => "Page Naturotheque",
+                                                                    "style" => "Naturotheque",
+                                                                    "cheminVueBody" => "naturotheque/naturotheque.php",
+                                                                    "users" => $users,]);
+
     }
 
 
