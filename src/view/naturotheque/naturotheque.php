@@ -27,9 +27,13 @@
                         <button  class='btn'>Découvrir</button>
                     </div>
                 </div>";
+
+                var_dump($values['photo_profil']);
                 }
             ?>   
         </div>
 </body>
+
+<!-- {$values['photo_profil']} -->
 
 
