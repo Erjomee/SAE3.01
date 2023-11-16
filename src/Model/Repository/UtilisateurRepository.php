@@ -71,8 +71,8 @@ class UtilisateurRepository{
 
             $age = $aujourdhui -> diff($utilisateur)->y;
 
-            if ($util['photo_profil'] === null) {
-                $util['photo_profil'] = '../assets/img/profil.jpg'; 
+            if ($util['photo_profil'] == null) {
+                $util['photo_profil'] = '../../assets/img/profil.jpg'; 
             }
             if ($util['sexe'] === null) {
                 $util['sexe'] = 'indefini'; 
@@ -80,8 +80,6 @@ class UtilisateurRepository{
 
 
         }
-        // echo "vous avez " . $age . "ans";
-        // Retourner les utilisateurs
         return $users;
        }
 
