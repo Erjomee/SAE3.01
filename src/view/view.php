@@ -107,6 +107,8 @@
 
 
         <script src="./../assets/js/script.js"></script>
+        <script src="./../assets/js/scriptEspece.js"></script>
+
     </body>
 
 </html>

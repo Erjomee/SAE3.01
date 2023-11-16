@@ -2,6 +2,7 @@
 
 namespace App\Naturotheque\Model\Repository;
 use App\Naturotheque\Model\DataObject\Espece;
+//use App\Naturotheque\;
 
 class EspeceRepository{
 
@@ -78,7 +79,9 @@ class EspeceRepository{
                     } else {  // Image introuvable
                         $data[$index]["_links"]["media"] = null;
                     }
+//                    setcookie($data[$index]["referenceId"],json_encode($data[$index]));
                 }
+
                 return $data;
             }else{  // Espece introuvable
                 return null;

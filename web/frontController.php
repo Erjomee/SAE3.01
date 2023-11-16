@@ -69,7 +69,6 @@ if(isset($_GET["action"])){
 
     }
 
-
     // Action inconnue
     else{
         ControllerAccueil::error("Action inconnue");

@@ -1,6 +1,7 @@
 <?php
 namespace App\Naturotheque\Controller ;
 use App\Naturotheque\Model\Repository\EspeceRepository;
+use App\Naturotheque\Model\HTTP\Cookie;
 
 class ControllerEspece{
 
@@ -17,19 +18,40 @@ class ControllerEspece{
         // Retrouver toutes les anciennes recherche d'espece enregister dans une table historique (à creer
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
 
-        $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
 
-        if (isset($data)){
-            ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
-                                                                    "style" => "Espece",
-                                                                    "data" => $data,
-                                                                    "cheminVueBody" => "espece/search.php",]);
+        $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
+        $result = "";
+
+        if (isset($data)) {
+            foreach ($data as $espece) {
+                if (isset($espece["_links"]["media"])){
+                    $image = $espece["_links"]["media"][0];
+                }else{
+                    $image = '../assets/img/img_not_found.png';
+                }
+
+                $result .= "<div class='item'>
+                        <img class='img-carte' src={$image}>
+                        <div class='information'>
+                            <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
+                            <hr>
+                            <button class='btn_detail' name='id' value={$espece['id']}> Détails</button>
+                            <p>{$espece['fullNameHtml']}</p>
+                            <p>ID:{$espece['id']}</p>
+                        </div>
+                    </div>";
+            }
+            $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
+                "result" => $result);
         }else{
-            ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
-                                                                    "style" => "Espece",
-                                                                    "data" => null,
-                                                                    "cheminVueBody" => "espece/search.php",]);
+            $paquet = array( "default" => "<h1>Espece introuvable<h1>",
+                "result" => null);
         }
+
+        $json_data = json_encode($paquet);
+
+        header('Content-Type: application/json');
+        echo $json_data ;
     }
 
 
@@ -40,6 +62,4 @@ class ControllerEspece{
 
         require __DIR__ . "/../view/$cheminVue";
     }
-}
-
-?>
+}?>

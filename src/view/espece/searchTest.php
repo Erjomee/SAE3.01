@@ -38,9 +38,10 @@
 
         <hr>
 
-        <!--  Utilisation de script      -->
+
         <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
         <div id="resultat"></div>
+
 
     </div>
 </div>

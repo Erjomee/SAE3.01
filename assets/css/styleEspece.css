@@ -103,7 +103,7 @@ header{
     margin-bottom: 15px;
 }
 
-.container .resultat {
+.container #resultat {
     /*margin-top: 15px;*/
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(calc(300px - 30px), 1fr));
@@ -111,7 +111,8 @@ header{
     padding: 30px 0;
 }
 
-.resultat .item {
+#resultat .item {
+    position: relative; /* Pour que la position absolue du bouton soit basée sur la div.item */
     width: 100%;
     border: 2px solid black;
     background-color: lightsteelblue;
@@ -119,20 +120,16 @@ header{
     height: 140px;
     padding: 3%;
     display: flex;
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*text-align: center;*/
 }
 
-.resultat .img-carte{
+#resultat .img-carte{
     width: 120px;
     height: 100%;
     display: flex;
     border-radius: 100px;
 }
 
-.resultat .information{
+#resultat .information{
     margin-left: 10px;
     display: flex;
     flex-direction: column;
@@ -142,7 +139,7 @@ header{
     /*background-color: red;*/
 }
 
-.resultat .information hr{
+#resultat .information hr{
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -153,7 +150,7 @@ header{
 }
 
 
-.resultat p{
+#resultat p{
     /*margin-bottom: 15px;*/
     /*background-color: red;*/
     font-size: 14px;
@@ -171,6 +168,32 @@ header{
 
 .page_preference input{
     width: 80px;
+}
+
+.btn_detail{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrer le bouton au milieu de la div.item */
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    font-size: 16px;
+}
+
+
+.item:hover{
+    opacity: 0.5;
+}
+
+
+.item:hover .btn_detail{
+    opacity: 1;
+    display: inline;
 }
 
 @media (max-width: 980px){
