@@ -63,25 +63,21 @@ class UtilisateurRepository{
         // Récupérer les résultats de la requête
         $users = $pdoStatement->fetchAll();
 
-        foreach($users as $util){
 
-
-            $aujourdhui = new DateTime();
-            $utilisateur = new DateTime($util['dnaissance']);
-
-            $age = $aujourdhui -> diff($utilisateur)->y;
-
-            if ($util['photo_profil'] == null) {
-                $util['photo_profil'] = '../../assets/img/profil.jpg'; 
+        for ($i=0; $i < sizeof($users); $i++) { 
+            if ($users[$i]['photo_profil'] == null){
+                $users[$i]['photo_profil'] = "../assets/img/profil.jpg";
             }
-            if ($util['sexe'] === null) {
-                $util['sexe'] = 'indefini'; 
+            if ($users[$i]['sexe'] == null){
+                $users[$i]['sexe'] = 'indefini';
             }
 
+            
 
         }
         return $users;
        }
+       
 
 
 
