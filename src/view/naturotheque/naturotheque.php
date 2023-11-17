@@ -9,7 +9,7 @@
                 $age = date_diff(date_create($values['dnaissance']), date_create('now'))->y;
                 echo"<div class='flex-box'>
                     <div class='card-top'>
-                        <img src='../assets/img/profil.jpg' alt=''>
+                        <img src={$values['photo_profil']} alt=''>
                     </div>
                     <div class='carteInfo'>
                         <h2>{$values['prenom']} {$values['nom']}</h2>
@@ -27,13 +27,11 @@
                         <button  class='btn'>Découvrir</button>
                     </div>
                 </div>";
-
-                var_dump($values['photo_profil']);
-                }
+                
+            }
             ?>   
         </div>
 </body>
 
-<!-- {$values['photo_profil']} -->
 
 
