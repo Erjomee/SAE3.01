@@ -8,7 +8,6 @@ function rechercher(){
     var url = 'frontController.php?';
     var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page + "&size=" + size;
 
-    console.log(url + params)
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             // document.getElementById('resultat').innerHTML = xhr.responseText;
@@ -20,5 +19,13 @@ function rechercher(){
     };
     xhr.open("GET", url + params, true);
     xhr.send(null);
-
 }
+
+//
+//
+// function more_info(): void{
+//
+//
+//
+//
+// }
