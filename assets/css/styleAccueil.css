@@ -216,6 +216,10 @@
    color: #26B2A2 !important;
 }
 
+.div_connecter h3:hover {
+    opacity: 0.3;
+}
+
 .div_connecter button {
     background-color: #fff; /* Couleur du texte */
     width: 220px;
@@ -240,6 +244,7 @@
 .second{
     margin-left: 17%;
 }
+
 /******DECOUVRIR******/
 .div_decouvrir{
     margin-top: 50px;
@@ -326,7 +331,7 @@
 
 .div_infos button{
     background-color:#26B2A2; 
-    width: 17%;
+    width: 20%;
     height: 10%;
     border: 1px solid lightgray;
     cursor: pointer;
