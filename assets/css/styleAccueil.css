@@ -6,6 +6,7 @@
     box-sizing: border-box;
     height: 60px;
 }
+
 /* Style pour le champ de recherche */
 .barre_recherche input[type="search"] {
     width: 84%;
@@ -18,6 +19,7 @@
     outline: none;
     border-radius: 3px;
 }
+
 /* Style pour le bouton "Rechercher" */
 .barre_recherche button {
     width: 15%;
@@ -32,15 +34,18 @@
 }
 
 /*SLIDER*/
-* {
-    margin: 0;
+/*  {
+     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
+    box-sizing: border-box; 
+} */
 
 .slider {
-    height: 80vh;
+    height: 82vh;
     position: relative;
+    width: 100%;
+    padding: 0; 
+    margin: 0; 
 }
 
 .slider img {
@@ -78,10 +83,9 @@
 /* ARTICLES */
 
 .div_text1 p, .div_text2 p{
-    /* background-color: bisque; */
     text-align: justify;
     vertical-align: middle;
-    font-size: large;
+    font-size: 15px;
     font-family: 'Accord Light';
     flex-direction: column;
     display: flex;
@@ -102,11 +106,9 @@
  
 .div_article1{
     height: 32rem;
-    background-color: #D9D9D9;
     margin-top:50px;
     display: flex; 
-    justify-content: space-between;
-     
+    justify-content: space-between;    
 }
 
 .img_artcle1{
@@ -119,9 +121,10 @@
  .div_article1 img{
     display: block;
     margin-right: 0;
-    margin-top:40px;
+    margin-top:7%;
     margin-left: 50px;
     object-position: left bottom;
+    border-radius: 10px;
 }
 
 
@@ -140,8 +143,7 @@
     /* position: absolute; */
     margin-top: 40px;
     justify-content: center;
-    align-items: center;
-   
+    align-items: center;  
 }
 
 /*--------ARTICLE 2 ------*/
@@ -152,16 +154,14 @@
 }
 
 .div_text2{
-    margin-top: 7%;
-    /* margin-left: 8%; */
-    margin-left: 3%;
+    margin-top: 3%;
+    margin-right: 8%;
     width: 40%;
 }
 
 .div_article2{
     margin-top : 30px;
     height: 32rem;
-    background-color: #D9D9D9;
     margin-top:50px;
     display: flex; 
     justify-content: space-between;   
@@ -169,18 +169,22 @@
 
 .div_article2 img{
     display: block;
-    margin-left: 0; 
-    margin-top:40px;
-    margin-right: 50px;
-    object-position: right bottom; 
+    margin-top: 3%;
+    /* margin-top:10px; */
+    margin-left: 50px;
+    object-position: left bottom;
+    border-radius: 10px;
 }
 
 
 .div_article2 button{
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
     cursor: pointer;
     background-color:#26B2A2;  
-     width: 20%;
-    height: 40px; 
+    width: 20%;
+    height: 40px;
     border: 1px solid lightgray;
     color:#fff;
     font-size: 13px;
@@ -188,11 +192,12 @@
     /* position: absolute; */
     margin-top: 40px;
     justify-content: center;
-    align-items: center;
-    border-radius: 2px;
+    align-items: center;  
 }
-  
-/* SE CONNECTER */
+
+
+
+/***** SE CONNECTER *****/
 .div_connecter {
     margin-top: 40px;
     background-color: #26B2A2;
@@ -200,7 +205,8 @@
     height: 60px;
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    align-items: center;
+    color: white; 
 
 }
 .a_connecter {
@@ -221,12 +227,26 @@
     font-weight: 100;
 }
 
+.separation{
+    width: 1px;
+    height: 60px;
+    background: #fff;
+}
+
+.first{
+    margin-right:17%;
+}
+
+.second{
+    margin-left: 17%;
+}
+/******DECOUVRIR******/
 .div_decouvrir{
     margin-top: 50px;
-    background-color: #D9D9D9;
+    background-color: #EFEFEF; 
     color: #26B2A2;
     width: 100%;
-    height: 160px;
+    height: 369px;
     display: flex; 
     justify-content: center; 
     align-items: right; 
@@ -245,14 +265,95 @@
     color:#fff;
     font-size: 25px;
     font-weight: 100;
+    border-radius: 10px;
+    
 }
 
 .div_decouvrir h3{
     padding-right: 1050px;
 }
 
+
+/***** DIV INFO ******/
+.div_infos{
+    margin-top: 10px;
+    width: 100%;
+    /* background-color: #26B2A2; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40vh;
+
+}
+
+.div_infos .partie1, .partie2, .partie3{
+    width: 33.3%; 
+    height: 40vh; 
+    /* border: 1px solid #ccc; */
+    text-align: center;
+    line-height: 100px; 
+    color: white;
+    font-size: 1.5em;
+}
+
+.cercle{
+    margin-top: 10%;
+    margin-left: 43%;
+    margin-right: 50%;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-color: #26B2A2;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.div_infos {
+    justify-content: center;
+}
+
+.div_infos p{
+    margin-top: 5%;
+    color: #423F3F;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+} 
+
+.div_infos button{
+    background-color:#26B2A2; 
+    width: 17%;
+    height: 10%;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    color:#fff;
+    font-size: 12px;
+    font-weight: 100;
+    border-radius: 5px;
+    margin-top: 2%;
+    /* text-transform: uppercase; */
+}
+
+.div_p{
+    height :20%;
+    width: 40%;
+    justify-content: center;
+    margin-left: 30%;
+    margin-top: 7%;
+    margin-bottom: 0;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+
 /* section vidéo */
-.div_videos h3{
+/* .div_videos h3{
     margin-bottom: 221px;
     text-align: center;     
 }
@@ -271,12 +372,12 @@
 
 .video{
     flex: 1; /* Fait en sorte que les divs aient la même largeur */
-    text-align: center;
+    /* text-align: center;
     padding: 10px;
     margin: 10px;
     width: 10px;
     display: flex;
-}
+} */ 
 
 
 /*RESPONSIVE*/
@@ -353,6 +454,7 @@
         height: 40%;
         font-size: 12px;  
         font-weight: 70;
+        font-family: Inter;
     }
 
     .div_decouvrir h3{
@@ -387,3 +489,7 @@
 @media (min-width: 1200px) {
  
 }
+
+
+
+/*#CDD3DA*/

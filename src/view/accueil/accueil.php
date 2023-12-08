@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<!-- BARRE RECHERCHE -->
+
+<!-- RECHERCHE -->
 <form>
-        <nav class="barre_recherche">
+        
+<nav class="barre_recherche">
             <input type="search" id="marecherche" name="recherche" placeholder="Rechercher sur le site">
             <button type="submit">Rechercher</button>
             
@@ -19,7 +24,7 @@
 
 <!-- SLIDER -->
 <div class="slider">
-        <img src="../assets/img/oiseau.jpg" alt="img1" class="img__slider active" />
+        <img src="../assets/img/test2.jpg" alt="img1" class="img__slider active" />
         <img src="../assets/img/ecureil.jpg" alt="img2" class="img__slider" />
         <img src="../assets/img/chevreuil.jpg" alt="img3" class="img__slider" />
         <img src="../assets/img/ours.jpg" alt="img4" class="img__slider" />
@@ -41,20 +46,20 @@
 
 let etape = 0;
 
-let nbr__img = img__slider.length;
+let nb__img = img__slider.length;
 
 let precedent = document.querySelector('.precedent');
 let suivant = document.querySelector('.suivant');
 
 function enleverActiveImages() {
-    for(let i = 0 ; i < nbr__img ; i++) {
+    for(let i = 0 ; i < nb__img ; i++) {
         img__slider[i].classList.remove('active');
     }
 }
 
 suivant.addEventListener('click', function() {
     etape++;
-    if(etape >= nbr__img) {
+    if(etape >= nb__img) {
         etape = 0;
     }
     enleverActiveImages();
@@ -64,7 +69,7 @@ suivant.addEventListener('click', function() {
 precedent.addEventListener('click', function() {
     etape--;
     if(etape < 0) {
-        etape = nbr__img - 1;
+        etape = nb__img - 1;
     }
     enleverActiveImages();
     img__slider[etape].classList.add('active');
@@ -72,7 +77,7 @@ precedent.addEventListener('click', function() {
 
 setInterval(function() {
     etape++;
-    if(etape >= nbr__img) {
+    if(etape >= nb__img) {
         etape = 0;
     }
     enleverActiveImages();
@@ -80,9 +85,19 @@ setInterval(function() {
 }, 3000)
         </script>
 
+<!-- Se connecter-->
+<div class="div_connecter">
+    <h3 class="first">Accéder à ma Naturothèque</h3>
+    <div class = "separation">
+    </div>
+    <h3 class = "second"> Vous n’êtes pas encore inscrit </h3>
+
+</div>
+
+
 <!--ARTICLE 1 - ESCARGOT -->
 <div class ="div_article1">
-    <img src="../assets/img/escargot.jpg" height="430" widht="300" alt="image_escargot" class="img_article">
+    <img src="../assets/img/escargot.jpg" height="300" widht="300" alt="image_escargot" class="img_article">
 
     <div class = "div_text1"> 
 
@@ -111,6 +126,11 @@ setInterval(function() {
 
 <!-- ARTICLE 2 - FOURMI -->
 <div class="div_article2">
+
+    <img src="../assets/img/fourmi.jpg" height="300" widht ="300" alt="image_fourmi" class="img_article2" >
+
+
+
     <div class = "div_text2">
    
         <h2>"Une des 3 fourmis les plus envahissantes au monde"</h2>
@@ -119,38 +139,81 @@ setInterval(function() {
             "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. 
             L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
             Mais l'espèce étant facilement transportée dans des plantes ou des déchets verts, "il est probable que d'autres zones soient envahies", précise l'INPN.
-        </p>
+        </p> 
 
         <div class="div_button2">
         <a class = "button_link" href="https://www.bfmtv.com/var/la-fourmi-electrique-une-espece-invasive-detectee-pour-la-premiere-fois-en-france-a-toulon_AN-202210200394.html" target="_blank">
         <button>En savoir plus</button>
-        </a>
+        </a> 
         </div>
-
-    </div>
-    <img src="../assets/img/fourmi.jpg" height="430" widht ="300" alt="image_fourmi" class="img_article2" >
-
-
+</div>
 </div>
 
-<!--Se connecter-->
-<div class="div_connecter">
+
+
+        <!-- Découvrir -->
+        <div class =div_decouvrir>
+            <h3> 75.4 millions d'espèces</h3>
+        </div>
+
+        <!--infos-->
+
+        <div class="div_infos">
+            
+            <div class = "partie1">
+                <div class = "cercle">
+                    <i class="fi fi-sr-badge"></i> 
+                </div> 
+                <div class ="div_p">
+                    <p>Découvrez l'espèce la plus consultée, pour en apprendre davantage sur cette espèce fascinante </p>    
+                </div>   
+                <a class = "button_link" href="">
+                    <button>En savoir plus</button>
+            </div>
+        
+            <div class = "partie2">
+                <div class = "cercle">
+                    <i class="fi fi-sr-map-marker"></i>
+                </div>
+                <div class = "div_p">
+                    <p>Explorez votre environnement en découvrant les différentes espèces qui vous entourent</p>
+                </div>
+                <a class = "button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php">
+                <button>Découvrir</button> 
+            </div>
+            
+            <div class = "partie3">
+                <div class ="cercle">
+                    <i class="fi fi-sr-bookmark"></i>
+                </div>
+                <div class="div_p">
+                    <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>       
+                </div>
+                <a class = "button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll" target="_blank">
+                <button>Naturothèques</button>
+            </div>
+        </div>
+       
+<!-- Se connecter-->
+<!-- <div class="div_connecter">
+    <h3>Acceder à ma Naturothèque</h3>
+
         <a href="http://localhost/SAE3.01/web/frontController.php?controller=utilisateur&action=connection">
         <button>Se connecter</button>
     </a>
-</div>
+</div> -->
 
 <!--Decouvrir-->
-<div class="div_decouvrir">
+<!-- <div class="div_decouvrir">
     <h3>75,4 Espèces</h3>
     <a href="http://127.0.0.1/SAE3.01/decouvrir.php">
         <button>Découvrir</button>
     
 </div>
-
+ -->
 
 <!-- Espace Videos-->
-<div class="div_videos">
+<!-- <div class="div_videos">
 <h3>Vidéos</h3>
     <div class="video">
         <iframe width="280" height="161" src="https://www.youtube.com/embed/aOnmucUbDUw?si=p3MQNzw7qYWF5R6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
@@ -161,16 +224,9 @@ setInterval(function() {
     <div class="video">
     <iframe width="280" height="161" src="https://www.youtube.com/embed/-2PGG33W2Eg?si=T_f5CytPDX1Cga50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-</div>
+</div> -->
 
 </html>
-
-
-
-
-<div>
-    <p> bonjour </p>
-    </div>
 
 
 <?php
