@@ -19,14 +19,14 @@
         <header>
             <!-- Right part (logo) -->
             <div class="logo">
-                <p><a href="http://127.0.0.1/SAE3.01">Logo</a></p>
+                <img src="./../assets/img/sae_logo.png" height="170px">
             </div>
             <!-- Middle part (item) -->
             <nav>
                 <ul class="nav-list">
                     <li class="item">
                         <a href="frontController.php?controller=accueil&action=readAll" <?php if ($style == "Accueil") {echo "class='active'";}?>>
-                            Home</a>
+                            Accueil</a>
                     </li>
                     <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll" <?php if ($style == "Naturotheque") {echo "class='active'";}?>>
                             Naturothèque</a>
