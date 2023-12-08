@@ -9,7 +9,7 @@
                 $age = date_diff(date_create($values['dnaissance']), date_create('now'))->y;
                 echo"<div class='flex-box'>
                     <div class='card-top'>
-                        <img src={$values['photo_profil']} alt=''>
+                        <img class= 'image' src={$values['photo_profil']} alt=''>
                     </div>
                     <div class='carteInfo'>
                         <h2>{$values['prenom']} {$values['nom']}</h2>
