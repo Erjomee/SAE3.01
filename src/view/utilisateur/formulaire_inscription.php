@@ -6,20 +6,26 @@
         <ul>
             <li>
                 <label for="nom">Nom*:</label>
-                <input type="text" id="nom_id" name="nom" placeholder="Dupont" required>
+                <input type="text" id="nom_id" name="nom" placeholder="Dupont" >
             </li>
             <li>
                 <label for="prenom">Pénom*:</label>
-                <input type="text" id="prenom_id" name="prenom" placeholder="Jean" required>
+                <input type="text" id="prenom_id" name="prenom" placeholder="Jean" >
             </li>
             <li>
                 <label for="email">Email*:</label>
-                <input type="email" id="email_id" name="email" placeholder="jean.dupont@gmail.com" required>
+                <input type="email" id="email_id" name="email" placeholder="jean.dupont@gmail.com" >
             </li>
             <li>
                 <label for="prenom">Mot de passe*:</label>
-                <input type="password" id="password_id" name="password" placeholder="mdp123" required>
+                <input type="password" id="password_id" name="password" placeholder="mdp123" >
             </li>
+
+            <li>
+                <label for="prenom">Vérification du mot de passe*:</label>
+                <input type="password" id="password_id" name="password2" placeholder="mdp123" >
+            </li>
+
             <li>
                 <label for="prenom">Numéro:</label>
                 <input type="tel" id="numero_id" name="numero" placeholder="0629701938">
@@ -33,7 +39,7 @@
         <div> 
             <a href="formulaire_connexion.php">Déjà inscrit ?</a>
         </div>
-        <div style="display: <?= $display?>;" id="error">Utilisateur déjà existant</div>
+
 
         <input type="hidden" name="controller" value="utilisateur">
         <input type="hidden" name="action" value="registered">

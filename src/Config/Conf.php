@@ -13,6 +13,9 @@ class Conf {
         // Sur votre machine, vous avez créé ou non ce mdp a l'installation
         'password' => 'root'
     );
+
+    static private float $dureeExpiration = 1800;
+
     static public function getLogin() : string {
         // L'attribut statique $databases s'obtient
         // avec la syntaxe static::$databases
@@ -30,6 +33,10 @@ class Conf {
 
     static public function getPassword() : string {
         return static::$databases["password"];
+    }
+
+    static public function getDureeExpiration() : float{
+        return static::$dureeExpiration;
     }
 
 }

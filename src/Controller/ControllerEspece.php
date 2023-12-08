@@ -1,5 +1,6 @@
 <?php
 namespace App\Naturotheque\Controller ;
+use App\Naturotheque\Model\HTTP\Session;
 use App\Naturotheque\Model\Repository\EspeceRepository;
 use App\Naturotheque\Model\HTTP\Cookie;
 
@@ -43,12 +44,14 @@ class ControllerEspece{
             }
             $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
                 "result" => $result);
+
         }else{
             $paquet = array( "default" => "<h1>Espece introuvable<h1>",
                 "result" => null);
         }
 
         $json_data = json_encode($paquet);
+
 
         header('Content-Type: application/json');
         echo $json_data ;

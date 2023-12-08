@@ -4,6 +4,8 @@ require_once __DIR__ . '/../src/Lib/Psr4AutoloaderClass.php';
 use App\Naturotheque\Controller\ControllerEspece;
 use App\Naturotheque\Controller\ControllerUtilisateur;
 use App\Naturotheque\Controller\ControllerAccueil;
+use App\Naturotheque\Lib\ConnexionUtilisateur;
+use App\Naturotheque\Lib\MessageFlash;
 
 // instantiate the loader
 $loader = new App\Naturotheque\Lib\Psr4AutoloaderClass();
@@ -23,6 +25,15 @@ $controllerClassName = "App\Naturotheque\Controller\Controller" .ucfirst($contro
 
 
 
+if (isset($_POST["action"])){
+    $action = $_POST["action"];
+
+    if($action == "connecter"){
+        ControllerUtilisateur::connecter();
+    }
+}
+
+
 // Cas ou l'URL présent une action
 if(isset($_GET["action"])){
     $action = $_GET["action"];
@@ -30,6 +41,12 @@ if(isset($_GET["action"])){
     // Action qui redirige vers les pages assignées
     if ($action == "readAll" || $action == "search" || $action == "connection" || $action == "register") {
         $controllerClassName::$action();
+    }
+
+    // Action de deconnexion de l'utilisateur
+    elseif ($action == "deconnection"){
+        ConnexionUtilisateur::deconnecter();
+        ControllerAccueil::readAll();
     }
 
     // Action du controller Utilisateur
@@ -46,17 +63,9 @@ if(isset($_GET["action"])){
             ];
 
             // Vérifiez si les clés "numero" et "sexe" existent dans $_GET
-            if (isset($_GET["numero"])) {
-                $data["numero"] = $_GET["numero"];
-            } else {
-                $data["numero"] = "Non spécifié";
-            }
+            $data["numero"] = $_GET["numero"] ?? "Non spécifié";
+            $data["sexe"] = $_GET["sexe"] ?? "Non spécifié";
 
-            if (isset($_GET["sexe"])) {
-                $data["sexe"] = $_GET["sexe"];
-            } else {
-                $data["sexe"] = "Non spécifié";
-            }
             $controllerClassName::$action($data);
         }
     }
@@ -66,7 +75,6 @@ if(isset($_GET["action"])){
         if ($action == "searchBy"){
             ControllerEspece::searchBy($_GET["filtre_f"] , $_GET["recherche"], $_GET["page"] , $_GET["size"]);
         }
-
     }
 
     // Action inconnue

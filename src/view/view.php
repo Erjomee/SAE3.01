@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title><?php echo $pagetitle; ?></title>
+        <title><?php use App\Naturotheque\Lib\ConnexionUtilisateur;
+
+            echo $pagetitle; ?></title>
         <link rel="stylesheet" href="./../assets/css/style.css">
         <link rel="stylesheet" href="./../assets/css/style<?= $style?>.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -40,7 +42,7 @@
             <div class="user-action" >
                 <?php
                     // Si l'utilisateur est connecté
-                    if (!empty($_SESSION['user'])) {
+                    if(ConnexionUtilisateur::estConnecte()) {
                         echo "  
                             <div class='utilisateur' style='display: flex'>
                                 <div class='bx bxs-user-circle' id='user-icon'></div>
@@ -54,18 +56,6 @@
                             </div>";
                         // Compte invité
                     }else{
-//                        echo "
-//                            <div class='utilisateur'>
-//                                <div class='bx bxs-user-circle' id='user-icon'></div>
-//                            </div>
-//                            <div class='user-action'>
-//                                <ul class='user-list'>
-//                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'>Mon profile</a></li>
-//                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'>Ma nathurothèque</a></li>
-//                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'>Déconnexion</a></li>
-//                                </ul>
-//                            </div>";
-
                         echo '<div class="utilisateur">
                                 <div class="bx bxs-user-circle" id="user-icon"></div>
                               </div>
@@ -79,10 +69,7 @@
                                      <a href="frontController.php?controller=utilisateur&action=register" class="register">Register</a>
                                      </li>
                                 </ul>
-                              </div>
-                              
-                              
-                                    ';
+                              </div>';
                     }
                 ?>
                 <div class="menu">
@@ -94,6 +81,10 @@
 
         <main>
             <?php
+            if (isset($message)) {
+                echo "<div class='alert alert-$message[0]'> $message[1]  </div>";
+            }
+
             require __DIR__ . "/{$cheminVueBody}";    //Corp de la page
             ?>
         </main>

@@ -71,12 +71,42 @@ class UtilisateurRepository{
             if ($users[$i]['sexe'] == null){
                 $users[$i]['sexe'] = 'indefini';
             }
-
-            
-
         }
         return $users;
-       }
+    }
+
+    public function select(string $valeurClePrimaire): ?Utilisateur{
+        $sql = "SELECT * from utilisateur WHERE email = :valeurClePrimaire";
+        // Préparation de la requête
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array(
+            "valeurClePrimaire" => $valeurClePrimaire,
+        );
+        // On donne les valeurs et on exécute la requête
+        $pdoStatement->execute($values);
+        // On récupère les résultats comme précédemment
+        // Note: fetch() renvoie false si pas de voiture correspondante
+        $objet = $pdoStatement->fetch();
+        // Si la voiture existe
+        if ($objet) {
+            return UtilisateurRepository::construire($objet);
+        }else {
+            return null;
+        }
+    }
+
+
+    static function missing_value(Utilisateur $utilisateur): bool
+    {
+        if ($utilisateur->get("nom")=="" || $utilisateur->get("prenom")=="" || $utilisateur->get("email")=="" || $utilisateur->get("password")=="" ){
+            return true ;
+        }else{
+            return false;
+        }
+    }
+
+
+
        
 
 

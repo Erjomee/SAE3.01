@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Naturotheque\Model\DataObject;
+use App\Naturotheque\Lib\MotDePasse;
 
 class Utilisateur{
     private $nom;
@@ -36,6 +37,10 @@ class Utilisateur{
         $this->sexe = $sexe;
     }
 
+    public static function construireDepuisFormulaire(array $tableauFormulaire): Utilisateur {
+        $mdpHache = MotDePasse::hacher($tableauFormulaire["password"]);
+        return new Utilisateur($tableauFormulaire["nom"], $tableauFormulaire["prenom"], $tableauFormulaire["email"], $mdpHache,$tableauFormulaire["numero"],$tableauFormulaire["sexe"]);
+    }
 
 }
 
