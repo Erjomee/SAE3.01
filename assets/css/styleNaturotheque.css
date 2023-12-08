@@ -53,10 +53,11 @@ img{
 }
 
 .btn{
-    width: 220px;
+    top:60%;
+    width: 13rem;
     height: 50px;
-    position: relative;
-    left: 50px;
+    position: absolute;
+    left: 10%;
     bottom: 180px;
     border-radius: 150px;
     display: none;
@@ -95,16 +96,18 @@ img{
 
 
 .btn:hover{
-    position: relative;
+    position: absolute;
     z-index: 4;
     color: black;
     opacity: 1;
-    transform: translateY(-20px);
+    transform: translateY(-5px);
     transition: all 0.5s;
+
 }
 
 .carteInfo{
     margin-top: 30px;
     line-height: 40px;
+    z-index: 10;
 
 }
