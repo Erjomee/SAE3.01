@@ -1,0 +1,9 @@
+HABITAT;LB_HABITAT;DEFINITION
+1;Marin;Espèces vivant uniquement en milieu marin.
+2;Eau douce;Espèces vivant uniquement en milieu d’eau douce.
+3;Terrestre;Espèces vivant uniquement en milieu terrestre.
+4;Marin et eau douce;Espèces effectuant une partie de leur cycle de vie en eau douce et l’autre partie en mer (espèces diadromes, amphidromes, anadromes ou catadromes).
+5;Marin et terrestre;Espèces effectuant une partie de leur cycle de vie en mer et l’autre partie à terre (pinnipèdes, tortues ou oiseaux marins par exemple).
+6;Eau saumâtre;Espèces vivant exclusivement en eau saumâtre.
+7;Continental (terrestre et/ou eau douce);Espèces continentales (non marines) dont on ne sait pas si elles sont terrestres et/ou d’eau douce (taxons provenant de Fauna Europaea).
+8;Continental (terrestre et eau douce);Espèces terrestres effectuant une partie de leur cycle en eau douce (odonates par exemple), ou fortement liées au milieu aquatique (loutre par exemple).

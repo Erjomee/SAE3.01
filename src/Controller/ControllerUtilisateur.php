@@ -21,6 +21,7 @@ class ControllerUtilisateur{
                                                                     "cheminVueBody" => "utilisateur/formulaire_connexion.php"]);
     }
 
+
     public static function connecter() : void{
         if (isset($_POST["email"]) && isset($_POST["password"])){
             $utilisateur = (new UtilisateurRepository())->select($_POST["email"]);
@@ -32,17 +33,15 @@ class ControllerUtilisateur{
                     header("Location: frontcontroller.php");
                 }else{
                     MessageFlash::ajouter("warning" , "Mdp incorrect");
-                    self::connection();
                 }
             }else{
                 MessageFlash::ajouter("warning" , "Login incorrect");
-                self::connection();
             }
         }else{
             MessageFlash::ajouter("danger" , "Login and/or mdp non define !");
-            self::connection();
         }
     }
+
 
     // Méthode qui redirige vers le formulaire d'inscription
     public static function register() : void {
@@ -53,21 +52,17 @@ class ControllerUtilisateur{
 
     public static function registered(array $utilisateurFormatTableau):void{
         try{
-            if (!($_GET["password"] == $_GET["password2"])){
+            if (!($_GET["password"] == $_GET["password2"])){  // Mdp pas correspondant
                 MessageFlash::ajouter("warning" , "Mot de passe incompatible !");
                 ControllerUtilisateur::register();
             }else {
                 $utilisateur = Utilisateur::construireDepuisFormulaire($utilisateurFormatTableau);
-            }
 
-            if (UtilisateurRepository::missing_value($utilisateur)){
-                throw new TypeError();
+                (new UtilisateurRepository())->sauvegarder($utilisateur);
+                MessageFlash::ajouter("success" , "La utilisateur a bien été crée ! Connectez vous");
+                ControllerUtilisateur::connection();
             }
-
-            (new UtilisateurRepository())->sauvegarder($utilisateur);
-            MessageFlash::ajouter("success" , "La utilisateur a bien été crée ! Connectez vous");
-            ControllerUtilisateur::connection();
-        }catch (PDOException $e){
+        }catch (PDOException $e){  // Utilisateur déjà existant
             echo $e;
             MessageFlash::ajouter("warning" , "Login déjà existante !");
             ControllerUtilisateur::register();

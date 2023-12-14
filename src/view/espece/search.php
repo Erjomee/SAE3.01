@@ -42,5 +42,57 @@
         <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
         <div id="resultat"></div>
 
+        <div id="popup">
+            <div id="popupInfo">
+                <span id="closePopup">&times;</span>
+
+
+                <div style="display: flex ; align-items: center">
+                    <!--      Coin supérieur gauche          -->
+                    <div id="slider" class="slider"></div>
+
+                    <!--         Titre           -->
+                    <div id="en-tete">
+                        <h2 id="first_title"></h2>
+                        <hr>
+                        <p id="second_title" ></p>
+                    </div>
+
+                </div>
+
+
+                <!--         Main           -->
+                <div style="display: flex; flex-wrap: wrap;margin-top: 20px">
+
+                    <!--        Bloc de gauche           -->
+                    <div id="habitat-statut" >
+                        <div id="habitat">
+                            <h2>Habitat</h2>
+                            iaozfhoizhfozahofhzahfizahoif
+                            <br>
+                            azfpaziofzaiof
+                        </div>
+
+                        <div id="statut" >
+                            <h2>Statut Géographique</h2>
+                            iaozfhoizhfozahofhzahfizahoif
+                            <br>
+                            azfpaziofzaiof
+                        </div>
+                    </div>
+
+                    <!--        Bloc de droite           -->
+                    <div id="rang">
+                        <h2>Rang taxinomique</h2>
+                        iaozfhoizhfozahofhzahfizahoif
+                        <br>
+                        azfpaziofzaiof
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
