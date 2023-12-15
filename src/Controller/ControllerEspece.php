@@ -23,7 +23,7 @@ class ControllerEspece{
         $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
         $result = "";
 
-        if (isset($data)) {
+        if (isset($data)) {  // La recherche contient des especes
             foreach ($data as $espece) {
                 if (isset($espece["_links"]["media"])){
                     $image = $espece["_links"]["media"][0];
@@ -36,7 +36,7 @@ class ControllerEspece{
                         <div class='information'>
                             <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
                             <hr>
-                            <button class='btn_detail' name='id' value={$espece['id']}> Détails</button>
+                            <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
                             <p>{$espece['fullNameHtml']}</p>
                             <p>ID:{$espece['id']}</p>
                         </div>
@@ -45,7 +45,7 @@ class ControllerEspece{
             $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
                 "result" => $result);
 
-        }else{
+        }else{  // aucun résultat
             $paquet = array( "default" => "<h1>Espece introuvable<h1>",
                 "result" => null);
         }
@@ -53,6 +53,67 @@ class ControllerEspece{
         $json_data = json_encode($paquet);
 
 
+        header('Content-Type: application/json');
+        echo $json_data ;
+    }
+
+
+    public static function moreInfo(string $id):void {
+        // Retrouver toutes les anciennes recherche d'espece enregister dans une table historique (à creer
+        //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
+
+
+        $data = EspeceRepository::getEspece("taxrefIds" , $id , 1,1);
+        $result = "";
+        $image = "";
+
+
+        if (isset($data)) {  // La recherche contient des especes
+            foreach ($data as $espece) {
+                if (isset($espece["_links"]["media"])){ // Si le taxon présente des images
+                    if(sizeof($espece["_links"]["media"]) == 1 ){  // Si il ne contient qu'une image
+                        $image .= "<img src='{$espece["_links"]["media"][0]}' alt='img1' class='img__slider active'/>";
+                    }else {  // Plusieurs images
+                        for ($i = 0; $i < sizeof($espece["_links"]["media"]); $i++) {
+                            $num_img = $i + 1;
+                            if ($i == 0) {  // On initialise la premiere image en active
+                                $image .= "<img src='{$espece["_links"]["media"][$i]}' alt='img{$num_img}' class='img__slider active'/>";
+                            } else {
+                                $image .= "<img src='{$espece["_links"]["media"][$i]}' alt='img{$num_img}' class='img__slider'/>";
+                            }
+                        }
+                        // On donne l'accès au bouton précedent-suivant
+                        $image .= "<div class='suivant'>
+                                    <i class='fas fa-chevron-circle-right fa-xs' style='color: #ffffff;'></i>
+                                </div>
+                                <div class='precedent'>
+                                    <i class='fas fa-chevron-circle-left fa-xs' style='color: #ffffff;'></i>
+                                </div> ";
+                    }
+                }else{ // Pas d'image présente
+                    $image .= "<img src='../assets/img/img_not_found.png' alt='img1' class='img__slider active'/>";
+                }
+
+                $result .= "<div class='item'>
+                        <img class='img-carte' src={$image}>
+                        <div class='information'>
+                            <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
+                            <hr>
+                            <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
+                            <p>{$espece['fullNameHtml']}</p>
+                            <p>ID:{$espece['id']}</p>
+                        </div>
+                    </div>";
+            }
+            $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
+                "result" => $data,
+                "image" => $image);
+        }else{  // aucun résultat
+            $paquet = array( "default" => "<h1>Espece introuvable<h1>",
+                "result" => null);
+        }
+
+        $json_data = json_encode($paquet);
         header('Content-Type: application/json');
         echo $json_data ;
     }

@@ -1,0 +1,33 @@
+ORDRE;STATUT;DESCRIPTION;DEFINITION
+10;P;Présent (indigène ou indéterminé);"Taxon présent au sens large dans la zone géographique considérée, c'est-à-dire taxon indigène ou taxon dont on ne sait pas s’il appartient à l'une des autres catégories. Le défaut de connaissance profite donc à l’indigénat. 
+Par indigène on entend : taxon qui est issu de la zone géographique considérée et qui s’y est naturellement développé sans contribution humaine, ou taxon qui est arrivé là sans intervention humaine (intentionnelle ou non) à partir d’une zone dans laquelle il est indigène. 
+(NB : sont exclus les hybrides dont l’un des parents au moins est introduit dans la zone considérée). 
+Sont regroupés sous ce statut tous les taxons catégorisés « natif » ou « autochtone ». 
+Les taxons hivernant quelques mois de l’année entrent dans cette catégorie."
+30;E;Endémique;Taxon naturellement restreint à la zone géographique considérée.
+40;S;Subendémique;"Taxon naturellement restreint à une zone non intégralement incluse dans la zone géographique considérée mais dont les principales populations se situent dans celle-ci (par ex distribution à cheval sur les Pyrénées françaises et espagnoles, sur les Jura français et suisse, endémique corso-sarde, etc.). 
+Pour l’Outre-mer, on applique ce statut à l’endémisme régional : 
+- pour la Guyane= endémique du plateau des Guyanes,
+- pour les Antilles françaises = endémique des petites Antilles,
+- pour Mayotte = endémique de l’archipel des Comores,
+- pour la Réunion = endémique des Mascareignes, 
+- pour les îles subantarctiques = endémique de la South Indian Ocean Province."
+50;C;Cryptogène;Taxon dont l’aire d’origine est inconnue et dont on ne peut donc pas dire s’il est indigène ou introduit.
+60;I;Introduit;"Taxon introduit (établi ou possiblement établi) dans la zone géographique considérée.
+Par introduit on entend : taxon dont la présence dans la zone géographique considérée est due à une intervention humaine, intentionnelle ou non, ou taxon qui est arrivé dans la zone sans intervention humaine mais à partir d’une zone dans laquelle il est introduit.
+Par établi (terme pour la faune, = naturalisé pour la flore) on entend : taxon introduit qui forme des populations viables (se reproduisant) et durables qui se maintiennent dans le milieu naturel sans besoin d’intervention humaine.
+Sont regroupés sous ce statut tous les taxons catégorisés « naturalisé », « établi », et a priori ceux catégorisés « non-indigène », « exotique », « exogène », « allogène », « allochtone », « non-natif »,  (en anglais : alien) dans une publication scientifique, sous réserve qu’ils soient établis et non envahissants."
+70;J;Introduit envahissant;"Taxon introduit dans la zone géographique considérée, qui produit des descendants fertiles souvent en grand nombre, et qui a le potentiel pour s’étendre de façon exponentielle sur une grande aire, augmentant ainsi rapidement son aire de répartition7. Cela induit souvent des conséquences écologiques, économiques ou sanitaires négatives (IUCN, 2000). 
+Sont regroupés sous ce statut tous les taxons catégorisés « introduit envahissant », « exotique envahissant » ou « invasif » (invasive en anglais) dans une publication scientifique."
+80;M;Introduit non établi (dont cultivé / domestique);"Taxon introduit qui peut occasionnellement se reproduire en dehors de son aire de culture ou de captivité, mais qui ne peut se maintenir à l’état sauvage car ne pouvant former de populations viables sans intervention humaine, et qui dépend donc d’introductions répétées pour se maintenir dans la nature.
+Sont regroupés sous ce statut tous les taxons catégorisés « introduit occasionnel », « subspontané », « échappé de culture ou de captivité » (en anglais : casual alien).
+Ce statut inclut les taxons strictement domestiques (faune), cultivés (flore) ainsi que les espèces commercialisées (espèces d’aquariophilie par exemple)."
+90;B;Occasionnel;Taxon occasionnel, non nicheur, accidentel dans la zone géographique considérée (par exemple migrateur de passage).
+100;D;Douteux;Taxon dont la présence dans la zone géographique considérée n’est pas avérée (en attente de confirmation).
+110;Q;Mentionné par erreur;Taxon mentionné par erreur comme présent sur le territoire considéré.
+120;A;Absent;Taxon non présent dans la zone géographique considérée.
+130;W;Disparu;"Taxon qui n’est plus présent à l’état sauvage dans la zone géographique considérée mais qui n’est pas globalement éteint. 
+Rq : en cas de doute sur la présence ancienne ou non du taxon à l’état sauvage, utiliser le statut absent (A)."
+140;X;Eteint;Taxon globalement éteint (= ayant totalement disparu de la surface du globe terrestre).
+150;Z;Endémique éteint;Taxon endémique et aujourd’hui disparu, donc globalement éteint (X).
+160;Y;Introduit éteint;Taxon introduit par le passé mais aujourd’hui disparu de la zone géographique considérée (W) ou éteint (X).

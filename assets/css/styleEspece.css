@@ -185,6 +185,10 @@ header{
     font-size: 16px;
 }
 
+.btn_detail:hover{
+    cursor: pointer;
+}
+
 
 .item:hover{
     opacity: 0.5;
@@ -195,6 +199,142 @@ header{
     opacity: 1;
     display: inline;
 }
+
+
+
+/*Plus d'information*/
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#popupInfo {
+    position: absolute;
+    overflow-y: auto;
+    max-height: 80%;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    /*transform: translate(-50%, -50%);*/
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/*Slider*/
+.slider {
+    height: 10rem;
+    position: relative;
+    width: 10rem;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 2px;
+    display: flex;
+}
+#en-tete{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    margin-left: 2rem;
+    text-align: left;
+}
+#en-tete h2{
+    width: 100%;
+    /*background-color: red;*/
+    font-size: 32px;
+}
+
+#en-tete p{
+    width: 100%;
+    /*background-color: red;*/
+}
+
+
+
+.slider img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+
+.slider img.active {
+    opacity: 1;
+}
+
+.suivant, .precedent {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.suivant {
+    right: 0;
+}
+
+.precedent {
+    left: 0;
+}
+
+
+
+#habitat-statut{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    text-align: left;
+}
+
+#habitat{
+    background-color: red;
+}
+
+#statut{background-color: blue}
+
+
+
+/*main{*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*#habitat , #statut{*/
+/*    width: 50%;*/
+/*}*/
+
+#rang{
+    background-color: green;
+    text-align: left;
+    order: 1;
+    width:25%
+}
+
+
+
+
 
 @media (max-width: 980px){
     main{
@@ -220,4 +360,12 @@ header{
         top: 105px;
         text-align: left;
     }
+
+    /*#popupInfo div {*/
+    /*    flex-direction: row;*/
+    /*}*/
+
+    /*#rang {*/
+    /*    order: 2; !* Change l'ordre de la div 'rang' *!*/
+    /*}*/
 }
