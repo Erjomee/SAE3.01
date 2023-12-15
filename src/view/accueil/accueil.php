@@ -12,15 +12,15 @@
 
 
 <!-- RECHERCHE -->
-<form>
-        
-<nav class="barre_recherche">
-            <input type="search" id="marecherche" name="recherche" placeholder="Rechercher sur le site">
-            <button type="submit">Rechercher</button>
-            
-            <span class="validity"></span>
-        </nav>
-</form>
+<div class = "div_recherche">
+<div class="rechercher">
+        <input type="text" class="recherche" placeholder="Rechercher une espèce" />
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+</div>
 
 <!-- SLIDER -->
 <div class="slider">
@@ -100,10 +100,11 @@ setInterval(function() {
 
 </div>
 
-
+<div class="articles">
 <!--ARTICLE 1 - ESCARGOT -->
 <div class ="div_article1">
-    <img src="../assets/img/escargot.jpg" height="300" widht="300" alt="image_escargot" class="img_article">
+<!-- height="300" width="400" -->
+    <img src="../assets/img/escargot.jpg"  height="300" width="400" alt="image_escargot" class="img_article">
 
     <div class = "div_text1"> 
 
@@ -129,13 +130,14 @@ setInterval(function() {
 <!-- ARTICLE 2 - FOURMI -->
 <div class="div_article2">
 
-    <img src="../assets/img/fourmi.jpg" height="300" widht ="300" alt="image_fourmi" class="img_article2" >
+    <img src="../assets/img/fourmi.jpg" height="300" width ="400" alt="image_fourmi" class="img_article2" >
 
 
 
     <div class = "div_text2">
    
         <h2>"Une des 3 fourmis les plus envahissantes au monde"</h2>
+       
         <p>
             De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
             "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. 
@@ -150,7 +152,7 @@ setInterval(function() {
         </div>
 </div>
 </div>
-
+</div>
 
 
         <!-- Découvrir -->
@@ -169,7 +171,7 @@ setInterval(function() {
                 <div class ="div_p">
                     <p>Découvrez l'espèce la plus consultée, pour en apprendre davantage sur cette espèce fascinante </p>    
                 </div>   
-                <a class = "button_link" href="">
+                <a class = "button_link" href=""></a>
                     <button>En savoir plus</button>
             </div>
         
@@ -180,7 +182,7 @@ setInterval(function() {
                 <div class = "div_p">
                     <p>Explorez votre environnement en découvrant les différentes espèces qui vous entourent</p>
                 </div>
-                <a class = "button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php">
+                <a class = "button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php"></a>
                 <button>Découvrir</button> 
             </div>
             
@@ -191,28 +193,12 @@ setInterval(function() {
                 <div class="div_p">
                     <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>       
                 </div>
-                <a class = "button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll" target="_blank">
+                <a class = "button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll"></a>
                 <button>Naturothèques</button>
             </div>
         </div>
        
-<!-- Se connecter-->
-<!-- <div class="div_connecter">
-    <h3>Acceder à ma Naturothèque</h3>
 
-        <a href="http://localhost/SAE3.01/web/frontController.php?controller=utilisateur&action=connection">
-        <button>Se connecter</button>
-    </a>
-</div> -->
-
-<!--Decouvrir-->
-<!-- <div class="div_decouvrir">
-    <h3>75,4 Espèces</h3>
-    <a href="http://127.0.0.1/SAE3.01/decouvrir.php">
-        <button>Découvrir</button>
-    
-</div>
- -->
 
 <!-- Espace Videos-->
 <!-- <div class="div_videos">
