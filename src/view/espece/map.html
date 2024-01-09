@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Superposition d'images avec HTML et CSS</title>
+    <style>
+        /* Positionnement relatif pour le conteneur */
+        .image-container {
+            position: relative;
+            width: 400px; /* Ajuster la largeur selon les besoins */
+            height: 300px; /* Ajuster la hauteur selon les besoins */
+        }
+
+        /* Styles pour chaque image */
+        .base-image,
+        .top-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Remplir le conteneur */
+            height: 100%; /* Remplir le conteneur */
+        }
+
+        /* Ajuster le z-index pour contrôler l'empilement */
+        .top-image {
+            z-index: 1; /* Au-dessus de l'image inférieure */
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+    <!-- Image de base -->
+    <img class="base-image" src="https://tile.gbif.org/3857/omt/0/0/0@2x.png?style=gbif-classic-fr"
+         alt="Image de base">
+
+    <!-- Image à superposer -->
+    <img class="top-image"
+         src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@3x.png?srs=EPSG:3857&bin=hex&hexPerTile=200&taxonKey=3417&style=classic.poly"
+         alt="Image à superposer">
+</div>
+
+</body>
+</html>
