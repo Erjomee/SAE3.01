@@ -17,7 +17,7 @@ class ControllerUtilisateur{
     // Méthode qui redirige vers le formulaire de connexion
     public static function connection() : void {
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de connexion",
-                                                                    "style" => "Utilisateur",
+                                                                    "style" => "Connexion",
                                                                     "cheminVueBody" => "utilisateur/formulaire_connexion.php"]);
     }
 
@@ -46,7 +46,7 @@ class ControllerUtilisateur{
     // Méthode qui redirige vers le formulaire d'inscription
     public static function register() : void {
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
-                                                                    "style" => "Utilisateur",
+                                                                    "style" => "Inscription",
                                                                     "cheminVueBody" => "utilisateur/formulaire_inscription.php"]);
     }
 
