@@ -56,6 +56,14 @@ header{
     z-index: 2;
 }
 
+td {
+    text-align: center;
+}
+
+th{
+    padding: 2px;
+}
+
 
 .container{
     display: flex;
@@ -103,13 +111,20 @@ header{
     margin-bottom: 15px;
 }
 
+.container #result_area{
+    background-position: center;
+    min-height: 250px;
+}
+
 .container #resultat {
     /*margin-top: 15px;*/
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(calc(300px - 30px), 1fr));
     gap: 20px ; /* Espacement entre les éléments */
     padding: 30px 0;
+
 }
+
 
 #resultat .item {
     position: relative; /* Pour que la position absolue du bouton soit basée sur la div.item */
@@ -217,15 +232,16 @@ header{
 #popupInfo {
     position: absolute;
     overflow-y: auto;
-    max-height: 80%;
     top: 10%;
-    left: 10%;
+    left: 12%;
     width: 80%;
+    height: 85%;
     /*transform: translate(-50%, -50%);*/
     background-color: white;
     padding: 2.5rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-position:center;
 }
 
 #closePopup {
@@ -233,7 +249,17 @@ header{
     top: 10px;
     right: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+#popupHeader{
+    display: flex ;
+    align-items: center ;
+    background-color: rgb(29, 31, 47);
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /*border-radius: 10px;*/
 }
 
 
@@ -256,15 +282,14 @@ header{
 }
 #en-tete h2{
     width: 100%;
-    /*background-color: red;*/
+    color: #26B2A2;
     font-size: 32px;
 }
 
 #en-tete p{
     width: 100%;
-    /*background-color: red;*/
+    color: white;
 }
-
 
 
 .slider img {
@@ -300,19 +325,69 @@ header{
 }
 
 
+/* Onlget */
+#onglet{
+    color: white;
+    background-color: rgb(29, 31, 47);
+    padding: 10px 0 0 20px;
+
+}
+#lst_onglet{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+    /*flex-wrap: wrap;*/
+}
+
+#lst_onglet li{
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#lst_onglet li:hover{
+    color: #26B2A2;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 2px solid white;
+
+}
+
+#lst_onglet .active{
+    background-color: white;
+    font-weight: bold;
+}
+
 
 #habitat-statut{
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 70%;
     text-align: left;
+    flex-grow: 1;
 }
 
 #habitat{
-    background-color: red;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+    /*background-color: red;*/
 }
 
-#statut{background-color: blue}
+h2{
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+
+#img_habitat{
+    /*border-radius: 100px;*/
+    /*border: 2px solid #464646;*/
+    width: 128px;
+    height: 128px;
+}
+
 
 
 
@@ -326,14 +401,52 @@ header{
 /*}*/
 
 #rang{
-    background-color: green;
+    /* background-color: green; */
     text-align: left;
-    order: 1;
-    width:25%
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+#rang_liste {
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding-left: 0; /* Enlève le padding à gauche */
+    line-height: 0.7;
+
+}
+
+#rang_liste li{
+    margin-left: 20px; /* Ajoute un padding à gauche pour l'indentation */
+    padding-left: 5px; /* Ajoute un padding à gauche pour l'indentation */
+    border-left: 5px solid #26B2A2;
 }
 
 
 
+/* Observation */
+#observation{
+}
+
+
+/* Positionnement relatif pour le conteneur */
+.image-container {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Styles pour chaque image */
+.base-image,
+.top-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%; /* Remplir le conteneur */
+}
+
+/* Ajuster le z-index pour contrôler l'empilement */
+.top-image {
+    z-index: 1; /* Au-dessus de l'image inférieure */
+}
 
 
 @media (max-width: 980px){
@@ -361,6 +474,22 @@ header{
         text-align: left;
     }
 
+    #popupInfo{
+        top: 3%;
+        left: 2%;
+        width: 96%;
+        height: 94%;
+        padding: 2rem 1rem;
+    }
+
+    #closePopup {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        cursor: pointer;
+        font-size: 30px;
+        color: red;
+    }
     /*#popupInfo div {*/
     /*    flex-direction: row;*/
     /*}*/

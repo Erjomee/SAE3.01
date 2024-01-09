@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<h2 style="text-align: left;">Historique d'observation</h2>
+
+niognmeangognoengoin
+
+
+<h2 style="text-align: left;">Carte Présence</h2>
+
+<!-- 
+<div class="image-container">
+    <img class="base-image" src="https://tile.gbif.org/3857/omt/0/0/0@4x.png?style=gbif-classic-fr"
+         alt="Image de base" >
+
+    <img class="top-image"
+         src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@4x.png?srs=EPSG:3857&bin=hex&hexPerTile=200&taxonKey=3417&style=classic.poly"
+         alt="Image à superposer">
+</div> -->
+
+<div style="display: flex; width: 90%;margin: 2% auto;"> 
+
+    <!-- Fond (map) -->
+    <div class="image-container">
+        <img class="base-image" src="https://tile.gbif.org/4326/omt/0/0/0@4x.png?style=gbif-classic-fr"
+             alt="Image de base" >
+    
+        <img id="map-left" class="top-image"
+             src=""
+             alt="Image à superposer">
+    </div>
+    
+    <!-- Superposé (point) -->
+    <div class="image-container">
+        <img class="base-image" src="https://tile.gbif.org/4326/omt/0/1/0@4x.png?style=gbif-classic-fr"
+             alt="Image de base">
+    
+        <img id="map-right" class="top-image"
+             src=""
+             alt="Image à superposer">
+    </div> 
+    
+</div>

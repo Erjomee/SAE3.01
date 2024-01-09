@@ -67,8 +67,7 @@ class ControllerEspece{
         $result = "";
         $image = "";
 
-
-        if (isset($data)) {  // La recherche contient des especes
+        if (isset($data)){  // La recherche contient des especes
             foreach ($data as $espece) {
                 if (isset($espece["_links"]["media"])){ // Si le taxon présente des images
                     if(sizeof($espece["_links"]["media"]) == 1 ){  // Si il ne contient qu'une image
@@ -105,9 +104,10 @@ class ControllerEspece{
                         </div>
                     </div>";
             }
-            $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
+            $paquet = array("description" => EspeceRepository::getDescription($id),
                 "result" => $data,
-                "image" => $image);
+                "image" => $image,
+                );
         }else{  // aucun résultat
             $paquet = array( "default" => "<h1>Espece introuvable<h1>",
                 "result" => null);

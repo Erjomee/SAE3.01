@@ -33,66 +33,56 @@
                 <!--      Faire un filtre déroulant          -->
                 <h5>Filtre par:</h5>
 
+
             </div>
         </form>
 
         <hr>
 
-        <!--  Utilisation de script      -->
-        <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
-        <div id="resultat"></div>
+        <!--  Utilisation de script    -->
+        <div id="result_area">
+            <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
+            <div id="resultat"></div>
+        </div>
 
         <div id="popup">
             <div id="popupInfo">
-                <span id="closePopup">&times;</span>
-
-
-                <div style="display: flex ; align-items: center">
-                    <!--      Coin supérieur gauche          -->
-                    <div id="slider" class="slider"></div>
-
-                    <!--         Titre           -->
-                    <div id="en-tete">
-                        <h2 id="first_title"></h2>
-                        <hr>
-                        <p id="second_title" ></p>
+                <div id="hidden" hidden>
+                    <span id="closePopup">&times;</span>
+                    <div id="popupHeader">
+                        <?php include("./../src/view/espece/en_tete.html")?>
                     </div>
 
-                </div>
-
-
-                <!--         Main           -->
-                <div style="display: flex; flex-wrap: wrap;margin-top: 20px">
-
-                    <!--        Bloc de gauche           -->
-                    <div id="habitat-statut" >
-                        <div id="habitat">
-                            <h2>Habitat</h2>
-                            iaozfhoizhfozahofhzahfizahoif
-                            <br>
-                            azfpaziofzaiof
-                        </div>
-
-                        <div id="statut" >
-                            <h2>Statut Géographique</h2>
-                            iaozfhoizhfozahofhzahfizahoif
-                            <br>
-                            azfpaziofzaiof
-                        </div>
+                    <!--         ONGLET           -->
+                    <div id="onglet">
+                        <ul id="lst_onglet">
+                            <li id="onglet1" class="active" onclick="activeOnglet('onglet1')">Description</li>
+                            <li id="onglet2" onclick="activeOnglet('onglet2')"> Fiche taxon</li>
+                            <li id="onglet3" onclick="activeOnglet('onglet3')">Interraction</li>
+                            <li id="onglet4" onclick="activeOnglet('onglet4')">Observation</li>
+                        </ul>
+                    </div>
+                    <!--         DESCRIPTION           -->
+                    <div id="description">
+                        <?php include("./../src/view/espece/description.html")?>
+                    </div>
+                    <!--         FICHE TAXON           -->
+                    <div id="taxon" hidden>
+                        <?php include("./../src/view/espece/fiche_taxon.html")?>
+                    </div>
+                    <!--         Interraction           -->
+                    <div id="interraction" hidden>
+                        <?php include("./../src/view/espece/interraction.html")?>
+                    </div>
+                    <!--         OBSERVATION           -->
+                    <div id="observation" hidden>
+                        <?php include("./../src/view/espece/observation.html")?>
+                        
                     </div>
 
-                    <!--        Bloc de droite           -->
-                    <div id="rang">
-                        <h2>Rang taxinomique</h2>
-                        iaozfhoizhfozahofhzahfizahoif
-                        <br>
-                        azfpaziofzaiof
-                    </div>
                 </div>
             </div>
         </div>
-
-
 
     </div>
 </div>

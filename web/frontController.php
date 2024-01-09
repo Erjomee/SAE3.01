@@ -86,4 +86,5 @@ if(isset($_GET["action"])){
 }else{ // action readAll par défault
     ControllerAccueil::readAll();
 }
+
 ?>

@@ -6,8 +6,8 @@
         /* Positionnement relatif pour le conteneur */
         .image-container {
             position: relative;
-            width: 400px; /* Ajuster la largeur selon les besoins */
-            height: 300px; /* Ajuster la hauteur selon les besoins */
+            width: 600px; /* Ajuster la largeur selon les besoins */
+            height: 500px; /* Ajuster la hauteur selon les besoins */
         }
 
         /* Styles pour chaque image */
@@ -28,15 +28,33 @@
 </head>
 <body>
 
+    <div style="display: flex;">
+
 <div class="image-container">
     <!-- Image de base -->
-    <img class="base-image" src="https://tile.gbif.org/3857/omt/0/0/0@2x.png?style=gbif-classic-fr"
+    <img class="base-image" src="https://tile.gbif.org/4326/omt/0/0/0@4x.png?style=gbif-classic-fr"
          alt="Image de base">
 
     <!-- Image à superposer -->
-    <img class="top-image"
-         src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@3x.png?srs=EPSG:3857&bin=hex&hexPerTile=200&taxonKey=3417&style=classic.poly"
+    <img id="map-left" class="top-image" 
+         src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@4x.png?srs=EPSG:4326&bin=hex&hexPerTile=200&taxonKey=3417&style=classic.poly"
          alt="Image à superposer">
+</div>
+
+<div class="image-container">
+    <!-- Image de base -->
+    <img class="base-image" src="https://tile.gbif.org/4326/omt/0/1/0@4x.png?style=gbif-classic-fr"
+         alt="Image de base">
+
+    <!-- Image à superposer -->
+    <img id="map-right" class="top-image"
+         src="https://api.gbif.org/v2/map/occurrence/density/0/1/0@4x.png?srs=EPSG:4326&bin=hex&hexPerTile=200&taxonKey=3417&style=classic.poly"
+         alt="Image à superposer">
+
+<img id="salut" src="">
+
+</div>
+
 </div>
 
 </body>

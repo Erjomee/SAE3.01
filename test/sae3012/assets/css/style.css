@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans" , sans-serif;
+}
+
+
+/* Nav Bar */
+header{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 3%;
+    background-color: rgb(29, 31, 47);
+    font-weight: bold;
+    font-size: 16px;
+    position:fixed;
+    color: white;
+    top: 0; 
+    left: 0;
+}
+
+body{
+    border: 2px solid black;
+    margin-top: 75px;
+}
+
+main{
+    padding: 30px 10px;
+    display: block;
+}
+
+footer{
+    padding: 70px 10px;
+    display: block;
+    background-color: rgb(29, 31, 47);
+    color: white;
+    margin-top: 200px;
+}
+
+button{
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+nav li a:hover{
+    color: #26B2A2;
+    transition: 0.4s;
+}
+
+h1{
+    margin: 30px 0;
+    color: #26B2A2;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+}
+
+.active{
+    color: #26B2A2;
+    font-size: 20px;
+}
+
+.user-action{
+    display: flex;
+    align-items: center;
+
+}
+
+.utilisateur , .menu{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 75px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu{
+    display: none;
+}
+
+.white-bg{
+    background-color: white;
+}
+
+.gray-bg{
+    background-color: #444848;
+}
+
+.logo{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    display: flex;
+}
+
+.item{
+    display: inline-block;
+    list-style-type: none;
+    padding: 0 20px;
+}
+
+.utilisateur .nav-list .item{
+    padding-left: 10px;
+}
+
+
+
+.login{
+    background-color: #26B2A2;
+    border: 1px solid #26B2A2;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    margin-right: 10px;
+}
+
+.login:hover{
+    background-color: black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.register{
+    background-color: black;
+    border: 1.5px solid #26B2A2;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    display: flex;
+
+}
+
+
+.user-list{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 270px;
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom-left-radius: 15px;
+    transition: all .50s ease;
+    border: 1px solid black;
+    border-top: 0px;
+    align-items: center;
+}
+
+.user-action .user-list a{
+    padding: 0 25px;
+    margin: 12px 0;
+    display: block;
+    transition: all .80s ease;
+    color: black;
+}
+
+@media (max-width: 1000px){
+    header{
+        padding: 14px 2%;
+        transition: .2s;
+    }
+    .nav-list a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+
+
+@media (max-width: 900px){
+    #menu-icon , .menu{
+        display: flex;
+        font-size: 35px;
+        cursor: pointer;
+        z-index: 10001;
+    }
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: fit-content;
+        background-color: #444848;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-bottom-left-radius: 15px;
+        transition: all .80s ease;
+    }
+
+    .nav-list a{
+        padding: 0 25px;
+        margin: 12px 0;
+        display: block;
+        transition: all .80s ease;
+    }
+}
+
+.open{
+    right: 0%;
+}
+
+#user-icon{
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 10001;
+    color: #26B2A2;
+}
+
+
