@@ -1,5 +1,14 @@
 /*Accueil - barre de recherche*/
 
+
+#test{
+    color: #26B2A2;
+    z-index: 1;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .div_recherche{
     margin-top: 0;
     margin-bottom: 3%;

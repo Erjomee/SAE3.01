@@ -24,6 +24,7 @@
 
 <!-- SLIDER -->
 <div class="slider">
+    <div id="test">vezvze</div>
         <img src="../assets/img/test2.jpg" alt="img1" class="img__slider active" />
         <img src="../assets/img/ecureil.jpg" alt="img2" class="img__slider" />
         <img src="../assets/img/chevreuil.jpg" alt="img3" class="img__slider" />
