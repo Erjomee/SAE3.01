@@ -1,15 +1,58 @@
 /*Accueil - barre de recherche*/
-
+*{
+    font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
 
 #test{
-    color: #26B2A2;
+    color: white;
     z-index: 1;
     position: relative;
     width: fit-content;
     margin: 0 auto;
 }
+#test h2{
+        text-shadow: 1px 1px 0px  rgb(37, 177, 160);
+        font-size: 3em;
+        
+}
+    
+#recherche{
+    background-color: white;
+    height: 2.3lh;
+    border: none;
+    width: 50vh;
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+    display: inline-block;
 
-.div_recherche{
+}
+
+#recherche input{
+    width: 44vh;
+    height: 3vh;
+    border: 0;
+    margin-left: 1%;
+    /* background: url() no-repeat; */
+    background-color: white;
+}
+
+#test button{
+    font-size: 12px;
+    height: 2lh;
+    border: 0;
+    margin-left: 1vh;
+    margin-top: 1%;
+    background-color: white;
+}
+
+
+.fa-search:before {
+    content: "\f002";
+    font-size: 20px;
+    color: #26B2A2;;
+}
+
+
+/* .div_recherche{
     margin-top: 0;
     margin-bottom: 3%;
     height:30%;
@@ -23,18 +66,18 @@
     position: relative;
     display: flex;
     border: 3px solid rgb(29, 31, 47);
-}
+} */
 
-.recherche{
+/* .recherche{
     width: 100%;
     padding: 5px;
     height: 100%;
     outline: none;
     font-size: 14px;
     border: 1px;
-}
+} */
 
-.rechercher button{
+/* .rechercher button{
     width: 50px;
     height: 30px; 
     border: 1px solid rgb(29, 31, 47);
@@ -43,7 +86,7 @@
     color: #eeeeee;
     cursor: pointer;
     font-size: 20px;
-}
+} */
 
 
 /*SLIDER*/
@@ -77,22 +120,22 @@
     opacity: 1;
 }
 
-.suivant, .precedent {
+/* .suivant, .precedent {
     color: #fff;
     font-size: 2rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-}
+} */
 
-.suivant {
+/* .suivant {
     right: 1rem;
 }
 
 .precedent {
     left: 1rem;
-}
+} */
 
 /* ARTICLES */
 
@@ -100,7 +143,6 @@
     text-align: justify;
     vertical-align: middle;
     font-size: 15px;
-    font-family: 'Accord Light';
     flex-direction: column;
     display: flex;
 } 
@@ -151,8 +193,8 @@
     border: 1px solid lightgray;
     color:#fff;
     font-size: 13px;
-    font-weight: 100; 
-    /* position: absolute; */
+    font-weight: 50; 
+    margin-left: 40%;
     margin-top: 40px;
     justify-content: center;
     align-items: center;  
@@ -163,6 +205,7 @@
 .div_article2 h2{
     margin-bottom: 20px;
     text-align: center;
+    /* text-shadow: 1px 1px 0px  rgb(163, 165, 165); */
 }
 
 .div_text2{
@@ -200,8 +243,8 @@
     border: 1px solid lightgray;
     color:#fff;
     font-size: 13px;
-    font-weight: 100; 
-    /* position: absolute; */
+    font-weight: 50; 
+    margin-left: 40%;
     margin-top: 40px;
     justify-content: center;
     align-items: center;  
@@ -242,7 +285,7 @@
 
 /******DECOUVRIR******/
 .div_decouvrir{
-    margin-top: 50px;
+    margin-top: 0;
     background-color: #EFEFEF; 
     color: #26B2A2;
     width: 100%;
@@ -302,27 +345,25 @@
 
 .div_infos p{
     margin-top: 5%;
-    color: #423F3F;
+    /* color: #423F3F; */
+    color:black;
     text-align: center;
-    font-family: Inter;
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
     line-height: normal;
 } 
 
 .div_infos button{
     background-color:#26B2A2; 
-    width: 20%;
-    height: 10%;
     border: 1px solid lightgray;
     cursor: pointer;
     color:#fff;
     font-size: 12px;
-    font-weight: 100;
+    font-weight: 50;
     border-radius: 5px;
     margin-top: 2%;
-    /* text-transform: uppercase; */
+    width: 23%;
+    height: 9%;
 }
 
 .div_p{
@@ -331,11 +372,54 @@
     justify-content: center;
     margin-left: 30%;
     margin-top: 7%;
-    margin-bottom: 0;
+    margin-bottom: 0; 
 }
 
 button:hover {
     opacity: 0.5;
+}
+
+#popup_art1, #popup_art2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 98;
+    background: rgba(0, 0, 0, 0.7);
+    font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,serif;
+
+}
+
+.open {
+    display: block;
+}
+
+
+
+
+#popup-content, #popup-content2 {
+    max-width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-exit {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: white;
+    background: #26B2A2;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 
@@ -371,25 +455,25 @@ button:hover {
 /***************************************** Style pour les smartphones *********************************/
 @media (max-width: 767px) {
 
-    /* Barre recherche */
-     .barre_recherche{
-        width: 100%;
-        height: 40px;
+    #recherche {
+        background-color: white;
+        height: 1.5lh;
+        border: none;
+        width: 36vh;
+        box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
     }
 
-    .barre_recherche input[type="search"] {
-        width: 74%;
-        height: 20px;
-        font-size: 10px;
-    } 
+    #recherche input {
+        width: 32vh;
+        height: 2vh 
+    }
 
-    .barre_recherche button {
-        width: 24%;
-        padding: 8px;
-        height: 20px;
-        font-size: 9px;
-        padding-top: 2%;
-       
+    #test button {
+    margin-left: 0vh;
+    font-size: 9px;
+    }
+    .fa-search:before {
+        font-size: 17px;
     }
     
     .slider {
@@ -397,9 +481,9 @@ button:hover {
         height:70vh;
     }
 
-    .suivant, .precedent {
+    /* .suivant, .precedent {
         font-size: 1rem;
-    }
+    } */
 
     .div_connecter {
         margin-top:20px;
@@ -416,13 +500,19 @@ button:hover {
             font-weight: bold;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 8px;
+}
+/*********************VERIFFFFFFFFFFFFFF************/
     .div_connecter input[type="button"] {
         width: 100px;
         height: 70%;
         font-size: 12px;
         font-weight: 120;
     }
-
+/******************************************************/
     .div_decouvrir{
         margin-top: 30px;
         width: 100%;
@@ -436,15 +526,18 @@ button:hover {
         padding-right: 20px;
     }
     
+/*********************VERIFFFFFFFFFFFFFF************/
+
     .div_decouvrir input[type="button"]{
         width: 130px;
         height: 40%;
         font-size: 12px;  
         font-weight: 70;
     }
+/******************************************************/
 
     .div_decouvrir h3{
-        padding-right: 1050px;
+        padding-right: 15%;
     }
 
 /*PARTIE connecter*/
@@ -457,7 +550,6 @@ button:hover {
     align-items: center;
     font-size: 10px;
     font-weight:normal;
-
 }
 
 .separation{
@@ -508,13 +600,23 @@ button:hover {
 .div_article1 button, .div_article2 button {
     vertical-align: middle;
     border-radius: 2px;
+    width: 17%;
+    height: 21px;
+    font-size: 7px;
+    font-weight: 100;
+    position: absolute;
+    margin-top: 44%;
+    margin-left: 19%;
+
+    /* vertical-align: middle;
+    border-radius: 2px;
     width: 20%;
     height: 24px;
     font-size: 8px;
     font-weight: 100;
     position: absolute;
     margin-top: 36%;
-    margin-left: 15%;
+    margin-left: 15%; */
 }
 .div_article1, .div_article2{
     flex-direction: column;
@@ -522,7 +624,7 @@ button:hover {
 }
 /*ARTICLE 1*/
 .div_article1 img {
-    object-fit: fill;
+        object-fit: fill;
         height: 30%;
         width: 60%;
         display: block;
@@ -533,7 +635,7 @@ button:hover {
 }
 
 .div_article1 button{
-    margin-top: 43%;
+    margin-top: 44%;
 }
 
 /*ARTICLE 2*/
@@ -578,37 +680,24 @@ button:hover {
 
 .div_decouvrir h3 {
     padding-right: 15%;
+    font-size: 11px;
 }
 }
 
 /***************************************** Style pour les tablettes *********************************/
-@media (max-width: 1199px) {
-    /*SLIDER*/
-    .slider{
-        width: 100%;
-        height: 850;
-    }
+@media (min-width: 1000px) {
+   
     
-    .slider img {
-        width: 100%;
-        height: 100%;
-    }
-
-    .div_decouvrir input[type="button"]{
-       font-size :20px;
-    } 
-
-    .div_decouvrir h3{
-        padding-right: 1150px;
-    }
+    
     
 }
 
 /* Styles pour les écrans larges */
 @media (min-width: 1200px) {
- 
+    
+    
+    
 }
-
 
 
 /*#CDD3DA*/

@@ -10,213 +10,182 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 </head>
 
-
-<!-- RECHERCHE -->
-<div class = "div_recherche">
-<div class="rechercher">
-        <input type="text" class="recherche" placeholder="Rechercher une espèce" />
-        <button type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-    </div>
-</div>
-
 <!-- SLIDER -->
 <div class="slider">
-    <div id="test">vezvze</div>
-        <img src="../assets/img/test2.jpg" alt="img1" class="img__slider active" />
-        <img src="../assets/img/ecureil.jpg" alt="img2" class="img__slider" />
-        <img src="../assets/img/chevreuil.jpg" alt="img3" class="img__slider" />
-        <img src="../assets/img/ours.jpg" alt="img4" class="img__slider" />
-        <img src="../assets/img/renard2.jpeg" alt="img5" class="img__slider" />
-        <img src="../assets/img/loup.jpg" alt="img6" class="img__slider" />
-
-
-        <div class="suivant">
-            <i class="fas fa-chevron-circle-right"></i>        
+    <div id="test">
+        <h2>Rechercher sur le site </h2>
+        <div id ="recherche">
+            <input type="text" class="recherche" placeholder="Rechercher une espèce" />
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
         </div>
-        <div class="precedent">
-            <i class="fas fa-chevron-circle-left"></i>
-        </div>
+        <h6>phrase phrase phrase </h6>
     </div>
+    <img src="../assets/img/test2.jpg" alt="img1" class="img__slider active" />
+    <img src="../assets/img/ecureil.jpg" alt="img2" class="img__slider" />
+    <img src="../assets/img/chevreuil.jpg" alt="img3" class="img__slider" />
+    <img src="../assets/img/ours.jpg" alt="img4" class="img__slider" />
+    <img src="../assets/img/renard2.jpeg" alt="img5" class="img__slider" />
+    <img src="../assets/img/loup.jpg" alt="img6" class="img__slider" />
 
-<!--PARTIE JS-->
-    <script type="text/javascript">
-        let img__slider = document.getElementsByClassName('img__slider');
-
-let etape = 0;
-
-let nb__img = img__slider.length;
-
-let precedent = document.querySelector('.precedent');
-let suivant = document.querySelector('.suivant');
-
-function enleverActiveImages() {
-    for(let i = 0 ; i < nb__img ; i++) {
-        img__slider[i].classList.remove('active');
-    }
-}
-
-suivant.addEventListener('click', function() {
-    etape++;
-    if(etape >= nb__img) {
-        etape = 0;
-    }
-    enleverActiveImages();
-    img__slider[etape].classList.add('active');
-})
-
-precedent.addEventListener('click', function() {
-    etape--;
-    if(etape < 0) {
-        etape = nb__img - 1;
-    }
-    enleverActiveImages();
-    img__slider[etape].classList.add('active');
-})
-
-setInterval(function() {
-    etape++;
-    if(etape >= nb__img) {
-        etape = 0;
-    }
-    enleverActiveImages();
-    img__slider[etape].classList.add('active');
-}, 3000)
-        </script>
+    <div class="suivant">
+        <!-- <i class="fas fa-chevron-circle-right"></i>         -->
+    </div>
+    <div class="precedent">
+        <!-- <i class="fas fa-chevron-circle-left"></i> -->
+    </div>
+</div>
 
 <!-- Se connecter-->
 <div class="div_connecter">
     <h3 class="first">
-    <a href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll">Accéder à ma Naturothèque </a>
-    </h3>
-    
-    <div class = "separation">
-    </div>
-    
-    <h3 class = "second" >
-        <a href="http://localhost/SAE3.01/web/frontController.php?controller=utilisateur&action=connection"> Vous n’êtes pas encore inscrit </a>
+        <a href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll">Accéder à ma Naturothèque </a>
     </h3>
 
+    <div class="separation">
+    </div>
+
+    <h3 class="second">
+        <a href="http://localhost/SAE3.01/web/frontController.php?controller=utilisateur&action=connection"> Vous n’êtes pas encore inscrit </a>
+    </h3>
 </div>
 
 <div class="articles">
-<!--ARTICLE 1 - ESCARGOT -->
-<div class ="div_article1">
-<!-- height="300" width="400" -->
-    <img src="../assets/img/escargot.jpg"  height="300" width="400" alt="image_escargot" class="img_article">
+    <!--ARTICLE 1 - ESCARGOT -->
+    <div class="div_article1">
+        <!-- height="300" width="400" -->
+        <img src="../assets/img/escargot.jpg"  height="300" width="400" alt="image_escargot" class="img_article">
 
-    <div class = "div_text1"> 
+        <div class="div_text1">
 
-        <h2>"11 % des escargots sont menacés"</h2>
-        <p>Dès que la pluie est là, ils pointent le bout de leurs antennes. Connus de tous, les escargots sont pourtant pleins de mystères.
-            En France, 691 espèces sont recensées par l’Inventaire national du patrimoine naturel (INPN). 
-            Parmi elles, un tiers n’existe nulle part ailleurs dans le monde. Aucun doute : l’Hexagone est bien le pays du plus célèbre des mollusques terrestres.
-            Et pourtant, on ne fait pas assez pour ces petites bêtes. L’INPN établit que 41 % des espèces, soit près de la moitié, sont trop mal connues en France pour que leur statut de conservation puisse être évalué. 
-            Pour contrecarrer ces données insuffisantes, vous pouvez agir. En avril 2023, le Muséum national d’Histoire naturelle a lancé une « opération escargots ». 
-            On vous explique de quoi il s’agit et comment vous pouvez contribuer.
-        </p> 
+            <h2>"11 % des escargots sont menacés"</h2>
+            <p>Dès que la pluie est là, ils pointent le bout de leurs antennes. Connus de tous, les escargots sont pourtant pleins de mystères.
+                En France, 691 espèces sont recensées par l’Inventaire national du patrimoine naturel (INPN).
+                Parmi elles, un tiers n’existe nulle part ailleurs dans le monde. Aucun doute : l’Hexagone est bien le pays du plus célèbre des mollusques terrestres.
+                Et pourtant, on ne fait pas assez pour ces petites bêtes. L’INPN établit que 41 % des espèces, soit près de la moitié, sont trop mal connues en France pour que leur statut de conservation puisse être évalué.
+                Pour contrecarrer ces données insuffisantes, vous pouvez agir. En avril 2023, le Muséum national d’Histoire naturelle a lancé une « opération escargots ».
+                On vous explique de quoi il s’agit et comment vous pouvez contribuer.
+            </p>
 
-        <div class = "div_button">
-        <a class = "button_link" href="https://actu.fr/planete/biodiversite/escargots-dans-votre-jardin-vous-pouvez-aider-les-scientifiques-a-les-sauver_59288356.html" target="_blank">
+            <div id="div_button">
+                <button onclick="togglePopup(1)">En savoir plus</button>
+            </div>
+
+            <div id="popup_art1">
+                <div id="popup-content">
+                    <h4>Escargots : dans votre jardin, vous pouvez aider les scientifiques à les sauver</h4>
+                    <br>
+                    <p>Un programme permettant aux citoyens de suivre les escargots dans leur jardin est lancé. Le but : faire avancer la science qui dispose de données insuffisantes sur l'espèce.</p>
+                    <p>Dès que la pluie est là, ils pointent le bout de leurs antennes. Connus de tous, les escargots sont pourtant pleins de mystères. En France, 691 espèces sont recensées par l’Inventaire national du patrimoine naturel (INPN).
+                        Parmi elles, un tiers n’existe nulle part ailleurs dans le monde. Aucun doute : l’Hexagone est bien le pays du plus célèbre des mollusques terrestres.
+                        Et pourtant, on ne fait pas assez pour ces petites bêtes. L’INPN établit que 41 % des espèces, soit près de la moitié, sont trop mal connues en France pour que leur statut de conservation puisse être évalué.
+                        Pour contrecarrer ces données insuffisantes, vous pouvez agir. En avril 2023, le Muséum national d’Histoire naturelle a lancé une « opération escargots ». On vous explique de quoi il s’agit et comment vous pouvez contribuer.
+                    </p>
+                    <br>
+                    <h5>11 % des escargots sont menacés</h5>
+                    <br>
+                    <p>« Au total, 2 espèces ont déjà disparu, 79 sont menacées et 32 autres sont quasi menacées », précise l’Union internationale pour la conservation de la nature (UICN) dans un fascicule dédié aux mollusques continentaux.
+                        Au niveau mondial, l’association de protection de la biodiversité a recensé davantage d’extinctions d’escargots que de mammifères, oiseaux, reptiles et amphibiens réunis.
+                        Pollution agricole, piétinement dû à la surfréquentation de sites touristiques, surpâturage, feux de forêt de plus en plus fréquents… La pression sur l’environnement du gastéropode est forte.
+                        Mais la principale cause de menace qui pèse sur l’escargot vient de l’urbanisation. En effet, toutes constructions de routes ou d’infrastructures tendent à dégrader et à détruire son habitat et in fine, à réduire son milieu de vie.
+                    </p>
+                    <br>
+                    <h5>Comment participer à l’ « opération escargots » ?</h5>
+                    <br>
+                    <p>L’ « opération escargots » du Muséum national d’Histoire naturelle propose à tous les citoyens de suivre les escargots dans leur jardin. Pour aider les petits mollusques terrestres, on vous explique la marche à suivre.
+                        Pour s’inscrire au programme, rendez-vous sur le site de Qubs, qui propose d’autres missions de sciences participatives, pour vous inscrire et vous informer.
+                        Le principe est simple : vous devez installer un abri à escargots. Il peut s’agir d’une planche en bois non-traitée ou bien d’une soucoupe en terre cuite naturelle que vous posez au sol, de préférence dans une zone abritée (sous une haie, près d’un arbre ou d’un mur par exemple).
+                    </p>
+
+                    <p>En effet, les jardins sont des espaces auxquels les chercheurs n’ont pas accès. C’est sans compter qu’ils représentent une surface importante : selon le média spécialisé Jardins de France, il y a 13 millions de jardins privés sur notre territoire. Et autant d’écosystèmes.
+                        « En savoir plus sur ce qu’il se passe derrière nos clôtures est essentiel si on veut faire avancer la protection de la biodiversité », synthétise l’experte.
+                    </p>
+                    <a href="javascript:void(0)" onclick="togglePopup(1)" class="popup-exit">Fermer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTICLE 2 - FOURMI -->
+    <div class="div_article2">
+        <img src="../assets/img/fourmi.jpg" height="300" width="400" alt="image_fourmi" class="img_article2" >
+        <div class="div_text2">
+            <h2>"Une des 3 fourmis les plus envahissantes au monde"</h2>
+            <p>
+                De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
+                "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet.
+                L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
+                Mais l'espèce étant facilement transportée dans des plantes ou des déchets verts, "il est probable que d'autres zones soient envahies", précise l'INPN.
+            </p>
+            <div id="div_button2">
+                <button onclick="togglePopup(2)">En savoir plus</button>
+            </div>
+
+            <div id="popup_art2">
+                <div id="popup-content2">
+                <h4>La Fourmi éléctrique, une espèce invasive,détectée,pour la première fois en France à Toulon</h4>
+                    <h6>L'espèce est très probablement arrivée en France lors d'un transport de plantes. Particulièrement envahissante, elle va devoir faire l'objet d'un plan d'éradication.</h6>
+                    <p> C'est une première en France métropolitaine. Des fourmis électriques, une espèce très envahissante d'insectes originaires d'Amérique du Sud, a été observée pour la première fois à Toulon en septembre dernier.
+                        C'est Olivier Blight, chercheur à l'Institut méditerranéen de biodiversité et d'écologie à Avignon, qui a fait cette observation dans une résidence fermée du bord de mer de Toulon, rapporte l'AFP. Il évoque même une "super-colonie" qui pourrait être là "depuis plus d'un an".
+                        Jusqu'à présent, la fourmi électrique n'avait été observée qu'une seule fois en Europe, dans la région de Malaga en Espagne. Olivier Blight suppose qu'elle a été introduite en France "lors d'un transport de plante".
+                        L'espèce doit son nom à sa piqûre qui provoque une sensation de piqûre d'ortie, "en plus fort et plus long, puisque ça dure 2-3 heures". Si la piqûre a avant tout pour but de neutraliser d'autres animaux, elle peut tout de même provoquer des chocs anaphylactiques chez les humains allergiques.
+                    </p>
+                    <h5>"Une des 3 fourmis les plus envahissantes au monde"</h5>
+                    <p>De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
+                        "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
+                        Mais l'espèce étant facilement transportée dans des plantes ou des déchets verts, "il est probable que d'autres zones soient envahies", précise l'INPN.
+                        L'INPN appelle donc les habitants à prendre en photo les fourmis s'ils en aperçoivent afin de les transmettre au registre INPN Espèces, ou bien à envoyer des spécimens morts dans du coton ou un tube avec de l'alcool à l'Institut méditerranéen de biodiversité et d'écologie, afin qu'il puisse réaliser des analyses pour déterminer l'origine exacte de l'insecte.
+                        Olivier Blight rappelle quant à lui que la présence de cette espèce envahissante nécessite un plan d'éradication, comparable à celui pour le moustique-tigre, que les autorités ont trois mois pour mettre en place depuis qu'il a signalé la présence de fourmis électriques.
+                    </p>
+                    <a href="javascript:void(0)" onclick="togglePopup(2)" class="popup-exit">Fermer</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Découvrir -->
+<div class="div_decouvrir">
+    <h3> 75.4 millions d'espèces</h3>
+</div>
+
+<!--infos-->
+<div class="div_infos">
+    <div class="partie1">
+        <div class="cercle">
+            <i class="fi fi-sr-badge"></i>
+        </div>
+        <div class="div_p">
+            <p>Découvrez l'espèce la plus consultée, pour en apprendre davantage sur cette espèce fascinante </p>
+        </div>
+        <a class="button_link" href=""></a>
         <button>En savoir plus</button>
-        </a>
-        </div> 
-
     </div>
-
-</div>
-
-<!-- ARTICLE 2 - FOURMI -->
-<div class="div_article2">
-
-    <img src="../assets/img/fourmi.jpg" height="300" width ="400" alt="image_fourmi" class="img_article2" >
-
-
-
-    <div class = "div_text2">
-   
-        <h2>"Une des 3 fourmis les plus envahissantes au monde"</h2>
-       
-        <p>
-            De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
-            "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. 
-            L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
-            Mais l'espèce étant facilement transportée dans des plantes ou des déchets verts, "il est probable que d'autres zones soient envahies", précise l'INPN.
-        </p> 
-
-        <div class="div_button2">
-        <a class = "button_link" href="https://www.bfmtv.com/var/la-fourmi-electrique-une-espece-invasive-detectee-pour-la-premiere-fois-en-france-a-toulon_AN-202210200394.html" target="_blank">
-        <button>En savoir plus</button>
-        </a> 
+    <div class="partie2">
+        <div class="cercle">
+            <i class="fi fi-sr-map-marker"></i>
         </div>
-</div>
-</div>
-</div>
-
-
-        <!-- Découvrir -->
-        <div class =div_decouvrir>
-            <h3> 75.4 millions d'espèces</h3>
+        <div class="div_p">
+            <p>Explorez votre environnement en découvrant les différentes espèces qui vous entourent</p>
         </div>
-
-        <!--infos-->
-
-        <div class="div_infos">
-            
-            <div class = "partie1">
-                <div class = "cercle">
-                    <i class="fi fi-sr-badge"></i> 
-                </div> 
-                <div class ="div_p">
-                    <p>Découvrez l'espèce la plus consultée, pour en apprendre davantage sur cette espèce fascinante </p>    
-                </div>   
-                <a class = "button_link" href=""></a>
-                    <button>En savoir plus</button>
-            </div>
-        
-            <div class = "partie2">
-                <div class = "cercle">
-                    <i class="fi fi-sr-map-marker"></i>
-                </div>
-                <div class = "div_p">
-                    <p>Explorez votre environnement en découvrant les différentes espèces qui vous entourent</p>
-                </div>
-                <a class = "button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php"></a>
-                <button>Découvrir</button> 
-            </div>
-            
-            <div class = "partie3">
-                <div class ="cercle">
-                    <i class="fi fi-sr-bookmark"></i>
-                </div>
-                <div class="div_p">
-                    <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>       
-                </div>
-                <a class = "button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll"></a>
-                <button>Naturothèques</button>
-            </div>
+        <a class="button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php"></a>
+        <button>Découvrir</button>
+    </div>
+    <div class="partie3">
+        <div class="cercle">
+            <i class="fi fi-sr-bookmark"></i>
         </div>
-       
-
-
-<!-- Espace Videos-->
-<!-- <div class="div_videos">
-<h3>Vidéos</h3>
-    <div class="video">
-        <iframe width="280" height="161" src="https://www.youtube.com/embed/aOnmucUbDUw?si=p3MQNzw7qYWF5R6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
+        <div class="div_p">
+            <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>
+        </div>
+        <a class="button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll"></a>
+        <button>Naturothèques</button>
     </div>
-    <div class="video">
-        <iframe width="280" height="161" src="https://www.youtube.com/embed/0O9T24QnqrY?si=xo8Wj2TWiOk7jfMB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-    <div class="video">
-    <iframe width="280" height="161" src="https://www.youtube.com/embed/-2PGG33W2Eg?si=T_f5CytPDX1Cga50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div> -->
-
+</div>
+<script src="../assets/js/scriptAccueil.js"></script>
 </html>
-
 
 <?php
 ?>
