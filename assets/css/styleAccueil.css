@@ -6,10 +6,13 @@
 #test{
     color: white;
     z-index: 1;
-    position: relative;
+    position: absolute;
     width: fit-content;
-    margin: 0 auto;
+    margin: 27vh 0 0 50%;
+    transform: translateX(-50%);
 }
+
+
 #test h2{
         text-shadow: 1px 1px 0px  rgb(37, 177, 160);
         font-size: 3em;
@@ -103,6 +106,7 @@
     width: 100%;
     padding: 0; 
     margin: 0; 
+    z-index: 0;
 }
 
 .slider img {
