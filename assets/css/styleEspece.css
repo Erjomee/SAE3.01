@@ -103,7 +103,7 @@ th{
     width: 100px;
     flex-grow: 1;
     text-align: center;
-    padding-inline: 10%;
+    padding: 0 8% 0 10%;
 }
 
 .container hr{
@@ -120,28 +120,27 @@ th{
     /*margin-top: 15px;*/
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(calc(300px - 30px), 1fr));
-    gap: 20px ; /* Espacement entre les éléments */
+    gap: 30px ; /* Espacement entre les éléments */
     padding: 30px 0;
-
 }
 
 
 #resultat .item {
     position: relative; /* Pour que la position absolue du bouton soit basée sur la div.item */
     width: 100%;
-    border: 2px solid black;
-    background-color: lightsteelblue;
-    border-radius: 10px;
-    height: 140px;
+    /* border: 2px solid black; */
+    /* background-color: lightsteelblue; */
+    /* border-radius: 10px; */
+    height: 150px;
     padding: 3%;
     display: flex;
 }
 
 #resultat .img-carte{
-    width: 120px;
-    height: 100%;
+    width: 130px;
+    /* height: 130px; */
     display: flex;
-    border-radius: 100px;
+    border-radius: 5px;
 }
 
 #resultat .information{
@@ -204,9 +203,12 @@ th{
     cursor: pointer;
 }
 
-
 .item:hover{
     opacity: 0.5;
+}
+
+#resultat .item:hover{
+    background-color: #d4d4d4;
 }
 
 
@@ -215,6 +217,53 @@ th{
     display: inline;
 }
 
+#pagination_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#prev_arrow , #next_arrow{
+    font-size: 30px;
+    border-radius: 100px;
+    padding: 5px;
+    margin: 0 15px;
+}
+
+.next_prev_activated:hover{
+    background-color: #d4d4d4;
+    cursor: pointer;
+}
+
+#pagination{
+    width: fit-content;
+    font-size: 20px;
+}
+
+ul#pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+ul#pagination li {
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+
+ul#pagination li:hover {
+    background-color: #d4d4d4;
+}
+
+.page_active{
+    background-color: #26B2A2;
+    color: white;
+}
 
 
 /*Plus d'information*/

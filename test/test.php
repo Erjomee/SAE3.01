@@ -1,29 +1,69 @@
-<?php
-$url = 'https://taxref.mnhn.fr/api/taxa/search?version=16.0&frenchVernacularNames=pinson&page=1&size=5000';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Example</title>
+    <style>
+        ul.pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
 
-$ch = curl_init($url);
+        ul.pagination li {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
 
-// Désactiver la vérification du certificat SSL
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+<div id="content"></div>
+<ul class="pagination" id="pagination"></ul>
 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+<script>
+    // Sample data (you can replace this with your data)
+    const data = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
 
-$response = curl_exec($ch);
+    // Items per page
+    const itemsPerPage = 10;
 
-if (curl_errno($ch)) {
-    echo 'Erreur cURL : ' . curl_error($ch);
-}
+    // Calculate total number of pages
+    const totalPages = Math.ceil(data.length / itemsPerPage);
 
-curl_close($ch);
+    // Display the first page by default
+    displayPage(1);
 
-if ($response !== false) {
-    $data = json_decode($response, true);
+    // Generate pagination links
+    const paginationElement = document.getElementById("pagination");
+    for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.textContent = i;
+        li.addEventListener("click", () => displayPage(i));
+        paginationElement.appendChild(li);
+    }
 
-    $id = $data['_embedded']['taxa'][0]['id'];
-    echo $id;
+    function displayPage(pageNumber) {
+        const contentElement = document.getElementById("content");
 
-} else {
-    echo 'La requête a échoué.';
-}
-?>
+        // Calculate start and end indices for the current page
+        const startIndex = (pageNumber - 1) * itemsPerPage;
+        const endIndex = pageNumber * itemsPerPage;
+
+        // Extract items for the current page
+        const currentPageItems = data.slice(startIndex, endIndex);
+
+        // Display items in the content element
+        contentElement.innerHTML = currentPageItems.map(item => `<p>${item}</p>`).join("");
+
+        // Highlight the current page in the pagination links
+        const paginationLinks = document.querySelectorAll("#pagination li");
+        paginationLinks.forEach((link, index) => {
+            link.style.fontWeight = index + 1 === pageNumber ? "bold" : "normal";
+        });
+    }
+</script>
+
+</body>
+</html>

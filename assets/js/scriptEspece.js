@@ -1,31 +1,94 @@
-function rechercher(){
-    document.getElementById('default_message').innerHTML = ""
-    document.getElementById('resultat').innerHTML = ""
-    document.getElementById('result_area').style.backgroundImage = "url(./../assets/img/loading.gif)"
-
+function rechercher(page_active){
+    resetSearch();
 
     var recherche = document.getElementById('marecherche').value;
     var filtre = document.querySelector('input[name=filtre_f]:checked').value;
-    var page = document.getElementById("page").value;
     var size = document.getElementById("size").value;
-
 
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page + "&size=" + size;
+    var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page_active + "&size=" + size;
+    console.log(params);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             // document.getElementById('resultat').innerHTML = xhr.responseText;
             var reponse = JSON.parse(xhr.responseText);
+
             document.getElementById("default_message").innerHTML = reponse["default"];
-            document.getElementById("resultat").innerHTML = reponse["result"];
+
+
+            // Mise en forme des données sur la page 
+            document.getElementById("resultat").innerHTML = reponse["result"];  // ne plus utiliser ca 
+
+            let data = reponse["data"]
+
+            ///////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+            ///////////////////     à compléter    ////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+
+            // Système de pagination
+            const paginationElement = document.getElementById("pagination");
+
+
+            if (page_active != 1) {
+                const prev_arrow = document.createElement("i");
+                prev_arrow.setAttribute("id","prev_arrow");
+                prev_arrow.classList.add("bx")
+                prev_arrow.classList.add("bx-left-arrow-alt")
+                prev_arrow.classList.add("next_prev_activated")
+                prev_arrow.addEventListener("click", () => rechercher(page_active-1));
+                paginationElement.appendChild(prev_arrow);
+            }
+
+            for (let i = 1; i <= reponse["nbr_page"]; i++) {
+                console.log(i);
+                const li = document.createElement("li");
+                if ((i == 1 )|| (page_active - 2 <= i && i <= page_active) || (page_active <= i  && i <= page_active + 2) ||(i==reponse["nbr_page"])) {
+                    li.textContent = i;
+                    if (i == page_active) {
+                        li.classList.add("page_active");
+                    }
+                    li.addEventListener("click", () => rechercher(i));
+                    paginationElement.appendChild(li);
+                }
+                else{
+                    if (i<page_active) {
+                        if (!document.querySelector(".page_interval_before")) {
+                            li.textContent = "..."
+                            li.classList.add("page_interval_before");
+                            paginationElement.appendChild(li);
+                        }
+                    }else{
+                        if(!document.querySelector(".page_interval_after")){
+                            li.textContent = "..."
+                            li.classList.add("page_interval_after");
+                            paginationElement.appendChild(li);
+                        }
+                    }
+                }
+            }
+
+            if (page_active != reponse["nbr_page"]) {
+                const next_arrow = document.createElement("i");
+                next_arrow.setAttribute("id","next_arrow");
+                next_arrow.classList.add("bx")
+                next_arrow.classList.add("bx-right-arrow-alt")
+                next_arrow.classList.add("next_prev_activated")
+                next_arrow.addEventListener("click", () => rechercher(page_active+1));
+                paginationElement.appendChild(next_arrow);
+            }
 
             document.getElementById('result_area').style.backgroundImage = "none"
+            redirectToTop();
         }
+
     };
     xhr.open("GET", url + params, true);
     xhr.send(null);
+
 }
 
 
@@ -110,7 +173,6 @@ function more_info(id) {
 
             // document.getElementById("rang_liste").innerHTML = data["classification"]["Domaine"][0]["Domaine"];
 
-
             // Carte
             const imageLeft = document.getElementById("map-left");
             const imageRight = document.getElementById("map-right");
@@ -142,6 +204,54 @@ function more_info(id) {
         }
     });
 }
+
+// function NextAndPreviousPage(active_page, max_page) {
+//     const previous_page = document.getElementById("previous_arrow");
+//     const next_page = document.getElementById("next_arrow");
+//     if (max_page > 1) {
+//         if (active_page == 1) {
+//             next_page.style.display = "block";
+
+//             next_page.classList.add("next_prev_activated");
+//             next_page.addEventListener("click", function() {
+//                 NextPage(active_page);
+//             });
+
+//             previous_page.style.display = "none";
+//         } else if (active_page == max_page) {
+//             previous_page.style.display = "block";
+
+//             previous_page.classList.add("next_prev_activated");
+//             previous_page.addEventListener("click", function() {
+//                 PrevPage(active_page);
+//             });
+
+//             next_page.style.display = "none";
+//         }else{
+//             next_page.style.display = "block";
+
+//             next_page.classList.add("next_prev_activated");
+//             next_page.addEventListener("click", function() {
+//                 NextPage(active_page);
+//             });
+
+//             previous_page.style.display = "block";
+
+//             previous_page.classList.add("next_prev_activated");
+//             previous_page.addEventListener("click", function() {
+//                 PrevPage(active_page);
+//             });
+//         }
+//     }
+// }
+
+// function NextPage(active_page) {
+//     rechercher(active_page + 1);
+// }
+
+// function PrevPage(active_page) {
+//     rechercher(active_page - 1);
+// }
 
 // // On verfifie le bon chargement des media
 // document.addEventListener('DOMContentLoaded', (event) => {
@@ -216,6 +326,14 @@ function animateSlider(){
     }
 }
 
+function resetSearch(){
+    document.getElementById('default_message').innerHTML = "";
+    document.getElementById('resultat').innerHTML = "";
+    document.getElementById('pagination').innerHTML = "";
+    document.getElementById('result_area').style.backgroundImage = "url(./../assets/img/loading.gif)";
+}
+
+
 function resetPopup() {
 
     // Affichage du popup
@@ -239,4 +357,9 @@ function resetPopup() {
     // Carte
     document.getElementById("map-left").style.display = "block";
     document.getElementById("map-right").style.display = "block";
+}
+
+function redirectToTop() {
+    // Utilisez l'élément <body> comme cible
+    document.body.scrollIntoView({ behavior: "smooth" });
 }
