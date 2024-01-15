@@ -23,8 +23,8 @@ class ControllerEspece{
         $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
         $result = "";
 
-        if (isset($data)) {  // La recherche contient des especes
-            foreach ($data as $espece) {
+        if (isset($data[0])) {  // La recherche contient des especes
+            foreach ($data[0] as $espece) {
                 if (isset($espece["_links"]["media"])){
                     $image = $espece["_links"]["media"][0];
                 }else{
@@ -43,7 +43,9 @@ class ControllerEspece{
                     </div>";
             }
             $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
-                "result" => $result);
+                "result" => $result,
+                "nbr_page" => $data[1],
+                "data"=> $data[0]);
 
         }else{  // aucun résultat
             $paquet = array( "default" => "<h1>Espece introuvable<h1>",
@@ -51,7 +53,6 @@ class ControllerEspece{
         }
 
         $json_data = json_encode($paquet);
-
 
         header('Content-Type: application/json');
         echo $json_data ;
@@ -67,8 +68,8 @@ class ControllerEspece{
         $result = "";
         $image = "";
 
-        if (isset($data)){  // La recherche contient des especes
-            foreach ($data as $espece) {
+        if (isset($data[0])){  // La recherche contient des especes
+            foreach ($data[0] as $espece) {
                 if (isset($espece["_links"]["media"])){ // Si le taxon présente des images
                     if(sizeof($espece["_links"]["media"]) == 1 ){  // Si il ne contient qu'une image
                         $image .= "<img src='{$espece["_links"]["media"][0]}' alt='img1' class='img__slider active'/>";
@@ -92,20 +93,9 @@ class ControllerEspece{
                 }else{ // Pas d'image présente
                     $image .= "<img src='../assets/img/img_not_found.png' alt='img1' class='img__slider active'/>";
                 }
-
-                $result .= "<div class='item'>
-                        <img class='img-carte' src={$image}>
-                        <div class='information'>
-                            <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
-                            <hr>
-                            <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
-                            <p>{$espece['fullNameHtml']}</p>
-                            <p>ID:{$espece['id']}</p>
-                        </div>
-                    </div>";
             }
             $paquet = array("description" => EspeceRepository::getDescription($id),
-                "result" => $data,
+                "result" => $data[0],
                 "image" => $image,
                 );
         }else{  // aucun résultat

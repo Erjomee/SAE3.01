@@ -5,6 +5,86 @@ use App\Naturotheque\Model\DataObject\Espece;
 use PDO;
 
 
+class Conf {
+
+    static private array $databases = array(
+        // Le nom d'hote est localhost sur votre machine
+        'hostname' => 'localhost',
+        // Sur votre machine, vous devrez creer une BDD
+        'database' => 'sae301',
+        // Sur votre machine, vous avez surement un compte 'root'
+        'login' => 'root',
+        // Sur votre machine, vous avez créé ou non ce mdp a l'installation
+        'password' => 'root'
+    );
+
+    static private float $dureeExpiration = 1800;
+
+    static public function getLogin() : string {
+        // L'attribut statique $databases s'obtient
+        // avec la syntaxe static::$databases
+        // au lieu de $this->databases pour un attribut non statique
+        return static::$databases['login'];
+    }
+
+    static public function getHostname() : string {
+        return static::$databases["hostname"];
+    }
+
+    static public function getDatabase() : string {
+        return static::$databases["database"];
+    }
+
+    static public function getPassword() : string {
+        return static::$databases["password"];
+    }
+
+    static public function getDureeExpiration() : float{
+        return static::$dureeExpiration;
+    }
+
+}
+
+class DatabaseConnection{
+    private static $instance = null;
+    private $pdo ;
+
+    public static function getPdo() {
+        return static::getInstance()->pdo;
+    }
+
+
+    public function __construct() {
+        $hostname =  Conf::getHostname();
+        $databaseName = Conf::getDatabase();
+        $login = Conf::getLogin();
+        $password = Conf::getPassword();
+
+        // Connexion à la base de données
+        // Le dernier argument sert à ce que toutes les chaines de caractères
+        // en entrée et sortie de MySql soit dans le codage UTF-8
+        $this->pdo = new PDO("mysql:host=$hostname;dbname=$databaseName",
+            $login, $password,
+            array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+
+
+    // getInstance s'assure que le constructeur sera appelé une seule fois.
+    // L'unique instance crée est stockée dans l'attribut $instance
+    public static function getInstance() {
+        // L'attribut statique $pdo s'obtient avec la syntaxe static::$pdo
+        // au lieu de $this->pdo pour un attribut non statique
+        if (is_null(static::$instance))
+            // Appel du constructeur
+            static::$instance = new DatabaseConnection();
+        return static::$instance;
+    }
+
+}
+
+
+
 class EspeceRepository{
     // Liste des territoires de TAXREF
     public static $territoire = array(
@@ -59,7 +139,6 @@ class EspeceRepository{
         $url = str_replace(" " , "%20" , $url); // gestion des espaces
         $response = EspeceRepository::cURL($url);
 
-
         // Vérification de la réponse à la requête
         if ($response !== false) {
             $data = json_decode($response, true);
@@ -89,8 +168,7 @@ class EspeceRepository{
                         $data = array_slice($data['_embedded']['taxa'],$min_interval , $size);
 
                     }else{ // Page = max_page
-                        $min_interval = ($max_page - 1 )* $size ;
-                        $data = array_slice($data['_embedded']['taxa'],$min_interval , $size);
+                        $data = array_slice($data['_embedded']['taxa'],$page * $size);
                     }
                     $nbr_page = $max_page;
                 }else{
@@ -162,7 +240,6 @@ class EspeceRepository{
             return null;
         }
     }
-
 
     // Méthode qui renvoie les infos en fonction avec l'id d'habitat
     private static function getHabitat(string $id){
@@ -252,6 +329,7 @@ class EspeceRepository{
         return null;
     }
 
+
     // A FAIRE
     public static function already_exist($email): bool {
         $sql = "SELECT * FROM utilisateur WHERE email = :email";
@@ -271,7 +349,8 @@ class EspeceRepository{
             return false;
         }
     }
-
 }
 
+var_dump(EspeceRepository::getEspece("frenchVernacularNames" , "baleine")[1])
 ?>
+

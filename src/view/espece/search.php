@@ -7,7 +7,7 @@
             ESPECES
         </h1>
 
-        <form id="rechercheForm"  onsubmit="event.preventDefault(); rechercher()">
+        <form id="rechercheForm"  onsubmit="event.preventDefault(); rechercher(1)">
             <nav class="nav_recherche">
                 <input type="hidden"  name="controller" value="espece">
                 <input type="hidden"  name="action" value="searchBy">
@@ -20,6 +20,7 @@
                 <h4>
                     Affinez votre choix
                 </h4>
+                
                 <h5>Recherche par:</h5>
                 <ul>
                     <li><input id="radio1" type="radio" name="filtre_f" value="taxrefIds" >ID espece</li>
@@ -28,7 +29,7 @@
                 </ul>
                 <div class="page_preference">
                     <h5>Page : <input type="number" id="page" value="1" step="1"></h5>
-                    <h5>Size : <input type="number" id="size" value="9" step="1"></h5>
+                    <h5>Size : <input type="number" id="size" value="12" step="1"></h5>
                 </div>
                 <!--      Faire un filtre déroulant          -->
                 <h5>Filtre par:</h5>
@@ -44,6 +45,10 @@
             <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
             <div id="resultat"></div>
         </div>
+        <div id="pagination_content">
+            <ul id="pagination"></ul>
+        </div>
+
 
         <div id="popup">
             <div id="popupInfo">

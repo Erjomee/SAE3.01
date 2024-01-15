@@ -83,6 +83,12 @@ class ControllerUtilisateur{
 
     }
 
+    public static function profil(): void{
+        ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
+                                                        "style" => "Profil",
+                                                        "cheminVueBody" => "utilisateur/profil.php"]);
+    }
+
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {
