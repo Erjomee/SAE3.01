@@ -13,14 +13,14 @@
 <!-- SLIDER -->
 <div class="slider">
     <div id="test">
-        <h2>Rechercher sur le site </h2>
+        <h2>Rechercher sur le site TaxonSphère</h2>
         <div id ="recherche">
             <input type="text" class="recherche" placeholder="Rechercher une espèce" />
             <button type="submit" class="searchButton">
                 <i class="fa fa-search"></i>
             </button>
         </div>
-        <h6>phrase phrase phrase </h6>
+        <h6> Apprenez en davantage sur les espèces fascinantes qui peuplent notre planète </h6>
     </div>
     <img src="../assets/img/test2.jpg" alt="img1" class="img__slider active" />
     <img src="../assets/img/ecureil.jpg" alt="img2" class="img__slider" />

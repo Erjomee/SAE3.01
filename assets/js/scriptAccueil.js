@@ -5,13 +5,9 @@ function togglePopup(test) {
     if (display == "none") {
         document.getElementById(id).style.display = "block";
     }else {
-        document.getElementById(id).style.display = "none";
-        
+        document.getElementById(id).style.display = "none";        
     }
 }
-
-
-
 
 // SLIDER
 let img__slider = document.getElementsByClassName('img__slider');
