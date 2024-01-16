@@ -45,6 +45,7 @@
             <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
             <div id="resultat"></div>
         </div>
+        <i class='bx bx-check'></i>
         <div id="pagination_content">
             <ul id="pagination"></ul>
         </div>

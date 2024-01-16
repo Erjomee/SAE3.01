@@ -31,7 +31,8 @@ header{
 
 body{
     margin-top: 90px;
-    background-color: white;
+    /* background-color: #F1F4F5   ; */
+    background-color: white   ;
 }
 
 main{
@@ -164,18 +165,33 @@ h1{
 
 .user-list{
     position: absolute;
-    top: 100%;
-    right: -100%;
-    width: 270px;
+    top: 110%;
+    right: 2%;
+    width: 235px;
     height: fit-content;
-    background-color: white;
+    background-color: #fefefe;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border-bottom-left-radius: 15px;
+    /* border-bottom-left-radius: 15px; */
     transition: all .50s ease;
-    align-items: center;
+    /* align-items: center; */
     list-style: none;
+    display: none;
+    border-radius: 5px;
+    line-height: 60px;
+    border: 1px solid rgba(128, 128, 128, 0.247);
+}
+
+
+.user-list .item:hover{
+    background-color: #52606933;
+}
+
+.user-list .item i{
+    font-size: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 
@@ -185,7 +201,6 @@ h1{
 
 .user-action .user-list a{
     padding: 0 25px;
-    margin: 12px 0;
     display: block;
     transition: all .80s ease;
     color: black;
@@ -209,18 +224,19 @@ h1{
 
     .user-deco-list{
         position: absolute;
-        top: 100%;
-        right: -100%;
-        width: 250px;
+        top: 110%;
+        right: 2%;
+        width: 235px;
         height: fit-content;
         background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        border-bottom-left-radius: 15px;
         transition: all .50s ease;
-        align-items: center;
-        padding: 10px 5px ;
+        list-style: none;
+        display: none;
+        border-radius: 5px;
+        line-height: 60px;
     }
 
     .item , .item-user{
@@ -245,23 +261,33 @@ h1{
 
     #menu-icon , .menu{
         display: flex;
-        font-size: 35px;
+        font-size: 40px;
         cursor: pointer;
         z-index: 10001;
     }
 
     .nav-list {
         position: absolute;
-        top: 100%;
-        right: -100%;
-        width: 270px;
+        top: 110%;
+        right: 3%;
+        width: 235px;
         height: fit-content;
         background-color: #444848;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        border-bottom-left-radius: 15px;
-        transition: all .80s ease;
+        /* border-bottom-left-radius: 15px; */
+        transition: all .50s ease;
+        /* align-items: center; */
+        list-style: none;
+        display: none;
+        border-radius: 3px;
+        line-height: 60px;
+    }
+
+    .nav-list .item {
+        
+        padding: 0;
     }
 
     .nav-list a{
@@ -307,15 +333,17 @@ h1{
     right: 0%;
 }
 
+.display{
+    display: block;
+}
+
 #user-icon{
-    font-size: 35px;
+    font-size: 40px;
     cursor: pointer;
     z-index: 10001;
     color: #26B2A2;
+    
 }
-
-
-
 
 .alert {
     padding: 15px;

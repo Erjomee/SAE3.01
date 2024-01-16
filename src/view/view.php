@@ -21,9 +21,12 @@
         ?>
         <header>
             <!-- Right part (logo) -->
-            <div class="logo">
-                <img src="./../assets/img/sae_logo.png" height="170px">
-            </div>
+            <a href="frontController.php?controller=accueil&action=readAll">
+                <div class="logo">
+                    <img src="./../assets/img/sae_logo.png" height="170px">
+                </div>
+            </a>
+
             <!-- Middle part (item) -->
             <nav>
                 <ul class="nav-list">
@@ -50,11 +53,13 @@
                             <div class='utilisateur' style='display: flex'>
                                 <div class='bx bxs-user-circle' id='user-icon'></div>
                             </div>
+
                             <div class='user-action'>
                                 <ul class='user-list'>
-                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'>Mon profile</a></li>
-                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'>Ma nathurothèque</a></li>  
-                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'>Déconnexion</a></li>
+                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'><i class='bx bx-user'></i>Profile</a></li>
+                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'><i class='bx bx-collection'></i>Collection</a></li>  
+                                    <hr>
+                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'><i class='bx bx-log-out'></i>Déconnexion</a></li>
                                 </ul>
                             </div>";
                         // Compte invité

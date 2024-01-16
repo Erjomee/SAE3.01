@@ -31,17 +31,20 @@ class ControllerEspece{
                     $image = '../assets/img/img_not_found.png';
                 }
 
-                $result .= "<div class='item'>
+                $result .= "<div class='item' onclick='more_info({$espece['id']})'>
                         <img class='img-carte' src={$image}>
                         <div class='information'>
                             <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
                             <hr>
-                            <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
+                            <button name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail'></button>
                             <p>{$espece['fullNameHtml']}</p>
                             <p>ID:{$espece['id']}</p>
                         </div>
                     </div>";
             }
+            // <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
+        
+            
             $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
                 "result" => $result,
                 "nbr_page" => $data[1],

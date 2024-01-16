@@ -13,21 +13,14 @@ function rechercher(page_active){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             // document.getElementById('resultat').innerHTML = xhr.responseText;
+            console.log(xhr.responseText);
             var reponse = JSON.parse(xhr.responseText);
-
             document.getElementById("default_message").innerHTML = reponse["default"];
 
 
             // Mise en forme des données sur la page 
             document.getElementById("resultat").innerHTML = reponse["result"];  // ne plus utiliser ca 
 
-            let data = reponse["data"]
-
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////     à compléter    ////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
 
             // Système de pagination
             const paginationElement = document.getElementById("pagination");
