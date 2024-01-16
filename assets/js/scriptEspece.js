@@ -198,6 +198,46 @@ function more_info(id) {
     });
 }
 
+
+
+
+function enregistrer(id_espece) {
+    var xhr = new XMLHttpRequest();
+    var url = 'frontController.php?';
+    var params = 'controller=naturotheque&action=enregistrer' + '&id=' + id_espece;
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            const item = document.getElementById(id_espece);
+            item.classList.remove("bx-bookmarks");
+            item.classList.add("bx-check");
+            item.onclick = function() { retirer(id_espece); };
+        }
+    };
+    xhr.open("GET", url + params, true);
+    xhr.send(null);
+}
+
+
+
+
+function retirer(id_espece) {
+
+    var xhr = new XMLHttpRequest();
+    var url = 'frontController.php?';
+    var params = 'controller=naturotheque&action=retirer' + '&id=' + id_espece;
+    console.log(id_espece);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            const item = document.getElementById(id_espece);
+            item.classList.remove("bx-check");
+            item.classList.add("bx-bookmarks");
+            item.onclick = function() { enregistrer(id_espece); };
+        }
+    };
+    xhr.open("GET", url + params, true);
+    xhr.send(null);
+    
+}
 // function NextAndPreviousPage(active_page, max_page) {
 //     const previous_page = document.getElementById("previous_arrow");
 //     const next_page = document.getElementById("next_arrow");

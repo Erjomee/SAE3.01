@@ -206,15 +206,10 @@ th{
     /* cursor: default; */
 }
 
-.item:hover{
-    cursor: pointer;
-    /* background-color: #F1F4F5   ; */
-    background-color: rgb(230, 230, 230);
-}
 
 #resultat .item:hover{
-    /* border: 1px solid black; */
-    /* box-shadow: inset 0px 15px 25px 0px rgba(0, 0, 0, 0.22), inset 0px -15px 25px 0px rgba(0, 0, 0, 0.22), inset 20px 0px 10px 0px rgba(255, 255, 255, 0.22), inset -20px 0px 10px 0px rgba(255, 255, 255, 0.22); */
+    cursor: pointer;
+    background-color: rgb(230, 230, 230);
 }
 
 .item:hover .btn_detail{

@@ -29,7 +29,6 @@
             }else{
                 return null;
             }
-
         }
 
         public static function estUtilisateur($login): bool{

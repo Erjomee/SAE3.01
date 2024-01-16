@@ -1,5 +1,7 @@
 <?php
 namespace App\Naturotheque\Controller ;
+
+use App\Naturotheque\Lib\ConnexionUtilisateur;
 use App\Naturotheque\Model\HTTP\Session;
 use App\Naturotheque\Model\Repository\EspeceRepository;
 use App\Naturotheque\Model\HTTP\Cookie;
@@ -22,6 +24,11 @@ class ControllerEspece{
 
         $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
         $result = "";
+        $utilisateurconnecte = false;
+
+        if (ConnexionUtilisateur::estConnecte()) {
+            $utilisateurconnecte = true;
+        }
 
         if (isset($data[0])) {  // La recherche contient des especes
             foreach ($data[0] as $espece) {
@@ -31,16 +38,27 @@ class ControllerEspece{
                     $image = '../assets/img/img_not_found.png';
                 }
 
-                $result .= "<div class='item' onclick='more_info({$espece['id']})'>
-                        <img class='img-carte' src={$image}>
-                        <div class='information'>
+                $result .= "<div class='item' >
+                        <img class='img-carte' src={$image} onclick='more_info({$espece['id']})'>
+                        <div class='information' onclick='more_info({$espece['id']})'>
                             <p class='nom-espece'>{$espece['frenchVernacularName']}</p>
                             <hr>
-                            <button name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail'></button>
                             <p>{$espece['fullNameHtml']}</p>
                             <p>ID:{$espece['id']}</p>
-                        </div>
+                        </div>";
+
+                if ($utilisateurconnecte) {
+                    if (!ControllerNaturotheque::deja_enregistrer($espece['id'])) {
+                        $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail' onclick='enregistrer({$espece['id']})'></button>
                     </div>";
+                    }else{
+                        $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-check btn_detail' onclick='retirer({$espece['id']})'></button>
+                        </div>";
+                    }
+                }else{
+                    $result .= "<a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail'></button></a>
+                    </div>";
+                }
             }
             // <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
         
@@ -111,6 +129,8 @@ class ControllerEspece{
         echo $json_data ;
     }
 
+
+    
 
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
