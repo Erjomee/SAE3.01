@@ -125,13 +125,17 @@
             <div id="popup_art2">
                 <div id="popup-content2">
                 <h4>La Fourmi éléctrique, une espèce invasive,détectée,pour la première fois en France à Toulon</h4>
+                <br>
                     <h6>L'espèce est très probablement arrivée en France lors d'un transport de plantes. Particulièrement envahissante, elle va devoir faire l'objet d'un plan d'éradication.</h6>
+                    <br>
                     <p> C'est une première en France métropolitaine. Des fourmis électriques, une espèce très envahissante d'insectes originaires d'Amérique du Sud, a été observée pour la première fois à Toulon en septembre dernier.
                         C'est Olivier Blight, chercheur à l'Institut méditerranéen de biodiversité et d'écologie à Avignon, qui a fait cette observation dans une résidence fermée du bord de mer de Toulon, rapporte l'AFP. Il évoque même une "super-colonie" qui pourrait être là "depuis plus d'un an".
                         Jusqu'à présent, la fourmi électrique n'avait été observée qu'une seule fois en Europe, dans la région de Malaga en Espagne. Olivier Blight suppose qu'elle a été introduite en France "lors d'un transport de plante".
                         L'espèce doit son nom à sa piqûre qui provoque une sensation de piqûre d'ortie, "en plus fort et plus long, puisque ça dure 2-3 heures". Si la piqûre a avant tout pour but de neutraliser d'autres animaux, elle peut tout de même provoquer des chocs anaphylactiques chez les humains allergiques.
                     </p>
+                    <br>
                     <h5>"Une des 3 fourmis les plus envahissantes au monde"</h5>
+                    <br>
                     <p>De son côté, l'Inventaire national du patrimoine naturel (INPN) alerte sur le caractère très envahissant de cette espèce, l'une "des 3 fourmis les plus envahissantes du monde" et "incluse depuis peu dans la liste des espèces préoccupantes pour l'Union européenne".
                         "Ses impacts écologiques et économiques sont majeurs", précise l'institution sur son site internet. L'institut lance d'ailleurs un appel aux habitants du secteur pour déterminer la taille de la zone envahie, qu'elle estime pour le moment à "environ 5.000 m² à Toulon".
                         Mais l'espèce étant facilement transportée dans des plantes ou des déchets verts, "il est probable que d'autres zones soient envahies", précise l'INPN.
@@ -180,7 +184,7 @@
         <div class="div_p">
             <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>
         </div>
-        <a class="button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll"></a>
+        <a class="button_link" href="https://inpn.mnhn.fr/accueil/index"></a>
         <button>Naturothèques</button>
     </div>
 </div>

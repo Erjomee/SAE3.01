@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- lien footer PROVISOIRE-->
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css'>
+       
     </head>
     <body>
         <?php
@@ -94,9 +97,42 @@
 
 
         <footer>
-            <p>
-                Site de covoiturage de Jérome
-            </p>
+        <!-- <div id ="first"> -->
+            <div id ="logofooter">
+                <img src="./../assets/img/sae_logo.png" height="170">
+                <div id ="separation">
+                </div> 
+                <img src ="./../assets/img/UPEC_footer.png" height="110">
+            </div>
+                
+       
+        <div id = "siteMap">
+            <h3> SITE MAP</h3>
+            <a href = "http://localhost/SAE3.01/web/frontController.php?controller=accueil&action=readAll">Accueil</a>
+            <a href = "http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll">Naturothèque</a>
+            <a href ="http://localhost/SAE3.01/web/frontController.php?controller=espece&action=search">Espèces</a>
+            <a href = "http://127.0.0.1/SAE3.01/decouvrir.php">Découvrir</a>
+        </div>
+
+        
+            
+            <div id = "content">
+            <div id = "icones">
+                <a href="https://www.facebook.com/InventaireNationalPatrimoineNaturel/">
+                    <i class="fi fi-brands-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCnWtd37WTOyPdPO8_DEYicw">
+                    <i class="fi fi-brands-youtube"></i>
+                </a>
+                <a href="https://twitter.com/INPN_MNHN">
+                    <i class="fi fi-brands-twitter-alt"></i>
+                </a>
+            </div>
+        </div>
+       
+             <!-- <div id = "licence">
+            <p>Copyright ©2024 TaxonSphère</p> 
+            </div> -->
         </footer>
 
 
