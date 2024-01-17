@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Changez votre mot de passe</title>
-</head>
-
-<body>
-  <div class="page-container">
+<div class="page-container">
     <h2>Changez votre mot de passe</h2>
     <form>
       <div class="form-group">
@@ -44,7 +34,4 @@
         </button>
       </div>
     </form>
-  </div>
-</body>
-
-</html>
+</div>
