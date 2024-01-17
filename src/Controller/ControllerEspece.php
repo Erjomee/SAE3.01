@@ -49,19 +49,19 @@ class ControllerEspece{
 
                 if ($utilisateurconnecte) {
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'])) {
-                        $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail' onclick='enregistrer({$espece['id']})'></button>
-                                    <button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-heart' onclick='enregistrer({$espece['id']})'></button>
+                        $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']})'></button>
+                                    <button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']})'></button>
                     </div>";
                     }else{
-                        $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-check btn_detail' onclick='retirer({$espece['id']})'></button>
+                        $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-check btn_save' onclick='retirer({$espece['id']})'></button>
                         </div>";
                     }
                 }else{
-                    $result .= "<a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail'></button></a>
+                    $result .= "<a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-bookmarks btn_save'></button></a>
                     </div>";
                 }
             }
-            // <button class='btn_detail' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
+            // <button class='btn_save' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
         
             
             $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",

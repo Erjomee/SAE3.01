@@ -185,16 +185,30 @@ th{
     width: 80px;
 }
 
-.btn_detail{
+.btn_save{
+    position: absolute;
+    top: 3%;
+    right: 15%;
+    background-color: white;
+    color: black;
+    padding: 10px ;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0;
+    opacity: 0;
+}
+
+.btn_like{
     position: absolute;
     top: 3%;
     right: 2%;
     background-color: white;
     color: black;
-    padding: 15px ;
+    padding: 10px ;
     text-align: center;
     text-decoration: none;
-    display: none;
     font-size: 16px;
     border-radius: 5px;
     border: 0;
@@ -202,7 +216,7 @@ th{
 }
 
 
-.btn_detail:hover{
+.btn_save:hover , .btn_like:hover{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     cursor: pointer;
 }
@@ -214,10 +228,11 @@ th{
     border: 1px solid black;
 }
 
-.item:hover .btn_detail{
+.item:hover .btn_save , .item:hover .btn_like{
     opacity: 1;
     display: inline;
 }
+
 
 #pagination_content{
     display: flex;

@@ -57,7 +57,7 @@
 
     <div class="form-group">
       <label for="change_password">Mot de passe</label>
-      <button type="button">Changer le mot de passe</button>
+      <a href="frontController.php?controller=utilisateur&action=edit_mdp"><button type="button">Changer le mot de passe</button></a>
     </div>
 
     <div class="form-group">

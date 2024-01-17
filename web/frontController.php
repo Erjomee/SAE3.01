@@ -68,9 +68,7 @@ if(isset($_GET["action"])){
             $data["sexe"] = $_GET["sexe"] ?? "Non spécifié";
 
             $controllerClassName::$action($data);
-        }elseif ($action == "profil") {
-            $controllerClassName::$action();
-        }elseif ($action == "edit") {
+        }elseif ($action == "profil" || $action == "edit_profil" || $action =="edit_mdp") {
             $controllerClassName::$action();
         }
     }
