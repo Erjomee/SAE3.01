@@ -89,6 +89,13 @@ class ControllerUtilisateur{
                                                         "cheminVueBody" => "utilisateur/profil.php"]);
     }
 
+    public static function edit(): void{
+        ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de modification",
+                                                        "style" => "Edit",
+                                                        "cheminVueBody" => "utilisateur/edit_profil.php"]);
+    }
+
+
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {

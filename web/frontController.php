@@ -70,6 +70,8 @@ if(isset($_GET["action"])){
             $controllerClassName::$action($data);
         }elseif ($action == "profil") {
             $controllerClassName::$action();
+        }elseif ($action == "edit") {
+            $controllerClassName::$action();
         }
     }
 
@@ -89,7 +91,6 @@ if(isset($_GET["action"])){
             ControllerNaturotheque::enregistrer($_GET["id"]);
         }elseif ($action == "retirer") {
             ControllerNaturotheque::retirer($_GET["id"]);
-
         }
     }
 

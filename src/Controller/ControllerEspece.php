@@ -50,6 +50,7 @@ class ControllerEspece{
                 if ($utilisateurconnecte) {
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'])) {
                         $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-bookmarks btn_detail' onclick='enregistrer({$espece['id']})'></button>
+                                    <button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-heart' onclick='enregistrer({$espece['id']})'></button>
                     </div>";
                     }else{
                         $result .= "<button id={$espece['id']} name='id' value={$espece['id']} class='bx bx-check btn_detail' onclick='retirer({$espece['id']})'></button>

@@ -3,7 +3,7 @@
             <img src="https://images.pexels.com/users/avatars/907968517/marius-mbl91-994.jpg?auto=compress&amp;fit=crop&amp;h=130&amp;w=130&amp;dpr=1" alt="marius. mbl91">
         </div>
         <h1 class="username">Marius Mabulu</h1>
-        <a class="edit-profile" href="/fr-fr/edit-profile/">Modifier le profil</a>
+        <a class="edit-profile" href="frontController.php?controller=utilisateur&action=edit">Modifier le profil</a>
         <div class="stats-grid">
             <div class="stat">
                 <div class="stat-content">
