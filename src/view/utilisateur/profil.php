@@ -17,11 +17,11 @@
                     <h4 class="stat-value" title="576,7 millier">576,7 millier</h4>
                 </div>
             </div>
-            <!-- <div class="stat">
+            <div class="stat">
                 <div class="stat-content">
                     <p class="stat-label">Position sur les 30 derniers jours</p>
                     <h4 class="stat-value" title="19 millier">19 millier</h4>
                 </div>
-            </div> -->
+            </div> 
         </div>
     </div>
