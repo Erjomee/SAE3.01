@@ -1,45 +1,27 @@
-
-
-    <div class = "menu">
-
-    </div>
-
-    <div class= "deux">
-        <div class="ber">
-
+<div class="container">
+        <div class="avatar">
+            <img src="https://images.pexels.com/users/avatars/907968517/marius-mbl91-994.jpg?auto=compress&amp;fit=crop&amp;h=130&amp;w=130&amp;dpr=1" alt="marius. mbl91">
         </div>
-    </div>
-
-    <div class="gros">
-        <p>Mon compte</p>
-    </div>
-
-    
-    <div>
-        <legend>Connexion</legend>
-        <div>
-            <label for="nom">nom:</label>
-            <input type="text" name="nom" id="nom">
-
-            <label for="prenom">prenom:</label>
-            <input type="text" name="prenom" id="prenom">
-
-            <label for="mail">email:</label>
-            <input type="email" name="mail" id="mail">
-
-            <label for="passwrd">password:</label>
-            <input type="password" name="passwrd" id="passwrd">
-
-            <label for="sexe">sexe:</label>
-            <input type="text" name="sexe" id="sexe">
-
-            <input type="submit" value="valider">
-        </div>
-    </div>
-
-    <div>
-        <div>
-            <label for="desc">A propos de moi: </label>
-            <input type="text" name="desc" id="desc">
+        <h1 class="username">Marius Mabulu</h1>
+        <a class="edit-profile" href="/fr-fr/edit-profile/">Modifier le profil</a>
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-content">
+                    <p class="stat-label">Nombre de vues total</p>
+                    <h4 class="stat-value" title="0">0</h4>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-content">
+                    <p class="stat-label">Position dans le classement général</p>
+                    <h4 class="stat-value" title="576,7 millier">576,7 millier</h4>
+                </div>
+            </div>
+            <!-- <div class="stat">
+                <div class="stat-content">
+                    <p class="stat-label">Position sur les 30 derniers jours</p>
+                    <h4 class="stat-value" title="19 millier">19 millier</h4>
+                </div>
+            </div> -->
         </div>
     </div>
