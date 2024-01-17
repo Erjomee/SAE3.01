@@ -5,9 +5,15 @@ namespace App\Naturotheque\Model\Repository;
 class NaturothequeRepository {
 
     // Méthode qui sauvegarde l'enregistrement d'une espece en fonction de l'utilisateur
-    public static function sauvegarder($id_utilisateur , $id_espece):void{
-        $sql = "INSERT INTO naturotheque (id_utilisateur , id_espece)
-                    VALUES (:id_utilisateur , :id_espece)";
+    public static function sauvegarder($id_utilisateur , $id_espece ,$table):void{
+        if ($table == "naturotheque") {
+            $sql = "INSERT INTO naturotheque (id_utilisateur , id_espece)
+            VALUES (:id_utilisateur , :id_espece)";
+        }elseif ($table == "aime") {
+            $sql = "INSERT INTO aime (id_utilisateur , id_espece)
+            VALUES (:id_utilisateur , :id_espece)";
+        }
+        
         $values = array(
             "id_utilisateur" =>$id_utilisateur,
             "id_espece" => $id_espece,
@@ -17,20 +23,30 @@ class NaturothequeRepository {
     }
 
     // Méthode qui sauvegarde l'enregistrement d'une espece en fonction de l'utilisateur
-    public static function supprimer($id_utilisateur , $id_espece):void{
-        $sql = "DELETE FROM naturotheque WHERE id_utilisateur = :id_utilisateur AND id_espece = :id_espece";
+    public static function supprimer($id_utilisateur , $id_espece , $table):void{
+        if ($table == "naturotheque") {
+            $sql = "DELETE FROM naturotheque WHERE id_utilisateur = :id_utilisateur AND id_espece = :id_espece";
+        }elseif ($table == "aime") {
+            $sql = "DELETE FROM aime WHERE id_utilisateur = :id_utilisateur AND id_espece = :id_espece";
+        }
         $values = array(
             "id_utilisateur" =>$id_utilisateur,
             "id_espece" => $id_espece,
         );
+
+        echo $sql;
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
     }
 
 
     // Méthode qui selection une ligne de la table
-    public static function select($id_utilisateur , $id_espece){
-        $sql = "SELECT * from naturotheque WHERE id_utilisateur = :id_utilisateur AND id_espece = :id_espece";
+    public static function select($id_utilisateur , $id_espece , $table){
+        if ($table == "naturotheque") {
+            $sql = "SELECT * from naturotheque WHERE id_utilisateur = :id_utilisateur AND id_espece = :id_espece";
+        }elseif($table == "aime"){
+            $sql = "SELECT * from aime WHERE id_utilisateur = :id_utilisateur AND id_espece = :id_espece";
+        }
         // Préparation de la requête
         $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
         $values = array(

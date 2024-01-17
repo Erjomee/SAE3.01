@@ -18,22 +18,22 @@ class ControllerNaturotheque{
     }
 
 
-    public static function enregistrer($id_espece) : void {
+    public static function enregistrer($id_espece ,$table) : void {
         if (ConnexionUtilisateur::estConnecte()) {
-            NaturothequeRepository::sauvegarder(ConnexionUtilisateur::getLoginUtilisateurConnecte(),$id_espece);
+            NaturothequeRepository::sauvegarder(ConnexionUtilisateur::getLoginUtilisateurConnecte(),$id_espece,$table);
         }else {
             ControllerUtilisateur::register();
         }
     }
 
-    public static function retirer($id_espece) : void {
+    public static function retirer($id_espece,$table) : void {
         if (ConnexionUtilisateur::estConnecte()) {
-            NaturothequeRepository::supprimer(ConnexionUtilisateur::getLoginUtilisateurConnecte(),$id_espece);
+            NaturothequeRepository::supprimer(ConnexionUtilisateur::getLoginUtilisateurConnecte(),$id_espece,$table);
         }
     }
 
-    public static function deja_enregistrer($id_espece): bool{
-        if (NaturothequeRepository::select(ConnexionUtilisateur::getLoginUtilisateurConnecte() , $id_espece)){
+    public static function deja_enregistrer($id_espece,$table): bool{
+        if (NaturothequeRepository::select(ConnexionUtilisateur::getLoginUtilisateurConnecte() , $id_espece , $table)){
             return true;
         }
         return false;

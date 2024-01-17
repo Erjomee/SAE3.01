@@ -199,18 +199,23 @@ function more_info(id) {
 }
 
 
-
-
-function enregistrer(id_espece) {
+function enregistrer(id_espece,table) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=naturotheque&action=enregistrer' + '&id=' + id_espece;
+    var params = 'controller=naturotheque&action=enregistrer' + '&id=' + id_espece +'&table='+table;
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            const item = document.getElementById(id_espece);
-            item.classList.remove("bx-bookmarks");
-            item.classList.add("bx-check");
-            item.onclick = function() { retirer(id_espece); };
+            const item = document.getElementById(id_espece+table);
+
+            if (table == "naturotheque") {
+                item.classList.remove("bx-bookmarks");
+                item.classList.add("bx-check");
+            }else{
+                item.classList.remove("bx-heart");
+                item.classList.add("bxs-heart");
+            }
+
+            item.onclick = function() { retirer(id_espece,table); };
         }
     };
     xhr.open("GET", url + params, true);
@@ -218,20 +223,24 @@ function enregistrer(id_espece) {
 }
 
 
-
-
-function retirer(id_espece) {
-
+function retirer(id_espece,table) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=naturotheque&action=retirer' + '&id=' + id_espece;
-    console.log(id_espece);
+    var params = 'controller=naturotheque&action=retirer' + '&id=' + id_espece +'&table='+table;
+    console.log(params);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            const item = document.getElementById(id_espece);
-            item.classList.remove("bx-check");
-            item.classList.add("bx-bookmarks");
-            item.onclick = function() { enregistrer(id_espece); };
+            const item = document.getElementById(id_espece+table);
+
+            if (table == "naturotheque") {
+                item.classList.remove("bx-check");
+                item.classList.add("bx-bookmarks");
+            }else{
+                item.classList.remove("bxs-heart");
+                item.classList.add("bx-heart");
+            }
+            
+            item.onclick = function() { enregistrer(id_espece,table); };
         }
     };
     xhr.open("GET", url + params, true);
