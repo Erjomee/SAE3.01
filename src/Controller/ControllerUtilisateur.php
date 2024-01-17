@@ -89,6 +89,19 @@ class ControllerUtilisateur{
                                                         "cheminVueBody" => "utilisateur/profil.php"]);
     }
 
+    public static function edit_profil(): void{
+        ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de modification du profil",
+                                                        "style" => "EditProfil",
+                                                        "cheminVueBody" => "utilisateur/edit_profil.php"]);
+    }
+
+    public static function edit_mdp(): void{
+        ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de modification du mdp",
+                                                        "style" => "EditMdp",
+                                                        "cheminVueBody" => "utilisateur/edit_mdp.php"]);
+    }
+
+
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {

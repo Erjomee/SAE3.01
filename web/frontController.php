@@ -4,6 +4,7 @@ require_once __DIR__ . '/../src/Lib/Psr4AutoloaderClass.php';
 use App\Naturotheque\Controller\ControllerEspece;
 use App\Naturotheque\Controller\ControllerUtilisateur;
 use App\Naturotheque\Controller\ControllerAccueil;
+use App\Naturotheque\Controller\ControllerNaturotheque;
 use App\Naturotheque\Lib\ConnexionUtilisateur;
 use App\Naturotheque\Lib\MessageFlash;
 
@@ -67,7 +68,7 @@ if(isset($_GET["action"])){
             $data["sexe"] = $_GET["sexe"] ?? "Non spécifié";
 
             $controllerClassName::$action($data);
-        }elseif ($action == "profil") {
+        }elseif ($action == "profil" || $action == "edit_profil" || $action =="edit_mdp") {
             $controllerClassName::$action();
         }
     }
@@ -78,6 +79,16 @@ if(isset($_GET["action"])){
             ControllerEspece::searchBy($_GET["filtre_f"] , $_GET["recherche"], $_GET["page"] , $_GET["size"]);
         }elseif ($action == "moreInfo"){
             ControllerEspece::moreInfo($_GET["taxrefIds"]);
+        }
+    }
+
+
+    // Action du controller Naturotheque
+    elseif ( $controllerClassName == "App\Naturotheque\Controller\ControllerNaturotheque"){
+        if ($action == "enregistrer") {
+            ControllerNaturotheque::enregistrer($_GET["id"],$_GET["table"]);
+        }elseif ($action == "retirer") {
+            ControllerNaturotheque::retirer($_GET["id"],$_GET["table"]);
         }
     }
 
