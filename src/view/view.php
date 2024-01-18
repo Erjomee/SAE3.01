@@ -123,13 +123,13 @@
             
             <div id = "content">
             <div id = "icones">
-                <a href="https://www.facebook.com/InventaireNationalPatrimoineNaturel/">
+                <a href="https://www.facebook.com/InventaireNationalPatrimoineNaturel/" class = "icone">
                     <i class="fi fi-brands-facebook"></i>
                 </a>
-                <a href="https://www.youtube.com/channel/UCnWtd37WTOyPdPO8_DEYicw">
+                <a href="https://www.youtube.com/channel/UCnWtd37WTOyPdPO8_DEYicw" class="icone">
                     <i class="fi fi-brands-youtube"></i>
                 </a>
-                <a href="https://twitter.com/INPN_MNHN">
+                <a href="https://twitter.com/INPN_MNHN" class="icone">
                     <i class="fi fi-brands-twitter-alt"></i>
                 </a>
             </div>
