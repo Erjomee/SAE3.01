@@ -35,6 +35,9 @@ function upload_image() {
 
 function submitForm() {
     document.getElementById('myForm').submit();
+    // location.reload();
+
+    // console.log("fefe");
 
     // const input = document.getElementById('changeImage');
     // if (input.files && input.files[0]) {
