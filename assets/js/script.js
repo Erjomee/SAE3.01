@@ -42,42 +42,23 @@ if (document.querySelector(".utilisateur") !== null){
 
 // PAGE ESPECE
 
-// Récupérez les boutons radio et le champ de saisie
-const radio1 = document.getElementById("radio1");
-const radio2 = document.getElementById("radio2");
-const radio3 = document.getElementById("radio3");
-const marecherche = document.getElementById("marecherche");
-
-
-// Écoutez les clics sur les boutons radio
-radio1.addEventListener("click", function() {
-    marecherche.placeholder = "ID | ex: 442365";
-});
-
-radio2.addEventListener("click", function() {
-    marecherche.placeholder = "Nom vernaculaire | ex: Pinson familier";
-});
-
-radio3.addEventListener("click", function() {
-    marecherche.placeholder = "Nom scientifique | ex: Spizella passerina";
-});
 
 
 
-function rechercher(){
-    var recherche = document.getElementById('marecherche').value;
-    var filtre = document.getElementById('filtre_f').value;
-    var page = document.getElementById("page").value;
-    var size = document.getElementById("size").value;
+// function rechercher(){
+//     var recherche = document.getElementById('marecherche').value;
+//     var filtre = document.getElementById('filtre_f').value;
+//     var page = document.getElementById("page").value;
+//     var size = document.getElementById("size").value;
 
-    var xhr = new XMLHttpRequest();
-    var url = 'frontController.php';
-    var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page + "$size=" + size;
+//     var xhr = new XMLHttpRequest();
+//     var url = 'frontController.php';
+//     var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page + "$size=" + size;
 
-    console.log(params)
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//     console.log(params)
+//     xhr.open('POST', url, true);
+//     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    xhr.send(params);
+//     xhr.send(params);
 
-}
+// }

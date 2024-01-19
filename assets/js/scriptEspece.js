@@ -4,10 +4,17 @@ function rechercher(page_active){
     var recherche = document.getElementById('marecherche').value;
     var filtre = document.querySelector('input[name=filtre_f]:checked').value;
     var size = document.getElementById("size").value;
+    var habitats = document.getElementById("habitats-select").value;
+    var taxonomicRanks = document.getElementById("rang-select").value;
+    var territories = document.getElementById("territories-select").value;
+    var domain = document.getElementById("domain-select").value;
+    var image = document.getElementById("image-checkbox").checked;
+
 
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page_active + "&size=" + size;
+    var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page_active + "&size=" + size 
+                 + "&habitats=" + habitats + "&taxonomicRanks=" + taxonomicRanks + "&territories=" + territories + "&domain=" + domain + "&image=" + image;
     console.log(params);
 
     xhr.onreadystatechange = function() {
@@ -404,3 +411,24 @@ function redirectToTop() {
     // Utilisez l'élément <body> comme cible
     document.body.scrollIntoView({ behavior: "smooth" });
 }
+
+
+// Récupérez les boutons radio et le champ de saisie
+const radio1 = document.getElementById("radio1");
+const radio2 = document.getElementById("radio2");
+const radio3 = document.getElementById("radio3");
+const marecherche = document.getElementById("marecherche");
+
+
+// Écoutez les clics sur les boutons radio
+radio1.addEventListener("click", function() {
+    marecherche.placeholder = "ID | ex: 442365";
+});
+
+radio2.addEventListener("click", function() {
+    marecherche.placeholder = "Nom vernaculaire | ex: Pinson familier";
+});
+
+radio3.addEventListener("click", function() {
+    marecherche.placeholder = "Nom scientifique | ex: Spizella passerina";
+});
