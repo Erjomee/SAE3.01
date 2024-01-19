@@ -99,7 +99,7 @@ class UtilisateurRepository{
     
 
     public static function getUtilisateurConnecte(){
-        $sql = "SELECT nom, prenom, sexe, photo_profil, dnaissance FROM utilisateur";
+        $sql = "SELECT * FROM utilisateur";
         $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
         $pdoStatement->execute();
         
@@ -108,8 +108,8 @@ class UtilisateurRepository{
 
 
         for ($i=0; $i < sizeof($users); $i++) { 
-            if ($users[$i]['photo_profil'] == null){
-                $users[$i]['photo_profil'] = "../assets/img/profil.jpg";
+            if ($users[$i]['Photo_profil'] == null){
+                $users[$i]['Photo_profil'] = "../assets/img/profil.jpg";
             }
             if ($users[$i]['sexe'] == null){
                 $users[$i]['sexe'] = 'indefini';

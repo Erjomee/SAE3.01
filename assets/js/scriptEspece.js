@@ -85,9 +85,14 @@ function rechercher(page_active){
         }
 
     };
+    
+    // Gestionnaire d'événement pour l'événement d'erreur
+    xhr.onerror = function() {
+        console.error("Erreur réseau lors de la requête.");
+    };
+
     xhr.open("GET", url + params, true);
     xhr.send(null);
-
 }
 
 
@@ -407,10 +412,13 @@ function resetPopup() {
     document.getElementById("map-right").style.display = "block";
 }
 
+
 function redirectToTop() {
     // Utilisez l'élément <body> comme cible
     document.body.scrollIntoView({ behavior: "smooth" });
 }
+
+
 
 
 // Récupérez les boutons radio et le champ de saisie
@@ -432,3 +440,7 @@ radio2.addEventListener("click", function() {
 radio3.addEventListener("click", function() {
     marecherche.placeholder = "Nom scientifique | ex: Spizella passerina";
 });
+
+
+
+
