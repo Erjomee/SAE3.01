@@ -31,7 +31,7 @@ if (isset($_POST["action"])){
     if($action == "connecter"){
         ControllerUtilisateur::connecter();
     }elseif ($action == "change_image") {
-        $controllerClassName::$action($_FILES["images"]["tmp_name"]);
+        $controllerClassName::$action();
     }
 }
 
@@ -69,6 +69,7 @@ if(isset($_GET["action"])){
 
             $data["description"] = null;
             $data["localisation"] = null;
+            $data["photo_profil"] = null;
             $data["dnaissance"] = null;
 
             $controllerClassName::$action($data);
@@ -78,6 +79,8 @@ if(isset($_GET["action"])){
             $controllerClassName::$action($_GET["first_name"] , $_GET["last_name"], $_GET["email"],$_GET["date_of_birth"] , $_GET["bio"], $_GET["location"],$_GET["phone_number"]);
         }elseif ($action == "change_mdp") {
             $controllerClassName::$action($_GET["ancient_password"] , $_GET["new_password"], $_GET["confirm_new_password"]);
+        }elseif ($action == "change_image") {
+            $controllerClassName::$action();
         }
     }
 

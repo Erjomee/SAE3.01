@@ -64,7 +64,6 @@ class ControllerUtilisateur{
                 ControllerUtilisateur::connection();
             }
         }catch (PDOException $e){  // Utilisateur déjà existant
-            echo $e;
             MessageFlash::ajouter("warning" , "Login déjà existante !");
             ControllerUtilisateur::register();
         }catch (TypeError $e){
@@ -159,18 +158,22 @@ class ControllerUtilisateur{
 
     }
 
-    public static function change_image($avatar): void{
+    public static function change_image(): void{
 
-        $imgData = addslashes(file_get_contents($avatar));
-        UtilisateurRepository::update_img($imgData);
-
-        $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
-
-        header("Content-Type:" . "image/jpeg");
-        echo $utilisateur->get("photo_profil");
-
+        if ($_FILES['images']['error'] === UPLOAD_ERR_OK) {
+            $targetDir = __DIR__."\..\..\assets\img\img_profil/";
+            $targetFile = $targetDir . basename($_FILES['images']['name']);
+        
+            if (move_uploaded_file($_FILES['images']['tmp_name'], $targetFile)) {
+                UtilisateurRepository::update_img(basename($_FILES['images']['name']));
+            } else {
+                echo 'Erreur lors de l\'enregistrement du fichier.';
+            }
+        } else {
+            echo 'Erreur lors de la réception du fichier.';
+        }
+        self::edit_profil();
     }
-
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {
