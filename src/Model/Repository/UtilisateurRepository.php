@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Naturotheque\Model\Repository;
+
+use App\Naturotheque\Lib\ConnexionUtilisateur;
 use App\Naturotheque\Model\DataObject\Utilisateur;
 use DateTime;
 
@@ -34,28 +36,69 @@ class UtilisateurRepository{
         $password = $utilisateurFormatArray["password"];
         $numero = $utilisateurFormatArray["numero"];
         $sexe = $utilisateurFormatArray["sexe"];
+        $photo_profil = $utilisateurFormatArray["Photo_profil"] ;
+        $description = $utilisateurFormatArray["description"];
+        $localisation = $utilisateurFormatArray["localisation"];
+        $dnaissance = $utilisateurFormatArray["dnaissance"];
 
-        return new Utilisateur($nom, $prenom, $email, $password, $numero, $sexe);
+        return new Utilisateur($nom, $prenom, $email, $password, $numero, $sexe,$photo_profil,$description,$localisation,$dnaissance);
     }
 
     // Méthode qui sauvegarde le nouvel utilisateur dans la BD
     public static function sauvegarder(Utilisateur $utilisateur):void{
-        $sql = "INSERT INTO utilisateur (nom , prenom , email , password , numero , sexe)
-                    VALUES (:nom , :prenom , :email , :password , :numero , :sexe)";
+        $sql = "INSERT INTO utilisateur (nom , prenom , email , password , numero , sexe ,description,localisation,dnaissance)
+                    VALUES (:nom , :prenom , :email , :password , :numero , :sexe ,:description,:localisation,:dnaissance )";
         $values = array(
             "nom" => $utilisateur->get("nom"),
             "prenom" => $utilisateur->get("prenom"),
             "email" => $utilisateur->get("email"),
             "password" => $utilisateur->get("password"),
             "numero" => $utilisateur->get("numero"),
-            "sexe" => $utilisateur->get("sexe")
+            "sexe" => $utilisateur->get("sexe"),
+            "description" => $utilisateur->get("description"),
+            "localisation" => $utilisateur->get("localisation"),
+            "dnaissance" => $utilisateur->get("dnaissance")
         );
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
     }
 
+    public static function update(Utilisateur $utilisateur):void{
+        $sql = "UPDATE utilisateur 
+                SET nom = :nom , prenom = :prenom , email = :email , numero = :numero , description = :description , localisation = :localisation , dnaissance = :dnaissance   
+                WHERE email = :id";
 
-       public static function getUtilisateurConnecte(){
+        $values = array(
+            "id" => ConnexionUtilisateur::getLoginUtilisateurConnecte(),
+            "nom" => $utilisateur->get("nom"),
+            "prenom" => $utilisateur->get("prenom"),
+            "email" => $utilisateur->get("email"),
+            "numero" => $utilisateur->get("numero"),
+            "description" => $utilisateur->get("description"),
+            "localisation" => $utilisateur->get("localisation"),
+            "dnaissance" => $utilisateur->get("dnaissance")
+        );
+
+        $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
+        $pdoStatement->execute($values);
+    }
+
+    public static function update_img($img):void{
+        $sql = "UPDATE utilisateur 
+                SET  Photo_profil= :photo_profil   
+                WHERE email = :id";
+
+        $values = array(
+            "id" => ConnexionUtilisateur::getLoginUtilisateurConnecte(),
+            "photo_profil" => $img
+        );
+
+        $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
+        $pdoStatement->execute($values);
+    }
+    
+
+    public static function getUtilisateurConnecte(){
         $sql = "SELECT nom, prenom, sexe, photo_profil, dnaissance FROM utilisateur";
         $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
         $pdoStatement->execute();
@@ -93,6 +136,22 @@ class UtilisateurRepository{
         }else {
             return null;
         }
+    }
+
+
+
+    public static function update_mdp($new_password){
+        $sql = "UPDATE utilisateur 
+                SET password = :new_password 
+                WHERE email = :email ";
+
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array(
+            "new_password" => $new_password,
+            "email" => ConnexionUtilisateur::getLoginUtilisateurConnecte()
+        );
+
+        $pdoStatement->execute($values);
     }
 
 

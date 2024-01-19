@@ -21,7 +21,6 @@ function rechercher(page_active){
             // Mise en forme des données sur la page 
             document.getElementById("resultat").innerHTML = reponse["result"];  // ne plus utiliser ca 
 
-
             // Système de pagination
             const paginationElement = document.getElementById("pagination");
 

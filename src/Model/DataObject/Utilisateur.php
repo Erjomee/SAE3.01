@@ -10,6 +10,10 @@ class Utilisateur{
     private $password;
     private $numero;
     private $sexe;
+    private $photo_profil;
+    private $description;
+    private $localisation ;
+    private $dnaissance;
 
     // Méthode get avec en parametre un attribut de class
     public function get($property) {
@@ -28,18 +32,25 @@ class Utilisateur{
         return null;
     }
 
-    public function __construct($nom, $prenom, $email, $password, $numero, $sexe) {
+    public function __construct($nom, $prenom, $email, $password, $numero, $sexe ,$photo_profil,$description,$localisation,$dnaissance) {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->password = $password;
         $this->numero = $numero;
         $this->sexe = $sexe;
+        $this->photo_profil = $photo_profil;
+        $this->description= $description;
+        $this->localisation= $localisation;
+        $this->dnaissance = $dnaissance;
     }
 
     public static function construireDepuisFormulaire(array $tableauFormulaire): Utilisateur {
         $mdpHache = MotDePasse::hacher($tableauFormulaire["password"]);
-        return new Utilisateur($tableauFormulaire["nom"], $tableauFormulaire["prenom"], $tableauFormulaire["email"], $mdpHache,$tableauFormulaire["numero"],$tableauFormulaire["sexe"]);
+        return new Utilisateur($tableauFormulaire["nom"], $tableauFormulaire["prenom"], $tableauFormulaire["email"], 
+                                $mdpHache,$tableauFormulaire["numero"],$tableauFormulaire["sexe"],
+                                $tableauFormulaire["photo_profil"],$tableauFormulaire["description"],
+                                $tableauFormulaire["localisation"],$tableauFormulaire["dnaissance"]);
     }
 
 }

@@ -28,12 +28,12 @@ $controllerClassName = "App\Naturotheque\Controller\Controller" .ucfirst($contro
 
 if (isset($_POST["action"])){
     $action = $_POST["action"];
-
     if($action == "connecter"){
         ControllerUtilisateur::connecter();
+    }elseif ($action == "change_image") {
+        $controllerClassName::$action($_FILES["images"]["tmp_name"]);
     }
 }
-
 
 // Cas ou l'URL présent une action
 if(isset($_GET["action"])){
@@ -67,9 +67,17 @@ if(isset($_GET["action"])){
             $data["numero"] = $_GET["numero"] ?? "Non spécifié";
             $data["sexe"] = $_GET["sexe"] ?? "Non spécifié";
 
+            $data["description"] = null;
+            $data["localisation"] = null;
+            $data["dnaissance"] = null;
+
             $controllerClassName::$action($data);
         }elseif ($action == "profil" || $action == "edit_profil" || $action =="edit_mdp") {
             $controllerClassName::$action();
+        }elseif ($action == "change_profil") {
+            $controllerClassName::$action($_GET["first_name"] , $_GET["last_name"], $_GET["email"],$_GET["date_of_birth"] , $_GET["bio"], $_GET["location"],$_GET["phone_number"]);
+        }elseif ($action == "change_mdp") {
+            $controllerClassName::$action($_GET["ancient_password"] , $_GET["new_password"], $_GET["confirm_new_password"]);
         }
     }
 

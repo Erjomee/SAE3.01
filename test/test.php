@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,4 +66,34 @@
 </script>
 
 </body>
-</html>
+</html> -->
+
+
+<?php
+if (isset($_POST["validate"])) {
+    echo "efef";
+    var_dump($_FILES);
+}
+
+?>
+
+
+<h2>Paramètres de profil</h2>
+  
+  <div class="avatar-section">
+    <div class="avatar">
+      <!-- <img src="https://images.pexels.com/users/avatars/907968517/marius-mbl91-994.jpg?auto=compress&fit=crop&h=130&w=130&dpr=1" alt="marius. mbl91" id="previewImage"> -->
+      <img src=""  alt="marius. mbl91" id="previewImage">
+    </div>
+    <label for="changeImage" class="avatar-button">
+
+    <form action="" id="myForm" method="post" enctype="multipart/form-data">
+      <input name="controller" value="utilisateur" hidden>
+      <input name="action" value="change_image" hidden>
+      <input type="file" id="changeImage" name="images" accept="image/jpg, image/jpeg, image/png" >
+      <input type="submit" name="validate">
+    </form>
+
+
+    </label>
+  </div>

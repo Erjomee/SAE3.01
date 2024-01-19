@@ -6,6 +6,7 @@ use App\Naturotheque\Lib\ConnexionUtilisateur;
 use App\Naturotheque\Lib\MessageFlash;
 use App\Naturotheque\Lib\MotDePasse;
 use App\Naturotheque\Model\DataObject\Utilisateur;
+use App\Naturotheque\Model\HTTP\Session;
 use App\Naturotheque\Model\Repository\DatabaseConnection;
 use App\Naturotheque\Model\Repository\UtilisateurRepository;
 use TypeError;
@@ -90,17 +91,85 @@ class ControllerUtilisateur{
     }
 
     public static function edit_profil(): void{
+        $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de modification du profil",
                                                         "style" => "EditProfil",
-                                                        "cheminVueBody" => "utilisateur/edit_profil.php"]);
+                                                        "cheminVueBody" => "utilisateur/edit_profil.php",
+                                                        "first_name" => $utilisateur->get("prenom"),
+                                                        "last_name" => $utilisateur->get("nom"),
+                                                        "email" => $utilisateur->get("email"),
+                                                        "photo_profil" => $utilisateur->get("photo_profil"),
+                                                        "date_of_birth" => $utilisateur->get("dnaissance"),
+                                                        "bio" => $utilisateur->get("description"),
+                                                        "location" => $utilisateur->get("localisation"),
+                                                        "phone_number" => $utilisateur->get("numero"),]);
     }
+
+
+    public static function change_profil($first_name, $last_name, $email,$date_of_birth , $bio, $location,$phone_number): void{
+
+        $data = [
+            "nom" => $last_name,
+            "prenom" => $first_name,
+            "email" => $email,
+            "password" => null,
+            "numero" => $phone_number,
+            "sexe" => null,
+            "Photo_profil" => null,
+            "description" => $bio,
+            "localisation" => $location,
+            "dnaissance" => $date_of_birth
+        ];
+        
+        $utilisateur = UtilisateurRepository::construire($data);
+
+        UtilisateurRepository::update($utilisateur);
+
+        ConnexionUtilisateur::connecter($email);
+
+        MessageFlash::ajouter("success" , "Profil mis à jour");
+        self::edit_profil();
+    }
+
 
     public static function edit_mdp(): void{
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de modification du mdp",
                                                         "style" => "EditMdp",
                                                         "cheminVueBody" => "utilisateur/edit_mdp.php"]);
     }
+    
+    public static function change_mdp($old_mdp_clair , $new_mdp , $confirm_mdp): void{
+        $old_mdp_hash = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte())->get("password");
 
+        if (MotDePasse::verifier($old_mdp_clair , $old_mdp_hash)) {
+            if ($new_mdp == $confirm_mdp) {
+                $new_mdp_hash = MotDePasse::hacher($new_mdp);
+                UtilisateurRepository::update_mdp($new_mdp_hash);
+                MessageFlash::ajouter("success" , "Mot de passe modifié");
+                self::profil();
+            }
+            else{
+                MessageFlash::ajouter("warning" , "Verfication échoué !");
+                self::edit_mdp();
+            }
+        }else{
+            MessageFlash::ajouter("warning" , "Ancien mot de passe incorrect !");
+            self::edit_mdp();
+        }
+
+    }
+
+    public static function change_image($avatar): void{
+
+        $imgData = addslashes(file_get_contents($avatar));
+        UtilisateurRepository::update_img($imgData);
+
+        $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
+
+        header("Content-Type:" . "image/jpeg");
+        echo $utilisateur->get("photo_profil");
+
+    }
 
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres

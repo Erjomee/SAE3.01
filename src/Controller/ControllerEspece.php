@@ -20,7 +20,7 @@ class ControllerEspece{
     public static function searchBy(string $filtre , string $espece , int $page , int $size):void {
         // Retrouver toutes les anciennes recherche d'espece enregister dans une table historique (à creer
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
-
+        
 
         $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
         $result = "";
@@ -65,6 +65,7 @@ class ControllerEspece{
 
                 }else{
                     $result .= "<a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-bookmarks btn_save'></button></a>
+                                <a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-heart btn_like'></button></a>
                     </div>";
                 }
             }
