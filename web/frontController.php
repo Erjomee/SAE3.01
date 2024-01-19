@@ -69,7 +69,7 @@ if(isset($_GET["action"])){
 
             $data["description"] = null;
             $data["localisation"] = null;
-            $data["photo_profil"] = null;
+            $data["photo_profil"] = "profil.jpg";
             $data["dnaissance"] = null;
 
             $controllerClassName::$action($data);
@@ -87,7 +87,13 @@ if(isset($_GET["action"])){
     // Action du controller Espece
     elseif ( $controllerClassName == "App\Naturotheque\Controller\ControllerEspece"){
         if ($action == "searchBy"){
-            ControllerEspece::searchBy($_GET["filtre_f"] , $_GET["recherche"], $_GET["page"] , $_GET["size"]);
+            $params = array("habitats" => $_GET["habitats"],
+                        "taxonomicRanks" => $_GET["taxonomicRanks"],
+                        "territories" => $_GET["territories"],
+                        "domain" => $_GET["domain"],
+                        "image" => $_GET["image"]);
+
+            ControllerEspece::searchBy($_GET["filtre_f"] , $_GET["recherche"], $_GET["page"] , $_GET["size"] , $params);
         }elseif ($action == "moreInfo"){
             ControllerEspece::moreInfo($_GET["taxrefIds"]);
         }
@@ -100,6 +106,8 @@ if(isset($_GET["action"])){
             ControllerNaturotheque::enregistrer($_GET["id"],$_GET["table"]);
         }elseif ($action == "retirer") {
             ControllerNaturotheque::retirer($_GET["id"],$_GET["table"]);
+        }elseif ($action == "afficher_naturotheque") {
+            $controllerClassName::$action($_GET["email"]);
         }
     }
 

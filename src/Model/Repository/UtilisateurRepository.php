@@ -109,7 +109,7 @@ class UtilisateurRepository{
 
         for ($i=0; $i < sizeof($users); $i++) { 
             if ($users[$i]['Photo_profil'] == null){
-                $users[$i]['Photo_profil'] = "../assets/img/profil.jpg";
+                $users[$i]['Photo_profil'] = "profil.jpg";
             }
             if ($users[$i]['sexe'] == null){
                 $users[$i]['sexe'] = 'indefini';

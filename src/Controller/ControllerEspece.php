@@ -5,6 +5,8 @@ use App\Naturotheque\Lib\ConnexionUtilisateur;
 use App\Naturotheque\Model\HTTP\Session;
 use App\Naturotheque\Model\Repository\EspeceRepository;
 use App\Naturotheque\Model\HTTP\Cookie;
+use App\Naturotheque\Model\Repository\UtilisateurRepository;
+
 
 class ControllerEspece{
 
@@ -17,12 +19,11 @@ class ControllerEspece{
                                                                 "cheminVueBody" => "espece/search.php"]);
     }
 
-    public static function searchBy(string $filtre , string $espece , int $page , int $size):void {
+    public static function searchBy(string $filtre , string $espece , int $page , int $size , array $params):void {
         // Retrouver toutes les anciennes recherche d'espece enregister dans une table historique (à creer
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
-        
 
-        $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size );
+        $data = EspeceRepository::getEspece($filtre , $espece ,$page,$size,$params);
         $result = "";
         $utilisateurconnecte = false;
 
@@ -94,7 +95,7 @@ class ControllerEspece{
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
 
 
-        $data = EspeceRepository::getEspece("taxrefIds" , $id , 1,1);
+        $data = EspeceRepository::getEspece("taxrefIds" , $id , 1,1 ,array());
         $result = "";
         $image = "";
 
@@ -144,6 +145,13 @@ class ControllerEspece{
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {
+        if (ConnexionUtilisateur::estConnecte()) {
+            $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
+            $parametres["utilisateur"] = $utilisateur;
+        }else{
+            $parametres["utilisateur"] = null;
+        }
+
         extract($parametres); // Crée des variables à partir du tableau $parametres
 
         require __DIR__ . "/../view/$cheminVue";

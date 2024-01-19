@@ -50,13 +50,23 @@ class EspeceRepository{
         return $response;
     }
 
-    public static function getEspece(String $filtre , String $espece , int $page = 1 , int $size = 9){
+    public static function getEspece(String $filtre , String $espece , int $page = 1 , int $size = 9 , array $params){
+
+// echo $params["image"];
 
         // refaire le systeme de pagination en prenant
         // https://taxref.mnhn.fr/api/taxa/search?version=16.0&frenchVernacularNames=pinson&size=0
         // la clé "page"
         $url = "https://taxref.mnhn.fr/api/taxa/search?version=16.0&".$filtre."=".$espece;
+
+        foreach ($params as $key => $value) {
+            if ($value != 0 && $key != "image") {
+                $url .= "&".$key."=".$value;
+            }
+        }
+
         $url = str_replace(" " , "%20" , $url); // gestion des espaces
+
         $response = EspeceRepository::cURL($url);
 
 
@@ -72,11 +82,14 @@ class EspeceRepository{
                     $lst_referenceID = [];
                     foreach ($data['_embedded']['taxa'] as $index => $espece) {
                         // On empeche les doublons d'espece
-                        if (!in_array($espece["referenceId"], $lst_referenceID)) {
+                        if ($params["image"] == 1 && !isset($espece["_links"]["media"])) {
+                            unset($data['_embedded']['taxa'][$index]);
+                        }elseif (!in_array($espece["referenceId"], $lst_referenceID)) {
                             $lst_referenceID[] = $espece["referenceId"];
                         }else {  // Suppression des doublons
                             unset($data['_embedded']['taxa'][$index]);
                         }
+
                     }
                     // On récupère les éléments de la bonne page
                     $nbr_espece = sizeof($lst_referenceID);
@@ -150,7 +163,11 @@ class EspeceRepository{
                         }
                         $data[$index]["_links"]["media"] = $lst_image;  // on associe directement la liste au media
                     } else {  // Image introuvable
-                        $data[$index]["_links"]["media"] = null;
+                        if ($params["image"] == 1) {
+                            unset($data[$index]);
+                        }else{
+                            $data[$index]["_links"]["media"] = null;
+                        }
                     }
                 }
                 return [$data , $nbr_page];

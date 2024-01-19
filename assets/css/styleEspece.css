@@ -11,7 +11,7 @@
 }
 /* Style pour le champ de recherche */
 .nav_recherche input[type="search"] {
-    width: 85%;
+    width: 100%;
     height: 40px;
     font-size: 16px;
     padding: 5px;
@@ -33,13 +33,48 @@
     cursor: pointer;
 }
 
-h3{
+
+.search-container {
+    position: relative;
     display: flex;
+    width: 100%;
+}
+
+#marecherche {
+    width: 100%;
+    padding-left: 40px; /* Ajoutez de l'espace à droite pour l'icône */
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #555; /* Couleur de l'icône */
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+h1{
+    font-size: 3rem;
+}
+
+h3{
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 h4{
     color: #26B2A2;
     margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    
 }
 h5{
     margin-bottom: 10px;
@@ -87,21 +122,56 @@ th{
     text-align: left;
 }
 
-.container #filtre li{
+.container #filtreList {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.container #filtreList li {
     margin: 0 0 10px 5px;
     list-style: none;
+    flex-grow: 1;
 }
+
+.container #filtreList label {
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #26B2A2;
+    color: #26B2A2;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container #filtreList label:hover{
+    /* background-color: #26B2A2; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* color: white; */
+}
+
+input[type="radio"] {
+    display: none;
+}
+
 
 .container #filtre input{
     cursor: pointer;
+    margin-right: 0.3125rem;
 }
+
+
+
 
 .container .search{
     /*background-color: blue;*/
     width: 100px;
     flex-grow: 1;
     text-align: center;
-    padding: 0 8% 0 10%;
+    padding: 0 5% 0 5%;
 }
 
 .container hr{
@@ -511,6 +581,63 @@ h2{
 /* Ajuster le z-index pour contrôler l'empilement */
 .top-image {
     z-index: 1; /* Au-dessus de l'image inférieure */
+}
+
+
+
+#habitats-select, #rang-select,#territories-select,#domain-select {
+    border-radius: 5px;
+    background-color: #F0F0F2 ;
+    width: 25%;
+    border:none;
+}
+
+#habitats-select{
+    width: 100%;
+}
+
+#rang-select{
+    width: 100%;
+
+}
+
+#territories-select{
+    width: 100%;
+
+}
+
+#domain-select{
+    width: 100%;
+
+}
+
+
+.label
+{
+    display: list-item;
+}
+
+.div_filtre{
+    width: 100%;
+    height: auto;
+}
+
+.div_filtre select{
+    height: 2rem;
+}
+.filtres{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 2% 1% 0;
+}
+
+.div_filtre1,.div_filtre2{
+    width: 100%;
+    display: flex;
+    gap: 5%;
+    justify-content: space-evenly;
 }
 
 

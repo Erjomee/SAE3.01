@@ -2,6 +2,8 @@
 
 namespace App\Naturotheque\Controller;
 
+use App\Naturotheque\Lib\ConnexionUtilisateur;
+use App\Naturotheque\Model\Repository\UtilisateurRepository;
 
 class ControllerAccueil{
 
@@ -23,6 +25,13 @@ class ControllerAccueil{
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {
+        if (ConnexionUtilisateur::estConnecte()) {
+            $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
+            $parametres["utilisateur"] = $utilisateur;
+        }else{
+            $parametres["utilisateur"] = null;
+        }
+
         extract($parametres); // Crée des variables à partir du tableau $parametres
 
         require __DIR__ . "/../view/$cheminVue";

@@ -430,11 +430,11 @@ const marecherche = document.getElementById("marecherche");
 
 // Écoutez les clics sur les boutons radio
 radio1.addEventListener("click", function() {
-    marecherche.placeholder = "ID | ex: 442365";
+    marecherche.placeholder = "Nom vernaculaire | ex: Pinson familier";
 });
 
 radio2.addEventListener("click", function() {
-    marecherche.placeholder = "Nom vernaculaire | ex: Pinson familier";
+    marecherche.placeholder = "ID | ex: 442365";
 });
 
 radio3.addEventListener("click", function() {
@@ -444,3 +444,26 @@ radio3.addEventListener("click", function() {
 
 
 
+// Sélectionnez tous les boutons radio et leurs labels
+const radioButtons = document.querySelectorAll('input[type="radio"]');
+const labels = document.querySelectorAll('#filtreList label');
+
+// Ajoutez un gestionnaire d'événements de clic à chaque bouton radio
+radioButtons.forEach((radioButton, index) => {
+    radioButton.addEventListener('change', () => {
+        // Réinitialisez tous les labels
+        labels.forEach(label => {
+            label.style.backgroundColor = 'white';
+            label.style.color = '#26B2A2';
+            label.style.boxShadow = '';
+        });
+
+        // Mettez à jour le style du label sélectionné
+        labels[index].style.backgroundColor = '#26B2A2';
+        labels[index].style.color = 'white';
+        labels[index].style.boxShadow = 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px';
+
+
+
+    });
+});

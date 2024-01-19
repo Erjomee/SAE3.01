@@ -75,6 +75,13 @@ if (isset($_POST["validate"])) {
     var_dump($_FILES);
 }
 
+
+
+$params['image'] = false;
+
+
+var_dump( $params['image']);
+
 ?>
 
 
@@ -97,3 +104,5 @@ if (isset($_POST["validate"])) {
 
     </label>
   </div>
+
+

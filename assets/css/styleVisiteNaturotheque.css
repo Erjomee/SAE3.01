@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 50%;
+    /* background-image: url('./../img/img_profil/logo-upec.png'); */
+    background-size: cover;
+    margin-top: 50px
+  }
+
+.username {
+    margin: 0;
+    color: black;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 42px;
+
+}
+
+.edit-profile {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 16px 50px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.stat {
+    text-align: center;
+    margin: 0 40px;
+}
+
+.stat-content {
+    text-decoration: none;
+    color: inherit;
+}
+
+.stat-label {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7F7F7F;
+}
+
+.stat-value {
+    margin: 0;
+    font-size: 21px;
+    font-weight: bold;
+    color: #343E43;
+}

@@ -8,9 +8,9 @@
                 foreach($users as $values){
 
                 $age = date_diff(date_create($values['dnaissance']), date_create('now'))->y;
-                echo"<a href = 'frontController.php?controller=utilisateur&action=afficherNaturotheque&email={$values['email']}'><div class='flex-box'>
+                echo"<a href = 'frontController.php?controller=naturotheque&action=afficher_naturotheque&email={$values['email']}'><div class='flex-box'>
                     <div class='card-top'>
-                        <img class= 'image' src={$values['Photo_profil']} alt=''>
+                        <img class='image' src=../assets/img/img_profil/{$values['Photo_profil']} alt=''>
                     </div>
                     <div class='carteInfo'>
                         <h2>{$values['prenom']} {$values['nom']}</h2>

@@ -52,19 +52,25 @@
                 <?php
                     // Si l'utilisateur est connecté
                     if(ConnexionUtilisateur::estConnecte()) {
-                        echo "  
+                        echo "
                             <div class='utilisateur' style='display: flex'>
-                                <div class='bx bxs-user-circle' id='user-icon'></div>
+                            ";
+                        if ($utilisateur->get("photo_profil") !== null) {
+                            echo "<div class='avatar_nav' style='background-image: url(\"./../assets/img/img_profil/{$utilisateur->get("photo_profil")}\");'></div>";
+                        }else {
+                            echo "<div class='bx bxs-user-circle' id='user-icon'></div>";
+                        }
+                        echo "  <div class='user-action'>
+                                    <ul class='user-list'>
+                                        <div class='avatar_nav' style='background-image: url(\"./../assets/img/img_profil/{$utilisateur->get("photo_profil")}\");'></div>
+                                        <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'><i class='bx bx-user'></i>Profile</a></li>
+                                        <li class='item'><a href='frontController.php?controller=naturotheque&action=afficher_naturotheque&email={$utilisateur->get("email")}'><i class='bx bx-collection'></i>Collection</a></li>  
+                                        <hr>
+                                        <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'><i class='bx bx-log-out'></i>Déconnexion</a></li>
+                                    </ul>
+                                </div>
                             </div>
-
-                            <div class='user-action'>
-                                <ul class='user-list'>
-                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'><i class='bx bx-user'></i>Profile</a></li>
-                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=mynaturotheque'><i class='bx bx-collection'></i>Collection</a></li>  
-                                    <hr>
-                                    <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'><i class='bx bx-log-out'></i>Déconnexion</a></li>
-                                </ul>
-                            </div>";
+                        ";
                         // Compte invité
                     }else{
                         echo '<div class="utilisateur">

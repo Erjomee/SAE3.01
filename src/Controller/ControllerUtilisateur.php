@@ -171,10 +171,9 @@ class ControllerUtilisateur{
 
         if ($_FILES['images']['error'] === UPLOAD_ERR_OK) {
             $targetDir = __DIR__."\..\..\assets\img\img_profil/";
-            $targetFile = $targetDir . basename($_FILES['images']['name']);
-        
+            $targetFile = $targetDir . str_replace(' ', '', basename($_FILES['images']['name']));
             if (move_uploaded_file($_FILES['images']['tmp_name'], $targetFile)) {
-                UtilisateurRepository::update_img(basename($_FILES['images']['name']));
+                UtilisateurRepository::update_img(str_replace(' ', '', basename($_FILES['images']['name'])));
             } else {
                 echo 'Erreur lors de l\'enregistrement du fichier.';
             }
@@ -185,7 +184,18 @@ class ControllerUtilisateur{
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
     private static function afficheVue(string $cheminVue, array $parametres = []) : void {
+
+        if (ConnexionUtilisateur::estConnecte()) {
+            $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
+            $parametres["utilisateur"] = $utilisateur;
+        }else{
+            $parametres["utilisateur"] = null;
+        }
+
         extract($parametres); // Crée des variables à partir du tableau $parametres
+
+
+
         if(!is_null(MessageFlash::lireTousMessages()) ){
             if (sizeof(MessageFlash::lireTousMessages()) > 0) {
                 $message = MessageFlash::lireMessages(array_key_first(MessageFlash::lireTousMessages()));
@@ -199,6 +209,7 @@ class ControllerUtilisateur{
             "cheminVueBody" => "error.php",
             "errorMessage" => $errorMessage]);
     }
+
 
 }
 

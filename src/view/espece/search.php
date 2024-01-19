@@ -11,32 +11,32 @@
             <nav class="nav_recherche">
                 <input type="hidden"  name="controller" value="espece">
                 <input type="hidden"  name="action" value="searchBy">
-                <input type="search" id="marecherche" name="recherche" placeholder="Nom vernaculaire | ex: Pinson familier" required>
-
+                <div class="search-container">
+                    <input type="search" id="marecherche" name="recherche" placeholder="Nom vernaculaire | ex: Pinson familier" required>
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </div>
                 <button type="submit">Rechercher</button>
                 <span class="validity"></span>
             </nav>
             <div id="filtre">
-                <h4>
-                    Affinez votre choix
-                </h4>
+                <h3>
+                    Affinez vos choix
+                </h3>
                 
-                <h5>Recherche par:</h5>
-                <ul>
-                    <li><input id="radio1" type="radio" name="filtre_f" value="taxrefIds" >ID espece</li>
-                    <li><input id="radio2" type="radio" name="filtre_f" value="frenchVernacularNames" checked >Nom vernaculaire</li>
-                    <li><input id="radio3" type="radio" name="filtre_f" value="scientificNames">Nom scientifique</li>
+                <h4>Recherche par:</h4>
+                <ul id="filtreList">
+                    <li><input id="radio1" type="radio" name="filtre_f" value="frenchVernacularNames" checked><label style="background-color: #26B2A2;color: white" for="radio1">Nom vernaculaire</label></li>
+                    <li><input id="radio2" type="radio" name="filtre_f" value="taxrefIds" ><label for="radio2">ID espece</label></li>
+                    <li><input id="radio3" type="radio" name="filtre_f" value="scientificNames"><label for="radio3">Nom scientifique</label></li>
                 </ul>
-                <div class="page_preference">
-                    <h5>Page : <input type="number" id="page" value="1" step="1"></h5>
-                    <h5>Size : <input type="number" id="size" value="12" step="1"></h5>
-                </div>
                 <!--      Faire un filtre déroulant          -->
-                <h5>Filtre par:</h5>
-                <div >
+                <h4>Filtre par:</h4>
+                <div class="filtres">
+                <div class="div_filtre1">
                     <!-- Filtre habitat -->
+                    <div class="div_filtre">
                     <label for="habitats-select">Habitat:</label>
-                    <select name="habitats" id="habitats-select" style="width: 100%;">
+                    <select name="habitats" id="habitats-select">
                         <option value="0">--Tous--</option>
                         <option value="1">Marin</option>
                         <option value="2">Eau douce</option>
@@ -47,10 +47,12 @@
                         <option value="7">Continental (terrestre et/ou eau douce)</option>
                         <option value="8">Continental (terrestre et eau douce)</option>
                     </select>
+                    </div>
 
                     <!-- Filtre rang taxonomique -->
+                    <div class ="div_filtre">
                     <label for="taxonomicRanks-select">Rang taxonomique:</label>
-                    <select name="taxonomicRanks" id="rang-select" style="width: 100%;">
+                    <select name="taxonomicRanks" id="rang-select" >
                         <option value="0">--Tous--</option>
                         <option value="Dumm">Domaine</option>
                         <option value="KD">Règne</option>
@@ -73,11 +75,15 @@
                         <option value="CAR">Cultivar</option>
                         <option value="AB">Abberatio</option>
                     </select>
+                    </div>
+                </div>
 
 
+                    <div class="div_filtre2">
                     <!-- Filtre territoires -->
+                    <div class = "div_filtre">
                     <label for="territories-select">Territoires:</label>
-                    <select name="territories" id="territories-select" style="width: 100%;">
+                    <select name="territories" id="territories-select" >
                         <option value="0">--Tous--</option>
                         <option value="fr">France métropolitaine</option>
                         <option value="gf">Guyane française</option>
@@ -96,18 +102,31 @@
                         <option value="pf">Polynésie française</option>
                         <option value="cli">Clipperton</option>
                     </select>
+                    </div>
 
                     <!-- Filtre territoires -->
+                    <div class = "div_filtre">
                     <label for="domain-select">Domaine:</label>
-                    <select name="domain" id="domain-select" style="width: 100%;">
+                    <select name="domain" id="domain-select">
                         <option value="0">--Tous--</option>
                         <option value="marin">Marin</option>
                         <option value="continental">Continental</option>
                     </select>
+                    </div>
+                
+                </div>
                 </div>
 
-                <h5>Image uniquemet:</h5>
-                <input type="checkbox" name="image" id="image-checkbox">
+                <div class="filtres">
+                    <div >
+                        <h4>Avec Image uniquement: <input type="checkbox" name="image" id="image-checkbox"></h4>
+                    </div>
+
+                    <h4>Page : <input type="number" id="page" value="1" step="1"></h4>
+                    <h4>Size : <input type="number" id="size" value="12" step="1"></h4>
+                </div>
+
+
             </div>
         </form>
 
