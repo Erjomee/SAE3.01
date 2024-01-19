@@ -23,19 +23,22 @@
     background-color: white;
     height: 2.3lh;
     border: none;
-    width: 55vh;
+    width: 63vh;
     box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
     display: inline-block;
     margin: 0px 0 0 20%;
+    border-radius:30px;
 }
 
 #recherche input{
-    width: 49vh;
+    width: 57vh;
     height: 3vh;
     border: 0;
     margin-left: 1%;
     /* background: url() no-repeat; */
     background-color: white;
+    border-radius: 30px;
+    margin-left: 2%;
 }
 
 #test button{
@@ -692,13 +695,13 @@ a {
     color: white;
     z-index: 1;
     position: absolute;
-    width: 100%;
-    margin: 30vh 0 0 75%;
+    width: 50%;
+    margin: 26vh 0 0 55%;
     transform: translateX(-50%);
 }
     #test h2 {
         text-shadow: 1px 1px 0px rgb(37, 177, 160);
-        font-size: 3em;
+        font-size: 2.4em;
         font-weight: 299;
     }
 
@@ -707,17 +710,19 @@ a {
           background-color: white;
           height: 2.3lh;
           border: none;
-          width: 55vh;
+          width: 62vh;
           box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
           display: inline-block;
-          margin: 0px 0 0 9%;
+          margin: 0px 0 0 5%;
         }
 
 
         #recherche input {
-            width: 46vh;
+            width: 53vh;
             height: 3vh;
             border: 0;
+            border-radius:30px;
+            margin-left: 2%;
           }
 
           #test button {
@@ -730,7 +735,7 @@ a {
           }
 
     #test h6 {
-    margin: 5px 0 0 10%;
+    margin: 5px 0 0 11%;
 }
 
     .div_article1 button, .div_article2 button {
