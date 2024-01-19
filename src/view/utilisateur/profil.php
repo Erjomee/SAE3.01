@@ -1,7 +1,7 @@
 <div class="container">
         <div class="avatar" style="background-image: url('./../assets/img/img_profil/<?php echo $photo_profil?>');">
         </div>
-        <h1 class="username" ><?php echo $first_name, $last_name?></h1>
+        <h1 class="username" ><?php echo $first_name. ' ' .$last_name?></h1>
         <a class="edit-profile" href="frontController.php?controller=utilisateur&action=edit_profil">Modifier le profil</a>
         <div class="stats-grid">
             <div class="stat">
