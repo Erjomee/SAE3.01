@@ -50,6 +50,9 @@ h2 {
   height: 130px;
   overflow: hidden;
   border-radius: 50%;
+  /* background-image: url('./../img/img_profil/logo-upec.png'); */
+  background-size: cover;
+  margin-top: 50px
 }
 
 .avatar img {
@@ -145,4 +148,11 @@ button {
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
+}
+
+
+#previewImage{
+  /* width: 130px;
+  height: 130px; */
+  /* background-size: cover; */
 }

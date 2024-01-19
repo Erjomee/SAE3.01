@@ -1,8 +1,7 @@
 <div class="container">
-        <div class="avatar">
-            <img src="https://images.pexels.com/users/avatars/907968517/marius-mbl91-994.jpg?auto=compress&amp;fit=crop&amp;h=130&amp;w=130&amp;dpr=1" alt="marius. mbl91">
+        <div class="avatar" style="background-image: url('./../assets/img/img_profil/<?php echo $photo_profil?>');">
         </div>
-        <h1 class="username">Marius Mabulu</h1>
+        <h1 class="username" ><?php echo $first_name. ' ' .$last_name?></h1>
         <a class="edit-profile" href="frontController.php?controller=utilisateur&action=edit_profil">Modifier le profil</a>
         <div class="stats-grid">
             <div class="stat">

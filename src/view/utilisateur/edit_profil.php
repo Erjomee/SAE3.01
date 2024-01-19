@@ -6,9 +6,8 @@
   <h2>Paramètres de profil</h2>
   
   <div class="avatar-section">
-    <div class="avatar">
+    <div class="avatar" style="background-image: url('./../assets/img/img_profil/<?php echo $photo_profil?>');">
       <!-- <img src="https://images.pexels.com/users/avatars/907968517/marius-mbl91-994.jpg?auto=compress&fit=crop&h=130&w=130&dpr=1" alt="marius. mbl91" id="previewImage"> -->
-      <img src="./../assets/img/img_profil/<?php echo $photo_profil?>"  alt="marius. mbl91" id="previewImage">
     </div>
     <label for="changeImage" class="avatar-button">
     <form action="" id="myForm" method="post" enctype="multipart/form-data">

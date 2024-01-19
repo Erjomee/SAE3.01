@@ -84,9 +84,18 @@ class ControllerUtilisateur{
     }
 
     public static function profil(): void{
+        $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
                                                         "style" => "Profil",
-                                                        "cheminVueBody" => "utilisateur/profil.php"]);
+                                                        "cheminVueBody" => "utilisateur/profil.php",
+                                                        "first_name" => $utilisateur->get("prenom"),
+                                                        "last_name" => $utilisateur->get("nom"),
+                                                        "email" => $utilisateur->get("email"),
+                                                        "photo_profil" => $utilisateur->get("photo_profil"),
+                                                        "date_of_birth" => $utilisateur->get("dnaissance"),
+                                                        "bio" => $utilisateur->get("description"),
+                                                        "location" => $utilisateur->get("localisation"),
+                                                        "phone_number" => $utilisateur->get("numero")]);
     }
 
     public static function edit_profil(): void{
@@ -172,7 +181,6 @@ class ControllerUtilisateur{
         } else {
             echo 'Erreur lors de la réception du fichier.';
         }
-        self::edit_profil();
     }
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres
