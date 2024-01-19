@@ -18,6 +18,14 @@
                 <button type="submit">Rechercher</button>
                 <span class="validity"></span>
             </nav>
+
+            <!-- <div id ="recherche">
+                    <input type="text" class="recherche" placeholder="Rechercher une espèce" />
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div> -->
+
             <div id="filtre">
                 <h3>
                     Affinez vos choix
@@ -134,7 +142,7 @@
 
         <!--  Utilisation de script    -->
         <div id="result_area">
-            <div id="default_message"><h1>Veuillez saisir une recherche</h1></div>
+            <div id="default_message"><h2>Veuillez saisir une recherche</h2></div>
             <div id="resultat"></div>
         </div>
         <div id="pagination_content">

@@ -55,14 +55,15 @@
 }
 
 
-
-
-
-
-
 h1{
     font-size: 3rem;
 }
+h2{
+    font-size: 1.8rem;
+    opacity: 0.2;
+    margin-top: 50px;
+}
+
 
 h3{
     text-align: center;
@@ -512,10 +513,7 @@ ul#pagination li:hover {
     /*background-color: red;*/
 }
 
-h2{
-    text-decoration: underline;
-    margin-bottom: 10px;
-}
+
 
 
 #img_habitat{
