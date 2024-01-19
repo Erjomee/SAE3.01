@@ -1,3 +1,109 @@
-body{
-    background-color: green;
+body {
+    /* height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif; */
+    background-image: url("./../img/fondconnexion.png");
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
 }
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 25%;
+    position: relative;
+    left: 38%;
+    margin-top: 8%;
+    margin-bottom:5%;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #41a17c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #226445;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+/* footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+} */
+
+#error {
+    display: none;
+    color: red;
+    margin-top: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  /* a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+  } */
+
+/*Style du lien "Mot de passe oublié" */
+#forgot-password-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #forgot-password-link a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  #forgot-password-link a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }

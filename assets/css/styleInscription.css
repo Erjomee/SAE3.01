@@ -1,3 +1,94 @@
+/* Style général du formulaire*/
 body{
-    background-color: red;
+    background-image: url("./../img/fondinscription.png");
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+#inscription-id {
+    font-family: Arial, sans-serif;
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 10%;
+  }
+
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+  /*Style des étiquettes et des champs*/
+  label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="submit"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  /*Style du lien "Déjà inscrit?"*/
+  a {
+    text-decoration: none;
+    color: white; 
+  }
+
+  /* a:hover {
+    text-decoration: underline;
+  } */
+
+  /*Style du message d'erreur*/
+  #error {
+    display: none;
+    color: red;
+    margin-top: 10px;
+  }
+
+  /*Style du bouton Soumettre */
+  #submit_id {
+    background-color: #41a17c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  #submit_id:hover {
+    background-color: #226445;
+  }
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
 }
