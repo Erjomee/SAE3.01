@@ -52,6 +52,7 @@ h2 {
   border-radius: 50%;
   /* background-image: url('./../img/img_profil/logo-upec.png'); */
   background-size: cover;
+  margin-top: 50px
 }
 
 .avatar img {

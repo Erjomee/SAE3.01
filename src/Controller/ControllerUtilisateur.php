@@ -85,7 +85,6 @@ class ControllerUtilisateur{
 
     public static function profil(): void{
         $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
-
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
                                                         "style" => "Profil",
                                                         "cheminVueBody" => "utilisateur/profil.php",
