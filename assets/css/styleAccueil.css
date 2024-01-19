@@ -686,37 +686,52 @@ a {
 }
 
 /* Styles pour les écrans larges */
-/* @media (min-width: 993px) {  
+@media (min-width: 1000px) {
+    
+    #test {
+    color: white;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    margin: 30vh 0 0 75%;
+    transform: translateX(-50%);
+}
     #test h2 {
-        font-size: 34px;
+        text-shadow: 1px 1px 0px rgb(37, 177, 160);
+        font-size: 3em;
         font-weight: 299;
     }
 
-    #recherche {
-        background-color: white;
-        height: 2.3lh;
-        border: none;
-        width: 55vh;
-        box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
-        display: inline-block;
-        margin: 0px 0 0 0%;
-    }
+  
+        #recherche {
+          background-color: white;
+          height: 2.3lh;
+          border: none;
+          width: 55vh;
+          box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+          display: inline-block;
+          margin: 0px 0 0 9%;
+        }
 
-    #recherche {
-        height: 2.3lh;
-        width: 46vh;
-        margin: 0px 0 0 6%;
-    }
 
-    #recherche input {
-        width: 41vh;
-        height: 3vh;
-        border: 0;
-    }
+        #recherche input {
+            width: 46vh;
+            height: 3vh;
+            border: 0;
+          }
+
+          #test button {
+            font-size: 12px;
+            height: 2lh;
+            border: 0;
+            margin-left: 3.2vh;
+            margin-top: 1.5%;
+            background-color: white;
+          }
 
     #test h6 {
-        margin: 4px 0 0 12%;
-    }
+    margin: 5px 0 0 10%;
+}
 
     .div_article1 button, .div_article2 button {
         width: 22%;
@@ -736,5 +751,5 @@ a {
     
     }
 
-} */
+}
 /*#CDD3DA*/
