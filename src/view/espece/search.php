@@ -16,7 +16,7 @@
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
                 <button type="submit">Rechercher</button>
-                <i id="icon-filtre" class='bx bxs-chevron-up' onclick="toggle_filters()"></i>
+                        <i id="icon-filtre" class='bx bxs-chevron-up' onclick="toggle_filters()"></i>
                 
                 <span class="validity"></span>
             </nav>

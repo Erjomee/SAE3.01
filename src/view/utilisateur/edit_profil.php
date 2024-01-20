@@ -63,7 +63,7 @@
 
     <div class="form-group">
       <label for="delete_account">Supprimer le compte et toutes ses données</label>
-      <button type="button">Supprimer mon compte</button>
+      <a onclick="return confirm('Etes vous sûr de vouloir supprimer le compte ?')" href="frontController.php?controller=utilisateur&action=delete_account"><button type="button">Supprimer mon compte</button></a>
     </div>
 
     <input name="controller" value="utilisateur" hidden>

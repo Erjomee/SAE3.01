@@ -8,6 +8,7 @@ use App\Naturotheque\Lib\MotDePasse;
 use App\Naturotheque\Model\DataObject\Utilisateur;
 use App\Naturotheque\Model\HTTP\Session;
 use App\Naturotheque\Model\Repository\DatabaseConnection;
+use App\Naturotheque\Model\Repository\NaturothequeRepository;
 use App\Naturotheque\Model\Repository\UtilisateurRepository;
 use TypeError;
 use PDOException;
@@ -85,6 +86,8 @@ class ControllerUtilisateur{
 
     public static function profil(): void{
         $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
+        $nbr_save = count(NaturothequeRepository::selectsave(ConnexionUtilisateur::getLoginUtilisateurConnecte()));
+        $nbr_like = count(NaturothequeRepository::selectlike(ConnexionUtilisateur::getLoginUtilisateurConnecte()));
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire d'inscription",
                                                         "style" => "Profil",
                                                         "cheminVueBody" => "utilisateur/profil.php",
@@ -95,7 +98,10 @@ class ControllerUtilisateur{
                                                         "date_of_birth" => $utilisateur->get("dnaissance"),
                                                         "bio" => $utilisateur->get("description"),
                                                         "location" => $utilisateur->get("localisation"),
-                                                        "phone_number" => $utilisateur->get("numero")]);
+                                                        "phone_number" => $utilisateur->get("numero"),
+                                                        "nbr_save" => $nbr_save,
+                                                        "nbr_like" => $nbr_like,
+                                                        "nbr_vue" => $utilisateur->get("nbr_vue")]);
     }
 
     public static function edit_profil(): void{
@@ -180,6 +186,14 @@ class ControllerUtilisateur{
         } else {
             echo 'Erreur lors de la réception du fichier.';
         }
+    }
+
+
+
+    public static function delete_account(): void{
+        UtilisateurRepository::delete(ConnexionUtilisateur::getLoginUtilisateurConnecte());
+        ConnexionUtilisateur::deconnecter();
+        ControllerAccueil::readAll();
     }
 
     // Méthode qui permet d'afficher la vue avec son chemin et ses parametres

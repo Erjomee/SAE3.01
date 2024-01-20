@@ -163,11 +163,11 @@ class EspeceRepository{
                         }
                         $data[$index]["_links"]["media"] = $lst_image;  // on associe directement la liste au media
                     } else {  // Image introuvable
-                        if ($params["image"] == 1) {
-                            unset($data[$index]);
-                        }else{
+                        // if ($params["image"] == 1) {
+                        //     unset($data[$index]);
+                        // }else{
                             $data[$index]["_links"]["media"] = null;
-                        }
+                        // }
                     }
                 }
                 return [$data , $nbr_page];

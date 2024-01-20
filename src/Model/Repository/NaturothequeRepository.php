@@ -65,4 +65,26 @@ class NaturothequeRepository {
             return null;
         }
     }
+
+    public static function selectsave($id_utilisateur){
+        $sql = "SELECT id_espece FROM naturotheque where id_utilisateur = :id_utilisateur ";
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array("id_utilisateur" => $id_utilisateur);
+        $pdoStatement->execute($values);
+
+        $objet = $pdoStatement->fetchAll();
+
+        return $objet;
+    }
+    
+    public static function selectlike($id_utilisateur){
+        $sql = "SELECT id_espece FROM aime where id_utilisateur = :id_utilisateur ";
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array("id_utilisateur" => $id_utilisateur);
+        $pdoStatement->execute($values);
+
+        $objet = $pdoStatement->fetchAll();
+
+        return $objet;
+    }
 }

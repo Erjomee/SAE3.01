@@ -14,6 +14,7 @@ class Utilisateur{
     private $description;
     private $localisation ;
     private $dnaissance;
+    private $nbr_vue;
 
     // Méthode get avec en parametre un attribut de class
     public function get($property) {
@@ -32,7 +33,7 @@ class Utilisateur{
         return null;
     }
 
-    public function __construct($nom, $prenom, $email, $password, $numero, $sexe ,$photo_profil,$description,$localisation,$dnaissance) {
+    public function __construct($nom, $prenom, $email, $password, $numero, $sexe ,$photo_profil,$description,$localisation,$dnaissance,$nbr_vue) {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
@@ -43,6 +44,7 @@ class Utilisateur{
         $this->description= $description;
         $this->localisation= $localisation;
         $this->dnaissance = $dnaissance;
+        $this->nbr_vue = $nbr_vue;
     }
 
     public static function construireDepuisFormulaire(array $tableauFormulaire): Utilisateur {
@@ -50,7 +52,7 @@ class Utilisateur{
         return new Utilisateur($tableauFormulaire["nom"], $tableauFormulaire["prenom"], $tableauFormulaire["email"], 
                                 $mdpHache,$tableauFormulaire["numero"],$tableauFormulaire["sexe"],
                                 $tableauFormulaire["photo_profil"],$tableauFormulaire["description"],
-                                $tableauFormulaire["localisation"],$tableauFormulaire["dnaissance"]);
+                                $tableauFormulaire["localisation"],$tableauFormulaire["dnaissance"],$tableauFormulaire["nbr_vue"]);
     }
 
 }
