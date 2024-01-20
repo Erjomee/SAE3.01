@@ -112,8 +112,10 @@
             <div id ="logofooter">
                 <img src="./../assets/img/sae_logo.png" height="170">
                 <div id ="separation">
-                </div> 
-                <img src ="./../assets/img/UPEC_footer.png" height="110">
+                </div>
+                <a href = "https://www.u-pec.fr"> 
+                    <img src ="./../assets/img/UPEC_footer.png" height="110">
+                </a>
             </div>
                 
        

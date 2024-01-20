@@ -94,3 +94,10 @@ legend {
 p {
     margin-bottom: 10px;
 }
+
+h1 {
+  margin: 30px 0;
+  color: #26B2A2;
+  justify-content: center;
+  display: flex;
+}

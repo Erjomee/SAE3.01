@@ -164,7 +164,7 @@
         <div class="div_p">
             <p>Découvrez l'espèce la plus consultée, pour en apprendre davantage sur cette espèce fascinante </p>
         </div>
-        <a class="button_link" href=""></a>
+        <a class="button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=espece&action=search"></a>
         <button>En savoir plus</button>
     </div>
     <div class="partie2">
@@ -184,7 +184,7 @@
         <div class="div_p">
             <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>
         </div>
-        <a class="button_link" href="https://inpn.mnhn.fr/accueil/index"></a>
+        <a class="button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll"></a>
         <button>Naturothèques</button>
     </div>
 </div>

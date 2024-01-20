@@ -1,8 +1,8 @@
 
 <form method="post" >
-    <h1>Formulaire de connexion</h1>
+    <h3>C'est un plaisir de vous revoir !</h3>
     <fieldset>
-        <legend>Connexion</legend>
+        <!-- <legend>C'est un plaisir de vous revoir !</legend> -->
         <p>
             <label for="email">Email</label>
             <input type="email" id="email_id" name="email" placeholder="jean.dupont@gmail.com" >
@@ -13,6 +13,6 @@
         </p>
         <input id="action" name="action" value="connecter" hidden>
 
-        <input type="submit" value="Envoyer" name="Envoi">
+        <input type="submit" value="Connexion" name="Envoi">
     </fieldset>
 </form>
