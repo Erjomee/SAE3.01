@@ -1,10 +1,12 @@
 /* Style général du formulaire*/
 body{
     background-image: url("./../img/fondinscription.png");
+    background-color: rgba(255, 255, 255, 0.5);
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
 }
+
 #inscription-id {
     font-family: Arial, sans-serif;
     width: 30%;
