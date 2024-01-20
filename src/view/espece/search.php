@@ -16,17 +16,12 @@
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
                 <button type="submit">Rechercher</button>
+                <i id="icon-filtre" class='bx bxs-chevron-up' onclick="toggle_filters()"></i>
+                
                 <span class="validity"></span>
             </nav>
-
-            <!-- <div id ="recherche">
-                    <input type="text" class="recherche" placeholder="Rechercher une espèce" />
-                    <button type="submit" class="searchButton">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div> -->
-
-            <div id="filtre">
+ 
+            <div id="filtre" class="display" hidden>
                 <h3>
                     Affinez vos choix
                 </h3>
@@ -138,7 +133,6 @@
             </div>
         </form>
 
-        <hr>
 
         <!--  Utilisation de script    -->
         <div id="result_area">

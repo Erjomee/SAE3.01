@@ -1,5 +1,25 @@
+function toggle_filters() {
+    console.log('gegeg');
+    const icon = document.getElementById("icon-filtre");
+    const filtre = document.getElementById("filtre");
+
+    if (icon.classList.contains("bxs-chevron-up")) {
+        icon.classList.remove("bxs-chevron-up");
+        icon.classList.add("bxs-chevron-down");
+    } else {
+        icon.classList.remove("bxs-chevron-down");
+        icon.classList.add("bxs-chevron-up");
+    }
+
+    filtre.classList.toggle("display");
+}
+
+
+
+
 function rechercher(page_active){
     resetSearch();
+    redirectToResult();
 
     var recherche = document.getElementById('marecherche').value;
     var filtre = document.querySelector('input[name=filtre_f]:checked').value;
@@ -30,7 +50,6 @@ function rechercher(page_active){
 
             // Système de pagination
             const paginationElement = document.getElementById("pagination");
-
 
             if (page_active != 1) {
                 const prev_arrow = document.createElement("i");
@@ -70,7 +89,7 @@ function rechercher(page_active){
                 }
             }
 
-            if (page_active != reponse["nbr_page"]) {
+            if (page_active != reponse["nbr_page"] && reponse["result"] != null) {
                 const next_arrow = document.createElement("i");
                 next_arrow.setAttribute("id","next_arrow");
                 next_arrow.classList.add("bx")
@@ -417,6 +436,13 @@ function redirectToTop() {
     // Utilisez l'élément <body> comme cible
     document.body.scrollIntoView({ behavior: "smooth" });
 }
+
+
+function redirectToResult() {
+    // Utilisez l'élément <body> comme cible
+    document.getElementById("filtre").scrollIntoView({ behavior: "smooth" });
+}
+
 
 
 
