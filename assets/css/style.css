@@ -48,9 +48,7 @@ footer{
     color: white;
     z-index: 1;
     display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    
 }
 
 /*button{*/
