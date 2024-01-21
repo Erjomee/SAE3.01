@@ -1,6 +1,6 @@
 <?php
 namespace App\Naturotheque\Model\Repository;
-
+use PDO;
 
 class NaturothequeRepository {
 
@@ -88,4 +88,19 @@ class NaturothequeRepository {
 
         return $objet;
     }
+
+    public static function selectSum($id_utilisateur){
+        $sql = "SELECT (SELECT COUNT(*) FROM naturotheque WHERE id_utilisateur = :id_utilisateur) +
+                       (SELECT COUNT(*) FROM aime WHERE id_utilisateur = :id_utilisateur) as total_count";
+        
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array("id_utilisateur" => $id_utilisateur);
+        $pdoStatement->execute($values);
+        
+        $result = $pdoStatement->fetch(PDO::FETCH_ASSOC);
+        
+        return $result['total_count'];
+    }
+
+
 }

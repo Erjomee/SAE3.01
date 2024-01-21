@@ -81,7 +81,6 @@ class ControllerUtilisateur{
                                                                     "style" => "Naturotheque",
                                                                     "cheminVueBody" => "naturotheque/naturotheque.php",
                                                                     "users" => $users,]);
-
     }
 
     public static function profil(): void{

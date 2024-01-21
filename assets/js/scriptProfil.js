@@ -1,43 +1,4 @@
 
-// MARCHE PAS
-function upload_image() {
-    const input = document.getElementById('changeImage');
-    const preview = document.getElementById('previewImage');
-
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            // preview.src = e.target.result;
-
-            var xhr = new XMLHttpRequest();
-            var url = 'frontController.php?controller=utilisateur&action=change_image';
-            var params = '&avatar=' + e.target.result;
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-                    // var response = JSON.parse(xhr.responseText);
-                    console.log(xhr.responseText);
-                    // Faire quelque chose en cas de succès
-                    // Gérer les erreurs
-                }
-            };
-        
-            xhr.open("GET", url + params, true);
-            // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send(null);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
-function submitForm() {
-    document.getElementById('myForm').submit();
-}
-
-
 function selectTab(tabName , email) {
 
     var xhr = new XMLHttpRequest();
@@ -66,6 +27,8 @@ function selectTab(tabName , email) {
                         console.log(reponse[key]);
                         let nomEspace = reponse[key]["nom"];
                         let photoEspace = reponse[key]["image"];
+                        let id_espece = reponse[key]["id_espece"];
+
 
                         if (photoEspace == "../assets/img/img_not_found.png"){
                             photoEspace = "./../assets/img/taxon/default_icon_naturotheque.jpg";
@@ -75,25 +38,20 @@ function selectTab(tabName , email) {
                         }
   
 
-                        // if (espece["_links"]["media"] !==  null) {
-                        //     photoEspace = espece["_links"]["media"][0];
-                        // } else {
-                        //     photoEspace = "./../assets/img/taxon/default_icon_naturotheque.jpg";
-                        // }
 
                         const a = document.createElement("div");
                         a.classList.add("grid-items");
 
                         a.innerHTML = `
-                        <p>${nomEspace}</p>
+                        <pclass = "paragraphe">${nomEspace}</pclass>
                         `;
                         a.style.backgroundImage = `url(${photoEspace})`;
                         a.style.backgroundSize ="cover";
+
+                        a.onclick = () => more_info(id_espece);
+
                         document.querySelector(".grille").appendChild(a);
-
-
-                        // ex: espece["id"]
-                        // ex: espece["_links"]["media"][0]
+                    
                     }
                 }
 
@@ -135,6 +93,8 @@ function selectTab(tabName , email) {
                          console.log(reponse[key]);
                          let nomEspace = reponse[key]["nom"];
                          let photoEspace = reponse[key]["image"];
+                        let id_espece = reponse[key]["id_espece"];
+
 
                          if (photoEspace == "../assets/img/img_not_found.png"){
                             photoEspace = "./../assets/img/taxon/default_icon_naturotheque.jpg";
@@ -144,26 +104,23 @@ function selectTab(tabName , email) {
                         }
   
  
-                         // if (espece["_links"]["media"] !==  null) {
-                         //     photoEspace = espece["_links"]["media"][0];
-                         // } else {
-                         //     photoEspace = "assets/img/ta./../xon/default_icon_naturotheque.jpg";
-                         // }
+                    
  
                          const a = document.createElement("div");
                          a.classList.add("grid-items");
  
                          a.innerHTML = `
-                         <p>${nomEspace}</p>
+                         <p class = "paragraphe">${nomEspace}</p>
                          `;
                          a.style.backgroundImage = `url(${photoEspace})`;
                          a.style.backgroundSize ="cover";
 
+                         a.onclick = () => more_info(id_espece);
+
+
                          document.querySelector(".grille").appendChild(a);
  
  
-                         // ex: espece["id"]
-                         // ex: espece["_links"]["media"][0]
                      }
                  }
  

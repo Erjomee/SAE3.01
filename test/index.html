@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+
+    <title>SAE2.04</title>
+</head>
+<header>
+    <div id="perso">
+        <p>TRAN Jérôme</p>
+        <p>BUT informatique de Créteil-Vitry</p>
+        <p>Année 2022-2023</p>
+    </div>
+    <img id="logo" src="{{ url_for('static', filename='assets/image.png') }}" alt="" srcset="">
+        
+</header>
+
+<body>
+    <!-- Présentation -->
+    <div id="presentation">
+        <h1 class="center">Application Web : SAE2.04</h1>
+        <p class="center">Cette SAE consiste à déployer un outil de visualisation de données pour l'analyse des systèmes
+            de vélos en libre-service à partir de l'open data Vélib.</p>
+    </div>
+
+    <!-- Partie 1: Map -->
+    <h2>Map interractive:</h2>
+    <div class="center"><iframe src="{{ url_for('static', filename='map.html') }}" frameborder="0" id="map"></iframe></div>
+    <img src="{{ url_for('static', filename='assets/refresh.png') }}" id="refresh">
+    <!-- Partie 2: Analyse -->
+
+    <!-- Graphique 1  -->
+    <h2>Analyse statistique:</h2>  
+    <h3>Analyse globale des stations</h3>
+    <div id="stat_global">
+        <div class="début">
+            <label for="inputData" style="text-align: center"><strong>DEBUT: </strong></label><br>
+            <input type="date" id="date_debut" value="">
+            <input type="time" id="heure_debut" value="00:00" >
+        </div>
+
+        <div class="fin">
+            <label for="inputData"><strong>FIN:</strong></label><br>
+            <input type="date" id="date_fin" value="">
+            <input type="time" id="heure_fin" value="23:59" >
+        </div>
+        <button id="submitButton_stat_globale" type="button">Générer</button>
+    </div>
+
+    <div class="center">
+        <div id="graph_stat_globale">
+            <!-- graphique -->
+        </div>
+    </div>
+
+    <!-- Graphique 2-->
+    <h3>Analyse par commune</h3>
+    <div id="commune">
+        <label for="inputData">Entrée un nom de commune:</label>
+        <input type="texte" id="nom_commune">
+        <button id="submitButton_communes" type="button">Afficher</button>
+    </div>
+
+    <div class="center">
+        <div id="graph_commune1">
+            <!-- graphique 2a) -->
+        </div>
+
+        <div id="graph_commune2">
+            <!-- graphique ab)-->
+        </div>
+    </div>
+
+
+        <!-- Graphique 3-->
+    <h3>Analyse des disponibilités d'une station</h3>  
+    <div id="disponibilité">
+        <label for="inputData">Entrée un ID station :</label>
+        <input type="text" id="station_code">
+
+<br><br>
+
+        <div class="début">
+            <label for="inputData" style="text-align: center"><strong>DEBUT: </strong></label><br>
+            <input type="date" id="date_debut_station" value="">
+            <input type="time" id="heure_debut_station" value="00:00" >
+        </div>
+
+        <div class="fin">
+            <label for="inputData"><strong>FIN:</strong></label><br>
+            <input type="date" id="date_fin_station" value="">
+            <input type="time" id="heure_fin_station" value="23:59" >
+        </div>
+        <button id="submitButton_station" type="button">Générer</button>
+    </div>
+
+    <div class="center">
+        <div id="graph_dipo_vélib">
+            <!-- graphique -->
+        </div>
+    </div>
+    
+    <script>
+        function reload() {
+                document.getElementById('map').src += '';
+            }
+        refresh.onclick = reload;
+
+
+        <!--    Configuration par défault des dates d'aujourd'hui    -->
+        const currentDate = new Date();
+        const formattedDate = currentDate.toISOString().split('T')[0];
+        document.getElementById('date_debut').value = formattedDate;
+        document.getElementById('date_fin').value = formattedDate;
+        document.getElementById('date_debut_station').value = formattedDate;
+        document.getElementById('date_fin_station').value = formattedDate;
+
+        var chart = null; // Variable pour stocker l'instance du graphique
+        var chart2a = null; // Variable pour stocker l'instance du graphique2a
+        var chart2b = null; // Variable pour stocker l'instance du graphique2b
+        var chart3 = null; // Variable pour stocker l'instance du graphique3
+
+        $(document).ready(function() {
+            $('#submitButton_stat_globale').click(function() {
+
+                var date_debut = $('#date_debut').val();
+                var heure_debut = $('#heure_debut').val();
+                var date_fin = $('#date_fin').val();
+                var heure_fin = $('#heure_fin').val();
+
+                $.ajax({
+                    url: '/graphique_globale',
+                    type: 'POST',
+                    data: {date_debut: date_debut,
+                           heure_debut: heure_debut,
+                           date_fin : date_fin,
+                           heure_fin: heure_fin
+                          },
+                    dataType: 'json',
+
+                    success: function(response) {
+                        console.log(response)
+                        if (chart !== null) {
+                            // Détruire le graphique existant s'il y en a un
+                            chart.destroy();
+                        }
+
+                        div = document.createElement('div');
+                        div.id = 'myChart_globale';
+                        $('#graph_stat_globale').html(div);
+
+                        am4core.ready(function() {
+
+                            // Themes begin
+                            am4core.useTheme(am4themes_animated);
+                            am4core.useTheme(am4themes_kelly);
+                            // Themes end
+
+                            // Create chart instance
+                            var chart = am4core.create("myChart_globale", am4charts.XYChart3D);
+
+                            // Add data
+                            chart.data = response.data ;
+
+                            // Create axes
+                            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+                            categoryAxis.dataFields.category = "commune";
+                            categoryAxis.renderer.labels.template.rotation = 270;
+                            categoryAxis.renderer.grid.template.location = 0;
+                            categoryAxis.renderer.minGridDistance = 10;
+
+                            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+                            valueAxis.title.text = "Average Numbers of vélibs: " + date_debut +" - "+date_fin;
+                            valueAxis.min = 0;
+                            valueAxis.max = 50;
+                            valueAxis.strictMinMax = true;
+                            valueAxis.renderer.minGridDistance = 30;
+                            valueAxis.renderer.labels.template.adapter.add("text", function(text) {
+                              return text;
+                            });
+
+                            // On ajoute les données
+                            var series5 = chart.series.push(new am4charts.ColumnSeries3D());
+                            series5.dataFields.valueY = "electrique";
+                            series5.dataFields.categoryX = "commune";
+                            series5.name = "vélibs electrique";
+                            series5.clustered = false;
+                            series5.columns.template.tooltipText = "Nombre de vélo électrique: [bold]{valueY}[/]";
+
+                            // series5.stacked=true
+                            var series4 = chart.series.push(new am4charts.ColumnSeries3D());
+                            series4.dataFields.valueY = "mecanique";
+                            series4.dataFields.categoryX = "commune";
+                            series4.name = "Vélibs mecanique";
+                            series4.clustered = false;
+                            series4.columns.template.tooltipText = "Nombre de vélo mécanique: [bold]{valueY}[/] vélibs";
+                            // series4.stacked=true
+
+                            var series3 = chart.series.push(new am4charts.ColumnSeries3D());
+                            series3.dataFields.valueY = "velo_libre";
+                            series3.dataFields.categoryX = "commune";
+                            series3.name = "Retrait possible";
+                            series3.clustered = false;
+                            series3.columns.template.tooltipText = "Nombre de retrait possible: [bold]{valueY}[/] vélibs";
+
+                            var series2 = chart.series.push(new am4charts.ColumnSeries3D());
+                            series2.dataFields.valueY = "place_libre";
+                            series2.dataFields.categoryX = "commune";
+                            series2.name = "Dépôt possible";
+                            series2.clustered = false;
+                            series2.columns.template.tooltipText = "Nombre de dépot possible: [bold]{valueY}[/] vélibs";
+
+                            var series1 = chart.series.push(new am4charts.ColumnSeries3D());
+                            series1.dataFields.valueY = "capacity";
+                            series1.dataFields.categoryX = "commune";
+                            series1.name = "Capacité";
+                            series1.clustered = false;
+                            series1.columns.template.tooltipText = "Capacité max: [bold]{valueY}[/] vélibs";
+
+                            // Plus control
+                            chart.cursor = new am4charts.XYCursor();
+                            chart.legend = new am4charts.Legend()
+                            chart.scrollbarX = new am4core.Scrollbar();
+                            chart.scrollbarY = new am4core.Scrollbar();
+
+                        }); // end am4core.ready()
+
+                    }
+                });
+
+            })
+
+            $('#submitButton_station').click(function() {
+                var station = $('#station_code').val();
+                var date_debut = $('#date_debut_station').val();
+                var heure_debut = $('#heure_debut_station').val();
+                var date_fin = $('#date_fin_station').val();
+                var heure_fin = $('#heure_fin_station').val();
+
+                $.ajax({
+                    url: '/graphique_velib_dispo',
+                    type: 'POST',
+                    data: {station_code: station,
+                           date_debut: date_debut,
+                           heure_debut: heure_debut,
+                           date_fin : date_fin,
+                           heure_fin: heure_fin
+                            },
+                    dataType: 'json',
+
+                    success: function(response) {
+                        if (chart3 !== null) {
+                            // Détruire le graphique existant s'il y en a un
+                            chart3.destroy();
+                        }
+
+                        canvas = document.createElement('canvas');
+                        canvas.id = 'myChart';
+                        $('#graph_dipo_vélib').html(canvas);
+
+                        // var canvas2 = document.createElement('canvas');
+                        // canvas2.id = 'myChart2b';
+                        // $('#chartContainer2').html(canvas2);
+
+                        data = {
+                            labels: response.x,
+                            datasets: [
+                            {
+                                label: 'Nombre de dépot disponibles',
+                                data: response.y1,
+                                backgroundColor: 'rgba(75, 192, 192, 1)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'Nombre de vélibs disponibles',
+                                data: response.y2,
+                                backgroundColor: 'rgba(255, 0, 0, 1)',
+                                borderColor: 'rgba(255, 0, 0, 1)',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'Nombre de vélibs mécaniques',
+                                data: response.y3,
+                                backgroundColor: 'rgba(88, 41, 0, 1)',
+                                borderColor: 'rgba(88, 41, 0, 1)',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'Nombre de vélibs électriques',
+                                data: response.y4,
+                                backgroundColor: 'rgba(0, 0, 255, 0.8)',
+                                borderColor: 'rgba(0, 0, 255, 0.8)',
+                                borderWidth: 2
+                            }]
+                        };
+
+                        options = {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Analyse disponibilité station: ' + response.name,
+                                    font: {
+                                        size: 30
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        };
+
+                        ctx = document.getElementById('myChart').getContext('2d');
+                        chart3 = new Chart(ctx, {
+                            type: 'line',
+                            data: data,
+                            options: options
+                        });
+
+                    }
+                });
+            });
+
+
+            $('#submitButton_communes').click(function() {
+                var commune = $('#nom_commune').val();
+                $.ajax({
+                    url: '/graphique_commune',
+                    type: 'POST',
+                    data: {nom_commune: commune},
+                    dataType: 'json',
+
+                    success: function(response) {
+
+                        if (chart2a !== null) {
+                            // Détruire le graphique existant s'il y en a un
+                            chart2a.destroy();
+                        }
+
+                        if (chart2b !== null) {
+                            // Détruire le graphique existant s'il y en a un
+                            chart2b.destroy();
+                        }
+
+                        canvas = document.createElement('canvas');
+                        canvas.id = 'myChart2a';
+                        $('#graph_commune1').html(canvas);
+
+                        console.log(response.pourcentage_place_libre)
+                        console.log(response.pourcentage_velo_libre)
+
+                        canvas2 = document.createElement('canvas');
+                        canvas2.id = 'myChart2b';
+                        $('#graph_commune2').html(canvas2);
+
+                        //pie chart data
+                        data = {
+                            labels: ["Place libre" , "Vélo libre"],
+                            datasets: [
+                            {
+                                label: "Pourcentage % ",
+                                data: [response.pourcentage_place_libre , response.pourcentage_velo_libre],
+                                backgroundColor: [
+                                "#920fa0",
+                                "#00C600"
+                                ],
+                                borderColor: [
+                                "#000000",
+                                "#000000"
+                                ],
+                                borderWidth: [2,2]
+                            }
+                            ]
+                        };
+
+                        //options
+                        options = {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    position: "top",
+                                    text: "Diagramme pourcentage place libre vs velo libre: "+response.nom_commune,
+                                    font: {
+                                        size: 30
+                                    }
+                                },
+                                legend: {
+                                    display: true,
+                                    position: "bottom",
+                                    labels: {
+                                        fontColor: "#333",
+                                        fontSize: 16
+                                    }
+                                },
+
+                            },
+                        };
+
+
+                        data2 = {
+                            labels: ["Vélib électriques" , "Vélibs mécaniques"],
+                            datasets: [
+                            {
+                                label: "Pourcentage % ",
+                                data: [response.pourcentage_ebike , response.pourcentage_meca],
+                                backgroundColor: [
+                                "#59CDFF",
+                                "#964B00"
+                                ],
+                                borderColor: [
+                                "#000000",
+                                "#000000"
+                                ],
+                                borderWidth: [2,2]
+                            }
+                            ]
+                        };
+
+                        //options
+                        options2 = {
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    position: "top",
+                                    text: "Diagramme pourcentage ebike vs mecanique: "+response.nom_commune,
+                                    font: {
+                                        size: 30
+                                    }
+                                },
+                                legend: {
+                                    display: true,
+                                    position: "bottom",
+                                    labels: {
+                                        fontColor: "#333",
+                                        fontSize: 16
+                                    }
+                                },
+
+                            },
+                        };
+
+                        ctx = document.getElementById('myChart2a').getContext('2d')
+                        ctx2 = document.getElementById('myChart2b').getContext('2d')
+
+                        chart2a = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: data,
+                            options: options
+                        });
+
+
+                        chart2b = new Chart(ctx2, {
+                            type: 'doughnut',
+                            data: data2,
+                            options: options2
+                        });
+
+
+                    }
+                });
+            })
+
+
+
+
+
+        });
+    </script>
+
+</body>
+</html>

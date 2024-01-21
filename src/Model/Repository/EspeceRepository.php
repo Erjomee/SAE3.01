@@ -86,7 +86,10 @@ class EspeceRepository{
 
         $url = str_replace(" " , "%20" , $url); // gestion des espaces
 
+
         $response = EspeceRepository::cURL($url);
+
+
 
 
         // Vérification de la réponse à la requête
@@ -134,7 +137,6 @@ class EspeceRepository{
                     $max_page =  ceil($nbr_espece /$size);
                     if ($page == 1){  // Page 1
                         $data = array_slice($data['_embedded']['taxa'],0 , $size);
-
                     }elseif (1 < $page && $page < $max_page){  //Page entre 1 et max_page
                         $min_interval = ($page - 1 )* $size ;
                         $data = array_slice($data['_embedded']['taxa'],$min_interval , $size);

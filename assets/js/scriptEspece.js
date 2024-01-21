@@ -120,7 +120,35 @@ function rechercher(page_active){
 }
 
 
+var id_courant = null;
+var mySlider =null
 function more_info(id) {
+
+    id_courant = id;
+
+    if (mySlider == null) {
+        mySlider = new rSlider({
+            target: '#slider-date',
+            values: { min: 1970, max: 2024 },
+            step: 1,
+            set: [2000 , 2024],
+            range: true,
+            scale: true,
+                onChange: function (values) {
+                      // Mettez à jour le graphique ou effectuez d'autres actions ici
+                      var valeurs = values.split(',');
+        
+                      // Maintenant, valeurs est un tableau contenant les parties séparées
+                      var debut = parseInt(valeurs[0]);  // Convertir en entier
+                      var fin = parseInt(valeurs[1]);
+        
+                      updatechart(id_courant , debut ,fin)
+                  }
+            }
+        );
+    }
+
+    updatechart(id_courant , parseInt(mySlider.getValue().split(',')[0]) ,parseInt(mySlider.getValue().split(',')[1]))
 
     // Etat initial popup
     resetPopup();
@@ -130,11 +158,7 @@ function more_info(id) {
     var url = 'frontController.php?';
     var params = 'controller=espece&action=moreInfo' + '&taxrefIds=' + id;
 
-
-
     console.log(url +params);
-
-
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
@@ -153,8 +177,11 @@ function more_info(id) {
             document.getElementById('second_title').innerHTML = "ID:" +id +" | "+ data["fullNameHtml"] ;
 
             // Fiche descriptive
-            if (!!reponse["description"]) {
+            if (reponse["description"] != null) {
                 document.getElementById("portrait").innerHTML = reponse["description"]["text"];
+            }else{
+                document.getElementById("onglet1").style.display = "none";
+                activeOnglet('onglet2')
             }
 
             // HABITAT
@@ -205,7 +232,9 @@ function more_info(id) {
                 }
             }
 
-            // document.getElementById("rang_liste").innerHTML = data["classification"]["Domaine"][0]["Domaine"];
+
+            // Graphique
+    
 
             // Carte
             const imageLeft = document.getElementById("map-left");
@@ -290,74 +319,7 @@ function retirer(id_espece,table) {
     xhr.send(null);
     
 }
-// function NextAndPreviousPage(active_page, max_page) {
-//     const previous_page = document.getElementById("previous_arrow");
-//     const next_page = document.getElementById("next_arrow");
-//     if (max_page > 1) {
-//         if (active_page == 1) {
-//             next_page.style.display = "block";
 
-//             next_page.classList.add("next_prev_activated");
-//             next_page.addEventListener("click", function() {
-//                 NextPage(active_page);
-//             });
-
-//             previous_page.style.display = "none";
-//         } else if (active_page == max_page) {
-//             previous_page.style.display = "block";
-
-//             previous_page.classList.add("next_prev_activated");
-//             previous_page.addEventListener("click", function() {
-//                 PrevPage(active_page);
-//             });
-
-//             next_page.style.display = "none";
-//         }else{
-//             next_page.style.display = "block";
-
-//             next_page.classList.add("next_prev_activated");
-//             next_page.addEventListener("click", function() {
-//                 NextPage(active_page);
-//             });
-
-//             previous_page.style.display = "block";
-
-//             previous_page.classList.add("next_prev_activated");
-//             previous_page.addEventListener("click", function() {
-//                 PrevPage(active_page);
-//             });
-//         }
-//     }
-// }
-
-// function NextPage(active_page) {
-//     rechercher(active_page + 1);
-// }
-
-// function PrevPage(active_page) {
-//     rechercher(active_page - 1);
-// }
-
-// // On verfifie le bon chargement des media
-// document.addEventListener('DOMContentLoaded', (event) => {
-//     // Image espece
-//     const divsACacher = document.querySelectorAll('.img__slider');
-    
-//     // Cache chaque élément div sélectionné
-//     divsACacher.forEach((element) => {
-//         element.style.display = 'none';
-//     });
-
-//     // Carte 
-//     const imageLeft = document.getElementById("map-left");
-//     const imageRight = document.getElementById("map-right");
-//     if (imageLeft && (!imageLeft.complete || imageLeft.naturalWidth === 0)) {
-//         imageLeft.style.display = "none"; // Cacher l'image si la source n'est pas valide
-//     }
-//     if (imageRight && (!imageRight.complete || imageRight.naturalWidth === 0)) {
-//         imageRight.style.display = "none"; // Cacher l'image si la source n'est pas valide
-//     }
-// });
 
 function activeOnglet(onglet = "default"){
     let lst_onglet = {"onglet1":"description","onglet2":"taxon","onglet3":"interraction","onglet4":"observation"}
@@ -458,8 +420,6 @@ function redirectToResult() {
 
 
 
-
-
 // Récupérez les boutons radio et le champ de saisie
 const radio1 = document.getElementById("radio1");
 const radio2 = document.getElementById("radio2");
@@ -506,3 +466,110 @@ radioButtons.forEach((radioButton, index) => {
 
     });
 });
+
+
+// CHART OBSERVATION
+var chart_info = initialiseChart(1) 
+
+
+function initialiseChart(params) {
+    console.log(params);
+
+    // Données initiales pour le graphique (dates et valeurs)
+    var initialData = {
+        labels: ['0'],
+        datasets: [{
+            label: 'Valeurs',
+            data: [0],
+            backgroundColor: '#26B2A2',
+            borderColor: '#26B2A2',
+            borderWidth: 1
+        }]
+    };
+
+    // Configuration du graphique
+    var options = {
+        scales: {
+            x: [{
+                type: 'linear', // Utilisez l'échelle linéaire pour les années
+                position: 'bottom'
+            }],
+            y: [{
+                type: 'linear', // Utilisez l'échelle linéaire pour les valeurs y
+                position: 'left'
+            }]
+        },
+    };
+
+    // Création du graphique
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'line', // Type de graphique (ligne dans cet exemple)
+    data: initialData,
+    options: options
+    });
+
+    updatechart()
+
+    return myChart;
+}
+
+function updatechart(id ,debut , fin) {
+
+    if (id != null) {
+        var debutYear = debut;
+        var finYear = fin;
+
+        var requests = [];
+        for (var year = debutYear; year <= finYear; year++) {
+            requests.push(makeRequest(year));
+        }
+
+        Promise.all(requests)
+            .then(function(counts) {
+                var dataYear = Array.from({ length: finYear - debutYear + 1 }, (_, index) => (parseInt(debutYear) + index).toString());
+                var dataValue = counts;
+
+                var newData = {
+                    labels: dataYear,
+                    datasets: [{
+                        label: 'Occurence d\'obsrvation',
+                        data: dataValue, // Nouvelles valeurs
+                        backgroundColor: '#26B2A2',
+                        borderColor: '#26B2A2',
+                        borderWidth: 1
+                    }]
+                };
+        updateChart(newData ,chart_info)
+        })
+        
+
+
+        // Fonction pour effectuer la requête AJAX
+        function makeRequest(year, callback) {
+            return new Promise(function(resolve, reject) {
+                var url = 'https://openobs.mnhn.fr/api/occurrences/stats/taxon/'+ id +'?startDate=' + year + '-01-01&endDate=' + year + '-12-29';
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                        var response = JSON.parse(xhr.responseText);
+                        resolve(response["occurrenceCount"]);
+                    }
+                };
+                xhr.open("GET", url, true);
+                xhr.send(null);
+            });
+        }
+    }
+    
+}     
+
+
+
+// Fonction pour mettre à jour les données du graphique
+function updateChart(newData,chart) {
+    console.log(chart);
+    chart.data = newData;
+    chart.update();
+  }
+

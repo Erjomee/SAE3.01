@@ -100,10 +100,6 @@ class UtilisateurRepository{
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
     }
-
-
-
-
     
 
     public static function getUtilisateurConnecte(){
@@ -122,6 +118,7 @@ class UtilisateurRepository{
             if ($users[$i]['sexe'] == null){
                 $users[$i]['sexe'] = 'indefini';
             }
+            $users[$i]["taille"] = NaturothequeRepository::selectSum($users[$i]["email"]);
         }
         return $users;
     }

@@ -2,12 +2,9 @@
 
 <input id="utilisateur" value="<?php echo $user_login ?>" hidden>
 
-<div class="tab-container">
-    <div class="tab" onclick="selectTab('enregistre', '<?php echo $user_login ?>')">Enregistré</div>
-    <div class="tab" onclick="selectTab('aime', '<?php echo $user_login ?>')">Aimé</div>
-</div>
 
-    
-<div class="grille">
+<?php 
+$email = $user_login;
+require("container-espece.php") 
 
-</div>
+?>

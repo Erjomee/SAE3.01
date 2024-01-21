@@ -6,6 +6,8 @@
 
             echo $pagetitle; ?></title>
         <link rel="stylesheet" href="./../assets/css/style.css">
+        <link rel="stylesheet" href="./../assets/css/rSlider.min.css">
+        <link rel="stylesheet" href="./../assets/css/style<?php if (isset($style_double)) {echo $style_double;}?>.css">
         <link rel="stylesheet" href="./../assets/css/style<?= $style?>.css">
         <link rel="icon" href="./../assets/img/sae_logo.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" >
@@ -37,7 +39,7 @@
                         <a href="frontController.php?controller=accueil&action=readAll" <?php if ($style == "Accueil") {echo "class='active'";}?>>
                             Accueil</a>
                     </li>
-                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll" <?php if ($style == "Naturotheque") {echo "class='active'";}?>>
+                    <li class="item"><a href="frontController.php?controller=naturotheque&action=readAll" <?php if ($style == "Naturotheque" || $style == "MaNaturotheque" || $style == "VisiteNaturotheque") {echo "class='active'";}?>>
                             Naturothèque</a>
                     </li>
                     <li class="item"><a href="frontController.php?controller=espece&action=search" <?php if ($style == "Espece") {echo "class='active'";}?>>
@@ -62,7 +64,9 @@
                         }
                         echo "  <div class='user-action'>
                                     <ul class='user-list'>
-                                        <div class='avatar_nav' style='background-image: url(\"./../assets/img/img_profil/{$utilisateur->get("photo_profil")}\");'></div>
+                                        <div class='avatar_nav' style='background-image: url(\"./../assets/img/img_profil/{$utilisateur->get("photo_profil")}\");'><a style='width:80px ; height: 80px'    href='frontController.php?controller=utilisateur&action=profil'></a></div>
+                                        <h2>{$utilisateur->get("nom")} {$utilisateur->get("prenom")}</h2>
+                                        <p>   {$utilisateur->get("email")} </p>
                                         <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'><i class='bx bx-user'></i>Profile</a></li>
                                         <li class='item'><a href='frontController.php?controller=naturotheque&action=afficher_naturotheque&email={$utilisateur->get("email")}'><i class='bx bx-collection'></i>Collection</a></li>  
                                         <hr>
@@ -149,9 +153,13 @@
         </footer>
 
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
         <script src="./../assets/js/script.js"></script>
-        <script src="./../assets/js/scriptProfil.js"></script>
+        <script src="./../assets/js/rSlider.min.js"></script>
         <script src="./../assets/js/scriptEspece.js"></script>
+        <script src="./../assets/js/scriptProfil.js"></script>
+
 
     </body>
 

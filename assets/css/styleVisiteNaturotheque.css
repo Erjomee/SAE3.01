@@ -62,3 +62,68 @@
     font-weight: bold;
     color: #343E43;
 }
+
+
+/* deuxime partie de grille */
+
+
+.grille{
+    /* max-width: 1300px; */
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;    
+}
+.grid-items{
+    width: 350px;
+    height: 350px;
+    background: #e5e4e4;
+    border-radius: 5px;
+    background-size: cover;
+    color: white;
+    text-align: center; 
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: Arial Bold;
+
+}   
+
+
+.tab-container {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.tab {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+/* Classe active qui sera ajoutée à l'onglet sélectionné */
+.active {
+    background-color: black;
+    color: white;
+}
+
+/* Classe inactive qui sera ajoutée à l'onglet non sélectionné */
+.inactive {
+    background-color: transparent;
+    color: black;
+}
+.paragraphe{
+    font-size: 40px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

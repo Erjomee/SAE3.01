@@ -48,13 +48,17 @@ class ControllerNaturotheque{
         if($user_login == ConnexionUtilisateur::getLoginUtilisateurConnecte()){
             ControllerNaturotheque::afficheVue("view.php" , [ "pagetitle" => "Ma naturotheque",
                                                                     "style" => "MaNaturotheque",
+                                                                    "style_double" => "Espece",
                                                                     "user_login" => $user_login,
                                                                     "cheminVueBody" => "naturotheque/ma_naturotheque.php"]);
         // Naturotheque des autres 
         }else {
             $utilisateur = (new UtilisateurRepository())->select($user_login);
+            $nbr_save = count(NaturothequeRepository::selectsave($user_login));
+            $nbr_like = count(NaturothequeRepository::selectlike($user_login));
             ControllerNaturotheque::afficheVue("view.php" , [ "pagetitle" => "Ma naturotheque",
                                                                     "style" => "VisiteNaturotheque",
+                                                                    "style_double" => "Espece",
                                                                     "cheminVueBody" => "naturotheque/visite_naturotheque.php",
                                                                     "first_name" => $utilisateur->get("prenom"),
                                                                     "last_name" => $utilisateur->get("nom"),
@@ -63,7 +67,11 @@ class ControllerNaturotheque{
                                                                     "date_of_birth" => $utilisateur->get("dnaissance"),
                                                                     "bio" => $utilisateur->get("description"),
                                                                     "location" => $utilisateur->get("localisation"),
-                                                                    "phone_number" => $utilisateur->get("numero")]);
+                                                                    "phone_number" => $utilisateur->get("numero"),
+                                                                    "nbr_vue" => $utilisateur->get("nbr_vue"),
+                                                                    "nbr_like" => $nbr_like,
+                                                                    "nbr_save" => $nbr_save]);
+                                                                    
         }
     }
 

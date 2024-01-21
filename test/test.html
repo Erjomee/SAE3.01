@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graphique JavaScript</title>
+  <!-- Inclure la bibliothèque Chart.js et le plugin chartjs-plugin-zoom -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+  <link rel="stylesheet" href="css/rSlider.min.css">
+<script src="js/rSlider.min.js"></script>
+</head>
+<body>
+  <!-- Canvas pour le graphique -->
+
+
+  <div style="width: 50%;height: 300px;">
+
+    <canvas id="myChart" ></canvas>
+    </div>
+    
+
+  <div class="début">
+    <label for="inputData" style="text-align: center"><strong>DEBUT: </strong></label><br>
+    <input type="number" id="debut" min="1900" max="2100" placeholder="Année de début" onchange="updatechart()">
+    </div>
+
+    <div class="fin">
+        <label for="inputData"><strong>FIN:</strong></label><br>
+        <input type="number" id="fin" min="1900" max="2100" placeholder="Année de fin" onchange="updatechart()" >
+    </div>
+
+  <script>
+
+    document.getElementById('debut').value = "2000";
+    document.getElementById('fin').value = "2024";
+
+    var test = initialiseChart();
+
+    function updatechart(params) {
+
+        var debutYear = document.getElementById("debut").value;
+        var finYear = document.getElementById("fin").value;
+
+        var requests = [];
+        for (var year = debutYear; year <= finYear; year++) {
+            requests.push(makeRequest(year));
+        }
+
+        Promise.all(requests)
+            .then(function(counts) {
+                var dataYear = Array.from({ length: finYear - debutYear + 1 }, (_, index) => (parseInt(debutYear) + index).toString());
+                var dataValue = counts;
+
+                var newData = {
+                    labels: dataYear,
+                    datasets: [{
+                        label: 'Occurence d\'obsrvation',
+                        data: dataValue, // Nouvelles valeurs
+                        backgroundColor: '#26B2A2',
+                        borderColor: '#26B2A2',
+                        borderWidth: 1
+                    }]
+                };
+        updateChart(newData ,test)
+        })
+        .catch(function(error) {
+            console.error('Une erreur s\'est produite :', error);
+        });
+
+
+        // Fonction pour effectuer la requête AJAX
+        function makeRequest(year, callback) {
+            return new Promise(function(resolve, reject) {
+                var url = 'https://openobs.mnhn.fr/api/occurrences/stats/taxon/442365?startDate=' + year + '-01-01&endDate=' + year + '-12-29';
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+                        var response = JSON.parse(xhr.responseText);
+                        resolve(response["occurrenceCount"]);
+                    }
+                };
+                xhr.open("GET", url, true);
+                xhr.send(null);
+            });
+        }
+        
+   }     
+
+   function initialiseChart(params) {
+        // Données initiales pour le graphique (dates et valeurs)
+        var initialData = {
+            labels: ['0'],
+            datasets: [{
+                label: 'Valeurs',
+                data: [0],
+                backgroundColor: '#26B2A2',
+                borderColor: '#26B2A2',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration du graphique
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear', // Utilisez l'échelle linéaire pour les années
+                    position: 'bottom'
+                }],
+                y: [{
+                    type: 'linear', // Utilisez l'échelle linéaire pour les valeurs y
+                    position: 'left'
+                }]
+            },
+        };
+
+        // Création du graphique
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'line', // Type de graphique (ligne dans cet exemple)
+        data: initialData,
+        options: options
+        });
+
+        updatechart()
+
+        return myChart;
+    }
+   
+
+    // Fonction pour mettre à jour les données du graphique
+    function updateChart(newData ,test) {
+      test.data = newData;
+      test.update();
+    }
+
+  </script>
+</body>
+</html>

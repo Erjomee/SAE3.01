@@ -70,7 +70,7 @@ class ControllerEspece{
             // <button class='btn_save' name='id' value={$espece['id']} onclick='more_info({$espece['id']})'> Détails</button>
         
             
-            $paquet = array( "default" => "<h3>Résultat de la recherche:</h3>",
+            $paquet = array( "default" => "",
                 "result" => $result,
                 "nbr_page" => $data[1],
                 "data"=> $data[0]);
