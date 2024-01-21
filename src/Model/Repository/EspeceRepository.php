@@ -50,9 +50,28 @@ class EspeceRepository{
         return $response;
     }
 
+
+    public static function hasImage($id) : bool{
+        // On récupere les donnée medias à partir de l'url
+        $url_media = "https://taxref.mnhn.fr/api/taxa/{$id}/media";
+        $response_media = EspeceRepository::cURL($url_media);
+        $data_media = json_decode($response_media, true);
+        // On vérifie la présence d'image dans media
+        if (isset($data_media["_embedded"])) {
+            $lst_image = [];
+            foreach ($data_media['_embedded']['media'] as $image) {
+                $lst_image[] = $image["_links"]["file"]["href"];
+            }
+                return $lst_image;
+        } else {  // Image introuvable
+           return false;
+        }
+            
+    }
+
     public static function getEspece(String $filtre , String $espece , int $page = 1 , int $size = 9 , array $params){
 
-// echo $params["image"];
+        // echo $params["image"];
 
         // refaire le systeme de pagination en prenant
         // https://taxref.mnhn.fr/api/taxa/search?version=16.0&frenchVernacularNames=pinson&size=0
@@ -78,19 +97,38 @@ class EspeceRepository{
             // Vérification de la présence d'espèce (validité de la recherche)
             if (isset($data['_embedded'])){
                 // Nettoyage
-                if ($filtre != "taxrefIds"){
+                if ($filtre != "taxrefIds2"){
                     $lst_referenceID = [];
                     foreach ($data['_embedded']['taxa'] as $index => $espece) {
                         // On empeche les doublons d'espece
-                        if ($params["image"] == 1 && !isset($espece["_links"]["media"])) {
-                            unset($data['_embedded']['taxa'][$index]);
-                        }elseif (!in_array($espece["referenceId"], $lst_referenceID)) {
-                            $lst_referenceID[] = $espece["referenceId"];
+                        if (!in_array($espece["referenceId"], $lst_referenceID)) {
+
+                            //Gestion des media image
+                            // On récupere les donnée medias à partir de l'url
+                            $url_media = "https://taxref.mnhn.fr/api/taxa/{$espece["referenceId"]}/media";
+                            $response_media = EspeceRepository::cURL($url_media);
+                            $data_media = json_decode($response_media, true);
+                            // On vérifie la présence d'image dans media
+                            if (isset($data_media["_embedded"])) {
+                                $lst_image = [];
+                                foreach ($data_media['_embedded']['media'] as $image) {
+                                    $lst_image[] = $image["_links"]["file"]["href"];
+                                }
+                                $data['_embedded']['taxa'][$index]["_links"]["media"] = $lst_image;
+                                $lst_referenceID[] = $espece["referenceId"];
+                            }else {  // Image introuvable
+                                if ($params["image"] == 1) {
+                                    unset($data['_embedded']['taxa'][$index]);
+                                }else {
+                                    $data['_embedded']['taxa'][$index]["_links"]["media"] = null;
+                                    $lst_referenceID[] = $espece["referenceId"];
+                                }
+                            }
                         }else {  // Suppression des doublons
                             unset($data['_embedded']['taxa'][$index]);
                         }
-
                     }
+                    
                     // On récupère les éléments de la bonne page
                     $nbr_espece = sizeof($lst_referenceID);
                     $max_page =  ceil($nbr_espece /$size);
@@ -111,7 +149,6 @@ class EspeceRepository{
                     $nbr_page = 1;
                 }
 
-
                 // On réarrange le json
                 foreach ($data as $index => $espece) {
                     // Gestion de l'habitat
@@ -121,7 +158,6 @@ class EspeceRepository{
                     }
 
                     //Gestion des informations biogéographiques
-                    
                     $statuts_data = [];
                     
                     foreach (EspeceRepository::$territoire as $key => $value) {
@@ -150,25 +186,21 @@ class EspeceRepository{
                     // Gestion de la map
                     $data[$index]["gbifId"] = EspeceRepository::getIdGBIF($espece["referenceId"]);
 
-                    //Gestion des media image
-                    // On récupere les donnée medias à partir de l'url
-                    $url_media = "https://taxref.mnhn.fr/api/taxa/{$espece["referenceId"]}/media";
-                    $response_media = EspeceRepository::cURL($url_media);
-                    $data_media = json_decode($response_media, true);
-                    // On vérifie la présence d'image dans media
-                    if (isset($data_media["_embedded"])) {
-                        $lst_image = [];
-                        foreach ($data_media['_embedded']['media'] as $image) {
-                            $lst_image[] = $image["_links"]["file"]["href"];
-                        }
-                        $data[$index]["_links"]["media"] = $lst_image;  // on associe directement la liste au media
-                    } else {  // Image introuvable
-                        if ($params["image"] == 1) {
-                            unset($data[$index]);
-                        }else{
-                            $data[$index]["_links"]["media"] = null;
-                        }
-                    }
+                    // //Gestion des media image
+                    // // On récupere les donnée medias à partir de l'url
+                    // $url_media = "https://taxref.mnhn.fr/api/taxa/{$espece["referenceId"]}/media";
+                    // $response_media = EspeceRepository::cURL($url_media);
+                    // $data_media = json_decode($response_media, true);
+                    // // On vérifie la présence d'image dans media
+                    // if (isset($data_media["_embedded"])) {
+                    //     $lst_image = [];
+                    //     foreach ($data_media['_embedded']['media'] as $image) {
+                    //         $lst_image[] = $image["_links"]["file"]["href"];
+                    //     }
+                    //     $data[$index]["_links"]["media"] = $lst_image;  // on associe directement la liste au media
+                    // } else {  // Image introuvable
+                    //     $data[$index]["_links"]["media"] = null;
+                    // }
                 }
                 return [$data , $nbr_page];
             }else{  // Espece introuvable

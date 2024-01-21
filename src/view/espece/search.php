@@ -16,7 +16,7 @@
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
                 <button type="submit">Rechercher</button>
-                <i id="icon-filtre" class='bx bxs-chevron-up' onclick="toggle_filters()"></i>
+                        <i id="icon-filtre" class='bx bxs-chevron-up' onclick="toggle_filters()"></i>
                 
                 <span class="validity"></span>
             </nav>
@@ -126,7 +126,7 @@
                     </div>
 
                     <h4>Page : <input type="number" id="page" value="1" step="1"></h4>
-                    <h4>Size : <input type="number" id="size" value="12" step="1"></h4>
+                    <h4>Size : <input type="number" id="size" value="20" step="1"></h4>
                 </div>
 
 

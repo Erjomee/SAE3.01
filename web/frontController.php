@@ -7,6 +7,7 @@ use App\Naturotheque\Controller\ControllerAccueil;
 use App\Naturotheque\Controller\ControllerNaturotheque;
 use App\Naturotheque\Lib\ConnexionUtilisateur;
 use App\Naturotheque\Lib\MessageFlash;
+use App\Naturotheque\Model\Repository\UtilisateurRepository;
 
 // instantiate the loader
 $loader = new App\Naturotheque\Lib\Psr4AutoloaderClass();
@@ -69,18 +70,18 @@ if(isset($_GET["action"])){
 
             $data["description"] = null;
             $data["localisation"] = null;
-            $data["photo_profil"] = "profil.jpg";
+            $data["photo_profil"] = "default-profil.png";
             $data["dnaissance"] = null;
+            $data["nbr_vue"] = 0;
+
 
             $controllerClassName::$action($data);
-        }elseif ($action == "profil" || $action == "edit_profil" || $action =="edit_mdp") {
+        }elseif ($action == "profil" || $action == "edit_profil" || $action =="edit_mdp" || $action == "change_image" || $action == "delete_account") {
             $controllerClassName::$action();
         }elseif ($action == "change_profil") {
             $controllerClassName::$action($_GET["first_name"] , $_GET["last_name"], $_GET["email"],$_GET["date_of_birth"] , $_GET["bio"], $_GET["location"],$_GET["phone_number"]);
         }elseif ($action == "change_mdp") {
             $controllerClassName::$action($_GET["ancient_password"] , $_GET["new_password"], $_GET["confirm_new_password"]);
-        }elseif ($action == "change_image") {
-            $controllerClassName::$action();
         }
     }
 
@@ -103,10 +104,14 @@ if(isset($_GET["action"])){
     // Action du controller Naturotheque
     elseif ( $controllerClassName == "App\Naturotheque\Controller\ControllerNaturotheque"){
         if ($action == "enregistrer") {
-            ControllerNaturotheque::enregistrer($_GET["id"],$_GET["table"]);
+            echo ($_GET["nom"]);
+            ControllerNaturotheque::enregistrer($_GET["id"],$_GET["table"],$_GET["nom"],$_GET["image"]);
         }elseif ($action == "retirer") {
             ControllerNaturotheque::retirer($_GET["id"],$_GET["table"]);
         }elseif ($action == "afficher_naturotheque") {
+            UtilisateurRepository::PlusUnVue($_GET["email"]);
+            $controllerClassName::$action($_GET["email"]);
+        }elseif ($action == "afficher_save" || $action == "afficher_like") {
             $controllerClassName::$action($_GET["email"]);
         }
     }

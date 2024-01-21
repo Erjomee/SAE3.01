@@ -15,8 +15,6 @@ function toggle_filters() {
 }
 
 
-
-
 function rechercher(page_active){
     resetSearch();
     redirectToResult();
@@ -30,6 +28,11 @@ function rechercher(page_active){
     var domain = document.getElementById("domain-select").value;
     var image = document.getElementById("image-checkbox").checked;
 
+    if (image == true ) {
+        image = 1;
+    }else{
+        image = 0;
+    }
 
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
@@ -44,6 +47,8 @@ function rechercher(page_active){
             var reponse = JSON.parse(xhr.responseText);
             document.getElementById("default_message").innerHTML = reponse["default"];
 
+
+            console.log(reponse["data"]);
 
             // Mise en forme des données sur la page 
             document.getElementById("resultat").innerHTML = reponse["result"];  // ne plus utiliser ca 
@@ -124,6 +129,12 @@ function more_info(id) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
     var params = 'controller=espece&action=moreInfo' + '&taxrefIds=' + id;
+
+
+
+    console.log(url +params);
+
+
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
@@ -229,10 +240,12 @@ function more_info(id) {
 }
 
 
-function enregistrer(id_espece,table) {
+function enregistrer(id_espece, table , nom , image) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=naturotheque&action=enregistrer' + '&id=' + id_espece +'&table='+table;
+    var params = 'controller=naturotheque&action=enregistrer' + '&table=' + table+ '&id=' + id_espece + '&nom=' + nom + '&image=' + image;
+
+    console.log(url+params);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             const item = document.getElementById(id_espece+table);

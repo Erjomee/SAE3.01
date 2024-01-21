@@ -6,26 +6,36 @@ h1{
 }
 
 .grille{
-    max-width: 1300px;
-    width: 80%;
+    /* max-width: 1300px; */
+    width: 90%;
     height: auto;
     margin: 30px auto;
     /* border: 1px solid black; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-columns: repeat(auto-fill, 400px);
     justify-content: center;
-    gap: 10px;    
+    flex-wrap: wrap;
+    gap: 40px;    
 }
 .grid-items{
-    width: 300px;
+    width: 400px;
     height: 400px;
-    background: #333;
+    background: #e5e4e4;
     border-radius: 5px;
+    background-size: cover;
+    color: white;
+    text-align: center; 
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: Arial Bold;
+
 }   
 
 
 .tab-container {
-    display: flex;
+    display: flex;  
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -49,4 +59,9 @@ h1{
 .inactive {
     background-color: transparent;
     color: black;
+}
+p{
+    font-size: 40px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

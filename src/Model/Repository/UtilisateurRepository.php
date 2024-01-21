@@ -40,24 +40,28 @@ class UtilisateurRepository{
         $description = $utilisateurFormatArray["description"];
         $localisation = $utilisateurFormatArray["localisation"];
         $dnaissance = $utilisateurFormatArray["dnaissance"];
+        $nbr_vue = $utilisateurFormatArray["nbr_vue"];
 
-        return new Utilisateur($nom, $prenom, $email, $password, $numero, $sexe,$photo_profil,$description,$localisation,$dnaissance);
+        return new Utilisateur($nom, $prenom, $email, $password, $numero, $sexe,$photo_profil,$description,$localisation,$dnaissance,$nbr_vue);
     }
 
     // Méthode qui sauvegarde le nouvel utilisateur dans la BD
     public static function sauvegarder(Utilisateur $utilisateur):void{
-        $sql = "INSERT INTO utilisateur (nom , prenom , email , password , numero , sexe ,description,localisation,dnaissance)
-                    VALUES (:nom , :prenom , :email , :password , :numero , :sexe ,:description,:localisation,:dnaissance )";
+        $sql = "INSERT INTO utilisateur (nom , prenom , email , password , numero ,Photo_profil ,  sexe ,description,localisation,dnaissance,nbr_vue)
+                    VALUES (:nom , :prenom , :email , :password , :numero ,:Photo_profil , :sexe ,:description,:localisation,:dnaissance, :nbr_vue )";
         $values = array(
             "nom" => $utilisateur->get("nom"),
             "prenom" => $utilisateur->get("prenom"),
             "email" => $utilisateur->get("email"),
             "password" => $utilisateur->get("password"),
             "numero" => $utilisateur->get("numero"),
+            "Photo_profil" => $utilisateur->get("photo_profil"),
             "sexe" => $utilisateur->get("sexe"),
             "description" => $utilisateur->get("description"),
             "localisation" => $utilisateur->get("localisation"),
-            "dnaissance" => $utilisateur->get("dnaissance")
+            "dnaissance" => $utilisateur->get("dnaissance"),
+            "nbr_vue" => $utilisateur->get("nbr_vue")
+
         );
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
@@ -96,6 +100,10 @@ class UtilisateurRepository{
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
     }
+
+
+
+
     
 
     public static function getUtilisateurConnecte(){
@@ -139,7 +147,6 @@ class UtilisateurRepository{
     }
 
 
-
     public static function update_mdp($new_password){
         $sql = "UPDATE utilisateur 
                 SET password = :new_password 
@@ -155,6 +162,18 @@ class UtilisateurRepository{
     }
 
 
+    public static function delete($email){
+        $sql = "DELETE FROM utilisateur 
+                WHERE email = :email ";
+
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array(
+            "email" => $email,
+        );
+
+        $pdoStatement->execute($values);
+    }
+
     static function missing_value(Utilisateur $utilisateur): bool
     {
         if ($utilisateur->get("nom")=="" || $utilisateur->get("prenom")=="" || $utilisateur->get("email")=="" || $utilisateur->get("password")=="" ){
@@ -162,6 +181,19 @@ class UtilisateurRepository{
         }else{
             return false;
         }
+    }
+
+    static function PlusUnVue($email){
+        $sql = "UPDATE utilisateur 
+                SET nbr_vue = nbr_vue + 1 
+                WHERE email = :email ";
+
+        $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
+        $values = array(
+            "email" => $email,
+        );
+
+        $pdoStatement->execute($values);
     }
 
 
