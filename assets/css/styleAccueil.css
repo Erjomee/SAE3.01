@@ -11,14 +11,11 @@
     margin: 27vh 0 0 50%;
     transform: translateX(-50%);
 }
-
-
 #test h2{
     text-shadow: 1px 1px 0px  rgb(37, 177, 160);
     font-size: 3em;
     font-weight: 299;      
-}
-    
+}   
 #recherche{
     background-color: white;
     height: 2.3lh;
@@ -29,7 +26,6 @@
     margin: 0px 0 0 20%;
     border-radius:30px;
 }
-
 #recherche input{
     width: 57vh;
     height: 3vh;
@@ -40,7 +36,6 @@
     border-radius: 30px;
     margin-left: 2%;
 }
-
 #test button{
     font-size: 12px;
     height: 2lh;
@@ -49,26 +44,15 @@
     margin-top: 1%;
     background-color: white;
 }
-
 #test h6{
     margin: 5px 0 0 23%;
 }
-
 .fa-search:before {
     content: "\f002";
     font-size: 20px;
     color: #26B2A2;
 }
 
-
-
-
-/*SLIDER*/
-/*  {
-     margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-} */
 
 .slider {
     padding: 30px 10px;
@@ -79,7 +63,6 @@
     margin: 0; 
     z-index: 0;
 }
-
 .slider img {
     object-fit: cover;
     height: 100%;
@@ -90,45 +73,38 @@
     opacity: 0;
     transition: opacity .5s;
 }
-
 .slider img.active {
     opacity: 1;
 }
 
-/* ARTICLES */
 
+/* ARTICLES */
 .div_text1 p, .div_text2 p{
     text-align: justify;
     font-size: 15px;
     flex-direction: column;
     display: flex;
 } 
-
 /*-----ARTICLE 1 -------*/
-
 .div_text1{
     margin-top: 7%;
     margin-right: 8%;
     width: 40%;
 }
-
 .div_article1 h2{
     margin-bottom: 20px;
     text-align: center;
 }
- 
 .div_article1{
     height: 32rem;
     margin-top:50px;
     display: flex; 
     justify-content: space-between;    
 }
-
 .img_artcle1{
     align-items: left;
     position: relative;
 } 
-
  .div_article1 img{
     display: block;
     margin-right: 0;
@@ -137,8 +113,6 @@
     object-position: left bottom;
     border-radius: 10px;
 }
-
-
 .div_article1 button{
     display: inline-block;
     vertical-align: middle;
@@ -156,21 +130,17 @@
     justify-content: center;
     align-items: center;  
 }
-
-/*--------ARTICLE 2 ------*/
-   
+/*--------ARTICLE 2 ------*/  
 .div_article2 h2{
     margin-bottom: 20px;
     text-align: center;
     /* text-shadow: 1px 1px 0px  rgb(163, 165, 165); */
 }
-
 .div_text2{
     margin-top: 3%;
     margin-right: 8%;
     width: 40%;
 }
-
 .div_article2{
     margin-top : 30px;
     height: 32rem;
@@ -178,7 +148,6 @@
     display: flex; 
     justify-content: space-between;   
 }
-
 .div_article2 img{
     display: block;
     margin-top: 3%;
@@ -186,7 +155,6 @@
     object-position: left bottom;
     border-radius: 10px;
 }
-
 
 .div_article2 button{
     display: inline-block;
@@ -206,6 +174,7 @@
     align-items: center;  
 }
 
+
 /***** SE CONNECTER *****/
 .div_connecter {
     margin-top: 40px;
@@ -218,21 +187,17 @@
     color: white; 
 
 }
-
 .div_connecter h3:hover {
     opacity: 0.3;
 }
-
 .separation{
     width: 1px;
     height: 60px;
     background: #fff;
 }
-
 .first{
     margin-right:17%;
 }
-
 .second{
     margin-left: 17%;
 }
@@ -248,7 +213,6 @@
     align-items: center;
     padding-right: 60px;
 }
-
 .div_decouvrir h3{
     padding-right: 70vh;
 }
@@ -262,7 +226,6 @@
     align-items: center;
 
 }
-
 .div_infos .partie1, .partie2, .partie3{
     width: 33.3%; 
     height: 40vh; 
@@ -271,7 +234,6 @@
     color: white;
     font-size: 1.5em;
 }
-
 .cercle{
     margin-top: 10%;
     margin-left: 43%;
@@ -283,11 +245,9 @@
     justify-content: center; 
     align-items: center; 
 }
-
 .div_infos {
     justify-content: center;
 }
-
 .div_infos p{
     margin-top: 5%;
     /* color: #423F3F; */
@@ -297,7 +257,6 @@
     font-style: normal;
     line-height: normal;
 } 
-
 .div_infos button{
     background-color:#26B2A2; 
     border: 1px solid lightgray;
@@ -309,7 +268,6 @@
     width: 23%;
     height: 9%;
 }
-
 .div_p{
     height :20%;
     width: 40%;
@@ -322,6 +280,7 @@ button:hover {
     opacity: 0.5;
 }
 
+/******popup******/
 #popup_art1, #popup_art2 {
     position: fixed;
     top: 0;
@@ -336,11 +295,9 @@ button:hover {
     font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,serif;
 
 }
-
 .open {
     display: block;
 }
-
 #popup-content, #popup-content2 {
     max-width: 100%;
     padding: 30px;
@@ -351,7 +308,6 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .popup-exit {
     position: absolute;
     top: -10px;
@@ -366,38 +322,31 @@ a.popup-exit:hover {
     transition: transform 0.3s ease-in-out; 
 }
 
-/*RESPONSIVE*/
+
 /***************************************** Style pour les smartphones *********************************/
 @media (max-width: 767px) {
 
     #recherche {
-        background-color: white;
         height: 1.5lh;
-        border: none;
         width: 36vh;
         margin: 0px 0 0 0%;
     }
-
     #recherche input {
         width: 32vh;
         height: 2vh 
     }
-
     #test button {
     margin-left: 0vh;
     font-size: 9px;
     }
-    
     #test h6 {
         margin: 5px 0 0 11%;
     }
-
     #test h2 {
         font-size: 1.1em;
         font-weight: 300;
         width: 110%;
     }
-
     .fa-search:before {
         font-size: 17px;
     }
@@ -406,12 +355,10 @@ a.popup-exit:hover {
         width: 100%;
         height:70vh;
     }
-
     .div_connecter {
         margin-top:20px;
         height: 40px;
     }
-
     .first h3, .second h3{
         display: block;
         font-size: 0.7em;
@@ -420,184 +367,200 @@ a.popup-exit:hover {
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         font-weight: bold;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 8px;
-}
-/*********************VERIFFFFFFFFFFFFFF************/
-    .div_connecter input[type="button"] {
-        width: 100px;
-        height: 70%;
-        font-size: 12px;
-        font-weight: 120;
     }
-/******************************************************/
+    a {
+        text-decoration: none;
+        font-size: 8px;
+    }
+
     .div_decouvrir{
         margin-top: 30px;
         width: 100%;
         height: 90px;
-        display: flex; 
-        justify-content: center; 
-        align-items: right; 
         display:flex;
         justify-content: flex-end;
         align-items: center;
         padding-right: 20px;
     }
-    
-/*********************VERIFFFFFFFFFFFFFF************/
-
-    .div_decouvrir input[type="button"]{
-        width: 130px;
-        height: 40%;
-        font-size: 12px;  
-        font-weight: 70;
-    }
-/******************************************************/
-
     .div_decouvrir h3{
         padding-right: 15%;
     }
 
 /*PARTIE connecter*/
-.div_connecter {
-    margin-top: 40px;
-    width: 100%;
-    height: 30px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    font-size: 10px;
-    font-weight:normal;
-}
-
-.separation{
-    width: 1px;
-    height: 30px;
-}
-
-.first{
-    margin-right:17%;
-}
-
-.second{
-    margin-left: 17%;
-}
+    .div_connecter {
+        margin-top: 40px;
+        width: 100%;
+        height: 30px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        font-size: 10px;
+        font-weight:normal;
+    }
+    .separation{
+        width: 1px;
+        height: 30px;
+    }
+    .first{
+        margin-right:17%;
+    }
+    .second{
+        margin-left: 17%;
+    }
 
 
 /***PARTIES ARTICLES***/ 
-/*article 1 & 2*/ 
+    .div_text1, .div_text2{
+        width: 57%;
+        margin-top: 3%;
+        margin-left: 9%;    
+        margin-bottom: 25%;
+    }
+    .div_text1 p, .div_text2 p{
+        text-align: justify;
+        vertical-align: middle;
+        font-size: 10px;
+        flex-direction: column;
+        display: flex;
+        height: 20%;
+        width: 100%;
+    } 
+    .div_text1 h2, .div_text2 h2{
+        font-size: 9px;
+    }
 
-.div_text1, .div_text2{
-    width: 57%;
-    margin-top: 3%;
-    margin-left: 9%;    
-    margin-bottom: 25%;
-}
-.div_text1 p, .div_text2 p{
-    text-align: justify;
-    vertical-align: middle;
-    font-size: 10px;
-    flex-direction: column;
-    display: flex;
-    height: 20%;
-    width: 100%;
-} 
+    .cercle{
+        height: 3vh;
+        width: 28px;
+        margin-left: 38%;
+        font-size: 12px;
+    }
 
-.div_text1 h2, .div_text2 h2{
-    font-size: 9px;
-}
+    .div_article1 button, .div_article2 button {
+        vertical-align: middle;
+        border-radius: 2px;
+        width: 17%;
+        height: 21px;
+        font-size: 7px;
+        font-weight: 100;
+        position: absolute;
+        margin-top: 44%;
+        margin-left: 19%;
+    }
 
-.cercle{
-    height: 3vh;
-    width: 28px;
-    margin-left: 38%;
-    font-size: 12px;
-}
-
-
-.div_article1 button, .div_article2 button {
-    vertical-align: middle;
-    border-radius: 2px;
-    width: 17%;
-    height: 21px;
-    font-size: 7px;
-    font-weight: 100;
-    position: absolute;
-    margin-top: 44%;
-    margin-left: 19%;
-}
-.div_article1, .div_article2{
-    flex-direction: column;
-    align-items: center;
-}
+    .div_article1, .div_article2{
+        flex-direction: column;
+        align-items: center;
+    }
 /*ARTICLE 1*/
-.div_article1 img {
-        object-fit: fill;
-        height: 30%;
-        width: 60%;
-        display: block;
-        margin-top: 7%;
-        margin-left: inherit;
-        object-position: left bottom;
-        border-radius: 10px;  
-}
+    .div_article1 img {
+            object-fit: fill;
+            height: 30%;
+            width: 60%;
+            display: block;
+            margin-top: 7%;
+            margin-left: inherit;
+            object-position: left bottom;
+            border-radius: 10px;  
+    }
 
 .div_article1 button{
-    margin-top: 44%;
+    margin-top: 4%;
 }
 
 /*ARTICLE 2*/
-.div_article2 {
-    margin-top: 20px;
-}
-.div_article h2{
-    margin-bottom:35%;
-}
-.div_article2 img{
-    height: 30%;
-    width: 60%;
-    display: block;
-    margin-top: 3%;
-    margin-left: inherit;
-    object-position: left bottom;
-    border-radius: 10px;
-}
+    .div_article2 {
+        margin-top: 20px;
+    }
+    .div_article h2{
+        margin-bottom:35%;
+    }
+    .div_article2 img{
+        height: 30%;
+        width: 60%;
+        display: block;
+        margin-top: 3%;
+        margin-left: inherit;
+        object-position: left bottom;
+        border-radius: 10px;
+    }
 
 /***************DIV INFOS**********/
-.div_infos p {
-    /* margin-right: 17%; */
-    font-size: 7px;
-    width: 54px;
-    height: 3%;
-    margin-left: 0%;
-    margin-top: 0%;
+    .div_infos p {
+        /* margin-right: 17%; */
+        font-size: 7px;
+        width: 54px;
+        height: 3%;
+        margin-left: 0%;
+        margin-top: 0%;
+    }
+
+    .div_infos button{
+        width: 50%;
+        height: 5%;
+        font-size: 8px;
+    }
+
+    .div_infos{
+        margin-top: 10%;
+    }
+    .div_infos .partie1, .partie2, .partie3{
+        flex-direction: column;
+    }
+
+    .div_decouvrir h3 {
+        padding-right: 15%;
+        font-size: 11px;
+    }
+
+    #popup-content, #popup-content2 {
+        padding: 8px;
+        box-sizing: border-box;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 94%;
+    }
 }
 
-.div_infos button{
-    width: 50%;
-    height: 5%;
-    font-size: 8px;
-}
+/*petit telephone*/
+@media (min-width:320px)and (max-width:375px){
+   
+    .div_article1 button {
+        margin-top: 67%;
+    }
 
-.div_infos{
-    margin-top: 10%;
-}
-.div_infos .partie1, .partie2, .partie3{
-    flex-direction: column;
-}
+    .div_article2 button {
+        margin-top: 57%;
+    }
 
-.div_decouvrir h3 {
-    padding-right: 15%;
-    font-size: 11px;
+    .div_infos button {
+        width: 54%;
+        height: 7%;
+        font-size: 8px;
+    }
+
+    .div_infos p {
+        width: 70px;
+        height: 3%;
+        margin-left: -42%;
+    }
+
+    .partie3 {
+        width: 33.3%;
+        height: 29vh;
+    }
+
+    footer {
+        margin-top: 28px;
+    }
+
 }
-}
+    
+
 
 /***************************************** Style pour les tablettes *********************************/
-@media (min-width: 601px) and (max-width: 992px) { /* styles for medium screens */ 
+@media (min-width: 601px) and (max-width: 992px) { 
     #test h2 {
         font-size: 1.6em;
         font-weight: 299;
@@ -686,19 +649,25 @@ a {
         height: 8%;
     }
 
+    #popup-content, #popup-content2 {
+        width: 88%;
+        top:35%;
+    }
+
 }
 
-/* Styles pour les écrans larges */
+/*********************************** Styles pour les écrans larges ************************************/
 @media (min-width: 1000px) {
     
     #test {
-    color: white;
-    z-index: 1;
-    position: absolute;
-    width: 50%;
-    margin: 26vh 0 0 55%;
-    transform: translateX(-50%);
-}
+        color: white;
+        z-index: 1;
+        position: absolute;
+        width: 50%;
+        margin: 26vh 0 0 55%;
+        transform: translateX(-50%);
+    }
+    
     #test h2 {
         text-shadow: 1px 1px 0px rgb(37, 177, 160);
         font-size: 2.4em;
@@ -706,37 +675,37 @@ a {
     }
 
   
-        #recherche {
-          background-color: white;
-          height: 2.3lh;
-          border: none;
-          width: 62vh;
-          box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
-          display: inline-block;
-          margin: 0px 0 0 8%;
+    #recherche {
+        background-color: white;
+        height: 2.3lh;
+        border: none;
+        width: 62vh;
+        box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        margin: 0px 0 0 8%;
+    }
+
+
+     #recherche input {
+        width: 53vh;
+        height: 3vh;
+        border: 0;
+        border-radius:30px;
+        margin-left: 2%;
         }
 
-
-        #recherche input {
-            width: 53vh;
-            height: 3vh;
-            border: 0;
-            border-radius:30px;
-            margin-left: 2%;
-          }
-
-          #test button {
-            font-size: 12px;
-            height: 2lh;
-            border: 0;
-            margin-left: 3.2vh;
-            margin-top: 1.5%;
-            background-color: white;
-          }
+    #test button {
+        font-size: 12px;
+        height: 2lh;
+        border: 0;
+        margin-left: 3.2vh;
+        margin-top: 1.5%;
+        background-color: white;
+        }
 
     #test h6 {
-    margin: 5px 0 0 12%;
-}
+        margin: 5px 0 0 12%;
+    }
 
     .div_article1 button, .div_article2 button {
         width: 22%;
@@ -752,9 +721,7 @@ a {
 
     .div_infos p {
         margin-top: 5%;
-        font-size: 13px;
-    
+        font-size: 13px; 
     }
-
 }
 /*#CDD3DA*/
