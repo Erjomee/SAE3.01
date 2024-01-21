@@ -310,11 +310,11 @@ h1{
     }
 
     #footer {
-        margin-top: 50px;
+        /* margin-top: 50px; */
         padding: 0px 0px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+        margin-top:37vh;        
+       
+       
     }
     #logofooter {
         height: 20vh;
@@ -356,10 +356,11 @@ h1{
     }
 
     footer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+        margin-top:37vh;        
     }
+   
+
+
 }
 
 
