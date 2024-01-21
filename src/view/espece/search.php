@@ -126,7 +126,7 @@
                     </div>
 
                     <h4>Page : <input type="number" id="page" value="1" step="1"></h4>
-                    <h4>Size : <input type="number" id="size" value="12" step="1"></h4>
+                    <h4>Size : <input type="number" id="size" value="20" step="1"></h4>
                 </div>
 
 

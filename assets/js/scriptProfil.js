@@ -38,7 +38,6 @@ function submitForm() {
 }
 
 
-
 function selectTab(tabName , email) {
 
     var xhr = new XMLHttpRequest();
@@ -51,24 +50,54 @@ function selectTab(tabName , email) {
         document.querySelector('.tab:nth-child(2)').classList.remove('active');
 
 
+        document.querySelector(".grille").innerHTML = "";
+
         var params = 'controller=naturotheque&action=afficher_save' + '&email=' + email ;
         console.log(url  + params);
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
                 // document.getElementById('resultat').innerHTML = xhr.responseText;
-                console.log(xhr.responseText);
-                // var reponse = JSON.parse(xhr.responseText);
+                var reponse = JSON.parse(xhr.responseText);
+                console.log(reponse);
 
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                /////////////////    PAQUET SAVE //////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
+                for (const key in reponse) {
+                    if (Object.hasOwnProperty.call(reponse, key)) {
+                        console.log(reponse[key]);
+                        let nomEspace = reponse[key]["nom"];
+                        let photoEspace = reponse[key]["image"];
 
+                        if (photoEspace == "../assets/img/img_not_found.png"){
+                            photoEspace = "./../assets/img/taxon/default_icon_naturotheque.jpg";
+                        }
+                        else{
+                            photoEspace = reponse[key]["image"];
+                        }
+  
+
+                        // if (espece["_links"]["media"] !==  null) {
+                        //     photoEspace = espece["_links"]["media"][0];
+                        // } else {
+                        //     photoEspace = "./../assets/img/taxon/default_icon_naturotheque.jpg";
+                        // }
+
+                        const a = document.createElement("div");
+                        a.classList.add("grid-items");
+
+                        a.innerHTML = `
+                        <p>${nomEspace}</p>
+                        `;
+                        a.style.backgroundImage = `url(${photoEspace})`;
+                        a.style.backgroundSize ="cover";
+                        document.querySelector(".grille").appendChild(a);
+
+
+                        // ex: espece["id"]
+                        // ex: espece["_links"]["media"][0]
+                    }
+                }
+
+                // console.log(reponse["data"][0][0]["_links"]["media"][0]);
 
             }
         };
@@ -88,24 +117,58 @@ function selectTab(tabName , email) {
         document.querySelector('.tab:nth-child(2)').classList.add('active');
         document.querySelector('.tab:nth-child(1)').classList.remove('active');
 
+
+        document.querySelector(".grille").innerHTML = "";
+
+
         var params = 'controller=naturotheque&action=afficher_like' + '&email=' + email ;
         console.log(url  + params);
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-                // document.getElementById('resultat').innerHTML = xhr.responseText;
-                console.log(xhr.responseText);
-                // var reponse = JSON.parse(xhr.responseText);
+                 // document.getElementById('resultat').innerHTML = xhr.responseText;
+                 var reponse = JSON.parse(xhr.responseText);
+                 console.log(reponse);
+ 
+                 for (const key in reponse) {
+                     if (Object.hasOwnProperty.call(reponse, key)) {
+                         console.log(reponse[key]);
+                         let nomEspace = reponse[key]["nom"];
+                         let photoEspace = reponse[key]["image"];
 
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                /////////////////    PAQUET LIKE  //////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////
+                         if (photoEspace == "../assets/img/img_not_found.png"){
+                            photoEspace = "./../assets/img/taxon/default_icon_naturotheque.jpg";
+                        }
+                        else{
+                            photoEspace = reponse[key]["image"];
+                        }
+  
+ 
+                         // if (espece["_links"]["media"] !==  null) {
+                         //     photoEspace = espece["_links"]["media"][0];
+                         // } else {
+                         //     photoEspace = "assets/img/ta./../xon/default_icon_naturotheque.jpg";
+                         // }
+ 
+                         const a = document.createElement("div");
+                         a.classList.add("grid-items");
+ 
+                         a.innerHTML = `
+                         <p>${nomEspace}</p>
+                         `;
+                         a.style.backgroundImage = `url(${photoEspace})`;
+                         a.style.backgroundSize ="cover";
 
+                         document.querySelector(".grille").appendChild(a);
+ 
+ 
+                         // ex: espece["id"]
+                         // ex: espece["_links"]["media"][0]
+                     }
+                 }
+ 
+                 // console.log(reponse["data"][0][0]["_links"]["media"][0]);
+ 
             }
         };
         

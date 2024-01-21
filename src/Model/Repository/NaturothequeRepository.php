@@ -5,18 +5,20 @@ namespace App\Naturotheque\Model\Repository;
 class NaturothequeRepository {
 
     // Méthode qui sauvegarde l'enregistrement d'une espece en fonction de l'utilisateur
-    public static function sauvegarder($id_utilisateur , $id_espece ,$table):void{
+    public static function sauvegarder($id_utilisateur ,$id_espece,$nom,$image,$table):void{
         if ($table == "naturotheque") {
-            $sql = "INSERT INTO naturotheque (id_utilisateur , id_espece)
-            VALUES (:id_utilisateur , :id_espece)";
+            $sql = "INSERT INTO naturotheque (id_utilisateur , id_espece , nom  , image)
+            VALUES (:id_utilisateur , :id_espece , :nom  , :image)";
         }elseif ($table == "aime") {
-            $sql = "INSERT INTO aime (id_utilisateur , id_espece)
-            VALUES (:id_utilisateur , :id_espece)";
+            $sql = "INSERT INTO aime (id_utilisateur , id_espece , nom  , image)
+            VALUES (:id_utilisateur , :id_espece , :nom , :image)";
         }
         
         $values = array(
             "id_utilisateur" =>$id_utilisateur,
             "id_espece" => $id_espece,
+            "nom" => $nom,
+            "image" => $image
         );
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
@@ -34,7 +36,6 @@ class NaturothequeRepository {
             "id_espece" => $id_espece,
         );
 
-        echo $sql;
         $pdoStatement = DatabaseConnection::getPdo() ->prepare($sql) ;
         $pdoStatement->execute($values);
     }
@@ -67,7 +68,7 @@ class NaturothequeRepository {
     }
 
     public static function selectsave($id_utilisateur){
-        $sql = "SELECT id_espece FROM naturotheque where id_utilisateur = :id_utilisateur ";
+        $sql = "SELECT * FROM naturotheque where id_utilisateur = :id_utilisateur ";
         $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
         $values = array("id_utilisateur" => $id_utilisateur);
         $pdoStatement->execute($values);
@@ -78,7 +79,7 @@ class NaturothequeRepository {
     }
     
     public static function selectlike($id_utilisateur){
-        $sql = "SELECT id_espece FROM aime where id_utilisateur = :id_utilisateur ";
+        $sql = "SELECT * FROM aime where id_utilisateur = :id_utilisateur ";
         $pdoStatement = DatabaseConnection::getPdo()->prepare($sql);
         $values = array("id_utilisateur" => $id_utilisateur);
         $pdoStatement->execute($values);

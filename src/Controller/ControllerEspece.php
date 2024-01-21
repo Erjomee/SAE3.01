@@ -30,7 +30,6 @@ class ControllerEspece{
         if (ConnexionUtilisateur::estConnecte()) {
             $utilisateurconnecte = true;
         }
-
         if (isset($data[0])) {  // La recherche contient des especes
             foreach ($data[0] as $espece) {
                 if (isset($espece["_links"]["media"])){
@@ -50,20 +49,18 @@ class ControllerEspece{
 
                 if ($utilisateurconnecte) {
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"naturotheque")) {
-                        $result .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\")'></button>";
+                        $result .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\" ,\"{$espece['frenchVernacularName']}\",\"{$image}\")'></button>";
                     }else{
                         $result .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-check btn_save' onclick='retirer({$espece['id']},\"naturotheque\")'></button>";
                     }
 
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"aime")) {
-                        $result .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\")'></button>
+                        $result .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\",\"{$espece['frenchVernacularName']}\", \"{$image}\")'></button>
                                     </div>";
                     }else{
                         $result .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bxs-heart btn_like' onclick='retirer({$espece['id']},\"aime\")'></button>
                                     </div>";
                     }
-
-
                 }else{
                     $result .= "<a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-bookmarks btn_save'></button></a>
                                 <a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-heart btn_like'></button></a>
@@ -95,9 +92,12 @@ class ControllerEspece{
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
 
 
-        $data = EspeceRepository::getEspece("taxrefIds" , $id , 1,1 ,array());
+        $data = EspeceRepository::getEspece("taxrefIds" , $id , 1,1 ,array("image" => 0));
         $result = "";
         $image = "";
+
+        // $test=$data[0][0]['_links']['media'];
+        // var_dump($test["href"]);
 
         if (isset($data[0])){  // La recherche contient des especes
             foreach ($data[0] as $espece) {

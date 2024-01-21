@@ -104,7 +104,8 @@ if(isset($_GET["action"])){
     // Action du controller Naturotheque
     elseif ( $controllerClassName == "App\Naturotheque\Controller\ControllerNaturotheque"){
         if ($action == "enregistrer") {
-            ControllerNaturotheque::enregistrer($_GET["id"],$_GET["table"]);
+            echo ($_GET["nom"]);
+            ControllerNaturotheque::enregistrer($_GET["id"],$_GET["table"],$_GET["nom"],$_GET["image"]);
         }elseif ($action == "retirer") {
             ControllerNaturotheque::retirer($_GET["id"],$_GET["table"]);
         }elseif ($action == "afficher_naturotheque") {

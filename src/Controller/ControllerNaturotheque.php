@@ -21,9 +21,9 @@ class ControllerNaturotheque{
     }
 
 
-    public static function enregistrer($id_espece ,$table) : void {
+    public static function enregistrer($id_espece ,$table,$nom,$image) : void {
         if (ConnexionUtilisateur::estConnecte()) {
-            NaturothequeRepository::sauvegarder(ConnexionUtilisateur::getLoginUtilisateurConnecte(),$id_espece,$table);
+            NaturothequeRepository::sauvegarder(ConnexionUtilisateur::getLoginUtilisateurConnecte(),$id_espece,$nom,$image,$table);
         }else {
             ControllerUtilisateur::register();
         }
@@ -70,39 +70,40 @@ class ControllerNaturotheque{
 
     public static function afficher_save($user_login){
         $lst_id_save = NaturothequeRepository::selectSave($user_login);
-        $lst_espece_save = [];
+        
+        // $lst_espece_save = [];
 
-        // boucle for
-        foreach ($lst_id_save as $key => $value) {
-            $lst_espece_save[] = EspeceRepository::getEspece("taxrefIds" , $value["id_espece"] ,1,12,array())[0];
-        }
+        // // boucle for
+        // foreach ($lst_id_save as $key => $value) {
+        //     $lst_espece_save[] = EspeceRepository::getEspece("taxrefIds" , $value["id_espece"] ,1,12,array("image" => 0))[0];
+        // }
 
-        $paquet = array( 
-                "data" => $lst_espece_save,
-                "nbr_page" => 0);
+        // $paquet = array( 
+        //         "data" => $lst_espece_save,
+        //         "nbr_page" => 0);
 
 
-        $json_data = json_encode($paquet);
+        $json_data = json_encode($lst_id_save);
         header('Content-Type: application/json');
         echo $json_data ;
     }
 
 
-
     public static function afficher_like($user_login){
         $lst_id_like = NaturothequeRepository::selectLike($user_login);
-        $lst_espece_like = [];
 
-        foreach ($lst_id_like as $key => $value) {
-            $lst_espece_like[] = EspeceRepository::getEspece("taxrefIds" , $value["id_espece"] ,1,12,array())[0];
-        }
+        // $lst_espece_like = [];
+
+        // foreach ($lst_id_like as $key => $value) {
+        //     $lst_espece_like[] = EspeceRepository::getEspece("taxrefIds" , $value["id_espece"] ,1,12,array())[0];
+        // }
         
-        $paquet = array( 
-                "data" => $lst_espece_like,
-                "nbr_page" => 0);
+        // $paquet = array( 
+        //         "data" => $lst_espece_like,
+        //         "nbr_page" => 0);
 
 
-        $json_data = json_encode($paquet);
+        $json_data = json_encode($lst_id_like);
         header('Content-Type: application/json');
         echo $json_data ;
     }
