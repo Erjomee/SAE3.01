@@ -228,6 +228,7 @@ h1{
     header{
         transition: .2s;
         z-index: 1;
+        
     }
 
     .utilisateur{
@@ -310,11 +311,8 @@ h1{
     }
 
     #footer {
-        /* margin-top: 50px; */
+        margin-top: 50px;
         padding: 0px 0px;
-        margin-top:37vh;        
-       
-       
     }
     #logofooter {
         height: 20vh;
@@ -354,10 +352,7 @@ h1{
         display: flex;
         justify-content: space-around;
     }
-
-    footer{
-        margin-top:37vh;        
-    }
+    
    
 
 

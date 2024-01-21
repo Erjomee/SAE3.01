@@ -43,6 +43,7 @@
     margin-left: 1vh;
     margin-top: 1%;
     background-color: white;
+    border-radius: 7px;
 }
 #test h6{
     margin: 5px 0 0 23%;
@@ -465,7 +466,7 @@ a.popup-exit:hover {
     }
 
 .div_article1 button{
-    margin-top: 4%;
+    margin-top: 44%;
 }
 
 /*ARTICLE 2*/
@@ -495,7 +496,7 @@ a.popup-exit:hover {
         margin-top: 0%;
     }
 
-    .div_infos button{
+    .div_infos a{
         width: 50%;
         height: 5%;
         font-size: 8px;
@@ -521,13 +522,55 @@ a.popup-exit:hover {
         transform: translate(-50%, -50%);
         width: 94%;
     }
+
+
+    .div_infos .partie1, .partie2, .partie3 {
+        width: 33.3%;
+        height: 40vh;
+        text-align: center;
+        /* line-height: 100px; */
+        color: white;
+        font-size: -2em;
+    }
+
+    .div_infos button {
+        width: 50%;
+        height: 5%;
+        font-size: 8px;
+        margin-top: 15%;
+    }
+
+    .div_p {
+        height: 20%;
+        width: 43%;
+        margin-left: 35%;
+        margin-top: 7%;
+        margin-bottom: 5px;
+    }
+
+    .partie3 {
+        /* margin-bottom: 24%; */
+        width: 33.3%;
+        height: 40vh;
+    }
+
+    .cercle {
+        margin-left: 44%;
+
+    }
+
+    .div_infos p {
+        width: 81px;
+        margin-left: -26%;
+        margin-bottom: -20px;
+    }
 }
 
 /*petit telephone*/
 @media (min-width:320px)and (max-width:375px){
    
     .div_article1 button {
-        margin-top: 67%;
+        margin-top: 64%;
     }
 
     .div_article2 button {
@@ -540,15 +583,45 @@ a.popup-exit:hover {
         font-size: 8px;
     }
 
-    .div_infos p {
-        width: 70px;
-        height: 3%;
-        margin-left: -42%;
+    .div_infos .partie1, .partie2, .partie3 {
+        width: 33.3%;
+        height: 40vh;
+        text-align: center;
+        /* line-height: 100px; */
+        color: white;
+        font-size: -2em;
+    }
+
+    .div_infos button {
+        width: 50%;
+        height: 5%;
+        font-size: 8px;
+        margin-top: 15%;
+    }
+
+    .div_p {
+        height: 20%;
+        width: 43%;
+        margin-left: 35%;
+        margin-top: 7%;
+        margin-bottom: 5px;
     }
 
     .partie3 {
+        /* margin-bottom: 24%; */
         width: 33.3%;
-        height: 29vh;
+        height: 40vh;
+    }
+
+    .cercle {
+        margin-left: 44%;
+
+    }
+
+    .div_infos p {
+        width: 81px;
+        margin-left: -26%;
+        margin-bottom: -20px;
     }
 
     footer {

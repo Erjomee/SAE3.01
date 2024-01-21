@@ -162,10 +162,11 @@
             <i class="fi fi-sr-badge"></i>
         </div>
         <div class="div_p">
-            <p>Découvrez l'espèce la plus consultée, pour en apprendre davantage sur cette espèce fascinante </p>
+            <p>Découvrez la diversité des espèces qui habitent notre planète afin d'approfondir vos connaissances sur ces créatures fascinantes. </p>
         </div>
-        <a class="button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=espece&action=search"></a>
-        <button>En savoir plus</button>
+        <a class="button_link" href="frontController.php?controller=espece&action=search">
+            <button>En savoir plus</button>
+        </a>
     </div>
     <div class="partie2">
         <div class="cercle">
@@ -174,8 +175,9 @@
         <div class="div_p">
             <p>Explorez votre environnement en découvrant les différentes espèces qui vous entourent</p>
         </div>
-        <a class="button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php"></a>
-        <button>Découvrir</button>
+        <a class="button_link" href="http://127.0.0.1/SAE3.01/decouvrir.php">
+            <button>Découvrir</button>
+        </a>
     </div>
     <div class="partie3">
         <div class="cercle">
@@ -184,8 +186,9 @@
         <div class="div_p">
             <p>Consultez les différentes naturothèques, en toute simplicité afin d’admirer les espèces préférées avec facilité</p>
         </div>
-        <a class="button_link" href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll"></a>
-        <button>Naturothèques</button>
+        <a class="button_link" href="frontController.php?controller=naturotheque&action=readAll">
+            <button>Naturothèques</button>
+        </a>
     </div>
 </div>
 <script src="../assets/js/scriptAccueil.js"></script>
