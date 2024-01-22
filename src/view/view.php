@@ -155,7 +155,9 @@
 
             </div>
 
-            <div id='google_translate_element' ></div>
+            <div id='google_translate_element' style="width: fit-content"></div>
+
+
         </div> 
 
 

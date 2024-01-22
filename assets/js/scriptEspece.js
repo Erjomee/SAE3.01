@@ -449,6 +449,9 @@ function resetPopup() {
     document.getElementById("portrait").innerHTML = "";
     document.getElementById("description_manquante").style.display = "none";
 
+    document.getElementById("onglet1").style.display = "block";
+    activeOnglet('onglet1')
+
     // Habitat
     document.getElementById("habitat").style.display = "flex";
     document.getElementById("habitat_manquante").style.display = "none";

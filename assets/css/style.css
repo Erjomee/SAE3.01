@@ -527,10 +527,13 @@ a.icone:hover {
 }
 
 
-
 #google_translate_element{
     text-align: center;
-    margin: 30px 0;
+    margin: 30px auto;
+}
+
+.goog-te-combo{
+    width: 100%;
 }
 
 .VIpgJd-ZVi9od-ORHb-OEVmcd
