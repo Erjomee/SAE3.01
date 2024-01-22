@@ -114,9 +114,7 @@
             ?>
         </main>
 
-        <div id='google_translate_element'>Langue</div>
-        
-
+        <!-- <div id='google_translate_element'></div> -->
 
 
         <footer  <?php if ($pagetitle == "Formulaire de connexion" || $pagetitle ==  "Formulaire d'inscription") {
@@ -154,8 +152,13 @@
                 <a href="https://twitter.com/INPN_MNHN" class="icone">
                     <i class="fi fi-brands-twitter-alt"></i>
                 </a>
+
             </div>
+
+            <div id='google_translate_element' ></div>
         </div> 
+
+
        
              <!-- <div id = "licence">
             <p>Copyright ©2024 TaxonSphère</p> 
