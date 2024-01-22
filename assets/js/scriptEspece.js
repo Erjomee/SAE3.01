@@ -271,26 +271,50 @@ function more_info(id) {
     });
 }
 
-
-function enregistrer(id_espece, table , nom , image) {
+function enregistrer(id_espece, table, nom, image) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = "controller=naturotheque&action=enregistrer" + "&table=" + table+ "&id=" + id_espece + "&nom=" + nom + "&image=" + image;
+    var params = "controller=naturotheque&action=enregistrer" + "&table=" + table + "&id=" + id_espece + "&nom=" + nom + "&image=" + image;
 
-    console.log(url+params);
-    xhr.onreadystatechange = function() {
+    console.log(url + params);
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            const item = document.getElementById(id_espece+table);
+            const itemInfo = document.getElementById(id_espece + table + "Info");
+            if (itemInfo) {
+                if (table == "naturotheque") {
+                    itemInfo.classList.remove("bx-bookmarks");
+                    itemInfo.classList.add("bx-check");
+                } else {
+                    itemInfo.classList.remove("bx-heart");
+                    itemInfo.classList.add("bxs-heart");
+                }
 
-            if (table == "naturotheque") {
-                item.classList.remove("bx-bookmarks");
-                item.classList.add("bx-check");
-            }else{
-                item.classList.remove("bx-heart");
-                item.classList.add("bxs-heart");
+                // Assurez-vous que l'événement onclick de itemInfo existe avant de l'utiliser
+                if (itemInfo.onclick) {
+                    itemInfo.onclick = function () {
+                        retirer(id_espece, table);
+                    };
+                }
             }
 
-            item.onclick = function() { retirer(id_espece,table); };
+            // Manipuler item seulement si item existe
+            const item = document.getElementById(id_espece + table);
+            if (item) {
+                if (table == "naturotheque") {
+                    item.classList.remove("bx-bookmarks");
+                    item.classList.add("bx-check");
+                } else {
+                    item.classList.remove("bx-heart");
+                    item.classList.add("bxs-heart");
+                }
+
+                // Assurez-vous que les gestionnaires d'événements existent avant de les utiliser
+                if (item.onclick) {
+                    item.onclick = function () {
+                        retirer(id_espece, table);
+                    };
+                }
+            }
         }
     };
     xhr.open("GET", url + params, true);
@@ -298,30 +322,58 @@ function enregistrer(id_espece, table , nom , image) {
 }
 
 
-function retirer(id_espece,table) {
+
+
+
+function retirer(id_espece, table) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=naturotheque&action=retirer' + '&id=' + id_espece +'&table='+table;
+    var params = 'controller=naturotheque&action=retirer' + '&id=' + id_espece + '&table=' + table;
     console.log(params);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            const item = document.getElementById(id_espece+table);
+            const itemInfo = document.getElementById(id_espece + table + "Info");
+            if (itemInfo) {
+                if (table == "naturotheque") {
+                    itemInfo.classList.remove("bx-check");
+                    itemInfo.classList.add("bx-bookmarks");
+                } else {
+                    itemInfo.classList.remove("bxs-heart");
+                    itemInfo.classList.add("bx-heart");
+                }
 
-            if (table == "naturotheque") {
-                item.classList.remove("bx-check");
-                item.classList.add("bx-bookmarks");
-            }else{
-                item.classList.remove("bxs-heart");
-                item.classList.add("bx-heart");
+                // Assurez-vous que l'événement onclick de itemInfo existe avant de l'utiliser
+                if (itemInfo.onclick) {
+                    itemInfo.onclick = function () {
+                        enregistrer(id_espece, table);
+                    };
+                }
+            }
+
+            const item = document.getElementById(id_espece + table);
+            if (item) {
+                if (table == "naturotheque") {
+                    item.classList.remove("bx-check");
+                    item.classList.add("bx-bookmarks");
+                } else {
+                    item.classList.remove("bxs-heart");
+                    item.classList.add("bx-heart");
+                }
+
+                // Assurez-vous que les gestionnaires d'événements existent avant de les utiliser
+                if (item.onclick) {
+                    item.onclick = function () {
+                        enregistrer(id_espece, table);
+                    };
+                }
             }
             
-            item.onclick = function() { enregistrer(id_espece,table); };
         }
     };
     xhr.open("GET", url + params, true);
     xhr.send(null);
-    
 }
+
 
 
 function activeOnglet(onglet = "default"){

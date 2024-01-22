@@ -102,9 +102,6 @@ function selectTab(tabName , email) {
                         else{
                             photoEspace = reponse[key]["image"];
                         }
-  
- 
-                    
  
                          const a = document.createElement("div");
                          a.classList.add("grid-items");
@@ -118,9 +115,9 @@ function selectTab(tabName , email) {
                          a.onclick = () => more_info(id_espece);
 
 
+
+
                          document.querySelector(".grille").appendChild(a);
- 
- 
                      }
                  }
  
@@ -137,6 +134,11 @@ function selectTab(tabName , email) {
         xhr.open("GET", url + params, true);
         xhr.send(null);
     }
+    document.querySelector('.btn').addEventListener('click', function() {
+        // Rechargez la page
+        window.location.reload(true);
+    });
+    
 }
 
 

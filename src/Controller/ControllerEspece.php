@@ -137,16 +137,16 @@ class ControllerEspece{
                 if ($utilisateurconnecte) {
                     $frenchVernacularNameModified = str_replace("'", "%27", $espece['frenchVernacularName']);
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"naturotheque")) {
-                        $like_save .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\" ,\"{$frenchVernacularNameModified}\",\"{$image}\")'></button>";
+                        $like_save .= "<button id={$espece['id']}naturothequeInfo name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\" ,\"{$frenchVernacularNameModified}\",\"{$espece["_links"]["media"][0]}\")'></button>";
                     }else{
-                        $like_save .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-check btn_save' onclick='retirer({$espece['id']},\"naturotheque\")'></button>";
+                        $like_save .= "<button id={$espece['id']}naturothequeInfo name='id' value={$espece['id']} class='bx bx-check btn_save' onclick='retirer({$espece['id']},\"naturotheque\")'></button>";
                     }
 
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"aime")) {
-                        $like_save .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\",\"{$frenchVernacularNameModified}\", \"{$image}\")'></button>
+                        $like_save .= "<button id={$espece['id']}aimeInfo name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\",\"{$frenchVernacularNameModified}\", \"{$espece["_links"]["media"][0]}\")'></button>
                                     </div>";
                     }else{
-                        $like_save .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bxs-heart btn_like' onclick='retirer({$espece['id']},\"aime\")'></button>
+                        $like_save .= "<button id={$espece['id']}aimeInfo name='id' value={$espece['id']} class='bx bxs-heart btn_like' onclick='retirer({$espece['id']},\"aime\")'></button>
                                     </div>";
                     }
                 }else{

@@ -145,11 +145,13 @@
 
         <div id="popup">
             <div id="popupInfo">
+                
                 <div id="hidden" hidden>
                     <span id="closePopup">&times;</span>
                     <div id="popupHeader">
                         <?php include("./../src/view/espece/en_tete.html")?>
                     </div>
+                    
 
                     <!--         ONGLET           -->
                     <div id="onglet">

@@ -339,7 +339,7 @@ input[type="radio"] {
     width: 80px;
 }
 
-.btn_save{
+.item .btn_save{
     position: absolute;
     top: 3%;
     right: 2%;
@@ -354,7 +354,7 @@ input[type="radio"] {
     opacity: 0;
 }
 
-.btn_like{
+.item .btn_like{
     position: absolute;
     top: 30%;
     right: 2%;
@@ -466,6 +466,41 @@ ul#pagination li:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     background-position:center;
 }
+
+#popup_save_like{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#popup_save_like .btn_save{
+    background-color: white;
+    color: black;
+    padding: 10px ;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0;
+    opacity: 1;
+}
+
+
+#popup_save_like .btn_like{
+    opacity: 1;
+    background-color: white;
+    color: black;
+    padding: 10px ;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0;
+    opacity: 1;
+}
+
+#popup_save_like .btn_save:hover , #popup_save_like .btn_like:hover{
+    box-shadow: rgba(255, 255, 255, 0.441) 0px 3px 6px, rgba(255, 255, 255, 0.564) 0px 3px 6px;
+    cursor: pointer;
+}
+
 
 #closePopup {
     position: absolute;
