@@ -152,13 +152,46 @@
             </div> -->
         </footer>
 
-
+<!-- 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
-        <script src="./../assets/js/script.js"></script>
-        <script src="./../assets/js/rSlider.min.js"></script>
-        <script src="./../assets/js/scriptEspece.js"></script>
-        <script src="./../assets/js/scriptProfil.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script> -->
+        <!-- <script src="./../assets/js/script.js"></script> -->
+        <!-- <script src="./../assets/js/rSlider.min.js"></script> -->
+        <!-- <script src="./../assets/js/scriptEspece.js"></script> -->
+        <!-- <script src="./../assets/js/scriptProfil.js"></script> -->
+
+        <?php 
+
+        if (!isset($script)) {
+            $script ="";
+        }
+        
+        if ($script == "Espece") {
+            echo ' <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>';
+            echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>';
+            echo '<script src="./../assets/js/script.js"></script>';
+
+            echo '<script src="./../assets/js/rSlider.min.js"></script>';
+            echo '<script src="./../assets/js/scriptEspece.js"></script>';
+        }elseif ($script == "Naturotheque") {
+            echo ' <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>';
+            echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>';
+            echo '<script src="./../assets/js/rSlider.min.js"></script>';
+            echo '<script src="./../assets/js/script.js"></script>';
+
+            echo '<script src="./../assets/js/scriptEspece.js"></script>';
+            echo '<script src="./../assets/js/scriptNaturotheque.js"></script>';
+        }elseif ($script == "Profile"){
+            echo '<script src="./../assets/js/script.js"></script>';
+            echo '<script src="./../assets/js/scriptProfil.js"></script>';
+        }elseif ($script == "Accueil"){
+            echo '<script src="./../assets/js/script.js"></script>';
+            echo '<script src="./../assets/js/scriptAccueil.js"></script>';
+        }else{
+            echo '<script src="./../assets/js/script.js"></script>';
+
+        }
+        ?>
 
 
     </body>

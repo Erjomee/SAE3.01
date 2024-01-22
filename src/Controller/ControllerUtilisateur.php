@@ -107,6 +107,7 @@ class ControllerUtilisateur{
         $utilisateur = (new UtilisateurRepository())->select(ConnexionUtilisateur::getLoginUtilisateurConnecte());
         ControllerUtilisateur::afficheVue("view.php" , [ "pagetitle" => "Formulaire de modification du profil",
                                                         "style" => "EditProfil",
+                                                        "script" => "Profil",
                                                         "cheminVueBody" => "utilisateur/edit_profil.php",
                                                         "first_name" => $utilisateur->get("prenom"),
                                                         "last_name" => $utilisateur->get("nom"),

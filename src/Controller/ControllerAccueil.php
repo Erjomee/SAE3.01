@@ -11,6 +11,7 @@ class ControllerAccueil{
         ControllerAccueil::afficheVue("view.php" , [ "utilisateurs" => "jerome",
                                                                 "pagetitle" => "Page d'accueil",
                                                                 "style" => "Accueil",
+                                                                "script" => "Accueil",
                                                                 "cheminVueBody" => "accueil/accueil.php"]);
     }
 
@@ -19,6 +20,7 @@ class ControllerAccueil{
         ControllerAccueil::afficheVue("view.php" , [ "utilisateurs" => "jerome",
                                                                 "pagetitle" => "Action incorrect",
                                                                 "style" => "Accueil",
+                                                                "script" => "Accueil",
                                                                 "cheminVueBody" => "error.php",
                                                                 "errorMessage" => $errorMessage]);
     }

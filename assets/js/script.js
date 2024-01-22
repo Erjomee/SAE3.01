@@ -40,26 +40,8 @@ if (document.querySelector(".utilisateur") !== null){
     // })
 }
 
-// PAGE ESPECE
 
 
-
-
-// function rechercher(){
-//     var recherche = document.getElementById('marecherche').value;
-//     var filtre = document.getElementById('filtre_f').value;
-//     var page = document.getElementById("page").value;
-//     var size = document.getElementById("size").value;
-
-//     var xhr = new XMLHttpRequest();
-//     var url = 'frontController.php';
-//     var params = 'controller=espece&action=searchBy' + '&filtre_f=' + filtre + '&recherche=' + recherche + "&page=" + page + "$size=" + size;
-
-//     console.log(params)
-//     xhr.open('POST', url, true);
-//     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-//     xhr.send(params);
-
-// }
-
+function submitForm() {
+    document.getElementById("myForm").submit();
+}

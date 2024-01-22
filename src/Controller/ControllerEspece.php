@@ -15,6 +15,7 @@ class ControllerEspece{
         //  et les afficher sous forme d'image en bas de la barre de recherche  (PARTIE MODELE)
         ControllerEspece::afficheVue("view.php" , [ "pagetitle" => "Page de recherche d'espece",
                                                                 "style" => "Espece",
+                                                                "script" => "Espece",
                                                                 "default" => "Veuillez saisir une recherche",
                                                                 "cheminVueBody" => "espece/search.php"]);
     }

@@ -48,6 +48,7 @@ class ControllerNaturotheque{
         if($user_login == ConnexionUtilisateur::getLoginUtilisateurConnecte()){
             ControllerNaturotheque::afficheVue("view.php" , [ "pagetitle" => "Ma naturotheque",
                                                                     "style" => "MaNaturotheque",
+                                                                    "script" => "Naturotheque",
                                                                     "style_double" => "Espece",
                                                                     "user_login" => $user_login,
                                                                     "cheminVueBody" => "naturotheque/ma_naturotheque.php"]);
@@ -58,6 +59,7 @@ class ControllerNaturotheque{
             $nbr_like = count(NaturothequeRepository::selectlike($user_login));
             ControllerNaturotheque::afficheVue("view.php" , [ "pagetitle" => "Ma naturotheque",
                                                                     "style" => "VisiteNaturotheque",
+                                                                    "script" => "Naturotheque",
                                                                     "style_double" => "Espece",
                                                                     "cheminVueBody" => "naturotheque/visite_naturotheque.php",
                                                                     "first_name" => $utilisateur->get("prenom"),
