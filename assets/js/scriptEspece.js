@@ -164,8 +164,9 @@ function more_info(id) {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             // document.getElementById('resultat').innerHTML = xhr.responseText;
             var reponse = JSON.parse(xhr.responseText);
+            console.log(reponse["like_save"]);
 
-            document.getElementById("popup_save_like").innerHTML = reponse["like_save"]
+            document.getElementById("popup_save_like").innerHTML = reponse["like_save"];
 
             document.getElementById("slider").innerHTML = reponse["image"];
             animateSlider();

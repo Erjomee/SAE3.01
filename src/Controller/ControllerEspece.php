@@ -158,7 +158,7 @@ class ControllerEspece{
             $paquet = array("description" => EspeceRepository::getDescription($id),
                 "result" => $data[0],
                 "image" => $image,
-                // "like_save" => $like_save,
+                "like_save" => $like_save,
                 );
         }else{  // aucun résultat
             $paquet = array( "default" => "<h1>Espece introuvable<h1>",
