@@ -49,6 +49,8 @@
                     <li class="item"><a href="http://127.0.0.1/SAE3.01/decouvrir.php" <?php if (basename($_SERVER['PHP_SELF'])=="decouvrir.php") {echo "class='active'";}?>>Découvrir</a></li>
                 </ul>
             </nav>
+
+    
             <!-- Right part (user action) -->
             <div class="user-action" >
                 <?php
@@ -69,11 +71,13 @@
                                         <p>   {$utilisateur->get("email")} </p>
                                         <li class='item'><a href='frontController.php?controller=utilisateur&action=profil'><i class='bx bx-user'></i>Profile</a></li>
                                         <li class='item'><a href='frontController.php?controller=naturotheque&action=afficher_naturotheque&email={$utilisateur->get("email")}'><i class='bx bx-collection'></i>Collection</a></li>  
-                                        <hr>
+                                        <hr>                                        
                                         <li class='item'><a href='frontController.php?controller=utilisateur&action=deconnection'><i class='bx bx-log-out'></i>Déconnexion</a></li>
                                     </ul>
                                 </div>
+                                
                             </div>
+
                         ";
                         // Compte invité
                     }else{
@@ -110,7 +114,8 @@
             ?>
         </main>
 
-        <div id="google_translate_element"></div>
+        <div id='google_translate_element'>Langue</div>
+        
 
 
 
@@ -200,14 +205,14 @@
 
 
 <script type="text/javascript">
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'fr'
-                    }
-                    , 'google_translate_element');
-                }
-            </script>
-            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'fr'
+    }
+    , 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
     </body>
