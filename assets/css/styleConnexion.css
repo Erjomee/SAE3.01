@@ -1,12 +1,12 @@
 body {
-    /* height: 100%;
-    margin: 0;
-    font-family: 'Arial', sans-serif; */
-    background-image: url("./../img/fondconnexion.png");
-    background-size: cover; 
+    background-image: url(./../img/fondconnexion.png);
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.3);
+    margin-top: 500px;
+    position: relative;
+    height: 50vh;
 }
 
 form {
@@ -15,10 +15,11 @@ form {
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 25%;
-    position: relative;
+    position: absolute;
     left: 38%;
     margin-top: 10%;
-    margin-bottom:5%;
+    margin-bottom: 5%;
+    bottom: 56%;
 }
 
 h3 {
