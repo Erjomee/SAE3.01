@@ -1,19 +1,24 @@
 /* Style général du formulaire*/
-body{
-    background-image: url("./../img/fondinscription.png");
-    background-color: rgba(255, 255, 255, 0.5);
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
+body {
+  background-image: url(./../img/fondinscription.png);
+  background-color: rgba(255, 255, 255, 0.5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 500px;
+  position: relative;
+  height: 50vh;
 }
 
 #inscription-id {
-    font-family: Arial, sans-serif;
-    width: 30%;
-    margin: 0 auto;
-    padding: 20px;
-    margin-top: 10%;
-  }
+  font-family: Arial, sans-serif;
+  width: 30%;
+  margin: 0 auto;
+  padding: 20px;
+  bottom: 48%;
+  position: absolute;
+  left: 36%;
+}
 
   form {
     background-color: #fff;
@@ -100,4 +105,34 @@ h1 {
   color: #26B2A2;
   justify-content: center;
   display: flex;
+}
+@media (max-width: 767px){
+  body {
+    height: 78vh;
+  }
+  #submit_id {
+  font-size: 28px;
+  }
+
+  h1 {
+    font-size: 4em;
+  }
+  #inscription-id {
+    width: 60%;
+    bottom: 42%;
+    left: 21%;
+    height: 55%;
+  }
+  label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+    font-size: 22px;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="submit"] {
+    height: 3vh;
+    font-size:20px ;
+
+  }
 }
