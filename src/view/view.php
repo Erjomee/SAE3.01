@@ -111,7 +111,7 @@
         </main>
 
 
-        <footer  <?php if ($pagetitle == "Formulaire de connexion") {
+        <footer  <?php if ($pagetitle == "Formulaire de connexion" || $pagetitle ==  "Formulaire d'inscription") {
             echo "style='display: none;'";
         }?> >
         <!-- <div id ="first"> -->
