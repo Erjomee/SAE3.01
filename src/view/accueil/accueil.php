@@ -40,14 +40,14 @@
 <!-- Se connecter-->
 <div class="div_connecter">
     <h3 class="first">
-        <a href="http://localhost/SAE3.01/web/frontController.php?controller=naturotheque&action=readAll">Accéder à ma Naturothèque </a>
+        <a href="http://frontController.php?controller=naturotheque&action=readAll">Accéder à ma Naturothèque </a>
     </h3>
 
     <div class="separation">
     </div>
 
     <h3 class="second">
-        <a href="http://localhost/SAE3.01/web/frontController.php?controller=utilisateur&action=connection"> Vous n’êtes pas encore inscrit </a>
+        <a href="frontController.php?controller=utilisateur&action=register"> Vous n’êtes pas encore inscrit </a>
     </h3>
 </div>
 
