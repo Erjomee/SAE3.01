@@ -49,14 +49,15 @@ class ControllerEspece{
                         </div>";
 
                 if ($utilisateurconnecte) {
+                    $frenchVernacularNameModified = str_replace("'", "%27", $espece['frenchVernacularName']);
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"naturotheque")) {
-                        $result .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\" ,\"{$espece['frenchVernacularName']}\",\"{$image}\")'></button>";
+                        $result .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\" ,\"{$frenchVernacularNameModified}\",\"{$image}\")'></button>";
                     }else{
                         $result .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-check btn_save' onclick='retirer({$espece['id']},\"naturotheque\")'></button>";
                     }
 
                     if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"aime")) {
-                        $result .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\",\"{$espece['frenchVernacularName']}\", \"{$image}\")'></button>
+                        $result .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\",\"{$frenchVernacularNameModified}\", \"{$image}\")'></button>
                                     </div>";
                     }else{
                         $result .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bxs-heart btn_like' onclick='retirer({$espece['id']},\"aime\")'></button>
@@ -96,6 +97,13 @@ class ControllerEspece{
         $data = EspeceRepository::getEspece("taxrefIds" , $id , 1,1 ,array("image" => 0));
         $result = "";
         $image = "";
+        $like_save = "";
+
+        $utilisateurconnecte = false;
+
+        if (ConnexionUtilisateur::estConnecte()) {
+            $utilisateurconnecte = true;
+        }
 
         // $test=$data[0][0]['_links']['media'];
         // var_dump($test["href"]);
@@ -125,10 +133,32 @@ class ControllerEspece{
                 }else{ // Pas d'image présente
                     $image .= "<img src='../assets/img/img_not_found.png' alt='img1' class='img__slider active'/>";
                 }
+
+                if ($utilisateurconnecte) {
+                    $frenchVernacularNameModified = str_replace("'", "%27", $espece['frenchVernacularName']);
+                    if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"naturotheque")) {
+                        $like_save .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-bookmarks btn_save' onclick='enregistrer({$espece['id']}, \"naturotheque\" ,\"{$frenchVernacularNameModified}\",\"{$image}\")'></button>";
+                    }else{
+                        $like_save .= "<button id={$espece['id']}naturotheque name='id' value={$espece['id']} class='bx bx-check btn_save' onclick='retirer({$espece['id']},\"naturotheque\")'></button>";
+                    }
+
+                    if (!ControllerNaturotheque::deja_enregistrer($espece['id'],"aime")) {
+                        $like_save .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bx-heart btn_like' onclick='enregistrer({$espece['id']}, \"aime\",\"{$frenchVernacularNameModified}\", \"{$image}\")'></button>
+                                    </div>";
+                    }else{
+                        $like_save .= "<button id={$espece['id']}aime name='id' value={$espece['id']} class='bx bxs-heart btn_like' onclick='retirer({$espece['id']},\"aime\")'></button>
+                                    </div>";
+                    }
+                }else{
+                    $like_save .= "<a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-bookmarks btn_save'></button></a>
+                                <a href='frontController.php?controller=utilisateur&action=connection'><button name='id' value={$espece['id']} class='bx bx-heart btn_like'></button></a>
+                    </div>";
+                }
             }
             $paquet = array("description" => EspeceRepository::getDescription($id),
                 "result" => $data[0],
                 "image" => $image,
+                // "like_save" => $like_save,
                 );
         }else{  // aucun résultat
             $paquet = array( "default" => "<h1>Espece introuvable<h1>",

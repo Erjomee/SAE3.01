@@ -165,6 +165,8 @@ function more_info(id) {
             // document.getElementById('resultat').innerHTML = xhr.responseText;
             var reponse = JSON.parse(xhr.responseText);
 
+            document.getElementById("popup_save_like").innerHTML = reponse["like_save"]
+
             document.getElementById("slider").innerHTML = reponse["image"];
             animateSlider();
 
@@ -272,7 +274,7 @@ function more_info(id) {
 function enregistrer(id_espece, table , nom , image) {
     var xhr = new XMLHttpRequest();
     var url = 'frontController.php?';
-    var params = 'controller=naturotheque&action=enregistrer' + '&table=' + table+ '&id=' + id_espece + '&nom=' + nom + '&image=' + image;
+    var params = "controller=naturotheque&action=enregistrer" + "&table=" + table+ "&id=" + id_espece + "&nom=" + nom + "&image=" + image;
 
     console.log(url+params);
     xhr.onreadystatechange = function() {

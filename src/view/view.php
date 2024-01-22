@@ -111,7 +111,9 @@
         </main>
 
 
-        <footer>
+        <footer  <?php if ($pagetitle == "Formulaire de connexion") {
+            echo "style='display: none;'";
+        }?> >
         <!-- <div id ="first"> -->
             <div id ="logofooter">
                 <img src="./../assets/img/sae_logo.png" height="170">
@@ -145,7 +147,7 @@
                     <i class="fi fi-brands-twitter-alt"></i>
                 </a>
             </div>
-        </div>
+        </div> 
        
              <!-- <div id = "licence">
             <p>Copyright ©2024 TaxonSphère</p> 
